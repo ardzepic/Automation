@@ -1,0 +1,263 @@
+﻿//USEUNIT General_Functions
+//USEUNIT Dashboards_Functions
+//USEUNIT BAQs_Functions
+//USEUNIT Grid_Functions
+
+
+function testTimeSetting(){
+  /*
+  Log["Message"]("Time format: " + aqEnvironment.GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_STIMEFORMAT));
+  Log["Message"]("Time separator: " + aqEnvironment.GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_STIME));
+  Log["Message"]("AM symbol: " + aqEnvironment.GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_S1159));
+  Log["Message"]("PM symbol: " + aqEnvironment.GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_S2359));
+  Log["Message"](" ID - Country: " + aqEnvironment.GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IDEFAULTCOUNTRY));
+  Log["Message"](" Name - Country: " + aqEnvironment.GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SENGLISHCOUNTRYNAME));
+  Log["Message"](" ID - digit: " + aqEnvironment.GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SINTLSYMBOL));
+  */
+  /*var oldData = aqEnvironment.GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SLOCALIZEDDISPLAYNAME)
+  Log["Message"](" ID - Country: " + aqEnvironment.GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SLOCALIZEDDISPLAYNAME));
+  
+  aqEnvironment.SetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SLOCALIZEDDISPLAYNAME, "Estonian (Estonia)")
+  Log["Message"](" ID - Country New : " + aqEnvironment.GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SLOCALIZEDDISPLAYNAME));
+  
+  aqEnvironment.SetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SLOCALIZEDDISPLAYNAME, oldData)
+  Log["Message"](" ID - Country restored : " + aqEnvironment.GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SLOCALIZEDDISPLAYNAME));
+  
+  //372 -> Estonia
+  
+  */
+  
+  Sys["Process"]("explorer")["Window"]("CabinetWClass", "All Control Panel Items", 1)["Window"]("ShellTabWindowClass", "All Control Panel Items", 1)["Window"]("DUIViewWndClassName", "", 1)["UIAObject"]("Explorer_Pane")["UIAObject"]("Folder_Layout_Pane")["UIAObject"]("CPCategoryPanel")["UIAObject"]("Region")["Click"]()
+  var formatCombo = Sys["Process"]("rundll32")["Window"]("#32770", "Region", 1)["Window"]("#32770", "Formats", 1)["Window"]("ComboBox", "", 1)
+  
+  formatCombo["Click"]()
+  formatCombo["ClickItem"]("Estonian (Estonia)")
+  /*
+  while(true){
+    formatCombo["Keys"]("[Down]")
+    if(formatCombo["wText"] == "Estonian (Estonia)"){
+      break
+    } 
+  } 
+  Sys["Process"]("rundll32")["Window"]("#32770", "Region", 1)["Window"]("Button", "&Apply", 3)["Click"]()
+  Sys["Process"]("rundll32")["Window"]("#32770", "Region", 1)["Window"]("Button", "OK", 1)["Click"]()*/
+} 
+
+
+
+
+function exceute_open_cmd_code(){
+  
+  var p, w, txt, cnt, i, s;
+  
+  Sys.OleObject("WScript.Shell").Run("C:\\Windows\\system32\\cmd.exe");
+  
+  p = Sys.Process("cmd");
+
+  w = p.Window("ConsoleWindowClass", "*");
+
+  w.Keys("ipconfig [Enter]");
+
+  txt = w.wText;
+
+  aqString.ListSeparator = "\r\n";
+
+  cnt = aqString.GetListLength(txt);
+
+  for (i = 0; i < cnt; i++)
+
+  {
+
+    s = aqString.GetListItem(txt, i);
+
+    Log.Message(s);
+
+  }
+}
+
+function getObjectClass()
+{
+    if (aqObject.IsSupported(this.obj, "ClrClassName"))
+        return "ClrClassName"
+    if (aqObject.IsSupported(this.obj, "WndClass"))
+        return "WndClass"
+    if (aqObject.IsSupported(this.obj, "ProcessName") && aqString.StrMatches("Epicor", this.obj.ProcessName))
+        return "ClrClassName"
+    LogError("Object Class property not found")
+        return null
+}
+
+// Gets the object type checkbox
+// Gets the object type checkbox
+function GetCheckbox(cbName){
+  var ActiveWindow = Sys.Desktop.ActiveWindow()
+
+  return ActiveWindow["FindChild"](["ClrClassName","Name"], ["EpiCheckBox", "WinFormsObject(\"" + cbName + "\")"], 30)
+}
+
+function ChangeCheckboxState(cbName, status){
+  var checkbox = GetCheckbox(cbName)
+
+  try{
+    if (checkbox["Exists"]) {
+      checkbox["Checked"] = status
+    }else{
+      Log["Error"]("Checkbox " + cbName + " was not found.")
+    }
+  }catch(e){
+    LogError(e, e.message)
+  }
+
+
+}
+
+// Gets the object type button
+function GetButton(btnName){
+  var ActiveWindow = Sys.Desktop.ActiveWindow()
+
+  return ActiveWindow["FindChild"](["ClrClassName","WndCaption"], ["*Button*", btnName], 30)
+}
+
+function ClickButton(btnName) {
+  var button = GetButton(btnName)
+
+  try{
+    if (button["Exists"]) {
+      button["Click"]()
+    }else{
+      Log["Error"]("Button " + btnName + " was not found.")
+    }
+  }catch(e){
+    LogError(e, e.message)
+  }
+}
+
+function ClickMenu(menuPath){
+  var aMenuName = menuPath.split("->")
+
+  var ActiveWindow = Sys.Desktop.ActiveWindow()
+
+  var tbDockArea = ActiveWindow["FindChild"]("Name", "*_Toolbars_Dock_Area_Top*", 30)
+  
+  var menuItems = findToolBar(tbDockArea, aMenuName[0])
+  
+  if (!menuItems)
+    Log["Error"]("Menu2 item not found - '" + menuName + "'")
+
+  //expand menu from ToolbarManager using DropDown method and get array of item's indexes
+  var aItemIndex = expandPopupMenu(menuItems, aMenuName)
+
+  //navigate to the last menu item from UltraToolbarsDockArea extended collection and Click last item
+  menuItems = tbDockArea.wItems.Item(aItemIndex[0])
+  for (var i = 1; i < aItemIndex.length; i++)        
+    menuItems = menuItems.Items.Item(aItemIndex[i])
+
+  menuItems.Click()
+
+  functioLog["Message"]("Menu clicked - '" + menuName + "'")
+
+
+}
+
+function findToolBar(tbDockArea, toolText)
+{
+  //for each toolBar in the <dockArea>
+  for ( var b = 0; b < tbDockArea.ToolbarsManager.Toolbars.Count; b++)  {        
+      //get current toolbar object
+      var bar = tbDockArea.ToolbarsManager.Toolbars.Item(b)
+      //trying to find tool with <toolText> ToolTip in the current toolBar
+      for ( var t = 0; t < bar.Tools.Count; t++ ) {            
+          var tool = bar.Tools.Item(t)
+          if (tool.CaptionAsToolTip == toolText)
+            return bar
+      }        
+  }    
+  //all toolBars checked. No tool with <toolText> ToolTip found.
+  return null
+}
+
+function expandPopupMenu(menuItems, aMenuName)
+{    
+  var aItemIndex = [menuItems.Text.OleValue]
+  for(var i in aMenuName){        
+      var menuItems = menuItems.Tools
+      
+      for(var j = 0; j < menuItems.Count 
+              && aqString.Trim(menuItems.Item(j).CaptionResolved.OleValue.replace(/[&.]/g, "")) != aqString.Trim(aMenuName[i].replace(/[&.]/g, "")); j++){}        
+      
+      if (j >= menuItems.Count)                                       
+          throw new Error(2, "Menu item not found - '" + aMenuName[i] + "'")
+      
+      var menuItems = menuItems.Item(j)
+      aItemIndex.push(menuItems.CaptionResolved.OleValue)
+      
+      if (i < aMenuName.length - 1) 
+          menuItems.DropDown()
+      
+      BuiltIn.Delay(100)   //Wait for popup window appears
+  }    
+  return aItemIndex         
+}
+
+/*//new
+
+//options in File
+var count = Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ToolbarsManager"]["Container"]["Components"]["Item_2"](0)["Toolbars"]["Item"](0)["Tools"]["Item"](0)["Tools"]["Count"]
+
+
+for (var i = 0; i < count; i++) {
+  var option = Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ToolbarsManager"]["Container"]["Components"]["Item_2"](0)["Toolbars"]["Item"](0)["Tools"]["Item"](0)["Tools"]["Item"](i)["ToolTipTextResolved"]
+  Log["Message"]("1"+option)
+}
+
+
+
+
+
+Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ToolbarsManager"]["Container"]["Components"]["Item_2"](0)["Toolbars"]["Count"] = 4
+
+//View
+Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ToolbarsManager"]["Container"]["Components"]["Item_2"](0)["Toolbars"]["Item"](0)["Tools"]["Item"](2)["VisibleResolved"] //true
+Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ToolbarsManager"]["Container"]["Components"]["Item_2"](0)["Toolbars"]["Item"](0)["Tools"]["Item"](2)["Tools"]["Item"](0)["EnabledResolved"] // false NOTES
+
+
+
+checkMenuOptions(){
+
+}
+
+
+//Dashboard Main Menu
+
+
+Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ToolbarsManager"]["Container"]["Components"]["Item_2"](0)["Toolbars"]["Item"](0)
+
+//Menu Options | File View Tools Help - use ["VisibleResolved"] to know if option it's available
+Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ToolbarsManager"]["Container"]["Components"]["Item_2"](0)["Toolbars"]["Item"](0)["Tools"](x)
+
+//Menu Options | File View Tools Help - use ["VisibleResolved"] to know if option it's available inside menu option lvl 1
+Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ToolbarsManager"]["Container"]["Components"]["Item_2"](0)["Toolbars"]["Item"](0)["Tools"](0)["Tools"]["Item"](0)["ToolTipTextResolved"]
+
+
+
+
+Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ToolbarsManager"]["Container"]["Components"]["Item_2"](0)["Tools"]["Item"](0)
+
+
+//options in File
+var count = Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ToolbarsManager"]["Container"]["Components"]["Item_2"](0)["Tools"]["Count"]
+
+
+for (var i = 0; i < count; i++) {
+  var option = Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ToolbarsManager"]["Container"]["Components"]["Item_2"](0)["Tools"](i)
+  Log["Message"]("1"+option)
+}
+
+
+
+i = 83 - File
+i = 85 - Edit
+i = 86 - View
+i = 87 - Help
+i = 90 - Tools  15:12:24  Normal    
+i = 88 - Actions*/

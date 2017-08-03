@@ -1,0 +1,23 @@
+﻿//USEUNIT General_Functions
+//USEUNIT Dashboards_Functions
+//USEUNIT BAQs_Functions
+//USEUNIT Grid_Functions
+
+
+function testing(){
+var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
+  
+      // CreateBAQ("testing", "testing")
+
+        AddTableBAQ(BAQFormDefinition, "OrderDtl")
+        AddTableBAQ(BAQFormDefinition, "Part")
+        
+       
+        //AddColumnsBAQ(BAQFormDefinition, "OrderDtl", "Company,OrderNum,PartNum,CustNum")
+        
+       // AddTableBAQ(BAQFormDefinition, "Customer")
+        
+       // AddColumnsBAQ(BAQFormDefinition, "Customer", "CustNum")
+        
+  
+} 

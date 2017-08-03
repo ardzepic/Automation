@@ -1,0 +1,70 @@
+﻿//USEUNIT General_Functions
+//USEUNIT Dashboards_Functions
+//USEUNIT BAQs_Functions
+//USEUNIT Grid_Functions
+//USEUNIT DataBase_Functions
+
+function TC_Importing_exporting_Dashboards_E10(){
+  
+  var MenuData = {
+    "menuLocation" : "Main Menu>Sales Management>Customer Relationship Management>Setup",
+    "menuID" : "DashbE10",
+    "menuName" : "DashbE10",
+    "orderSequence" : 1,
+    "menuType" : "Dashboard-Assembly",
+    "dll" : "DashBDExport",
+    "validations" : "Enable"
+  }
+
+  //--- Creates BAQs --------------------------------------------------------------------------------------------------------------------------'
+    /*
+      Step No: 2
+      Step: > Go to Executive Analysis> Business Activity Management> Setup>Business Activity Query. Create a new BAQ, fill up the Description and check Updatable
+            > Go to Query Builder Tab and drag the table Erp.Customer to the work area
+            > Go to Display Fields tab. Display the fields of the previously selected table and add Company, CustID, CustNum, Name and Country to Display Column(s)
+            > Go to Update Tab and in General Properties tab check on Allow Multiple Row Update. In the grid on Updatable column check  CustName to be updatable.
+            > Go to Update Processing tab and select BPM Update. Select Business Object… button and select a business object Erp.Customer
+            > Go to Analyze tab and click on Analyze… button to check the syntax. Check you get ""Syntax is OK""
+            > Then click on Get List button to test the query and click Save.               
+                             
+      Result:  Verify the BAQ is created        
+    */ 
+      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+
+      var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
+  
+      CreateBAQ("baqExport", "baqExport", "Updatable")
+      
+      AddTableBAQ(BAQFormDefinition, "Customer")
+
+      AddColumnsBAQ(BAQFormDefinition, "Customer", "Company,CustID,CustNum,Name,Country")
+
+      UpdateTabBAQ("Customer_Name", "Updatable", "Multiple Row")
+
+       //Activate 'Update Processing' tab
+        BAQFormDefinition["dockableWindow3"]["updatePanel1"]["windowDockingArea1"]["dockableWindow1"]["Activate"]()
+
+        // Select Erp.Customer business object
+        BAQFormDefinition["dockableWindow3"]["updatePanel1"]["windowDockingArea1"]["dockableWindow1"]["updProcess1"]["epiGroupBox1"]["updBOSettings1"]["windowDockingArea1"]["dockableWindow1"]["updBOInfo1"]["btnBusObj"]["Click"]()
+        Aliases["Epicor"]["GuessBOForm"]["guessBOPanel"]["epiGroupBox1"]["lbBOs"]["ClickItem"]("Erp.Customer")
+        Aliases["Epicor"]["GuessBOForm"]["btnOK"]["Click"]()
+
+      AnalyzeSyntaxisBAQ(BAQFormDefinition)
+
+      //Get List button
+      Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]["dockableWindow4"]["analyzePanel1"]["pnlButtons"]["grpUpd"]["btnGetList"]["Click"]()
+      Log["Message"]("Get List Button Clicked")
+      
+      if(Aliases["Epicor"]["EpiCheckMessageBox"]["Exists"]){
+        Aliases["Epicor"]["EpiCheckMessageBox"]["groupBox1"]["pnlYesNo"]["btnYes2"]["Click"]()
+      }
+      Delay(2000)
+      SaveBAQ()
+      Log["Message"]("BAQ Saved")
+
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------'  
+  
+  }
+
+

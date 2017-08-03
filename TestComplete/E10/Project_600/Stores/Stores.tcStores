@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Root signature="{5238AF17-5FE2-48FF-8BCC-9803A975A4F4}" version="12.0">
+	<children>
+		<child name="Files" key="{F31CD8BF-BC3B-456D-9295-9B9D340580E8}" type="Files" typeId="{AA2F3067-5C9B-4CCF-89D4-1F93CE1C510F}" pluginName="Stores">
+			<data path="Files.tcFiles" />
+		</child>
+		<child name="XML" key="{0924F257-7AF3-4BAC-93E8-957EF55670F3}" type="XML" typeId="{CCCFA5F5-AB3B-408F-95C9-61DE90C5FAD5}" pluginName="Stores">
+			<data path="XML\XML.tcXmls" />
+		</child>
+	</children>
+	<folders />
+</Root>

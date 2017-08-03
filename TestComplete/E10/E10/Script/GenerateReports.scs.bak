@@ -1,0 +1,30 @@
+﻿//USEUNIT ControlFunctions
+//USEUNIT General_Functions
+//USEUNIT Grid_Functions
+
+//Script to generate reports
+//A function for each report is created and called on TC routine 
+
+var pathFileReportSalesOrder = "C:\\EpicorData\\Reports\\epicor\\Sales Order Acknowledgment00145.xml"
+var pathFileReportQuoteform = "C:\\EpicorData\\Reports\\epicor\\Sales Order Acknowledgment00145.xml"
+var pathFileReportPurchaseOrder = "C:\\EpicorData\\Reports\\epicor\\Sales Order Acknowledgment00145.xml"
+var pathFileReportProFormaInv = "C:\\EpicorData\\Reports\\epicor\\Sales Order Acknowledgment00145.xml"
+var pathFileReportJobTraveler = "C:\\EpicorData\\Reports\\epicor\\Sales Order Acknowledgment00145.xml"
+var pathFileReportARInvoice = "C:\\EpicorData\\Reports\\epicor\\Sales Order Acknowledgment00145.xml"
+
+function Report_Testing(){
+	//XML["XmlCheckpoint1"]["Check"]("C:\\Users\\Administrator\\Documents\\Reports\\Sales Order Acknowledgment00885.xml");
+ 	// XML["XmlCheckpoint1"]["Check"](pathFileReport);
+  Log["Message"]("Starting - Generate Reports")
+  ReportPurchaseOrder()
+}
+
+function ReportPurchaseOrder(pathFileReportPurchaseOrder){
+	var gridSalesOrder = Aliases["Epicor"]["SalesOrderAckForm"]["windowDockingArea1"]["dockableWindow1"]["mainPanel1"]["windowDockingArea1"]["dockableWindow2"]["filter1"]["windowDockingArea2"]["dockableWindow1"]["listPanel1"]["grdOrders"]
+
+	var orderColumn = getColumn(gridSalesOrder, "Order")
+  
+  gridSalesOrder["ActiveRow"]["Cells"]["Item"](orderColumn)["Click"]()
+	gridSalesOrder["Keys"]("^a[Del]" + order + "[Tab]")
+}
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Root signature="{CCCFA5F5-AB3B-408F-95C9-61DE90C5FAD5}" version="12.0">
+	<children>
+		<child name="XmlSalesOrderReport" key="{9ABC2681-C8CB-46A0-A583-C58030B04D0D}" type="XML Checkpoint" typeId="{CEC2489F-ECDE-4F42-9ED4-4EB3223B444D}" pluginName="Stores">
+			<data path="XmlCheckpoint1\XmlSalesOrderReport.tcXmlCheckpoint" />
+		</child>
+		<child name="XmlARInvoice" key="{9BA78CC0-DD10-4756-8BC5-46F470D2DD30}" type="XML Checkpoint" typeId="{CEC2489F-ECDE-4F42-9ED4-4EB3223B444D}" pluginName="Stores">
+			<data path="XmlCheckpoint2\XmlARInvoice.tcXmlCheckpoint" />
+		</child>
+		<child name="XmlJobTraveler" key="{6D5661A3-22A5-484C-8670-4DD541A8A00C}" type="XML Checkpoint" typeId="{CEC2489F-ECDE-4F42-9ED4-4EB3223B444D}" pluginName="Stores">
+			<data path="XmlCheckpoint3\XmlJobTraveler.tcXmlCheckpoint" />
+		</child>
+		<child name="XmlProFormaInvoice" key="{BE5C6573-1282-4700-9A79-268B88673F75}" type="XML Checkpoint" typeId="{CEC2489F-ECDE-4F42-9ED4-4EB3223B444D}" pluginName="Stores">
+			<data path="XmlCheckpoint4\XmlProFormaInvoice.tcXmlCheckpoint" />
+		</child>
+		<child name="XmlPurchaseOrder" key="{ED6E07AB-8943-4E69-85C7-9A34267DBA1A}" type="XML Checkpoint" typeId="{CEC2489F-ECDE-4F42-9ED4-4EB3223B444D}" pluginName="Stores">
+			<data path="XmlCheckpoint5\XmlPurchaseOrder.tcXmlCheckpoint" />
+		</child>
+		<child name="XmlQuoteForm" key="{1FA627E9-6AAB-4585-8331-2F68D9B4FC42}" type="XML Checkpoint" typeId="{CEC2489F-ECDE-4F42-9ED4-4EB3223B444D}" pluginName="Stores">
+			<data path="XmlCheckpoint6\XmlQuoteForm.tcXmlCheckpoint" />
+		</child>
+	</children>
+	<folders />
+</Root>
