@@ -15,20 +15,6 @@ function TC_Dashboard_Tracker_Views_1(){
     "dll" : "DashTracker"
   }
 
-  //--- Start Smart Client and log in ---------------------------------------------------------------------------------------------------------'
-    
-    // Step1- Log in  
-      StartSmartClient()
-
-      Login("epicor","Epicor123") 
-
-      ActivateFullTree()
-
-      ExpandComp("Epicor Education")
-
-      ChangePlant("Main Plant")
-  //-------------------------------------------------------------------------------------------------------------------------------------------'
-
   //--- Creates BAQs --------------------------------------------------------------------------------------------------------------------------'
     //Step2- Copy zCustomer01 BAQ
       //Open Business Activity Query to create BAQ   

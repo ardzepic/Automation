@@ -33,6 +33,8 @@ function TC_Dashboard_All_companies(){
 
   }
 
+  
+
   //--- Creates BAQs --------------------------------------------------------------------------------------------------------------------------'
     /*
       Step No: 2
@@ -610,6 +612,7 @@ function TC_Dashboard_All_companies(){
       ExitDashboard()
       Aliases["Epicor"]["DashboardForm"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
   //-------------------------------------------------------------------------------------------------------------------------------------------' 
+
 
 
 }

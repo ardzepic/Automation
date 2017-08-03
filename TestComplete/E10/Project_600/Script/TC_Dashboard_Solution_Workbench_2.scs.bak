@@ -6,7 +6,250 @@
 
 function TC_Dashboard_Solution_Workbench_2(){
   
+   
+      // Go to System Management> External Business Activity Query> External business Activity Query
+      MainMenuTreeViewSelect("Epicor Europe;System Management;External Business Activity Query;External Business Activity Query")
+
+        // Create a new query
+        Aliases["Epicor"]["BAQDiagramForm"]["ToolbarsDockAreaTop"]["ClickItem"]("[0]|&File|&New")
+
+        var BAQDiagramForm = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
+
+        // QueryID: TestBAQ1v2
+        BAQDiagramForm["dockableWindow1"]["optionsPanel1"]["gbID"]["txtQueryID"]["Keys"]("TestBAQ1v2")
+        // Description: TestBAQ1v2
+        BAQDiagramForm["dockableWindow1"]["optionsPanel1"]["gbID"]["txtDescription"]["Keys"]("TestBAQ1v2")
+        BAQDiagramForm["dockableWindow1"]["optionsPanel1"]["gbID"]["txtDescription"]["Keys"]("[Tab]")
+        // Shared: true
+        BAQDiagramForm["dockableWindow1"]["optionsPanel1"]["gbID"]["chkShared"]["Checked"] = true
+        // External Datasource: testDT
+        BAQDiagramForm["dockableWindow1"]["optionsPanel1"]["gbID"]["cmbExtDs"]["Keys"]("testDTv2")
+
+        Delay(2500)
+        // Move to Query builder tab and select Erp.Part table
+        AddTableBAQ(BAQDiagramForm, "Part")
+        Delay(2500)
+
+        // On Displat fields select the following fields: Company, PartNum, PartDescription, TypeCode, UnitPrice
+        AddColumnsBAQ(BAQDiagramForm, "Part", "Company,PartNum,PartDescription,TypeCode,UnitPrice")
+        
+        // Save your Query
+        Aliases["Epicor"]["BAQDiagramForm"]["ToolbarsDockAreaTop"]["ClickItem"]("[0]|&File|&Save")
+        Log["Checkpoint"]("External BAQ created.")
+        Aliases["Epicor"]["BAQDiagramForm"]["ToolbarsDockAreaTop"]["ClickItem"]("[0]|&File|E&xit")
+
+    /*
+      Step No: 4
+      Result:  Verify the form with developer mode activated, is loaded       
+    */ 
+      //Go to Executive Analysis> Business Activity Management> General Operations> Dashboard. Go to Tools> Developer Mode        
+      MainMenuTreeViewSelect("Epicor Europe;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+
+        var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
+        Log["Checkpoint"]("Dashboard opened")
+        
+        //Enable Dashboard Developer Mode  
+        DevMode()
+        Log["Checkpoint"]("DevMode activated")
+
+    /*
+      Step No: 5
+      Descr: 
+            Create a new Dashboard
+            Definition ID: SWTestDashBD1v2
+            Caption: SWTestDashBD1v2
+            Description: SWTestDashBD1v2  
+      Result: Verify the Dashboard is created       
+    */ 
+        NewDashboard("SWTestDashBD1v2","SWTestDashBD1v2","SWTestDashBD1v2")
+       
+    /*
+      Step No: 6
+      Result:  Click on New Query. Search for the BAQ TestBAQ1v2 and click Ok. Save
+    */ 
+        AddQueriesDashboard("TestBAQ1v2")
+        
+        SaveDashboard()
+        Log["Checkpoint"]("Dashboard SWTestDashBD1v2 created")     
+        ExitDashboard()
+
+    /*
+      Step No: 7
+      step: On EPIC06 create a CGCCode BAQ:
+      Result:  Click on New Query. Search for the BAQ TestBAQ1v2 and click Ok. Save
+    */         
+
+      ExpandComp("Epicor Education")
+
+      ChangePlant("Main Plant")
+
+      // Move to EPIC06 company and open Executive analysis> Business Activity Management> Setup> Business Activity Query
+      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+
+        // Enter the following in the "General" tab
+        var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
+        
+        // QueryID: TestBAQ2v2
+        // Description: TestBAQ2v2
+        // Shared: Checked
+        CreateBAQ("TestBAQ2v2", "TestBAQ2v2", "Shared")
+        // Country/Group Code: MX
+        Delay(2500)
+        // Drag and drop the "Customer" table design area in "Phrase Build" tab
+        AddTableBAQ(BAQFormDefinition, "Customer")
+        Delay(2500)
+        // In the Display Fields> Column Select tab for the "Customer" table select the Company, CustID, CustNum, Name and Address1 columns and add them to "Display Columns" area
+        AddColumnsBAQ(BAQFormDefinition, "Customer", "Company,CustID,CustNum,Name,Address1")
+        // Save the  BAQ
+        SaveBAQ()
+        Log["Checkpoint"]("BAQ TestBAQ2v2 created")
+        ExitBAQ()
+    /*
+      Step No: 8
+      step: Go to Executive Analysis> Business Activity Management> General Operations> Dashboard. Go to Tools> Developer Mode        
+      Result:  Click on New Query. Search for the BAQ TestBAQ1v2 and click Ok. Save
+    */ 
+
+      //Go to Executive Analysis> Business Activity Management> General Operations> Dashboard. Go to Tools> Developer Mode        
+      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+
+        var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
+        Log["Checkpoint"]("Dashboard opened")
+        
+        //Enable Dashboard Developer Mode  
+        DevMode()
+        Log["Checkpoint"]("DevMode activated")
+
+    /*
+      Step No: 9
+      Descr: 
+        // Definition ID: SWTestDashBD2v2
+        // Caption: SWTestDashBD2v2
+        // Description: SWTestDashBD2v2
+        // Country/Group Code: MX"  
+      Result: Verify the Dashboard is created       
+    */ 
+
+      NewDashboard("SWTestDashBD2v2","SWTestDashBD2v2","SWTestDashBD2v2")
+       
+    /*
+      Step No: 10
+      Result:  Click on New Query. Search for the BAQ TestBAQ2v2 and click Ok. Save       
+    */ 
+        AddQueriesDashboard("TestBAQ2v2")
+        
+        SaveDashboard()
+        Log["Checkpoint"]("Dashboard SWTestDashBD2v2 created")
+        ExitDashboard()
+
+    /*
+      Step No: 11
+      Note: "On EPIC07 create an All Companies BAQ:
+      Result:  Click on New Query. Search for the BAQ TestBAQ2v2 and click Ok. Save       
+    */ 
      
+      ExpandComp("Epicor Mexico")
+
+    // Move to EPIC07 company and open Executive analysis> Business Activity Management> Setup> Business Activity Query
+      MainMenuTreeViewSelect("Epicor Mexico;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+
+        // Enter the following in the "General" tab
+        var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
+        
+        // QueryID: TestBAQ3v2
+        // Description: TestBAQ3v2
+        // Shared: Checked
+        CreateBAQ("TestBAQ3v2", "TestBAQ3v2", "All Companies,Shared")
+        Delay(2500)
+        // Drag and drop the "Part" table design area in "Phrase Build" tab
+        AddTableBAQ(BAQFormDefinition, "Part")
+        Delay(2500)
+        // In the Display Fields> Column Select tab for the "Customer" table select the Company, PartNum, PartDescription and TypeCode 
+        AddColumnsBAQ(BAQFormDefinition, "Part", "Company,PartNum,PartDescription,TypeCode")
+        // Save the  BAQ
+        SaveBAQ()
+        Log["Checkpoint"]("BAQ TestBAQ3v2 created")
+        ExitBAQ()
+
+
+    /*
+      Step No: 12 --CHECKING ALL COMPANIES CHECKbox---
+      step: Go to Executive Analysis> Business Activity Management> General Operations> Dashboard. Go to Tools> Developer Mode        
+      Result:  Click on New Query. Search for the BAQ TestBAQ1v2 and click Ok. Save
+    */ 
+
+      //Go to Executive Analysis> Business Activity Management> General Operations> Dashboard. Go to Tools> Developer Mode        
+      MainMenuTreeViewSelect("Epicor Mexico;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+
+        var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
+        Log["Checkpoint"]("Dashboard opened")
+        
+        //Enable Dashboard Developer Mode  
+        DevMode()
+        Log["Checkpoint"]("DevMode activated")
+
+        /*
+          Step No: 9
+          Descr: 
+            // Definition ID: SWTestDashBD3v2
+            // Caption: SWTestDashBD3v2
+            // Description: SWTestDashBD3v2
+            // Country/Group Code: MX"  
+          Result: Verify the Dashboard is created       
+        */ 
+
+          NewDashboard("SWTestDashBD3v2","SWTestDashBD3v2","SWTestDashBD3v2", "All Companies")
+           
+        /*
+          Step No: 10
+          Result:  Click on New Query. Search for the BAQ TestBAQ2v2 and click Ok. Save       
+        */ 
+            AddQueriesDashboard("TestBAQ3v2")
+            
+            SaveDashboard()
+            Log["Checkpoint"]("Dashboard SWTestDashBD3v2 created")
+            ExitDashboard()
+
+      MainMenuTreeViewSelect("Epicor Mexico;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+
+        var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
+        Log["Checkpoint"]("Dashboard opened")
+        
+        //Enable Dashboard Developer Mode  
+        DevMode()
+        Log["Checkpoint"]("DevMode activated")
+
+      /*
+        Step No: 9
+        Descr: 
+          // Definition ID: SWTestDashBD3v2
+          // Caption: SWTestDashBD3v2
+          // Description: SWTestDashBD3v2
+          // Country/Group Code: MX"  
+        Result: Verify the Dashboard is created       
+      */ 
+
+        NewDashboard("SWTestDashBD4v2","SWTestDashBD4v2","SWTestDashBD4v2")
+         
+      /*
+        Step No: 10
+        Result:  Click on New Query. Search for the BAQ TestBAQ2v2 and click Ok. Save       
+      */ 
+          AddQueriesDashboard("zCustomer01")
+          
+          SaveDashboard()
+          Log["Checkpoint"]("Dashboard SWTestDashBD4v2 created")
+          ExitDashboard()
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+
+  //---  EPIC05 create the solution -----------------------------------------------------------------------------------------------------------'
+     
+    /*
+      Step No: 10
+      Result:  Click on New Query. Search for the BAQ TestBAQ2v2 and click Ok. Save       
+    */
+
     ExpandComp("Epicor Europe")
 
     // Go to System Management> Solution Management> Solution Type Maintenance
@@ -597,7 +840,7 @@ function TC_Dashboard_Solution_Workbench_2(){
   
   //-------------------------------------------------------------------------------------------------------------------------------------------' 
 
-  //--- EPIC05 Retrieve SWTestDashBD1v2, TestBAQ1v2 and SWTestDashBD3v2  --------------------------------------------------\\-----------------------------'
+  //--- EPIC05 Retrieve SWTestDashBD1v2, TestBAQ1v2 and SWTestDashBD3v2  ----------------------------------------------------------------------'
     
     /*
       Step: 24 - 25
@@ -946,6 +1189,10 @@ function TC_Dashboard_Solution_Workbench_2(){
 
   //-------------------------------------------------------------------------------------------------------------------------------------------' 
 
+   // DeactivateFullTree()
 
+   // CloseSmartClient()
 
 }
+
+
