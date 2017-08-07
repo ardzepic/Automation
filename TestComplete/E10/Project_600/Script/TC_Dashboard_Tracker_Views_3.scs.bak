@@ -2,473 +2,371 @@
 //USEUNIT Dashboards_Functions
 //USEUNIT BAQs_Functions
 //USEUNIT Grid_Functions
-//USEUNIT DataBase_Functions
+//USEUNIT Sys_Functions
 
-function TC_Dashboard_Updatable_Customized_Form(){
+function TC_Dashboard_Tracker_Views_3(){
   
-  var MenuData = {
-    "menuLocation" : "Main Menu>Sales Management>Customer Relationship Management>Setup",
-    "menuID" : "DashCust",
-    "menuName" : "DashCustm",
-    "orderSequence" : 5,
-    "menuType" : "Dashboard-Assembly",
-    "dll" : "TestDashBDCustom"
-  }  
-  //--- Start Smart Client and log in ---------------------------------------------------------------------------------------------------------'
-   
-    StartSmartClient()
+  //--- Setup Estonian culture for Windows -----------------------------------------------------------------------------------------------------'
 
-    Login("epicor","Epicor123") 
+    /* Step 1: 
+      Setup Estonian culture for Windows
 
-    ActivateFullTree()
+      Go to Windows Control Panel-Region-Format
+      Select Estonian (Estonia)
+      Press Additional Settings button at the bottom of the form->Customize Format window appears
+      Select Decimal Symbol=comma. 
+      Save */       
 
-    Delay(1500)
-    ExpandComp("Epicor Education")
+      //opens control cmd and opens control panel
+      OpenCMD("control")
+      
+      ChangeRegionControlPanel("Estonian (Estonia)")
 
-    ChangePlant("Main Plant")
+      CloseCMD()
+
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
-  //--- Creates BAQs --------------------------------------------------------------------------------------------------------------------------'
+  //--- Start Smart Client and log in ---------------------------------------------------------------------------------------------------------'
+    
+    // Step2- Log in  
+      StartSmartClient()
 
-    /*
-      Step No: 2
-      step: Create an updatable BAQ
-      Result: Verify the BAQ is created       
-    */ 
+      Login("epicor","Epicor123") 
 
-    // Move to EPIC06 company and open Executive analysis> Business Activity Management> Setup> Business Activity Query
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+      ActivateFullTree()
 
-      // Enter the following in the "General" tab
-      var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
-      
-      // QueryID: TestBAQ
-      // Description: TestBAQ
-      // Shared: Checked | Updatable: Checked
-      CreateBAQ("TestBAQ", "TestBAQ", "Shared,Updatable")
-      // drag and drop the "Customer" table design area in "Phrase Build" tab
-      AddTableBAQ(BAQFormDefinition, "Customer")
-      // In the Display Fields> Column Select tab for the "Customer" table select the Company, CustID, CustNum, Name and Address1 columns and add them to "Display Columns" area
-      AddColumnsBAQ(BAQFormDefinition, "Customer", "Company,CustID,CustNum,Name,Address1")
+      ExpandComp("Epicor Education")
 
-      // Move to Update> General Properties tab and check "Customer_Name" and "Customer_Address1" column as updatable
-      UpdateTabBAQ("Customer_Name", "Updatable")
-      UpdateTabBAQ("Customer_Address1", "Updatable")
+      ChangePlant("Main Plant")
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
 
-      // Move to Update processing, click BPM Update, then click the "Business Object..." button and select the "ERP.Customer" then click "Ok" button from the "Select Business Object" window
-      
-        BAQFormDefinition["dockableWindow3"]["updatePanel1"]["windowDockingArea1"]["dockableWindow1"]["Activate"]()
-
-        // Select Erp.Customer business object
-        BAQFormDefinition["dockableWindow3"]["updatePanel1"]["windowDockingArea1"]["dockableWindow1"]["updProcess1"]["epiGroupBox1"]["updBOSettings1"]["windowDockingArea1"]["dockableWindow1"]["updBOInfo1"]["btnBusObj"]["Click"]()
-        Aliases["Epicor"]["GuessBOForm"]["guessBOPanel"]["epiGroupBox1"]["lbBOs"]["ClickItem"]("Erp.Customer")
-        Aliases["Epicor"]["GuessBOForm"]["btnOK"]["Click"]()
-
-      // Save the  BAQ
-      SaveBAQ()
-      ExitBAQ()
-      Log["Checkpoint"]("BAQ TestBAQ created")
+  //--- User Account Security Maintenance -----------------------------------------------------------------------------------------------------'
 
     /*
       Step No: 3
-      step: Go to Executive Analysis> Business Activity Management> General Operations> Dashboard. Go to Tools> Developer Mode        
-      Result:  Verify the developer mode is activated       
-    */ 
+      Step: "Setup invariant culture on Smart Client
+          Go to System Setup-Security Maintenance-User Account Maintenance
+          Select your user and check that Format Culture= Invariant Language (Invariant Country)"        
+    */
+      
+      MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;User Account Security Maintenance")
 
-      //Go to Executive Analysis> Business Activity Management> General Operations> Dashboard. Go to Tools> Developer Mode        
+      var accountMgmtPanel = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]
+
+      //Activate Details tab
+      accountMgmtPanel["dockableWindow1"]["Activate"]()
+
+      var detailsTab = accountMgmtPanel["dockableWindow1"]["detailPanel1"]
+      detailsTab["txtKeyField"]["Keys"]("epicor")
+      detailsTab["txtKeyField"]["Keys"]("[Tab]")
+
+      if (detailsTab["txtName"]["Text"] != ""){
+        Log["Checkpoint"]("Data loaded correctly")
+      }else{
+        Log["Error"]("Data is not loaded correctly")
+      }
+ 
+      var formatCulture = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["WinFormsObject"]("cmbFormatCulture")
+
+      if(formatCulture["Text"]["OleValue"] == "Invariant Language (Invariant Country)"){
+        Log["Message"]("Invariant culture is set for your user")
+      }else{
+        Log["Message"]("There was a problem. Invariant culture was not set for your user")
+        formatCulture["Keys"]("Invariant Language (Invariant Country)")
+        formatCulture["Keys"]("[Tab]")
+        Aliases["Epicor"]["UserAccountForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
+        Log["Message"]("Invariant culture is set for your user")
+      }
+
+      Aliases["Epicor"]["UserAccountForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+
+  //--- Setup BAQs ----------------------------------------------------------------------------------------------------------------------------'
+    
+    // Step 4
+      //Go to Executive Analysis-Business Activity Management-Setup-BAQ 
+      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+      Log["Checkpoint"]("BAQ opened")
+
+
+      //Click New-New BAQ, tick Shared , Updatableand All Companies checkboxes
+      CreateBAQ("BAQtracker3", "BAQtracker3", "Shared,Updatable,Companies")
+      
+      var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
+
+      //Go to tab Query Builder and select Part in Phrase Build
+      AddTableBAQ(BAQFormDefinition, "Part")
+
+      //Go to tab Display Fields
+      //Select PartNum and NetWeight
+      AddColumnsBAQ(BAQFormDefinition, "Part", "PartNum,NetWeight")
+
+      //On Update-General Properties check NetWeight to be updatable
+        UpdateTabBAQ("Part_NetWeight", "Updatable")
+
+      //On Update-Update Processing select Erp.Part on Business Object...
+        //Activate 'Update Processing' tab
+        BAQFormDefinition["dockableWindow3"]["updatePanel1"]["windowDockingArea1"]["dockableWindow1"]["Activate"]()
+
+        // Select Erp.Part business object
+        BAQFormDefinition["dockableWindow3"]["updatePanel1"]["windowDockingArea1"]["dockableWindow1"]["updProcess1"]["epiGroupBox1"]["updBOSettings1"]["windowDockingArea1"]["dockableWindow1"]["updBOInfo1"]["btnBusObj"]["Click"]()
+        Aliases["Epicor"]["GuessBOForm"]["guessBOPanel"]["epiGroupBox1"]["lbBOs"]["ClickItem"]("Erp.Part")
+        Aliases["Epicor"]["GuessBOForm"]["btnOK"]["Click"]()
+        Log["Message"]("Business Object was selected")
+        
+        Delay(1500)
+      //Save      
+      SaveBAQ()
+      Delay(5000)
+      ExitBAQ()
+  
+  //-------------------------------------------------------------------------------------------------------------------------------------------'  
+  
+  //--- Creates Dashboards --------------------------------------------------------------------------------------------------------------------'
+
+    //Step 5
+      //Go to Executive Analysis-Business Activity Management-General Operations-Dashboard       
       MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
-        var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
-        Log["Checkpoint"]("Dashboard opened")
-        
-        //Enable Dashboard Developer Mode  
-        DevMode()
-        Log["Checkpoint"]("DevMode activated")
-  //-------------------------------------------------------------------------------------------------------------------------------------------'
-  
-  //--- Creates DashBoard ---------------------------------------------------------------------------------------------------------------------'
-      /*
-        Step No: 4
-        Descr: 
-          // Definition ID: TestDashBDCustom
-          // Caption: TestDashBDCustom
-          // Description: TestDashBDCustom
-        Result: Verify the Dashboard is created       
-      */ 
-
-        NewDashboard("TestDashBDCustom","TestDashBDCustom","TestDashBDCustom")
-         
-      /*
-        Step No: 5
-        Result:  Click on New Query. Search for the BAQ TestBAQ2 and click Ok. Save       
-      */ 
-          AddQueriesDashboard("TestBAQ")
-          
-          SaveDashboard()
-          Log["Checkpoint"]("Dashboard with TestBAQ created")
-
-      /*
-        Step No: 6
-        Result:  Right click on the BAQ and select Properties - Properties dialog open     
-      */ 
-        var rect = dashboardTree["Nodes"]["Item"](0)["Nodes"]["Item"](0)
-        dashboardTree["ClickR"]((rect["Bounds"]["Left"]+ rect["Bounds"]["Right"])/2, (rect["Bounds"]["Top"]+ rect["Bounds"]["Bottom"])/2)
-        Log["Message"]("BAQ - right click")
-
-        // click 'Properties' option from menu
-        Aliases["Epicor"]["Dashboard"]["dbPanel"]["UltraPopupMenu"]["Click"]("Properties");
-        Log["Message"]("BAQ1 Summary - Properties was selected from Menu")
-
-        if (Aliases["Epicor"]["DashboardProperties"]["Exists"]) {
-          Log["Message"]("Dashboard properties dialog appears")
-        }
-
-      /*
-        Step No: 7
-        Result:  Open dialog and filter data
-      */ 
-        var queryProperties = Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["QueryPropsPanel"]["PropertiesPanel_Fill_Panel"]["tcQueryProps"]
-
-        // Go to Filter tab and add the condition: Customer_CustNum = Dashboard Browse        
-        DashboardPropertiesTabs(queryProperties, "Filter")
-
-        var ultraGrid = Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["QueryPropsPanel"]["PropertiesPanel_Fill_Panel"]["tcQueryProps"]["tabFilter"]["WinFormsObject"]("pnlFilter")["WinFormsObject"]("ultraGrid1")
-
-        if(ultraGrid["Exists"]){
-          SelectCellDropdownGrid("ColumnName", "Customer_CustNum", ultraGrid)
-          SelectCellDropdownGrid("Condition", "=", ultraGrid)
-
-          var columnValue = getColumn(ultraGrid, "Value")
-
-          ultraGrid["Rows"]["Item"](0)["Cells"]["Item"](columnValue)["Click"]()
-          ultraGrid["Rows"]["Item"](0)["Cells"]["Item"](columnValue)["EditorResolved"]["SelectedText"]  = "Dashboard Browse"
-
-          Aliases["Epicor"]["DashboardProperties"]["btnOkay"]["Click"]()
-          Log["Message"]("Conditions added on BAQ")
-        }
-
-        if(Aliases["Epicor"]["QueryNavProperties"]["Exists"]){
-          Log["Message"]("Dashboard Browse Properties dialog appear")
-        }else{
-          Log["Error"]("Dashboard Browse Properties dialog didn't appear")
-        }
-
-      /*
-        Step No: 8
-        Result:  Open dialog and filter data
-      */       
-        //On Dashboard Browse Properties on Display column dropdown select CustNum       
-        Aliases["Epicor"]["QueryNavProperties"]["cboDisplayColumn"]["SetFocus"]()
-        while(Aliases["Epicor"]["QueryNavProperties"]["cboDisplayColumn"]["Text"] != "CustNum"){
-          Aliases["Epicor"]["QueryNavProperties"]["cboDisplayColumn"]["Keys"]("[Down]")
-        }
-        Log["Message"]("CustNum Added on Display column dropdown")
-
-        var dropdownColumns = Aliases["Epicor"]["QueryNavProperties"]["grpMediaProps"]["lstAvailable"]
-
-        //add CustNum on Drop Down Columns and check Primary Browse option. Click Ok to both dialogs
-        for(var i = 0; i < dropdownColumns["Items"]["Count"]; i++){
-          if (dropdownColumns["Items"]["Item_2"](i)["Text"]["OleValue"] == "CustNum") {
-            dropdownColumns["ClickItem"]("CustNum")
-            Aliases["Epicor"]["QueryNavProperties"]["grpMediaProps"]["WinFormsObject"]("btnSelect")["Click"]()
-            Aliases["Epicor"]["QueryNavProperties"]["chkPrimaryBrowse"]["Checked"] = true
-          }
-        }
-
-        //Close Dashboard Browse Properties 
-        Aliases["Epicor"]["QueryNavProperties"]["WinFormsObject"]("btnOkay")["Click"]()
-        Log["Message"]("Dashboard Browse Properties closed")   
-
-        //Close Dashboard Query Properties 
-        Aliases["Epicor"]["DashboardProperties"]["btnOkay"]["Click"]()
-        Log["Message"]("Dashboard Query Properties closed")
-
-      /*
-        Step No: 9
-        Result:  Right click on the BAQ grid and select Properties - Properties dialog open     
-      */ 
-        var rect = dashboardTree["Nodes"]["Item"](0)["Nodes"]["Item"](0)["Nodes"]["Item"](0)
-        dashboardTree["ClickR"]((rect["Bounds"]["Left"]+ rect["Bounds"]["Right"])/2, (rect["Bounds"]["Top"]+ rect["Bounds"]["Bottom"])/2)
-        Log["Message"]("BAQ grid - right click")
-
-        // click 'Properties' option from menu
-        Aliases["Epicor"]["Dashboard"]["dbPanel"]["UltraPopupMenu"]["Click"]("Properties");
-        Log["Message"]("BAQ1 Summary - Properties was selected from Menu")
-
-        if (Aliases["Epicor"]["DashboardProperties"]["Exists"]) {
-          Log["Message"]("Dashboard properties dialog appears")
-        }
-
-      /*
-        Step No: 10
-        Step: Check the Updatable check box
-        Result: Verify the changes are applied and the dialog is closed       
-      */    
-        //Check the Updatable check box
-        Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["GridViewPropsPanel"]["chkUpdatable"]["Checked"] = true
-
-      /*
-        Step No: 11
-        Step: Check the Updatable check box
-        Result: Verify the changes are applied and the dialog is closed       
-      */    
-        // Check the ""prompt"" option for ""Name"" and ""Address"" field 
-        var dashboardGrid = Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["GridViewPropsPanel"]["viewPropsTabCtrl"]["GeneralTab"]["pnlTrackerControls"]["ultraGrid1"]
-        
-        var column = getColumn(dashboardGrid, "Column")
-        var columnPrompt = getColumn(dashboardGrid, "Prompt")
-        
-        for (var i = 0; i <= dashboardGrid["wRowCount"] - 1; i++) {
-          //Select row and check Prompt checkbox
-          var cell = dashboardGrid["Rows"]["Item"](i)["Cells"]["Item"](column)
-
-          if (cell["Text"] == "Customer_Name") {
-            dashboardGrid["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["Click"]()
-            // Check Prompt check box on field
-            dashboardGrid["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["EditorResolved"]["CheckState"] = "Checked"
-          }
-          if (cell["Text"] == "Customer_Address1") {
-            dashboardGrid["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["Click"]()
-            // Check Prompt check box on field
-            dashboardGrid["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["EditorResolved"]["CheckState"] = "Checked"
-          }
-        }
-
-        //Click Ok to close Properties
-        Aliases["Epicor"]["DashboardProperties"]["btnOkay"]["Click"]()
+      var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
+      Log["Checkpoint"]("Dashboard opened")
       
-      /*
-        Step No: 12
-        Step: Save the dashboard , then Click on Tools>Deploy Dashboard. 
-        Result: Verify the changes are applied and the dialog is closed       
-      */    
+    //Step 6
+      //Enable Dashboard Developer Mode
+      DevMode()
+      Log["Checkpoint"]("DevMode activated")
 
-        // Save the dashboard
-        SaveDashboard()
+    // Step 7
+      //Click New-New Dashboard, enter any name ID, caption and description and tick All Companies checkbox
+      NewDashboard("DashTracker3", "DashTracker3", "DashTracker3", "All Companies")
+      
+    // Step 8
+      //Click New-New Query, select your BAQ, press OK       
+      AddQueriesDashboard("BAQtracker3")  
 
-        // Tools>Deploy Dashboard. Select Deploy Smart Client Application  check box. Click on Deploy button and when finished click Ok.        
-        DeployDashboard("Deploy Smart Client,Generate Web Form")
+    // Step 9
+      // Right click on BAQ name from the tree and select New Tracker View       
+      var rect = dashboardTree["Nodes"]["Item"](0)["Nodes"]["Item"](0)
+      dashboardTree["ClickR"]((rect["Bounds"]["Left"]+ rect["Bounds"]["Right"])/2, (rect["Bounds"]["Top"]+ rect["Bounds"]["Bottom"])/2)
+      Log["Message"]("BAQ - right click")
 
-        ExitDashboard()
-  //-------------------------------------------------------------------------------------------------------------------------------------------
+      // click 'New Tracker View' option from menu
+      Aliases["Epicor"]["Dashboard"]["dbPanel"]["UltraPopupMenu"]["Click"]("New Tracker View");
+      Log["Message"]("BAQtracker3 - New Tracker View was selected from Menu")
 
-  //---  Menu Maintenance ---------------------------------------------------------------------------------------------------------------------'
-    /*
-      Step No: 13
-      Descr: Go to System Setup>Security Maintenance> Menu Maintenance.
-      Result: Verify the Dashboard is created       
-    */ 
-    // In Menu Maintenance tree select Main Menu>Sales Management>Customer Relationship Management > Setup, 
-    // then Select File> New>New Menu
-    // Write a Menu ID, select module UD, write a Name for the menu, write an Order Sequence (the position where you will find the menu), 
-    // in Program Type select Dashboard-Assembly and in Dashboard select the previously created one. 
-    // Be sure the Enabled check box is selected. Click Save.
+    // Step 10
+      // Untick Visible checkbox for PartNum. Tick checkbox Prompt for NetWeight. In Condition field select 'GreaterThanOrEqualTo'
+      // Tick checkbox Input Prompts Only at the bottom of the window. Press OK"       
 
+      var TrackerViewsGrid = Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["TrackerViewPropsPanel"]["viewPropsTabCtrl"]["GeneralTab"]["pnlTrackerControls"]["ultraGrid1"]
+          
+      var column = getColumn(TrackerViewsGrid, "Column")
+      var columnPrompt = getColumn(TrackerViewsGrid, "Prompt")
+      var columnVisible = getColumn(TrackerViewsGrid, "Visible")
+      var columnCondition = getColumn(TrackerViewsGrid, "Condition")
 
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;Menu Maintenance")
+      for (var i = 0; i <= TrackerViewsGrid["wRowCount"] - 1; i++) {
+        //Select row and check Prompt checkbox
+        var cell = TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](column)
 
-    CreateMenu(MenuData)
+        if (cell["Text"] == "Part_PartNum") {
+          TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnVisible)["Click"]()
+          // Uncheck Visible check box on field
+          TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnVisible)["EditorResolved"]["CheckState"] = "Unchecked"
+        }
+        if (cell["Text"] == "Part_NetWeight") {
+          TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["Click"]()
+          // Check Prompt check box on field
+          TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["EditorResolved"]["CheckState"] = "Checked"
+
+          //Activates 'Condition' column
+          TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnCondition)["Click"]()
+
+          while(true){
+            TrackerViewsGrid["Keys"]("[Down]")
+            if (TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnCondition)["EditorResolved"]["SelectedText"] == "GreaterThanOrEqualTo") {
+              break
+            }
+          }
+        }
+      }
+      Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["TrackerViewPropsPanel"]["viewPropsTabCtrl"]["GeneralTab"]["chkInputPrompts"]["Checked"] = true
+      Aliases["Epicor"]["DashboardProperties"]["btnOkay"]["Click"]() 
+
+    // Step 11
+      // >Go to Tools- Deploy Dashboard and tick Deploy Smart Client Application, Add Favorite Item and Generate Webform and click Deploy       
+      DeployDashboard("Deploy Smart Client,Add Favorite Item,Generate Web Form")
+
+    // Step 12 - 13
+      // Close Smart Client        
+      // Log in again to E10       
+      RestartSmartClient()
+
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
-  //--- Restart Smart Client  -----------------------------------------------------------------------------------------------------------------'
-    /*
-      Step No: 14
-      Step: Restart E10       
-      Result: E10 is restarted        
-    */    
+  //--- Testing Dashboard / Favorites ---------------------------------------------------------------------------------------------------------'
 
-    Delay(1000)
-    RestartSmartClient()
-    Log["Checkpoint"]("SmartClient Restarted")
-  //-------------------------------------------------------------------------------------------------------------------------------------------'
-  
-  //---- Test Dashboard -----------------------------------------------------------------------------------------------------------------------'
-    /*
-      Step No: 15
-      Step: Refresh
-      Result: The dashboard opens without errors        
-    */   
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
+    // Step 14
+      // On the Home Page from Smart Client on favorites tiles look for the created dashboard under Dashboard Assembly tile and open it
+      ActivateFavoritesMenuTab()
+      Log["Checkpoint"]("FavoritesMenuTab Activated")
 
-    Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")
+      OpenDashboardFavMenu("DashTracker3")
+      Log["Checkpoint"]("Dashboard opened from Favorite Menu")
 
-    var dashboardMainPanel = Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["windowDockingArea1"]["dockableWindow1"]["MainPanel"]["MainDockPanel"]
-  
-    var grid = dashboardMainPanel["FindChild"]("FullName", "*grid*", 15);
+    // Step 15  
+      // On NetWeight field enter 0,5 and click Refresh
 
-    if (grid["wRowCount"] > 0) {
-      Log["Checkpoint"]("Data populated")
-    }else{
-      Log["Error"]("Data wasn't populated")
-    }
+      var netWeightFieldTV = Aliases["Epicor"]["MainController"]['FindChild'](["ClrClassName", "FullName"], ["*Editor*", "*numPart_NetWeight*"], 30)
+      netWeightFieldTV["Keys"]("^a[Del]"+"0,5")
 
-    var nameColumn = getColumn(grid, "Name")
-    var addressColumn = getColumn(grid, "Address")
+      Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")
+      
+      var grid = RetrieveGridsMainPanel()
 
-    //Activates row 0
-    grid["Rows"]["Item"](0)["Cells"]["Item"](nameColumn)["Click"]()
+      var columnNetWeight = getColumn(grid[0], "Unit Net Weight")
+      var flag = true
 
-    oldValue1 = grid["Rows"]["Item"](0)["Cells"]["Item"](nameColumn)["Text"]["OleValue"]
-    newValue1 = grid["Rows"]["Item"](0)["Cells"]["Item"](addressColumn)["EditorResolved"]["SelectedText"] = "Test"
+      for(var i = 0; i < grid[0]["wRowCount"]; i++ ){
+        var cell = grid[0]["Rows"]["Item"](i)["Cells"]["Item"](columnNetWeight)
+        if (cell["value"] < netWeightFieldTV["value"] ) {
+          flag = false
+          break
+        }
+      }
+
+      if(flag){
+        Log["Checkpoint"]("Grid retrieved records greater than the value set on tracker view.")
+      }else{
+        Log["Error"]("Grid didn't retrieve records greater than the value set on tracker view.")
+      }
+
+      Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
 
 
-    //Activates row 1
-    grid["Rows"]["Item"](1)["Cells"]["Item"](nameColumn)["Click"]()
+    // Step 16
+      // Close Smart Client        
+      DeactivateFavoritesMenuTab()
+      CloseSmartClient()
+      Log["Checkpoint"]("SmartClient Closed")
 
-    if(oldValue1 != newValue1){
-      Log["Checkpoint"]("Data was modified.")
-    }else{
-      Log["Error"]("Data was not modified.")
-    }
-
-    Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Save")
-    Log["Checkpoint"]("Data was saved.")
-    Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
+  //--- Setup Invariant culture for Windows ---------------------------------------------------------------------------------------------------'
 
-  //---- Add the dashboard in a Customization --------------------------------------------------------------------------------------------------'
+    /* Step 21: 
+        Go to Windows Control Panel-Region-Format
+        Select Match Windows display language (recommended)
+        Press Additional Settings button at the bottom of the form->Customize Format window appears
+        Select Decimal Symbol=dot. 
+        Save */       
+
+      //opens control cmd and opens control panel
+      OpenCMD("control")
+      
+      ChangeRegionControlPanel("Match Windows display language (recommended)")
+
+      CloseCMD()
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+      Delay(2500)
+
+    // Step 22 - Log in  
+      StartSmartClient()
+
+      Login("epicor","Epicor123") 
+
+      ActivateFullTree()
+
+  //--- User Account Security Maintenance -----------------------------------------------------------------------------------------------------'
+    // Aliases["Epicor"]["MenuForm"]["windowDockingArea1"]["dockableWindow3"]["Activate"]()
     /*
-      Step No: 17
-      Step: Refresh
-      Result: The dashboard opens without errors        
-    */ 
-    //Validate if it's on dev mode already
+      Step No: 23
+      Step: "Setup invariant culture on Smart Client
+          Go to System Setup-Security Maintenance-User Account Maintenance
+          Select your user and check that Format Culture= Estonian(Estonia)
+    */
+      
+      MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;User Account Security Maintenance")
 
-    //Developer mode 
-    Aliases["Epicor"]["MenuForm"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Options|&Developer Mode")
+      var accountMgmtPanel = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]
 
-    // Open Sales Management > Customer Relationship Management > Setup > Customer(select Base only option and click OK in the ""Select Customization"" dialog)
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;Customer")
+      //Activate Details tab
+      accountMgmtPanel["dockableWindow1"]["Activate"]()
 
-    Aliases["Epicor"]["CustomSelectCustTransDialog"]["grpCustomization"]["grpNoLayer"]["chkBaseOnly"]["Checked"] = true
+      var detailsTab = accountMgmtPanel["dockableWindow1"]["detailPanel1"]
+      detailsTab["txtKeyField"]["Keys"]("epicor")
+      detailsTab["txtKeyField"]["Keys"]("[Tab]")
 
-    Aliases["Epicor"]["CustomSelectCustTransDialog"]["btnOK"]["Click"]()
+      if (detailsTab["txtName"]["Text"] != ""){
+        Log["Checkpoint"]("Data loaded correctly")
+      }else{
+        Log["Error"]("Data is not loaded correctly")
+      }
+ 
+      var formatCulture = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["WinFormsObject"]("cmbFormatCulture")
 
-    // click Tools > Customization
-    Aliases["Epicor"]["CustomerEntryForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Tools|Customization")
+      formatCulture["Keys"]("Estonian(Estonia)")
+      formatCulture["Keys"]("[Tab]")
 
-    // go to Wizards > Sheet Wizard  tab
-    var CustomToolsDialog = Aliases["Epicor"]["CustomToolsDialog"]["tabCustomToolsDialog"]
-    CustomToolsDialog["tpgCodeWizards"]["Tab"]["Selected"] = true
-    CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["Tab"]["Selected"] = true
+      Aliases["Epicor"]["UserAccountForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
 
-    // click ""New Custom Sheet""
-    CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["btnNewCustomSheet"]["Click"]()
+      Log["Message"]("Format Culture changed")
 
-    // Select Dockable Sheets (choose Parent Docking Sheet) as customerDock1
-    CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["lstStandardSheets"]["ClickItem"]("customerDock1")
+      Aliases["Epicor"]["UserAccountForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
 
-    Log["Message"]("customerDock1 sheet selected")
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
 
-    // Name, text, tab text = ""TEST""
-    CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["txtSheetName"]["Keys"]("test")
-    CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["txtSheetText"]["Keys"]("test")
-    CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["txtSheetTextTab"]["Keys"]("test") 
+  //--- Testing Dashboard / Favorites ---------------------------------------------------------------------------------------------------------'
 
-    // Click Add Dashboard Button
-    Aliases["Epicor"]["CustomToolsDialog"]["tabCustomToolsDialog"]["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["btnAddDashboard"]["Click"]()
-    
-    // Choose AppBuilder Panel option and type or search and retrieve for the the Menu ID created above
-    Aliases["Epicor"]["CustomWizardDialog"]["CustomEmbeddedDashboardPanelWizardPanel"]["grpStep1"]["radAppBuilderPanel"]["ultraOptionSet1"]["Click"]()
-    Aliases["Epicor"]["CustomWizardDialog"]["CustomEmbeddedDashboardPanelWizardPanel"]["grpStep1"]["txtDashboardID"]["Keys"]("DashCust")
+    // Step 24
+      // On the Home Page from Smart Client on favorites tiles look for the created dashboard under Dashboard Assembly tile and open it
+      ActivateFavoritesMenuTab()
+      Log["Checkpoint"]("FavoritesMenuTab Activated")
 
-    // Tick only ""display dashboard status bar"" option
-    Aliases["Epicor"]["CustomWizardDialog"]["CustomEmbeddedDashboardPanelWizardPanel"]["grpStep1"]["chkDisplayStatusBar"]["Checked"] = true
+      OpenDashboardFavMenu("DashTracker3")
+      Log["Checkpoint"]("Dashboard opened from Favorite Menu")
 
-    // click ""Next"" button
-    Aliases["Epicor"]["CustomWizardDialog"]["btnNext"]["Click"]()
+    // Step 25  
+      // On NetWeight field enter 1,5 and click Refresh
 
-    // Select Subscribe to UI data (include retrieve button)
-    Aliases["Epicor"]["CustomWizardDialog"]["CustomEmbeddedDashboardPanelWizardPanel"]["grpStep2"]["radRetrieveWButton"]["ultraOptionSet1"]["Click"]()
+      var netWeightFieldTV = Aliases["Epicor"]["MainController"]['FindChild'](["ClrClassName", "FullName"], ["*Editor*", "*numPart_NetWeight*"], 30)
+      netWeightFieldTV["Keys"]("^a[Del]"+"1,5")
 
-    // click ""Next"" button
-    Aliases["Epicor"]["CustomWizardDialog"]["btnNext"]["Click"]()
+      Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")
+      
+      var grid = RetrieveGridsMainPanel()
 
-    // Choose ""Customer"" data view
-    Aliases["Epicor"]["CustomWizardDialog"]["CustomEmbeddedDashboardPanelWizardPanel"]["grpStep3a"]["lstDataViews"]["ClickItem"]("Customer")
-    // Choose ""CustNum"" column
-    Aliases["Epicor"]["CustomWizardDialog"]["CustomEmbeddedDashboardPanelWizardPanel"]["grpStep3a"]["lstDataColumns"]["ClickItem"]("CustNum")
-    // click ""Add Subscribe column"" button
-    Aliases["Epicor"]["CustomWizardDialog"]["CustomEmbeddedDashboardPanelWizardPanel"]["grpStep3a"]["btnAddSubscribeColumn"]["Click"]()
-    // click ""Finish"" button
-    Aliases["Epicor"]["CustomWizardDialog"]["WinFormsObject"]("btnFinish")["Click"]()
-    // Press Right arrow to move tab to ""Custom Sheets"" panel
-    Aliases["Epicor"]["CustomToolsDialog"]["tabCustomToolsDialog"]["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["btnAddCustomSheet"]["Click"]()
-    Log["Checkpoint"]("Sheet was added to Custom Sheets.")
-    // Click File> Save customization as  and give it a name and Description and click ""Save"" button (Add a comment if you wish then click last ""OK"" button)
-    Aliases["Epicor"]["CustomToolsDialog"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|Save Customization")
-    Aliases["Epicor"]["WinFormsObject"]("CustomSaveDialog")["WinFormsObject"]("grpNewCustInfo")["WinFormsObject"]("txtKey1a")["Keys"]("Automation test")
-    Aliases["Epicor"]["WinFormsObject"]("CustomSaveDialog")["WinFormsObject"]("grpNewCustInfo")["WinFormsObject"]("txtDescription")["Keys"]("Automation test")
-    Aliases["Epicor"]["WinFormsObject"]("CustomSaveDialog")["WinFormsObject"]("btnOk")["Click"]()
-    Aliases["Epicor"]["WinFormsObject"]("CustomCommentDialog")["WinFormsObject"]("btnOK")["Click"]()
+      var columnNetWeight = getColumn(grid[0], "Unit Net Weight")
+      var flag = true
 
-    Log["Checkpoint"]("Customization saved.")
-    // close the customization 
-    Aliases["Epicor"]["CustomToolsDialog"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Close")
-    // Close the form"  
-    Aliases["Epicor"]["CustomerEntryForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")   
-    Log["Checkpoint"]("Customization closed.")   
+      for(var i = 0; i < grid[0]["wRowCount"]; i++ ){
+        var cell = grid[0]["Rows"]["Item"](i)["Cells"]["Item"](columnNetWeight)
+        // if (cell["value"] < netWeightFieldTV["value"] ) {
+        if (cell["value"] < netWeightFieldTV["value"] ) {
+          flag = false
+          break
+        }
+      }
 
-    /*
-      Step No: 18
-      Step: Test embedded dasboard
-      Result: The dashboard opens without errors        
-    */ 
+      if(flag){
+        Log["Checkpoint"]("Grid retrieved records greater than the value set on tracker view.")
+      }else{
+        Log["Error"]("Grid didn't retrieve records greater than the value set on tracker view.")
+      }
 
-    // Go to Sales Management> Customer Relationship Management> Setup> Customer and select the customization from previous step
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;Customer")
-    /*(FUTURE REFERENCE FOR TREE LIST ITEMS)*/
-    Aliases["Epicor"]["CustomSelectCustTransDialog"]["grpCustomization"]["etvAvailableLayers"]["ClickItem"]("Base|EP|Customizations|Automation_test")
-    Aliases["Epicor"]["CustomSelectCustTransDialog"]["btnOK"]["Click"]()
+      Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
 
-    // In the Customer> Detail tab retrieve ""Addison""
-    Aliases["Epicor"]["CustomerEntryForm"]["windowDockingArea1"]["dockableWindow1"]["mainDock1"]["windowDockingArea1"]["dockableWindow1"]["customerDock1"]["windowDockingArea1"]["dockableWindow1"]["Activate"]()
-    Aliases["Epicor"]["CustomerEntryForm"]["windowDockingArea1"]["dockableWindow1"]["mainDock1"]["windowDockingArea1"]["dockableWindow1"]["customerDock1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtKeyField"]["Keys"]("Addison")
-    Aliases["Epicor"]["CustomerEntryForm"]["windowDockingArea1"]["dockableWindow1"]["mainDock1"]["windowDockingArea1"]["dockableWindow1"]["customerDock1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtKeyField"]["Keys"]("[Tab]")
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+      DeactivateFavoritesMenuTab()
+      Log["Checkpoint"]("Favorites MenuTab deactivated")
 
-    Log["Checkpoint"]("Addison customer was retrived")
-    // Go to the ""TEST"" tab (where the dashboard is contained) and take a look at its content"    
-    Aliases["Epicor"]["CustomerEntryForm"]["windowDockingArea1"]["dockableWindow1"]["mainDock1"]["windowDockingArea1"]["dockableWindow1"]["customerDock1"]["windowDockingArea1"]["DockableWindow"]["Activate"]();
-    
-    /*
-      Step No: 19
-      Step: in the "TEST" tab click "Retrieve" button
-      Result: The dashboard opens without errors        
-    */ 
+      DeactivateFullTree()
+      Log["Checkpoint"]("FullTree Deactivated")
 
-    var retrieveBtn = Aliases["Epicor"]["CustomerEntryForm"]["FindChild"](["WndCaption", "ClrClassName"], ["*Retrieve*", "*EpiButton*"], 30)
-    retrieveBtn["Click"]()
-
-    var grid = Aliases["Epicor"]["CustomerEntryForm"]["FindChild"](["WndCaption", "ClrClassName"], ["*TestBAQ: Summary*", "*Grid*"], 30)
-    if(grid["wRowCount"] > 0){
-      Log["Checkpoint"]("Dashboard retrived data")
-    }else {
-      Log["Error"]("Dashboard didn't retrive data")
-    }
-
-    /*
-      Step No: 20
-      Step: Go back to Customer> Detail  tab and retrieve ""Dalton"" customer
-      Result: The customer is retrieved without errors        
-    */ 
-      Aliases["Epicor"]["CustomerEntryForm"]["windowDockingArea1"]["dockableWindow1"]["mainDock1"]["windowDockingArea1"]["dockableWindow1"]["customerDock1"]["windowDockingArea1"]["dockableWindow1"]["Activate"]()
-      Aliases["Epicor"]["CustomerEntryForm"]["windowDockingArea1"]["dockableWindow1"]["mainDock1"]["windowDockingArea1"]["dockableWindow1"]["customerDock1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtKeyField"]["Keys"]("Dalton")
-      Aliases["Epicor"]["CustomerEntryForm"]["windowDockingArea1"]["dockableWindow1"]["mainDock1"]["windowDockingArea1"]["dockableWindow1"]["customerDock1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtKeyField"]["Keys"]("[Tab]")
-       
-      Log["Checkpoint"]("Dalton customer was retrived")
-      // Go to the ""TEST"" tab (where the dashboard is contained) and take a look at its content"    
-      Aliases["Epicor"]["CustomerEntryForm"]["windowDockingArea1"]["dockableWindow1"]["mainDock1"]["windowDockingArea1"]["dockableWindow1"]["customerDock1"]["windowDockingArea1"]["DockableWindow"]["Activate"]();
-
-  //-------------------------------------------------------------------------------------------------------------------------------------------' 
-
-  // deactivate dev mode
-   Aliases["Epicor"]["MenuForm"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Options|&Developer Mode")
-   
-   DeactivateFullTree()
-
-   CloseSmartClient()
+      CloseSmartClient()
+      Log["Checkpoint"]("SmartClient Closed")
 
 }
-
 

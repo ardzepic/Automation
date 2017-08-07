@@ -27,6 +27,117 @@ function Dashboard_with_UD_tables(){
     "Table" : "UD100A",
     "Columns" : "Company,Key1,Key2,Key3,Key4,Key5,ChildKey1,ChildKey2,ChildKey3,ChildKey4,ChildKey5,Character01"
   }
+
+  StartSmartClient()
+
+  Login("epicor","Epicor123") 
+
+  ActivateFullTree()
+
+  ExpandComp("Epicor Education")
+
+  ChangePlant("Main Plant") 
+
+  //--- Create Menu ---------------------------------------------------------------------------------------------------------------------------'
+      
+    //Open Menu maintenance   
+    MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;Menu Maintenance")
+    
+    //Creates Menu
+    CreateMenu(MenuDataEntry)
+    Log["Checkpoint"]("MenuA created")
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+  
+  //--- Restart SmartClient -------------------------------------------------------------------------------------------------------------------'
+    
+    RestartSmartClient()
+    Log["Checkpoint"]("Epicor10 restarted")
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+
+  //--- Create UD registers -------------------------------------------------------------------------------------------------------------------'
+    
+    //Open Menu created
+    MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;"+MenuDataEntry["menuName"])
+    Log["Checkpoint"]("MenuA opened")
+
+    //******* Create register UD100 Maintenance ***********
+      //Create new parent register
+      Aliases["Epicor"]["UD100Form"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|New Parent")
+      Log["Message"]("Selected 'New parent' option")
+      //Fill the data
+
+      var detailsParent = Aliases["Epicor"]["UD100Form"]["windowDockingArea2"]["dockableWindow4"]["mainPanel1"]["windowDockingArea1"]["dockableWindow3"]["detailPanel1"]["groupBox1"]
+
+      detailsParent["txtKeyField"]["Keys"]("K1")
+      detailsParent["txtKeyField2"]["Keys"]("K2")
+      detailsParent["txtKeyField3"]["Keys"]("K3")
+      detailsParent["txtKeyField4"]["Keys"]("K4")
+      detailsParent["txtKeyField5"]["Keys"]("K5")
+      detailsParent["txtDesc"]["Keys"]("Char01")
+      Log["Message"]("Parent 1 created")
+      //Switch to Child tab
+
+      Aliases["Epicor"]["UD100Form"]["windowDockingArea2"]["dockableWindow4"]["mainPanel1"]["windowDockingArea1"]["dockableWindow2"]["Activate"]()
+      Log["Message"]("Tab Child Activated")
+
+      //Create new child
+      Aliases["Epicor"]["UD100Form"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|New Child")
+      Log["Message"]("Selected 'New Child' option")
+
+      var detailsChild = Aliases["Epicor"]["UD100Form"]["windowDockingArea2"]["dockableWindow4"]["mainPanel1"]["windowDockingArea1"]["dockableWindow2"]["childDockPanel1"]["windowDockingArea1"]["dockableWindow2"]["childDetailPanel1"]["grpUD100A"]
+
+      detailsChild["txtChildKey1"]["Keys"]("CK1")
+      detailsChild["txtChildKey2"]["Keys"]("CK2")
+      detailsChild["txtChildKey3"]["Keys"]("CK3")
+      detailsChild["txtChildKey4"]["Keys"]("CK4")
+      detailsChild["txtChildKey5"]["Keys"]("CK5")
+      detailsChild["txtDesc"]["Keys"]("Char01")
+      Log["Message"]("Child 1 created")
+
+        //Create new parent register
+      Aliases["Epicor"]["UD100Form"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|New Parent")
+      Log["Message"]("Selected 'New parent' option")
+
+      //Fill the data
+
+      //var detailsParent = Aliases["Epicor"]["UD100Form"]["windowDockingArea2"]["dockableWindow4"]["mainPanel1"]["windowDockingArea1"]["dockableWindow3"]["detailPanel1"]["groupBox1"]
+
+      detailsParent["txtKeyField"]["Keys"]("K11")
+      detailsParent["txtKeyField2"]["Keys"]("K22")
+      detailsParent["txtKeyField3"]["Keys"]("K33")
+      detailsParent["txtKeyField4"]["Keys"]("K44")
+      detailsParent["txtKeyField5"]["Keys"]("K55")
+      detailsParent["txtDesc"]["Keys"]("Char011")
+      Log["Message"]("Parent 2 created")
+
+      //Switch to Child tab
+
+      Aliases["Epicor"]["UD100Form"]["windowDockingArea2"]["dockableWindow4"]["mainPanel1"]["windowDockingArea1"]["dockableWindow2"]["Activate"]()
+      Log["Message"]("Tab Child Activated")
+
+      //Create new child
+      Aliases["Epicor"]["UD100Form"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|New Child")
+      Log["Message"]("Selected 'New Child' option")
+     // var detailsChild = Aliases["Epicor"]["UD100Form"]["windowDockingArea2"]["dockableWindow4"]["mainPanel1"]["windowDockingArea1"]["dockableWindow2"]["childDockPanel1"]["windowDockingArea1"]["dockableWindow2"]["childDetailPanel1"]["grpUD100A"]
+
+      detailsChild["txtChildKey1"]["Keys"]("CK11")
+      detailsChild["txtChildKey2"]["Keys"]("CK22")
+      detailsChild["txtChildKey3"]["Keys"]("CK33")
+      detailsChild["txtChildKey4"]["Keys"]("CK44")
+      detailsChild["txtChildKey5"]["Keys"]("CK55")
+      detailsChild["txtDesc"]["Keys"]("Char011")
+      Log["Message"]("Child 2 created")
+
+      Aliases["Epicor"]["UD100Form"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
+      Aliases["Epicor"]["UD100Form"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
+      Log["Message"]("MenuA exited")
+
+    //******* End creation register UD100 Maintenance *****
+
+    Log["Checkpoint"]("Register UD100 Maintenance Created")
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
   
   //------ Create BAQ against UDs -------------------------------------------------------------------------------------------------------------'
     

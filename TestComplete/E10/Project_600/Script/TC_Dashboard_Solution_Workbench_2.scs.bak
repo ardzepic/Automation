@@ -6,7 +6,132 @@
 
 function TC_Dashboard_Solution_Workbench_2(){
   
+  //--- Start Smart Client and log in ---------------------------------------------------------------------------------------------------------'
    
+    StartSmartClient()
+
+    Login("epicor","Epicor123") 
+
+    ActivateFullTree()
+
+    Delay(1500)
+    ExpandComp("Epicor Europe")
+
+    // ChangePlant("Main Plant")
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+
+  //--- Creates External BAQs -----------------------------------------------------------------------------------------------------------------'
+    /*
+      Step No: 3
+      Result:  Verify the external BAQ is created       
+    */ 
+
+      //Go to System Management> External Business Activity Query> External Datasource Type
+      MainMenuTreeViewSelect("Epicor Europe;System Management;External Business Activity Query;External Datasource Types")
+
+        //Create a new Datasource type
+        Aliases["Epicor"]["DsTypeForm"]["sonomaFormToolbarsDockAreaTop"]["ClickItem"]("[0]|&File|New...|New Datasource Type")
+          
+        var DsTypeForm = Aliases["Epicor"]["DsTypeForm"]["windowDockingArea2"]["dockableWindow4"]["mainPanel1"]["windowDockingArea1"]["dockableWindow2"]
+
+        //Datasource Type: testDTType
+        DsTypeForm["typeDetailPanel1"]["epiGroupBox1"]["txtDsType"]["Keys"]("TestDTTypev2")
+        // Description: testDTType
+        DsTypeForm["typeDetailPanel1"]["epiGroupBox1"]["txtDescr"]["Keys"]("TestDTTypev2")
+
+        // Save
+        Aliases["Epicor"]["DsTypeForm"]["sonomaFormToolbarsDockAreaTop"]["ClickItem"]("[0]|&File|&Save")
+
+        if (!Aliases["Epicor"]["ExceptionDialog"]["Exists"]) {
+          Log["Checkpoint"]("Datasource created correctly")
+          Aliases["Epicor"]["DsTypeForm"]["sonomaFormToolbarsDockAreaTop"]["ClickItem"]("[0]|&File|E&xit")
+        }else{
+          Log["Error"]("There was a problem. Datasource wasn't created correctly")
+        }
+
+      //Go to System Management> External Business Activity Query> External Datasource
+      MainMenuTreeViewSelect("Epicor Europe;System Management;External Business Activity Query;External Datasources")
+
+        // Create a new datasource
+        Aliases["Epicor"]["DatasourceForm"]["sonomaFormToolbarsDockAreaTop"]["ClickItem"]("[0]|&File|&New")
+
+        var ExternalDSForm = Aliases["Epicor"]["DatasourceForm"]["windowDockingArea2"]["dockableWindow4"]["mainPanel1"]["windowDockingArea1"]["dockableWindow2"]
+        
+        // Datasource: testDT
+        ExternalDSForm["connectionDetailPanel"]["groupBox1"]["txtKeyField"]["Keys"]("TestDTv2")
+        // Description: testDT
+        ExternalDSForm["connectionDetailPanel"]["groupBox1"]["txtDescr"]["Keys"]("TestDTv2")
+        // Datasource type: testDTType
+        ExternalDSForm["connectionDetailPanel"]["groupBox1"]["cmbDsType"]["Keys"]("TestDTTypev2")
+
+        // ADO .Net provider: SqlClient Data Provider
+        ExternalDSForm["connectionDetailPanel"]["grpCnnEditor"]["extCnnEditPanel"]["cmbDBProvider"]["Keys"]("SqlClient Data Provider")
+        ExternalDSForm["connectionDetailPanel"]["grpCnnEditor"]["extCnnEditPanel"]["cmbDBProvider"]["Keys"]("[Tab]")
+
+        // >On Select adapter properties, Key properties tab enter the following:
+        var GridAdapterProperties = ExternalDSForm["connectionDetailPanel"]["grpCnnEditor"]["extCnnEditPanel"]["grpConnectionEditor"]["SpecificConnectionDataControl"]["connectionDefinitionPanel"]["windowDockingArea2"]["dockableWindow2"]["mainCnnProperties"]["grdPropGrid"]
+
+        // Data Source: MX0416-MJ014ZZ
+        GridAdapterProperties["wItems"]("Connection specific")["ClickLabel"]("Data Source");
+        GridAdapterProperties["PropertyGridView"]["Keys"]("^a[Del]" + "TYRELL" + "[Enter]");
+
+        // Initial Catalog: Demo DB
+        GridAdapterProperties["wItems"]("Connection specific")["ClickLabel"]("Initial Catalog");
+        GridAdapterProperties["PropertyGridView"]["Keys"]("^a[Del]" + "erp10Staging" + "[Enter]");
+
+        // UserID: sa
+        GridAdapterProperties["wItems"]("Connection specific")["ClickLabel"]("User ID");
+        GridAdapterProperties["PropertyGridView"]["Keys"]("^a[Del]" + "sa" + "[Enter]");
+
+        // Password: Epicor123
+        GridAdapterProperties["wItems"]("Connection specific")["ClickLabel"]("Password");
+        GridAdapterProperties["PropertyGridView"]["Keys"]("^a[Del]" + "Epicor123" + "[Enter]");      
+
+        Aliases["Epicor"]["DatasourceForm"]["sonomaFormToolbarsDockAreaTop"]["ClickItem"]("[0]|&File|&Save")
+
+        if (!Aliases["Epicor"]["ExceptionDialog"]["Exists"]) {
+          Log["Checkpoint"]("Datasource created correctly")
+          Aliases["Epicor"]["DatasourceForm"]["sonomaFormToolbarsDockAreaTop"]["ClickItem"]("[0]|&File|E&xit")
+        }else{
+          Log["Error"]("There was a problem. Datasource wasn't created correctly")
+        }
+
+      //Go to System Setup> Company/Site Maintenance> Company Maintenance
+      MainMenuTreeViewSelect("Epicor Europe;System Setup;Company/Site Maintenance;Company Maintenance")
+
+        var CompanyMaintenanceForm = Aliases["Epicor"]["CompanyMaintenanceForm"]["windowDockingArea2"]["dockableWindow1"]["systemDockPanel1"]["windowDockingArea1"]
+        
+        //Move to BAQ External Datasources tab
+        CompanyMaintenanceForm["dockableWindow4"]["Activate"]()
+
+        // Check on the Enabled checkbox of the created datasource
+        var gridDatasources = CompanyMaintenanceForm["dockableWindow4"]["FindChild"](["FullName", "WndCaption"], ["*grd*" || "*grid*", "*Datasource*"], 30)
+
+        var enabledCol = getColumn(gridDatasources, "Enabled")
+        var DSName = getColumn(gridDatasources, "Datasource Name")
+
+        for (var i = 0; i < gridDatasources["wRowCount"]; i++) {
+          var cell = gridDatasources["Rows"]["Item"](i)["Cells"]["Item"](DSName)
+
+          if (cell["Text"]["OleValue"] == "TestDTv2") {
+            gridDatasources["Rows"]["Item"](i)["Cells"]["Item"](enabledCol)["Click"]()
+            gridDatasources["Rows"]["Item"](i)["Cells"]["Item"](enabledCol)["EditorResolved"]["CheckState"] = "Checked"
+            Log["Message"]("External source enabled")
+          }else{
+            Log["Message"]("checkbox was not checked")
+          }
+        }
+
+        // Save
+        Aliases["Epicor"]["CompanyMaintenanceForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
+
+        if (!Aliases["Epicor"]["ExceptionDialog"]["Exists"]) {
+          Log["Checkpoint"]("Datasource created correctly")
+          Aliases["Epicor"]["CompanyMaintenanceForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
+        }else{
+          Log["Error"]("There was a problem. Datasource wasn't created correctly")
+        }
+
       // Go to System Management> External Business Activity Query> External business Activity Query
       MainMenuTreeViewSelect("Epicor Europe;System Management;External Business Activity Query;External Business Activity Query")
 

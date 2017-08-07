@@ -5,6 +5,16 @@
 
 function Dashboard_Publishing(){
   
+  StartSmartClient()
+
+  Login("epicor","Epicor123") 
+
+  ActivateFullTree()
+
+  ExpandComp("Epicor Education")
+
+  ChangePlant("Main Plant")
+
   var baqData1 = {
     "Id" : "baqPublishing",
     "Description" : "baqPublishing",
