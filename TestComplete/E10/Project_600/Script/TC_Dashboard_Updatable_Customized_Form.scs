@@ -25,7 +25,7 @@ function TC_Dashboard_Updatable_Customized_Form(){
     Delay(1500)
     ExpandComp("Epicor Education")
 
-    ChangePlant("Main Plant")
+    ChangePlant("Main")
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //--- Creates BAQs --------------------------------------------------------------------------------------------------------------------------'
@@ -37,7 +37,7 @@ function TC_Dashboard_Updatable_Customized_Form(){
     */ 
 
     // Move to EPIC06 company and open Executive analysis> Business Activity Management> Setup> Business Activity Query
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
 
       // Enter the following in the "General" tab
       var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
@@ -76,7 +76,7 @@ function TC_Dashboard_Updatable_Customized_Form(){
     */ 
 
       //Go to Executive Analysis> Business Activity Management> General Operations> Dashboard. Go to Tools> Developer Mode        
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
         var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
         Log["Checkpoint"]("Dashboard opened")
@@ -265,7 +265,7 @@ function TC_Dashboard_Updatable_Customized_Form(){
     // Be sure the Enabled check box is selected. Click Save.
 
 
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;Menu Maintenance")
+    MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;Menu Maintenance")
 
     CreateMenu(MenuData)
   //-------------------------------------------------------------------------------------------------------------------------------------------'
@@ -288,7 +288,7 @@ function TC_Dashboard_Updatable_Customized_Form(){
       Step: Refresh
       Result: The dashboard opens without errors        
     */   
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
+    MainMenuTreeViewSelect("Epicor Education;Main;Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
 
     Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")
 
@@ -339,7 +339,7 @@ function TC_Dashboard_Updatable_Customized_Form(){
     Aliases["Epicor"]["MenuForm"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Options|&Developer Mode")
 
     // Open Sales Management > Customer Relationship Management > Setup > Customer(select Base only option and click OK in the ""Select Customization"" dialog)
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;Customer")
+    MainMenuTreeViewSelect("Epicor Education;Main;Sales Management;Customer Relationship Management;Setup;Customer")
 
     Aliases["Epicor"]["CustomSelectCustTransDialog"]["grpCustomization"]["grpNoLayer"]["chkBaseOnly"]["Checked"] = true
 
@@ -417,7 +417,7 @@ function TC_Dashboard_Updatable_Customized_Form(){
     */ 
 
     // Go to Sales Management> Customer Relationship Management> Setup> Customer and select the customization from previous step
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;Customer")
+    MainMenuTreeViewSelect("Epicor Education;Main;Sales Management;Customer Relationship Management;Setup;Customer")
     /*(FUTURE REFERENCE FOR TREE LIST ITEMS)*/
     Aliases["Epicor"]["CustomSelectCustTransDialog"]["grpCustomization"]["etvAvailableLayers"]["ClickItem"]("Base|EP|Customizations|Automation_test")
     Aliases["Epicor"]["CustomSelectCustTransDialog"]["btnOK"]["Click"]()

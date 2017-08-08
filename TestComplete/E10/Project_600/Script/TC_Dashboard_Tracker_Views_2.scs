@@ -26,14 +26,14 @@ function TC_Dashboard_Tracker_Views_2(){
 
       ExpandComp("Epicor Education")
 
-      ChangePlant("Main Plant")
+      ChangePlant("Main")
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //--- Creates BAQs --------------------------------------------------------------------------------------------------------------------------'
     
       // BAQ 1
         //Open Business Activity Query to create BAQ   
-        MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+        MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
         Log["Checkpoint"]("BAQ opened")
 
         //Create a copy of 'zCustomer01' table
@@ -68,7 +68,7 @@ function TC_Dashboard_Tracker_Views_2(){
       // -----
       // BAQ 2
         //Open Business Activity Query to create BAQ   
-        MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+        MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
         Log["Checkpoint"]("BAQ opened")
 
         //Create a copy of 'zCustomer01' table
@@ -105,7 +105,7 @@ function TC_Dashboard_Tracker_Views_2(){
   //--- Creates Dashboards --------------------------------------------------------------------------------------------------------------------'
 
     //Navigate and open Dashboard
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
     var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
     Log["Checkpoint"]("Dashboard opened")
@@ -352,7 +352,7 @@ function TC_Dashboard_Tracker_Views_2(){
         Step: Reopen it and retrieve the created dashboard  
         Result: The dashboard is retrieved   
       */     
-        MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+        MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
         OpenDashboard("DashTracker2")
 
         if(Aliases["Epicor"]["Dashboard"]["Text"] != ""){
@@ -682,7 +682,7 @@ function TC_Dashboard_Tracker_Views_2(){
 
     */ 
 
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
       Log["Checkpoint"]("BAQ opened")
 
       OpenBAQ("zPartTracker01Copy")
@@ -699,7 +699,7 @@ function TC_Dashboard_Tracker_Views_2(){
       Result: The dashboard is retrieved again        
     */ 
 
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
       Log["Checkpoint"]("BAQ opened")
       //  Maximize Dashboard
       Aliases["Epicor"]["Dashboard"]["Maximize"]();
@@ -986,7 +986,7 @@ function TC_Dashboard_Tracker_Views_2(){
       Result:  The menu is created       
     */    
 
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;Menu Maintenance")
+    MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;Menu Maintenance")
 
     CreateMenu(MenuData)
   //-------------------------------------------------------------------------------------------------------------------------------------------'
@@ -1009,7 +1009,7 @@ function TC_Dashboard_Tracker_Views_2(){
       Step: Open the menu with the dashboard            
       Result: The dashboard opens without errors        
     */   
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
+    MainMenuTreeViewSelect("Epicor Education;Main;Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
 
      testQuery1()
      testQuery2()

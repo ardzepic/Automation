@@ -37,7 +37,7 @@ function TC_Dashboard_Tracker_Views_3(){
 
       ExpandComp("Epicor Education")
 
-      ChangePlant("Main Plant")
+      ChangePlant("Main")
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //--- User Account Security Maintenance -----------------------------------------------------------------------------------------------------'
@@ -49,7 +49,7 @@ function TC_Dashboard_Tracker_Views_3(){
           Select your user and check that Format Culture= Invariant Language (Invariant Country)"        
     */
       
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;User Account Security Maintenance")
+      MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;User Account Security Maintenance")
 
       var accountMgmtPanel = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]
 
@@ -86,7 +86,7 @@ function TC_Dashboard_Tracker_Views_3(){
     
     // Step 4
       //Go to Executive Analysis-Business Activity Management-Setup-BAQ 
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
       Log["Checkpoint"]("BAQ opened")
 
 
@@ -127,7 +127,7 @@ function TC_Dashboard_Tracker_Views_3(){
 
     //Step 5
       //Go to Executive Analysis-Business Activity Management-General Operations-Dashboard       
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
       Log["Checkpoint"]("Dashboard opened")
@@ -288,7 +288,7 @@ function TC_Dashboard_Tracker_Views_3(){
           Select your user and check that Format Culture= Estonian(Estonia)
     */
       
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;User Account Security Maintenance")
+      MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;User Account Security Maintenance")
 
       var accountMgmtPanel = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]
 

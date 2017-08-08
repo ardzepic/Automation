@@ -36,12 +36,12 @@ function Dashboard_with_UD_tables(){
 
   ExpandComp("Epicor Education")
 
-  ChangePlant("Main Plant") 
+  ChangePlant("Main") 
 
   //--- Create Menu ---------------------------------------------------------------------------------------------------------------------------'
       
     //Open Menu maintenance   
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;Menu Maintenance")
+    MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;Menu Maintenance")
     
     //Creates Menu
     CreateMenu(MenuDataEntry)
@@ -59,7 +59,7 @@ function Dashboard_with_UD_tables(){
   //--- Create UD registers -------------------------------------------------------------------------------------------------------------------'
     
     //Open Menu created
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;"+MenuDataEntry["menuName"])
+    MainMenuTreeViewSelect("Epicor Education;Main;Sales Management;Customer Relationship Management;Setup;"+MenuDataEntry["menuName"])
     Log["Checkpoint"]("MenuA opened")
 
     //******* Create register UD100 Maintenance ***********
@@ -143,7 +143,7 @@ function Dashboard_with_UD_tables(){
     
     //******* Create BAQ against UD100 ********************
       //Open Business Activity Query to create BAQ   
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
       Log["Checkpoint"]("Business Activity Query opened")
 
       CreateSimpleBAQ(baqData1)
@@ -154,7 +154,7 @@ function Dashboard_with_UD_tables(){
 
     //******* Create BAQ against UD100A ********************
      //Open Business Activity Query to create BAQ   
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
       CreateSimpleBAQ(baqData2)
       Log["Message"]("BAQ2 created for UD100A")
     //******* End creation register UD100 Maintenance *****
@@ -163,7 +163,7 @@ function Dashboard_with_UD_tables(){
   //----- Create Dashboard --------------------------------------------------------------------------------------------------------------------'
     //******* Create Dashboard to retrieve BAQs created ********************
       //Open Dashboard   
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
       Log["Checkpoint"]("Dashboard opened")
 
       //Enable Dashboard Developer Mode  
@@ -296,7 +296,7 @@ function Dashboard_with_UD_tables(){
         
   //----- User Account Security Maintenance  --------------------------------------------------------------------------------------------------'
     // Go to User Account Security Maintenance 
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;User Account Security Maintenance")
+    MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;User Account Security Maintenance")
     Log["Checkpoint"]("User Account Security Maintenance opened")
 
     //Retrieve the user you are logged in

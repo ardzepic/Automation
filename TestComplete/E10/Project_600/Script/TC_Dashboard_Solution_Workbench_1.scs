@@ -17,7 +17,7 @@ function TC_Dashboard_Solution_Workbench_1(){
     Delay(1500)
     ExpandComp("Epicor Europe")
 
-    // ChangePlant("Main Plant")
+    // ChangePlant("Main")
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //--- Creates External BAQs -----------------------------------------------------------------------------------------------------------------'
@@ -205,10 +205,10 @@ function TC_Dashboard_Solution_Workbench_1(){
 
       ExpandComp("Epicor Education")
 
-      ChangePlant("Main Plant")
+      ChangePlant("Main")
 
       // Move to EPIC06 company and open Executive analysis> Business Activity Management> Setup> Business Activity Query
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
 
         // Enter the following in the "General" tab
         var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
@@ -236,7 +236,7 @@ function TC_Dashboard_Solution_Workbench_1(){
     */ 
 
       //Go to Executive Analysis> Business Activity Management> General Operations> Dashboard. Go to Tools> Developer Mode        
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
         var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
         Log["Checkpoint"]("Dashboard opened")
@@ -535,10 +535,10 @@ function TC_Dashboard_Solution_Workbench_1(){
 
     ExpandComp("Epicor Education")
 
-    ChangePlant("Main Plant")
+    ChangePlant("Main")
 
     // Go to System Management> Solution Management> Solution Type Maintenance
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;System Management;Solution Management;Solution Type Maintenance")
+    MainMenuTreeViewSelect("Epicor Education;Main;System Management;Solution Management;Solution Type Maintenance")
 
       // Create a new type, enter Solution Type and Description. Save
       Aliases["Epicor"]["SolutionTypeForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|New Solution Type")
@@ -553,7 +553,7 @@ function TC_Dashboard_Solution_Workbench_1(){
       Aliases["Epicor"]["SolutionTypeForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
 
     // Go to System Management> Solution Management> Solution Workbench
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;System Management;Solution Management;Solution Workbench")
+    MainMenuTreeViewSelect("Epicor Education;Main;System Management;Solution Management;Solution Workbench")
 
       // Create a new Solution, enter Type and Description and Save
       // Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|New Solution")
@@ -692,7 +692,7 @@ function TC_Dashboard_Solution_Workbench_1(){
       Note: Delete Dashboard and BAQ
     */
 
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
       Log["Checkpoint"]("Dashboard opened")
@@ -708,7 +708,7 @@ function TC_Dashboard_Solution_Workbench_1(){
 
       ExpandComp("Epicor Europe")
       //Go to System Management> External Business Activity Query> External Datasource Type
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
         
        DeleteBAQ("TestBAQ2")
        ExitBAQ()
@@ -1043,7 +1043,7 @@ function TC_Dashboard_Solution_Workbench_1(){
     */
 
     //Go to System Management> Solution Management> Solution Type(Solution Workbench) Maintenance
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;System Management;Solution Management;Solution Workbench")
+    MainMenuTreeViewSelect("Epicor Education;Main;System Management;Solution Management;Solution Workbench")
 
     // Click on Actions> Install Solution
     Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|Actions|Install Solution")
@@ -1078,7 +1078,7 @@ function TC_Dashboard_Solution_Workbench_1(){
       Step: 31 - 32
       Note: Retrieve Dashboard
     */
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
       Log["Checkpoint"]("Dashboard opened")
@@ -1134,18 +1134,18 @@ function TC_Dashboard_Solution_Workbench_1(){
 
   //--- EPIC06 Delete SWTestDashBD2, SWTestDashBD3  -----------------------------------------------------------------------------------------------'
     
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       DeleteDashboard("SWTestDashBD2")
       ExitDashboard()
     
    //Go to System Management> Business Activity Management;Setup;Business Activity Query
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
 
       DeleteBAQ("TestBAQ2")
       ExitBAQ()
 
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       DeleteDashboard("SWTestDashBD3")
       ExitDashboard()

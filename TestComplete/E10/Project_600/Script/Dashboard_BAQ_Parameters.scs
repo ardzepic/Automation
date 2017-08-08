@@ -30,14 +30,14 @@ function Dashboard_BAQ_Parameters(){
     
     ExpandComp("Epicor Education")
 
-    ChangePlant("Main Plant")
+    ChangePlant("Main")
 
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //--- Creates BAQs --------------------------------------------------------------------------------------------------------------------------'
     
     //Open Business Activity Query to create BAQ   
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
     Log["Checkpoint"]("BAQ opened")
 
     //****** Creating BAQ1 ***************'
@@ -49,7 +49,7 @@ function Dashboard_BAQ_Parameters(){
     //****** Creating BAQ2 ***************'
         
         //Open Business Activity Query to create BAQ   
-        MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+        MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
         
         var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
         
@@ -137,7 +137,7 @@ function Dashboard_BAQ_Parameters(){
   //--- Creates Dashboards --------------------------------------------------------------------------------------------------------------------'
 
     //Navigate and open Dashboard
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
     Log["Checkpoint"]("Dashboard opened")
     //Enable Dashboard Developer Mode  
     DevMode()
