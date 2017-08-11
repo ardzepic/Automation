@@ -5,19 +5,23 @@
 
 
 function testing(){
-var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
-  
-      // CreateBAQ("testing", "testing")
+    StartSmartClient()
 
-        AddTableBAQ(BAQFormDefinition, "OrderDtl")
-        AddTableBAQ(BAQFormDefinition, "Part")
-        
-       
-        //AddColumnsBAQ(BAQFormDefinition, "OrderDtl", "Company,OrderNum,PartNum,CustNum")
-        
-       // AddTableBAQ(BAQFormDefinition, "Customer")
-        
-       // AddColumnsBAQ(BAQFormDefinition, "Customer", "CustNum")
-        
-  
+Login(Project["Variables"]["username"], Project["Variables"]["password"])
 } 
+
+
+    function setCompanyMainTree(company,plant){
+      var result = ""
+
+      if(company != null && company != "" && company != undefined ){
+        result = company + ";"
+      }
+
+      if(result != "" && plant != null && plant != "" && plant != undefined ){
+        result = result + plant + ";"
+      }
+
+      return result
+    }
+  

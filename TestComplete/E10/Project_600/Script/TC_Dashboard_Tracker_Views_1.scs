@@ -42,6 +42,11 @@ function TC_Dashboard_Tracker_Views_1(){
       //Go to Query Builder Tab and on Display Fields tab add GroupCode to Display Column(s)
       var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
       
+      Delay(5000)
+      if(Aliases["Epicor"]["dlgInformation"]["Exists"]) {
+        ClickButton("OK")
+      }
+  
       AddColumnsBAQ(BAQFormDefinition, "Customer", "GroupCode")
 
       AnalyzeSyntaxisBAQ(BAQFormDefinition)

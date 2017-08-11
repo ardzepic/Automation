@@ -83,7 +83,7 @@
 				<testParameters />
 				<children />
 			</testItem>
-			<testItem name="Start Smart Client" key="{CBDAB8EF-05D3-452E-BFCA-6958804C4D32}" group="False" enabled="True" testMoniker="{17E5B5F9-1CA3-457E-B9B8-BD646C046865}StartSmartClient" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+			<testItem name="Start Smart Client" key="{CBDAB8EF-05D3-452E-BFCA-6958804C4D32}" group="False" enabled="False" testMoniker="{17E5B5F9-1CA3-457E-B9B8-BD646C046865}StartSmartClient" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
 				<testParameters />
 				<children>
 					<testItem name="Login" key="{7C86D98D-48AE-40E2-B1D0-B9BC2137E2F1}" group="False" enabled="True" testMoniker="{17E5B5F9-1CA3-457E-B9B8-BD646C046865}Login" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
@@ -111,7 +111,7 @@
 					</testItem>
 				</children>
 			</testItem>
-			<testItem name="Generate Reports" key="{7CD8B275-FC06-4B7F-B421-A243F48DEFC7}" group="False" enabled="True" testMoniker="{43F8D68C-2818-4B99-BE13-BE9EA7C8F1DE}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+			<testItem name="Generate Reports" key="{7CD8B275-FC06-4B7F-B421-A243F48DEFC7}" group="False" enabled="False" testMoniker="{43F8D68C-2818-4B99-BE13-BE9EA7C8F1DE}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
 				<testParameters />
 				<children>
 					<testItem name="Sales Order" key="{A28EFB6E-AF2D-4DC8-AAA2-1DC48FE079D8}" group="False" enabled="True" testMoniker="{43F8D68C-2818-4B99-BE13-BE9EA7C8F1DE}ReportSalesOrder" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
@@ -140,7 +140,7 @@
 					</testItem>
 				</children>
 			</testItem>
-			<testItem name="Compare Reports" key="{82DD5E3D-4FBE-4F40-B10A-ACE79F8832CB}" group="False" enabled="True" testMoniker="{A140EB61-26D5-41F9-83E8-F8A558857937}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+			<testItem name="Compare Reports" key="{82DD5E3D-4FBE-4F40-B10A-ACE79F8832CB}" group="False" enabled="False" testMoniker="{A140EB61-26D5-41F9-83E8-F8A558857937}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
 				<testParameters />
 				<children>
 					<testItem name="Sales Order_1" key="{7B38EA17-267A-4B7D-9E2F-54B2011B4750}" group="False" enabled="True" testMoniker="{A140EB61-26D5-41F9-83E8-F8A558857937}ReportSalesOrder" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
@@ -174,8 +174,11 @@
 	<variables key="{D1623962-33F5-4BF9-9D3C-3A26B2F39EF8}">
 		<data Version="3">
 			<Items>
-				<Variable Name="Var1" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="False">
-					<DefValue />
+				<Variable Name="username" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="True">
+					<DefValue StrValue="65007000690063006F007200" />
+				</Variable>
+				<Variable Name="password" Type="{123F0C0F-44B4-4BAF-B0E6-F3F89FD873B5}" Local="True">
+					<DefValue StrValue="65007000690063006F007200" />
 				</Variable>
 			</Items>
 		</data>

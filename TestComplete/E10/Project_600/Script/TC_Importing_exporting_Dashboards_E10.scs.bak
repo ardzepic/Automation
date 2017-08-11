@@ -26,7 +26,7 @@ function TC_Importing_exporting_Dashboards_E10(){
 
     ExpandComp("Epicor Education")
 
-    ChangePlant("Main Plant")
+    ChangePlant("Main")
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //--- Creates BAQs --------------------------------------------------------------------------------------------------------------------------'
@@ -42,7 +42,7 @@ function TC_Importing_exporting_Dashboards_E10(){
                              
       Result:  Verify the BAQ is created        
     */ 
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
 
       var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
   
@@ -72,10 +72,6 @@ function TC_Importing_exporting_Dashboards_E10(){
         Aliases["Epicor"]["EpiCheckMessageBox"]["groupBox1"]["pnlYesNo"]["btnYes2"]["Click"]()
       }
       
-      Delay(2500)
-      SaveBAQ()
-      Log["Message"]("BAQ Saved")
-
       ExitBAQ()
 
   //-------------------------------------------------------------------------------------------------------------------------------------------'  
@@ -99,7 +95,7 @@ function TC_Importing_exporting_Dashboards_E10(){
     */
 
       //Navigate and open Dashboard
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
       Log["Checkpoint"]("Dashboard opened")
@@ -360,7 +356,7 @@ function TC_Importing_exporting_Dashboards_E10(){
     */ 
 
     //Open Menu maintenance   
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;Menu Maintenance")
+    MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;Menu Maintenance")
 
     //Creates Menu
     CreateMenu(MenuData)
@@ -387,7 +383,7 @@ function TC_Importing_exporting_Dashboards_E10(){
     */ 
 
     //Open Menu created   
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
+    MainMenuTreeViewSelect("Epicor Education;Main;Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
 
     Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")
 
