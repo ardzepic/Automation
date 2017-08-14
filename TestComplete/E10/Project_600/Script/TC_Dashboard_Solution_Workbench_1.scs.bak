@@ -14,8 +14,8 @@ function TC_Dashboard_Solution_Workbench_1(){
   //Defining variables
 
     // Login
-    var username = "epicor"
-    var password = "epicor"
+    // var username = "epicor"
+    // var password = "epicor"
 
     //Companies that will be used thru the test case
     var company1 = "Epicor Europe"
@@ -28,11 +28,6 @@ function TC_Dashboard_Solution_Workbench_1(){
     var treeMainPanel2 = setCompanyMainTree(company2,plant2)
     var treeMainPanel3 = setCompanyMainTree(company3)
 
-    //Location of exported solution
-    var solutionEPIC05 = "C:\\Users\\Administrator\\Documents\\Stest_Customer Solution_3.1.600.0"
-    var solutionEPIC06 = "C:\\Users\\Administrator\\Documents\\Stest2_Customer Solution_3.1.600.0"
-    var solutionEPIC07 = "C:\\Users\\Administrator\\Documents\\Stest3_Customer Solution_3.1.600.0"
-
     //BAQs used for Test
     var baqs1 = "TestBAQ1"
     var baqs2 = "TestBAQ2"
@@ -43,6 +38,36 @@ function TC_Dashboard_Solution_Workbench_1(){
     var dashb2 = "SW1TestDashBD2"
     var dashb3 = "SW1TestDashBD3"
     var dashb4 = "SW1TestDashBD4"
+
+    //External Datasource definition
+    var dsInfo = "TestDT"
+    var dsType = "TestDTType"
+
+    var ADOprovider = "SqlClient Data Provider"
+
+    //External DS connection properties
+    var dsName = " TYRELL"
+    var initialCatalog = "erp10Staging"
+    var userID = "sa"
+    var password = "Epicor123"
+
+    //Solution por EPIC05 definition
+    var solutionDefEpic05 = "Sol1EPIC05"
+    var solDefEpic05Type = "Sol1EPIC05Type"
+
+    //Solution por EPIC06 definition
+    var solutionDefEpic06 = "Sol1EPIC06"
+    var solDefEpic06Type = "Sol1EPIC06Type"
+
+    //Solution por EPIC07 definition
+    var solutionDefEpic07 = "Sol1EPIC07"
+    var solDefEpic07Type = "Sol1EPIC07Type"
+
+     //Location of exported solution
+    var solutionEPIC05 = "C:\\Users\\Administrator\\Documents\\" + solutionDefEpic05 + "_Customer Solution_3.1.600.0"
+    var solutionEPIC06 = "C:\\Users\\Administrator\\Documents\\" + solutionDefEpic06 + "_Customer Solution_3.1.600.0"
+    var solutionEPIC07 = "C:\\Users\\Administrator\\Documents\\" + solutionDefEpic07 + "_Customer Solution_3.1.600.0"
+
 
   //--- Start Smart Client and log in ---------------------------------------------------------------------------------------------------------'
    
@@ -73,9 +98,9 @@ function TC_Dashboard_Solution_Workbench_1(){
         var DsTypeForm = Aliases["Epicor"]["DsTypeForm"]["windowDockingArea2"]["dockableWindow4"]["mainPanel1"]["windowDockingArea1"]["dockableWindow2"]
 
         //Datasource Type: testDTType
-        DsTypeForm["typeDetailPanel1"]["epiGroupBox1"]["txtDsType"]["Keys"]("TestDTType")
+        DsTypeForm["typeDetailPanel1"]["epiGroupBox1"]["txtDsType"]["Keys"](dsType)
         // Description: testDTType
-        DsTypeForm["typeDetailPanel1"]["epiGroupBox1"]["txtDescr"]["Keys"]("TestDTType")
+        DsTypeForm["typeDetailPanel1"]["epiGroupBox1"]["txtDescr"]["Keys"](dsType)
 
         // Save
         Aliases["Epicor"]["DsTypeForm"]["sonomaFormToolbarsDockAreaTop"]["ClickItem"]("[0]|&File|&Save")
@@ -96,14 +121,14 @@ function TC_Dashboard_Solution_Workbench_1(){
         var ExternalDSForm = Aliases["Epicor"]["DatasourceForm"]["windowDockingArea2"]["dockableWindow4"]["mainPanel1"]["windowDockingArea1"]["dockableWindow2"]
         
         // Datasource: testDT
-        ExternalDSForm["connectionDetailPanel"]["groupBox1"]["txtKeyField"]["Keys"]("TestDT")
+        ExternalDSForm["connectionDetailPanel"]["groupBox1"]["txtKeyField"]["Keys"](dsInfo)
         // Description: testDT
-        ExternalDSForm["connectionDetailPanel"]["groupBox1"]["txtDescr"]["Keys"]("TestDT")
+        ExternalDSForm["connectionDetailPanel"]["groupBox1"]["txtDescr"]["Keys"](dsInfo)
         // Datasource type: testDTType
-        ExternalDSForm["connectionDetailPanel"]["groupBox1"]["cmbDsType"]["Keys"]("TestDTType")
+        ExternalDSForm["connectionDetailPanel"]["groupBox1"]["cmbDsType"]["Keys"](dsType)
 
         // ADO .Net provider: SqlClient Data Provider
-        ExternalDSForm["connectionDetailPanel"]["grpCnnEditor"]["extCnnEditPanel"]["cmbDBProvider"]["Keys"]("SqlClient Data Provider")
+        ExternalDSForm["connectionDetailPanel"]["grpCnnEditor"]["extCnnEditPanel"]["cmbDBProvider"]["Keys"](ADOprovider)
         ExternalDSForm["connectionDetailPanel"]["grpCnnEditor"]["extCnnEditPanel"]["cmbDBProvider"]["Keys"]("[Tab]")
 
         // >On Select adapter properties, Key properties tab enter the following:
@@ -111,19 +136,19 @@ function TC_Dashboard_Solution_Workbench_1(){
 
         // Data Source: MX0416-MJ014ZZ
         GridAdapterProperties["wItems"]("Connection specific")["ClickLabel"]("Data Source");
-        GridAdapterProperties["PropertyGridView"]["Keys"]("^a[Del]" + "TYRELL" + "[Enter]");
+        GridAdapterProperties["PropertyGridView"]["Keys"]("^a[Del]" + dsName + "[Enter]");
 
         // Initial Catalog: Demo DB
         GridAdapterProperties["wItems"]("Connection specific")["ClickLabel"]("Initial Catalog");
-        GridAdapterProperties["PropertyGridView"]["Keys"]("^a[Del]" + "erp10Staging" + "[Enter]");
+        GridAdapterProperties["PropertyGridView"]["Keys"]("^a[Del]" + initialCatalog + "[Enter]");
 
         // UserID: sa
         GridAdapterProperties["wItems"]("Connection specific")["ClickLabel"]("User ID");
-        GridAdapterProperties["PropertyGridView"]["Keys"]("^a[Del]" + "sa" + "[Enter]");
+        GridAdapterProperties["PropertyGridView"]["Keys"]("^a[Del]" + userID + "[Enter]");
 
         // Password: Epicor123
         GridAdapterProperties["wItems"]("Connection specific")["ClickLabel"]("Password");
-        GridAdapterProperties["PropertyGridView"]["Keys"]("^a[Del]" + "Epicor123" + "[Enter]");      
+        GridAdapterProperties["PropertyGridView"]["Keys"]("^a[Del]" + password + "[Enter]");      
 
         Aliases["Epicor"]["DatasourceForm"]["sonomaFormToolbarsDockAreaTop"]["ClickItem"]("[0]|&File|&Save")
 
@@ -151,7 +176,7 @@ function TC_Dashboard_Solution_Workbench_1(){
         for (var i = 0; i < gridDatasources["wRowCount"]; i++) {
           var cell = gridDatasources["Rows"]["Item"](i)["Cells"]["Item"](DSName)
 
-          if (cell["Text"]["OleValue"] == "TestDT") {
+          if (cell["Text"]["OleValue"] == dsInfo) {
             gridDatasources["Rows"]["Item"](i)["Cells"]["Item"](enabledCol)["Click"]()
             gridDatasources["Rows"]["Item"](i)["Cells"]["Item"](enabledCol)["EditorResolved"]["CheckState"] = "Checked"
           }
@@ -161,7 +186,7 @@ function TC_Dashboard_Solution_Workbench_1(){
         Aliases["Epicor"]["CompanyMaintenanceForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
 
         if (!Aliases["Epicor"]["ExceptionDialog"]["Exists"]) {
-          Log["Checkpoint"]("Datasource created correctly")
+          Log["Message"]("Datasource created correctly")
           Aliases["Epicor"]["CompanyMaintenanceForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
         }else{
           Log["Error"]("There was a problem. Datasource wasn't created correctly")
@@ -183,7 +208,7 @@ function TC_Dashboard_Solution_Workbench_1(){
         // Shared: true
         BAQDiagramForm["dockableWindow1"]["optionsPanel1"]["gbID"]["chkShared"]["Checked"] = true
         // External Datasource: testDT
-        BAQDiagramForm["dockableWindow1"]["optionsPanel1"]["gbID"]["cmbExtDs"]["Keys"]("testDT")
+        BAQDiagramForm["dockableWindow1"]["optionsPanel1"]["gbID"]["cmbExtDs"]["Keys"](dsInfo)
 
         Delay(4000)
 
@@ -232,7 +257,7 @@ function TC_Dashboard_Solution_Workbench_1(){
         AddQueriesDashboard(baqs1)
         
         SaveDashboard()
-        Log["Checkpoint"]("Dashboard SWTestDashBD1 created")     
+        Log["Message"]("Dashboard " + dashb1 + " created")     
         ExitDashboard()
 
     /*
@@ -264,7 +289,7 @@ function TC_Dashboard_Solution_Workbench_1(){
         AddColumnsBAQ(BAQFormDefinition, "Customer", "Company,CustID,CustNum,Name,Address1")
         // Save the  BAQ
         SaveBAQ()
-        Log["Checkpoint"]("BAQ TestBAQ2 created")     
+        Log["Message"]("BAQ " + baqs2 + " created")     
         ExitBAQ()
 
     /*
@@ -277,11 +302,11 @@ function TC_Dashboard_Solution_Workbench_1(){
       MainMenuTreeViewSelect(treeMainPanel2 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
         var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
-        Log["Checkpoint"]("Dashboard opened")
+        Log["Message"]("Dashboard opened")
         
         //Enable Dashboard Developer Mode  
         DevMode()
-        Log["Checkpoint"]("DevMode activated")
+        Log["Message"]("DevMode activated")
 
     /*
       Step No: 9
@@ -302,7 +327,7 @@ function TC_Dashboard_Solution_Workbench_1(){
         AddQueriesDashboard(baqs2)
         
         SaveDashboard()
-        Log["Checkpoint"]("Dashboard SWTestDashBD2 created")
+        Log["Message"]("Dashboard " + dashb2 + " created")
         ExitDashboard()
 
     /*
@@ -331,7 +356,7 @@ function TC_Dashboard_Solution_Workbench_1(){
         AddColumnsBAQ(BAQFormDefinition, "Part", "Company,PartNum,PartDescription,TypeCode")
         // Save the  BAQ
         SaveBAQ()
-        Log["Checkpoint"]("BAQ TestBAQ3 created")
+        Log["Message"]("BAQ " + baqs3 + " created")
         ExitBAQ()
 
 
@@ -345,11 +370,11 @@ function TC_Dashboard_Solution_Workbench_1(){
       MainMenuTreeViewSelect(treeMainPanel3 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
         var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
-        Log["Checkpoint"]("Dashboard opened")
+        Log["Message"]("Dashboard opened")
         
         //Enable Dashboard Developer Mode  
         DevMode()
-        Log["Checkpoint"]("DevMode activated")
+        Log["Message"]("DevMode activated")
 
         /*
           Step No: 9
@@ -370,17 +395,17 @@ function TC_Dashboard_Solution_Workbench_1(){
             AddQueriesDashboard(baqs3)
             
             SaveDashboard()
-            Log["Checkpoint"]("Dashboard SWTestDashBD3 created")
+            Log["Message"]("Dashboard " + dashb3 + " created")
             ExitDashboard()
 
       MainMenuTreeViewSelect(treeMainPanel3 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
         var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
-        Log["Checkpoint"]("Dashboard opened")
+        Log["Message"]("Dashboard opened")
         
         //Enable Dashboard Developer Mode  
         DevMode()
-        Log["Checkpoint"]("DevMode activated")
+        Log["Message"]("DevMode activated")
 
       /*
         Step No: 9
@@ -401,7 +426,7 @@ function TC_Dashboard_Solution_Workbench_1(){
           AddQueriesDashboard("zCustomer01")
           
           SaveDashboard()
-          Log["Checkpoint"]("Dashboard SWTestDashBD4 created")
+          Log["Message"]("Dashboard " + dashb4 + " created")
           ExitDashboard()
 
   //-------------------------------------------------------------------------------------------------------------------------------------------'
@@ -421,12 +446,12 @@ function TC_Dashboard_Solution_Workbench_1(){
       // Create a new type, enter Solution Type and Description. Save
       Aliases["Epicor"]["SolutionTypeForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|New Solution Type")
 
-      Aliases["Epicor"]["SolutionTypeForm"]["windowDockingArea1"]["dockableWindow4"]["mainPanelControl"]["windowDockingArea1"]["dockableWindow2"]["solutionTypePanel1"]["grpSolutionType"]["txtKeyField"]["Keys"]("SType")
-      Aliases["Epicor"]["SolutionTypeForm"]["windowDockingArea1"]["dockableWindow4"]["mainPanelControl"]["windowDockingArea1"]["dockableWindow2"]["solutionTypePanel1"]["grpSolutionType"]["txtDescription"]["Keys"]("SType")
+      Aliases["Epicor"]["SolutionTypeForm"]["windowDockingArea1"]["dockableWindow4"]["mainPanelControl"]["windowDockingArea1"]["dockableWindow2"]["solutionTypePanel1"]["grpSolutionType"]["txtKeyField"]["Keys"](solDefEpic05Type)
+      Aliases["Epicor"]["SolutionTypeForm"]["windowDockingArea1"]["dockableWindow4"]["mainPanelControl"]["windowDockingArea1"]["dockableWindow2"]["solutionTypePanel1"]["grpSolutionType"]["txtDescription"]["Keys"](solDefEpic05Type)
       
       Aliases["Epicor"]["SolutionTypeForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
       
-      Log["Checkpoint"]("Solution Type was created 'SType'")
+      Log["Message"]("Solution Type was created " + solDefEpic05Type)
 
       Aliases["Epicor"]["SolutionTypeForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
 
@@ -437,9 +462,9 @@ function TC_Dashboard_Solution_Workbench_1(){
       // Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|New Solution")
       Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|Solution")
 
-      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtKeyField"]["Keys"]("Stest")
-      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtSolutionType"]["Keys"]("SType")
-      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtDescription"]["Keys"]("Stest")
+      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtKeyField"]["Keys"](solutionDefEpic05)
+      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtDescription"]["Keys"](solutionDefEpic05)
+      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtSolutionType"]["Keys"](solDefEpic05Type)
       Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
 
       // Click on Add To Solution
@@ -448,7 +473,7 @@ function TC_Dashboard_Solution_Workbench_1(){
 
       // On Solution Element Search select Dashboard and click Search
       //Search for dashboard item and select dashboards to add to the solution
-      SearchSolutionItemsDashboard("SW1TestDashBD1,SW1TestDashBD3", "SW1")
+      SearchSolutionItemsDashboard(dashb1+","+dashb3, "SW1")
          
       //Accepting dependencies 
       while(true) {
@@ -479,7 +504,7 @@ function TC_Dashboard_Solution_Workbench_1(){
         BuildSolChks[i]["Checked"] = true
       }*/
 
-      Log["Checkpoint"]("All options where checked")
+      Log["Message"]("All options where checked")
       
       Aliases["Epicor"]["BuildSolutionForm"]["pnlBuildSolution"]["WinFormsObject"]("btnCreate")["Click"]()
 
@@ -504,7 +529,7 @@ function TC_Dashboard_Solution_Workbench_1(){
       Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
       // Click Close
       Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
-      Log["Checkpoint"]("Solution for EPIC05 created")
+      Log["Message"]("Solution for EPIC05 created")
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //--- Delete the dashboard and BAQ you've created on EPIC05 (SWTestDashBD1 and TestBAQ1) ----------------------------------------------------'
@@ -512,11 +537,11 @@ function TC_Dashboard_Solution_Workbench_1(){
     MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
-      Log["Checkpoint"]("Dashboard opened")
+      Log["Message"]("Dashboard opened")
       
       //Enable Dashboard Developer Mode  
       DevMode()
-      Log["Checkpoint"]("DevMode activated")
+      Log["Message"]("DevMode activated")
 
       DeleteDashboard(dashb1)
       ExitDashboard()
@@ -527,7 +552,7 @@ function TC_Dashboard_Solution_Workbench_1(){
        DeleteBAQ(baqs1)
        ExitBAQ()
     
-    Log["Message"]("Dashboards SWTestDashBD1 and baq TestBAQ1 deleted")
+    Log["Message"]("Dashboard " + dashb1 + " and BAQ " + baqs1 + " deleted")
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //---  EPIC06 create the solution -----------------------------------------------------------------------------------------------------------'
@@ -547,12 +572,12 @@ function TC_Dashboard_Solution_Workbench_1(){
       // Create a new type, enter Solution Type and Description. Save
       Aliases["Epicor"]["SolutionTypeForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|New Solution Type")
 
-      Aliases["Epicor"]["SolutionTypeForm"]["windowDockingArea1"]["dockableWindow4"]["mainPanelControl"]["windowDockingArea1"]["dockableWindow2"]["solutionTypePanel1"]["grpSolutionType"]["txtKeyField"]["Keys"]("SType2")
-      Aliases["Epicor"]["SolutionTypeForm"]["windowDockingArea1"]["dockableWindow4"]["mainPanelControl"]["windowDockingArea1"]["dockableWindow2"]["solutionTypePanel1"]["grpSolutionType"]["txtDescription"]["Keys"]("SType2")
+      Aliases["Epicor"]["SolutionTypeForm"]["windowDockingArea1"]["dockableWindow4"]["mainPanelControl"]["windowDockingArea1"]["dockableWindow2"]["solutionTypePanel1"]["grpSolutionType"]["txtKeyField"]["Keys"](solDefEpic06Type)
+      Aliases["Epicor"]["SolutionTypeForm"]["windowDockingArea1"]["dockableWindow4"]["mainPanelControl"]["windowDockingArea1"]["dockableWindow2"]["solutionTypePanel1"]["grpSolutionType"]["txtDescription"]["Keys"](solDefEpic06Type)
       
       Aliases["Epicor"]["SolutionTypeForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
       
-      Log["Checkpoint"]("Solution Type was created 'SType2'")
+      Log["Message"]("Solution Type was created " + solDefEpic06Type)
 
       Aliases["Epicor"]["SolutionTypeForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
 
@@ -563,9 +588,9 @@ function TC_Dashboard_Solution_Workbench_1(){
       // Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|New Solution")
       Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|Solution")
 
-      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtKeyField"]["Keys"]("Stest2")
-      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtSolutionType"]["Keys"]("SType2")
-      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtDescription"]["Keys"]("Stest2")
+      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtKeyField"]["Keys"](solutionDefEpic06)
+      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtDescription"]["Keys"](solutionDefEpic06)
+      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtSolutionType"]["Keys"](solDefEpic06Type)
       Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
 
       // Click on Add To Solution
@@ -574,7 +599,7 @@ function TC_Dashboard_Solution_Workbench_1(){
 
       // On Solution Element Search select Dashboard and click Search
       //Search for dashboard item and select dashboards to add to the solution (TestDashBD2 and the TestDashBD3)
-      SearchSolutionItemsDashboard("SW1TestDashBD2,SW1TestDashBD3", "SW1")
+      SearchSolutionItemsDashboard(dashb2+","+dashb3, "SW1")
 
       while(true) {
         //find button of the "add dependency" dialog
@@ -604,7 +629,7 @@ function TC_Dashboard_Solution_Workbench_1(){
         BuildSolChks[i]["Checked"] = true
       }*/
 
-      Log["Checkpoint"]("All options where checked")
+      Log["Message"]("All options where checked")
       
       Aliases["Epicor"]["BuildSolutionForm"]["pnlBuildSolution"]["WinFormsObject"]("btnCreate")["Click"]()
 
@@ -629,7 +654,7 @@ function TC_Dashboard_Solution_Workbench_1(){
       Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
       // Click Close
       Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
-      Log["Checkpoint"]("Solution for EPIC06 created")
+      Log["Message"]("Solution for EPIC06 created")
   //-------------------------------------------------------------------------------------------------------------------------------------------'
   
   //--- Delete the dashboards and BAQs you've created on EPIC06 (SWTestDashBD2 and TestBAQ2) --------------------------------------------------'
@@ -643,11 +668,11 @@ function TC_Dashboard_Solution_Workbench_1(){
     MainMenuTreeViewSelect(treeMainPanel2 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
-      Log["Checkpoint"]("Dashboard opened")
+      Log["Message"]("Dashboard opened")
       
       //Enable Dashboard Developer Mode  
       DevMode()
-      Log["Checkpoint"]("DevMode activated")
+      Log["Message"]("DevMode activated")
 
       DeleteDashboard(dashb2)
       ExitDashboard()
@@ -674,12 +699,12 @@ function TC_Dashboard_Solution_Workbench_1(){
       // Create a new type, enter Solution Type and Description. Save
       Aliases["Epicor"]["SolutionTypeForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|New Solution Type")
 
-      Aliases["Epicor"]["SolutionTypeForm"]["windowDockingArea1"]["dockableWindow4"]["mainPanelControl"]["windowDockingArea1"]["dockableWindow2"]["solutionTypePanel1"]["grpSolutionType"]["txtKeyField"]["Keys"]("SType3")
-      Aliases["Epicor"]["SolutionTypeForm"]["windowDockingArea1"]["dockableWindow4"]["mainPanelControl"]["windowDockingArea1"]["dockableWindow2"]["solutionTypePanel1"]["grpSolutionType"]["txtDescription"]["Keys"]("SType3")
+      Aliases["Epicor"]["SolutionTypeForm"]["windowDockingArea1"]["dockableWindow4"]["mainPanelControl"]["windowDockingArea1"]["dockableWindow2"]["solutionTypePanel1"]["grpSolutionType"]["txtKeyField"]["Keys"](solDefEpic07Type)
+      Aliases["Epicor"]["SolutionTypeForm"]["windowDockingArea1"]["dockableWindow4"]["mainPanelControl"]["windowDockingArea1"]["dockableWindow2"]["solutionTypePanel1"]["grpSolutionType"]["txtDescription"]["Keys"](solDefEpic07Type)
       
       Aliases["Epicor"]["SolutionTypeForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
       
-      Log["Checkpoint"]("Solution Type was created 'SType3'")
+      Log["Message"]("Solution Type was created "  solDefEpic07Type)
 
       Aliases["Epicor"]["SolutionTypeForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
 
@@ -690,9 +715,9 @@ function TC_Dashboard_Solution_Workbench_1(){
       // Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|New Solution")
       Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|New...|Solution")
 
-      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtKeyField"]["Keys"]("Stest3")
-      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtSolutionType"]["Keys"]("SType3")
-      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtDescription"]["Keys"]("Stest3")
+      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtKeyField"]["Keys"](solutionDefEpic07)
+      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtSolutionType"]["Keys"](solDefEpic07Type)
+      Aliases["Epicor"]["SolutionWorkbenchForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["groupBox1"]["txtDescription"]["Keys"](solutionDefEpic07)
       Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
 
       // Click on Add To Solution
@@ -701,7 +726,7 @@ function TC_Dashboard_Solution_Workbench_1(){
 
       // On Solution Element Search select Dashboard and click Search
       //Search for dashboard item and select dashboards to add to the solution (TestDashBD3 and the TestDashBD4)
-      SearchSolutionItemsDashboard("SW1TestDashBD3,SW1TestDashBD4", "SW1")
+      SearchSolutionItemsDashboard(dashb3+","+dashb4, "SW1")
 
       while(true) {
         //find button of the "add dependency" dialog
@@ -731,7 +756,7 @@ function TC_Dashboard_Solution_Workbench_1(){
         BuildSolChks[i]["Checked"] = true
       }*/
 
-      Log["Checkpoint"]("All options where checked")
+      Log["Message"]("All options where checked")
       
       Aliases["Epicor"]["BuildSolutionForm"]["pnlBuildSolution"]["WinFormsObject"]("btnCreate")["Click"]()
 
@@ -756,7 +781,7 @@ function TC_Dashboard_Solution_Workbench_1(){
       Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
       // Click Close
       Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
-      Log["Checkpoint"]("Solution for EPIC07 created")
+      Log["Message"]("Solution for EPIC07 created")
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //--- Delete the dashboard you've created on EPIC07 ( SWTestDashBD3 and TestBAQ3, TestDashBD4) ----------------------------------------------'
@@ -770,7 +795,7 @@ function TC_Dashboard_Solution_Workbench_1(){
       MainMenuTreeViewSelect(treeMainPanel3 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
-      Log["Checkpoint"]("Dashboard opened")
+      Log["Message"]("Dashboard opened")
       
       //Enable Dashboard Developer Mode  
       DevMode()
@@ -819,7 +844,7 @@ function TC_Dashboard_Solution_Workbench_1(){
     // Click Close
     Aliases["Epicor"]["InstallSolutionForm"]["pnlInstallSolution"]["WinFormsObject"]("btnAbort")["Click"]()
     Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
-    Log["Checkpoint"]("Solution for EPIC05 installed")
+    Log["Message"]("Solution for EPIC05 installed")
   
   //-------------------------------------------------------------------------------------------------------------------------------------------' 
 
@@ -832,7 +857,7 @@ function TC_Dashboard_Solution_Workbench_1(){
     MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
-      Log["Checkpoint"]("Dashboard opened")
+      Log["Message"]("Dashboard opened")
 
       Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow2"]["pnlGeneral"]["windowDockingArea1"]["dockableWindow1"]["pnlGenProps"]["txtDefinitonID"]["Keys"](dashb1)
       Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow2"]["pnlGeneral"]["windowDockingArea1"]["dockableWindow1"]["pnlGenProps"]["txtDefinitonID"]["Keys"]("[Tab]")
@@ -877,7 +902,7 @@ function TC_Dashboard_Solution_Workbench_1(){
     MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
-      Log["Checkpoint"]("Dashboard opened")
+      Log["Message"]("Dashboard opened")
 
       Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow2"]["pnlGeneral"]["windowDockingArea1"]["dockableWindow1"]["pnlGenProps"]["txtDefinitonID"]["Keys"](dashb3)
       Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow2"]["pnlGeneral"]["windowDockingArea1"]["dockableWindow1"]["pnlGenProps"]["txtDefinitonID"]["Keys"]("[Tab]")
@@ -955,7 +980,7 @@ function TC_Dashboard_Solution_Workbench_1(){
     // Click Close
     Aliases["Epicor"]["InstallSolutionForm"]["pnlInstallSolution"]["WinFormsObject"]("btnAbort")["Click"]()
     Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
-    Log["Checkpoint"]("Solution for EPIC06 installed")
+    Log["Message"]("Solution for EPIC06 installed")
   //-------------------------------------------------------------------------------------------------------------------------------------------' 
 
   //--- EPIC06 Retrieve SWTestDashBD2, SWTestDashBD3  -----------------------------------------------------------------------------------------'
@@ -967,7 +992,7 @@ function TC_Dashboard_Solution_Workbench_1(){
     MainMenuTreeViewSelect(treeMainPanel2 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
-      Log["Checkpoint"]("Dashboard opened")
+      Log["Message"]("Dashboard opened")
 
       Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow2"]["pnlGeneral"]["windowDockingArea1"]["dockableWindow1"]["pnlGenProps"]["txtDefinitonID"]["Keys"](dashb2)
       Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow2"]["pnlGeneral"]["windowDockingArea1"]["dockableWindow1"]["pnlGenProps"]["txtDefinitonID"]["Keys"]("[Tab]")
@@ -993,7 +1018,7 @@ function TC_Dashboard_Solution_Workbench_1(){
     MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
-      Log["Checkpoint"]("Dashboard opened")
+      Log["Message"]("Dashboard opened")
 
       Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow2"]["pnlGeneral"]["windowDockingArea1"]["dockableWindow1"]["pnlGenProps"]["txtDefinitonID"]["Keys"](dashb3)
       Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow2"]["pnlGeneral"]["windowDockingArea1"]["dockableWindow1"]["pnlGenProps"]["txtDefinitonID"]["Keys"]("[Tab]")
@@ -1079,7 +1104,7 @@ function TC_Dashboard_Solution_Workbench_1(){
     // Click Close
     Aliases["Epicor"]["InstallSolutionForm"]["pnlInstallSolution"]["WinFormsObject"]("btnAbort")["Click"]()
     Aliases["Epicor"]["SolutionWorkbenchForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
-    Log["Checkpoint"]("Solution for EPIC07 installed")
+    Log["Message"]("Solution for EPIC07 installed")
   //-------------------------------------------------------------------------------------------------------------------------------------------' 
 
   //--- EPIC07 Retrieve SWTestDashBD3, SWTestDashBD4  -----------------------------------------------------------------------------------------'
@@ -1091,7 +1116,7 @@ function TC_Dashboard_Solution_Workbench_1(){
     MainMenuTreeViewSelect(treeMainPanel3 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
-      Log["Checkpoint"]("Dashboard opened")
+      Log["Message"]("Dashboard opened")
 
       Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow2"]["pnlGeneral"]["windowDockingArea1"]["dockableWindow1"]["pnlGenProps"]["txtDefinitonID"]["Keys"](dashb3)
       Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow2"]["pnlGeneral"]["windowDockingArea1"]["dockableWindow1"]["pnlGenProps"]["txtDefinitonID"]["Keys"]("[Tab]")
@@ -1121,7 +1146,7 @@ function TC_Dashboard_Solution_Workbench_1(){
     MainMenuTreeViewSelect(treeMainPanel3 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
-      Log["Checkpoint"]("Dashboard opened")
+      Log["Message"]("Dashboard opened")
 
       Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow2"]["pnlGeneral"]["windowDockingArea1"]["dockableWindow1"]["pnlGenProps"]["txtDefinitonID"]["Keys"](dashb4)
       Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow2"]["pnlGeneral"]["windowDockingArea1"]["dockableWindow1"]["pnlGenProps"]["txtDefinitonID"]["Keys"]("[Tab]")
