@@ -87,6 +87,76 @@
 				<testParameters />
 				<children />
 			</testItem>
+			<testItem name="CompareReports" key="{44153623-8EE3-40E5-943D-DCE49E659B02}" group="False" enabled="False" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+				<testParameters />
+				<children>
+					<testItem name="Print_PackingForm" key="{927A1EBD-0B15-47C9-AC67-5C32451B61A6}" group="False" enabled="True" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="JobTraveler" key="{A8A44E20-872F-4118-8D25-F6683EA03124}" group="False" enabled="True" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}ReportJobTraveler" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="ARInvoice" key="{3B6F3043-4AC5-4156-862F-CAC1071BB3B9}" group="False" enabled="True" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}ReportARInvoice" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="ProFormaInv" key="{7536D7B2-6CE2-46DA-9C68-A75AE1ED6C6B}" group="False" enabled="True" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}ReportProFormaInv" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="PurchaseOrder" key="{BB0F7873-E03A-42A5-A0D4-EE6E03B84CDF}" group="False" enabled="True" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}ReportPurchaseOrder" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Quote Form" key="{D68CF178-9D3B-4481-8715-AE5C032FF6E0}" group="False" enabled="True" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}ReportQuoteform" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="SalesOrder" key="{96BE8B9E-7A40-4800-90A1-2BA4A01E58AA}" group="False" enabled="True" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}ReportSalesOrder" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+				</children>
+			</testItem>
+			<testItem name="GenerateReports" key="{8EF443AB-D27C-49A9-9158-44EF8368CC47}" group="False" enabled="False" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+				<testParameters />
+				<children>
+					<testItem name="Print_PackingForm" key="{8C61EDAF-DBE5-498D-B489-884B38EED3EA}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportPrintPackingform" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="JobTraveler" key="{39AFC9C0-0EE3-4897-98A1-ECC7DD81305A}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportJobTraveler" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="ARInvoice" key="{4D40D505-B9DF-4D22-871B-316AE1641F15}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportARInvoice" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="ProFormaInv" key="{16E9C742-4457-4E9C-ACEB-E1EC5E0A903E}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportProFormaInv" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="PurchaseOrder" key="{1C17DF80-418C-4384-A3FC-947D91682ABF}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportPurchaseOrder" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="SalesOrder" key="{45512B13-A6A5-48F4-9E9D-DF8E8FFBD500}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportSalesOrder" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="Quote Form" key="{86A6D669-F52B-4DA1-B81B-250CA1DBC09A}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportQuoteform" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="AP Payment Form" key="{2F9C4DFA-581D-41B9-B2CB-DB28062E6130}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportAPPaymentform" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+				</children>
+			</testItem>
 		</children>
 	</testItems>
 	<variables key="{D1623962-33F5-4BF9-9D3C-3A26B2F39EF8}">
