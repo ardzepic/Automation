@@ -70,6 +70,15 @@
 		<child name="GenerateReports" key="{1F4BC975-385C-41C9-9994-C08251206F82}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
 			<data path="GenerateReports.scs" />
 		</child>
+		<child name="Data_Solution_Workbench_sc2" key="{EB5A204E-4C5D-4367-8AD7-90C7A4B2DD54}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="Data_Solution_Workbench_sc2.scs" />
+		</child>
+		<child name="Data_Solution_Workbench_sc1" key="{F64AE636-B4A2-41F0-9AB5-E32B5B6557FF}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="Data_Solution_Workbench_sc1.scs" />
+		</child>
+		<child name="TC_Dashboard_Updatable_Customized_Form_sys" key="{EA04227E-DEE9-43D0-A9F8-B89824F64EC9}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="TC_Dashboard_Updatable_Customized_Form_sys.scs" />
+		</child>
 	</children>
 	<folders>
 		<folder caption="Dashboards" description="A logical folder that is used to organize project items and elements." moniker="">
@@ -88,6 +97,7 @@
 				<ref key="{4E564492-1786-4C87-B711-1BF2C343A7B9}" />
 				<ref key="{5D4A6C80-F80B-468B-B8C1-BF7F9E44760D}" />
 				<ref key="{18920326-7404-477C-9BCF-86FD1FE42DD2}" />
+				<ref key="{EA04227E-DEE9-43D0-A9F8-B89824F64EC9}" />
 			</references>
 		</folder>
 		<folder caption="Functions" description="A logical folder that is used to organize project items and elements." moniker="">
@@ -105,6 +115,12 @@
 			<references>
 				<ref key="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}" />
 				<ref key="{1F4BC975-385C-41C9-9994-C08251206F82}" />
+			</references>
+		</folder>
+		<folder caption="DataForScripts" description="A logical folder that is used to organize project items and elements." moniker="">
+			<references>
+				<ref key="{EB5A204E-4C5D-4367-8AD7-90C7A4B2DD54}" />
+				<ref key="{F64AE636-B4A2-41F0-9AB5-E32B5B6557FF}" />
 			</references>
 		</folder>
 	</folders>

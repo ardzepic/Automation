@@ -33,7 +33,18 @@ function TC_Dashboard_All_companies(){
 
   }
 
+  //--- Start Smart Client and log in ---------------------------------------------------------------------------------------------------------'
+   
+    StartSmartClient()
 
+    Login(Project["Variables"]["username"], Project["Variables"]["password"])
+
+    ActivateFullTree()
+
+    ExpandComp("Epicor Education")
+
+    ChangePlant("Main Plant")
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //--- Creates BAQs --------------------------------------------------------------------------------------------------------------------------'
     /*

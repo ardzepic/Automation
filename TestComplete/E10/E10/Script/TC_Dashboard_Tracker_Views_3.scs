@@ -31,7 +31,7 @@ function TC_Dashboard_Tracker_Views_3(){
     // Step2- Log in  
       StartSmartClient()
 
-      Login("epicor","Epicor123") 
+      Login(Project["Variables"]["username"], Project["Variables"]["password"])
 
       ActivateFullTree()
 
@@ -118,6 +118,7 @@ function TC_Dashboard_Tracker_Views_3(){
         Delay(1500)
       //Save      
       SaveBAQ()
+      Delay(5000)
       ExitBAQ()
   
   //-------------------------------------------------------------------------------------------------------------------------------------------'  
@@ -252,12 +253,7 @@ function TC_Dashboard_Tracker_Views_3(){
 
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
-// *****
-// NEED TO MODIFY CONTROL PANEL BEFORE RUNNING THE FOLLOWING SCRIPTS
-// *****
-
-
-  //--- Setup Invariant culture for Windows -----------------------------------------------------------------------------------------------------'
+  //--- Setup Invariant culture for Windows ---------------------------------------------------------------------------------------------------'
 
     /* Step 21: 
         Go to Windows Control Panel-Region-Format
@@ -279,9 +275,13 @@ function TC_Dashboard_Tracker_Views_3(){
     // Step 22 - Log in  
       StartSmartClient()
 
-      Login("epicor","Epicor123") 
-
+      Login(Project["Variables"]["username"], Project["Variables"]["password"])
+      
       ActivateFullTree()
+
+      ExpandComp("Epicor Education")
+
+      ChangePlant("Main Plant")
 
   //--- User Account Security Maintenance -----------------------------------------------------------------------------------------------------'
     // Aliases["Epicor"]["MenuForm"]["windowDockingArea1"]["dockableWindow3"]["Activate"]()

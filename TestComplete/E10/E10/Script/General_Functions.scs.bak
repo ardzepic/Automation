@@ -67,7 +67,8 @@ function Login(username,password){
 
     if(Aliases["Epicor"]["ExceptionDialog"]["Exists"]){
       Log["Warning"]("Exception Dialog found - " + Aliases["Epicor"]["ExceptionDialog"]["exceptionDialogFillPanel"]["rtbMessage"]["Text"]["OleValue"])
-      ClickButton("OK")
+      Aliases["Epicor"]["ExceptionDialog"]["exceptionDialogFillPanel"]["btnOk"]["Click"]()
+      Log["Message"]("Clicked")
     }
     var count = count + 1
     if (count == 90) {
