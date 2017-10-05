@@ -6686,6 +6686,211 @@
 											</Property>
 										</Properties>
 									</Child>
+									<Child Name="windowDockingArea1" Key="{E516E3EC-A5DF-4848-9A2E-D10C6626CC6C}" ParallelWalk="True">
+										<Image FileName="1908326202" Left="178" Top="79" Right="1014" Bottom="734" />
+										<TypeInfo Item0="{DD50DF04-E8C4-4D42-837C-A08E944F2B6F}" />
+										<Properties>
+											<Property Name="ClrClassName">
+												<Value PropertyType="0" Value="WindowDockingArea" Type="5" />
+											</Property>
+										</Properties>
+										<Children>
+											<Child Name="dockableWindow3" Key="{86824585-6E46-4D42-8F86-57CC82258655}" ParallelWalk="True">
+												<Image FileName="1908326202" Left="178" Top="79" Right="1014" Bottom="734" />
+												<TypeInfo Item0="{DD50DF04-E8C4-4D42-837C-A08E944F2B6F}" />
+												<Properties>
+													<Property Name="Pane.TextTabResolved">
+														<Value PropertyType="0" Value="Part Maintenance" Type="5" />
+													</Property>
+												</Properties>
+												<Children>
+													<Child Name="mainPanel1" Key="{8B520522-AF97-415C-8B3C-59ACAB15B2CF}" ParallelWalk="True">
+														<Image FileName="1908326202" Left="178" Top="99" Right="1014" Bottom="734" />
+														<TypeInfo Item0="{9A10BCD7-1A62-46AA-A8DF-68062BA5DDEB}" />
+														<Properties>
+															<Property Name="EpiGuid">
+																<Value PropertyType="0" Value="bfee9ad5-afd7-4049-9987-9541d9db0c7b" Type="5" />
+															</Property>
+														</Properties>
+														<Children>
+															<Child Name="windowDockingArea3" Key="{9B10B294-9004-4786-BBA8-8B0776CD9B1F}" ParallelWalk="True">
+																<Image FileName="1908326202" Left="178" Top="99" Right="1014" Bottom="734" />
+																<TypeInfo Item0="{DD50DF04-E8C4-4D42-837C-A08E944F2B6F}" />
+																<Properties>
+																	<Property Name="ClrClassName">
+																		<Value PropertyType="0" Value="WindowDockingArea" Type="5" />
+																	</Property>
+																</Properties>
+																<Children>
+																	<Child Name="dockableWindow3" Key="{65285FD4-DFF9-4FCA-87F1-833C69CA7775}" ParallelWalk="True">
+																		<Image FileName="1908326202" Left="178" Top="123" Right="1014" Bottom="734" />
+																		<TypeInfo Item0="{DD50DF04-E8C4-4D42-837C-A08E944F2B6F}" />
+																		<Properties>
+																			<Property Name="Pane.TextTabResolved">
+																				<Value PropertyType="0" Value="Part" Type="5" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="partDockPanel1" Key="{6D0AE320-BF9F-4DD4-A8D7-856A08FBFD53}" ParallelWalk="True">
+																				<Image FileName="1908326202" Left="178" Top="125" Right="1014" Bottom="734" />
+																				<TypeInfo Item0="{9A10BCD7-1A62-46AA-A8DF-68062BA5DDEB}" />
+																				<Properties>
+																					<Property Name="WinFormsControlName">
+																						<Value PropertyType="0" Value="partDockPanel1" Type="5" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="windowDockingArea1" Key="{0C6DD3A4-0A6B-4735-A351-9406E1F09B6B}" ParallelWalk="True">
+																						<Image FileName="599057914" Left="178" Top="125" Right="1014" Bottom="734" />
+																						<TypeInfo Item0="{DD50DF04-E8C4-4D42-837C-A08E944F2B6F}" />
+																						<Properties>
+																							<Property Name="ClrClassName">
+																								<Value PropertyType="0" Value="WindowDockingArea" Type="5" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="dockableWindow1" Key="{92C7152A-81C7-4332-A6A9-7090DF82A0A3}" ParallelWalk="True">
+																								<Image FileName="599057914" Left="178" Top="149" Right="1014" Bottom="734" />
+																								<TypeInfo Item0="{DD50DF04-E8C4-4D42-837C-A08E944F2B6F}" />
+																								<Properties>
+																									<Property Name="Pane.TextTabResolved">
+																										<Value PropertyType="0" Value="Detail" Type="5" />
+																									</Property>
+																								</Properties>
+																								<Children>
+																									<Child Name="partDetailPanel1" Key="{8963B89F-BD1C-41C7-8C00-9576E7944E57}" ParallelWalk="True">
+																										<Image FileName="599057914" Left="178" Top="151" Right="1014" Bottom="734" />
+																										<TypeInfo Item0="{9A10BCD7-1A62-46AA-A8DF-68062BA5DDEB}" />
+																										<Properties>
+																											<Property Name="EpiGuid">
+																												<Value PropertyType="0" Value="559eacf6-20c9-4e2d-b777-99a8823adcd6" Type="5" />
+																											</Property>
+																										</Properties>
+																										<Children>
+																											<Child Name="groupBox1" Key="{695CBFF4-DE29-4CD4-B8D9-9E21ADBEDAD8}" ParallelWalk="True">
+																												<Image FileName="599057914" Left="183" Top="151" Right="670" Bottom="593" />
+																												<TypeInfo Item0="{9A10BCD7-1A62-46AA-A8DF-68062BA5DDEB}" />
+																												<Properties>
+																													<Property Name="EpiGuid">
+																														<Value PropertyType="0" Value="28dccc2e-1d08-492f-893a-648ad1bc6d7f" Type="5" />
+																													</Property>
+																												</Properties>
+																												<Children>
+																													<Child Name="tbPart" Key="{B0B942BD-5185-4B08-9F18-EAADB0D64C6D}" ParallelWalk="True">
+																														<Image FileName="599057914" Left="372" Top="156" Right="600" Bottom="172" />
+																														<TypeInfo Item0="{9A10BCD7-1A62-46AA-A8DF-68062BA5DDEB}" />
+																														<Properties>
+																															<Property Name="EpiGuid">
+																																<Value PropertyType="0" Value="38e1671b-0c3f-4ab3-b8ab-95f26285f1d2" Type="5" />
+																															</Property>
+																														</Properties>
+																													</Child>
+																												</Children>
+																											</Child>
+																										</Children>
+																									</Child>
+																								</Children>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																	<Child Name="DockableWindow" Key="{B7BF39B1-F693-4C3A-B075-5076CFD3A22E}" ParallelWalk="True">
+																		<Image FileName="-380178555" Left="178" Top="123" Right="1014" Bottom="734" />
+																		<TypeInfo Item0="{DD50DF04-E8C4-4D42-837C-A08E944F2B6F}" />
+																		<Properties>
+																			<Property Name="Pane.TextTabResolved">
+																				<Value PropertyType="0" Value="PartStatus" Type="5" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="PartStatus" Key="{3532847C-2CE9-428E-89B5-25C908B7E578}" ParallelWalk="True">
+																				<Image FileName="-380178555" Left="178" Top="125" Right="1014" Bottom="734" />
+																				<TypeInfo Item0="{9A10BCD7-1A62-46AA-A8DF-68062BA5DDEB}" />
+																				<Properties>
+																					<Property Name="WinFormsControlName">
+																						<Value PropertyType="0" Value="PartStatus" Type="5" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="PartStatusDashboardPanel" Key="{F8F620B0-BE13-4FE0-B9A5-D9EC87057E89}" ParallelWalk="True">
+																						<Image FileName="-380178555" Left="178" Top="125" Right="1014" Bottom="734" />
+																						<TypeInfo Item0="{9A10BCD7-1A62-46AA-A8DF-68062BA5DDEB}" />
+																						<Properties>
+																							<Property Name="WinFormsControlName">
+																								<Value PropertyType="0" Value="PartStatusDashboardPanel" Type="5" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="windowDockingArea1" Key="{C04E9FEB-D182-40F7-A9B9-DA9C35338252}" ParallelWalk="True">
+																								<Image FileName="-380178555" Left="178" Top="125" Right="1014" Bottom="734" />
+																								<TypeInfo Item0="{DD50DF04-E8C4-4D42-837C-A08E944F2B6F}" />
+																								<Properties>
+																									<Property Name="ClrClassName">
+																										<Value PropertyType="0" Value="WindowDockingArea" Type="5" />
+																									</Property>
+																								</Properties>
+																								<Children>
+																									<Child Name="dockableWindow3" Key="{1D0B454A-0EFE-4063-B132-FDDF8344CA9E}" ParallelWalk="True">
+																										<Image FileName="-380178555" Left="178" Top="125" Right="1014" Bottom="734" />
+																										<TypeInfo Item0="{DD50DF04-E8C4-4D42-837C-A08E944F2B6F}" />
+																										<Properties>
+																											<Property Name="Pane.TextTabResolved">
+																												<Value PropertyType="0" Value="Part On Hand Status" Type="5" />
+																											</Property>
+																										</Properties>
+																										<Children>
+																											<Child Name="dbFillPanel1" Key="{8A67C464-7491-434F-8C7A-1F5141B6E531}" ParallelWalk="True">
+																												<Image FileName="-380178555" Left="178" Top="125" Right="1014" Bottom="734" />
+																												<TypeInfo Item0="{9A10BCD7-1A62-46AA-A8DF-68062BA5DDEB}" />
+																												<Properties>
+																													<Property Name="WinFormsControlName">
+																														<Value PropertyType="0" Value="dbFillPanel1" Type="5" />
+																													</Property>
+																												</Properties>
+																												<Children>
+																													<Child Name="WindowDockingArea" Key="{8E1D0371-3E8A-4027-B14F-C166288846A4}" ParallelWalk="True">
+																														<Image FileName="-380178555" Left="178" Top="125" Right="1014" Bottom="734" />
+																														<TypeInfo Item0="{DD50DF04-E8C4-4D42-837C-A08E944F2B6F}" />
+																														<Properties>
+																															<Property Name="ClrClassName">
+																																<Value PropertyType="0" Value="WindowDockingArea" Type="5" />
+																															</Property>
+																														</Properties>
+																														<Children>
+																															<Child Name="DockableWindow" Key="{E6A51768-1933-46F7-81B0-0550FC89A346}" ParallelWalk="True">
+																																<Image FileName="-712282310" Left="178" Top="149" Right="1014" Bottom="432" />
+																																<TypeInfo Item0="{DD50DF04-E8C4-4D42-837C-A08E944F2B6F}" />
+																																<Properties>
+																																	<Property Name="Pane.TextTabResolved">
+																																		<Value PropertyType="0" Value="Warehouse" Type="5" />
+																																	</Property>
+																																</Properties>
+																															</Child>
+																														</Children>
+																													</Child>
+																												</Children>
+																											</Child>
+																										</Children>
+																									</Child>
+																								</Children>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
+																</Children>
+															</Child>
+														</Children>
+													</Child>
+												</Children>
+											</Child>
+										</Children>
+									</Child>
 								</Children>
 							</Child>
 							<Child Name="UBAQMaintForm" Key="{5A84E12A-A2A1-4F45-8C5E-5D63C093D157}" ParallelWalk="True">
@@ -8101,6 +8306,48 @@
 																			</Child>
 																		</Children>
 																	</Child>
+																	<Child Name="dockableWindow1" Key="{47C380C7-A99D-4FE6-8501-28E17CF4938C}" ParallelWalk="True">
+																		<Image FileName="-177694933" Left="10" Top="150" Right="493" Bottom="499" />
+																		<TypeInfo Item0="{DD50DF04-E8C4-4D42-837C-A08E944F2B6F}" />
+																		<Properties>
+																			<Property Name="Pane.TextTabResolved">
+																				<Value PropertyType="0" Value="Selection" Type="5" />
+																			</Property>
+																		</Properties>
+																		<Children>
+																			<Child Name="detailPanel1" Key="{91477B85-A44F-4E0B-A5D4-C1FA8DC1B3A2}" ParallelWalk="True">
+																				<Image FileName="-177694933" Left="10" Top="152" Right="493" Bottom="499" />
+																				<TypeInfo Item0="{9A10BCD7-1A62-46AA-A8DF-68062BA5DDEB}" />
+																				<Properties>
+																					<Property Name="EpiGuid">
+																						<Value PropertyType="0" Value="a315b3ef-3ceb-4901-9911-72b75a9c1636" Type="5" />
+																					</Property>
+																				</Properties>
+																				<Children>
+																					<Child Name="groupBox2" Key="{10674819-8591-4747-BD70-7A4805A8D920}" ParallelWalk="True">
+																						<Image FileName="-177694933" Left="16" Top="384" Right="468" Bottom="490" />
+																						<TypeInfo Item0="{9A10BCD7-1A62-46AA-A8DF-68062BA5DDEB}" />
+																						<Properties>
+																							<Property Name="EpiGuid">
+																								<Value PropertyType="0" Value="6062c767-7e48-46b7-9470-50c3687c201e" Type="5" />
+																							</Property>
+																						</Properties>
+																						<Children>
+																							<Child Name="cboStyle" Key="{0926BA83-0280-46FF-8750-041084927DE0}" ParallelWalk="True">
+																								<Image FileName="-177694933" Left="148" Top="396" Right="352" Bottom="412" />
+																								<TypeInfo Item0="{9A10BCD7-1A62-46AA-A8DF-68062BA5DDEB}" />
+																								<Properties>
+																									<Property Name="EpiGuid">
+																										<Value PropertyType="0" Value="135850df-39e3-4022-93a3-edeff913a646" Type="5" />
+																									</Property>
+																								</Properties>
+																							</Child>
+																						</Children>
+																					</Child>
+																				</Children>
+																			</Child>
+																		</Children>
+																	</Child>
 																</Children>
 															</Child>
 														</Children>
@@ -9387,6 +9634,42 @@
 			</Child>
 			<Child Name="PartForm" Owner="{0192785F-3909-4375-891C-C2769794A6EE}">
 				<Child Name="zSonomaForm_Toolbars_Dock_Area_Top" Owner="{B8F15B96-5C89-45D2-9EDD-D41EBCF44A4D}" />
+				<Child Name="windowDockingArea1" Owner="{E516E3EC-A5DF-4848-9A2E-D10C6626CC6C}">
+					<Child Name="dockableWindow3" Owner="{86824585-6E46-4D42-8F86-57CC82258655}">
+						<Child Name="mainPanel1" Owner="{8B520522-AF97-415C-8B3C-59ACAB15B2CF}">
+							<Child Name="windowDockingArea3" Owner="{9B10B294-9004-4786-BBA8-8B0776CD9B1F}">
+								<Child Name="dockableWindow3" Owner="{65285FD4-DFF9-4FCA-87F1-833C69CA7775}">
+									<Child Name="partDockPanel1" Owner="{6D0AE320-BF9F-4DD4-A8D7-856A08FBFD53}">
+										<Child Name="windowDockingArea1" Owner="{0C6DD3A4-0A6B-4735-A351-9406E1F09B6B}">
+											<Child Name="dockableWindow1" Owner="{92C7152A-81C7-4332-A6A9-7090DF82A0A3}">
+												<Child Name="partDetailPanel1" Owner="{8963B89F-BD1C-41C7-8C00-9576E7944E57}">
+													<Child Name="groupBox1" Owner="{695CBFF4-DE29-4CD4-B8D9-9E21ADBEDAD8}">
+														<Child Name="tbPart" Owner="{B0B942BD-5185-4B08-9F18-EAADB0D64C6D}" />
+													</Child>
+												</Child>
+											</Child>
+										</Child>
+									</Child>
+								</Child>
+								<Child Name="DockableWindow" Owner="{B7BF39B1-F693-4C3A-B075-5076CFD3A22E}">
+									<Child Name="PartStatus" Owner="{3532847C-2CE9-428E-89B5-25C908B7E578}">
+										<Child Name="PartStatusDashboardPanel" Owner="{F8F620B0-BE13-4FE0-B9A5-D9EC87057E89}">
+											<Child Name="windowDockingArea1" Owner="{C04E9FEB-D182-40F7-A9B9-DA9C35338252}">
+												<Child Name="dockableWindow3" Owner="{1D0B454A-0EFE-4063-B132-FDDF8344CA9E}">
+													<Child Name="dbFillPanel1" Owner="{8A67C464-7491-434F-8C7A-1F5141B6E531}">
+														<Child Name="WindowDockingArea" Owner="{8E1D0371-3E8A-4027-B14F-C166288846A4}">
+															<Child Name="DockableWindow" Owner="{E6A51768-1933-46F7-81B0-0550FC89A346}" />
+														</Child>
+													</Child>
+												</Child>
+											</Child>
+										</Child>
+									</Child>
+								</Child>
+							</Child>
+						</Child>
+					</Child>
+				</Child>
 			</Child>
 			<Child Name="UBAQMaintForm" Owner="{5A84E12A-A2A1-4F45-8C5E-5D63C093D157}">
 				<Child Name="windowDockingArea2" Owner="{672360A3-0532-442F-94FD-C9B21F7D4061}">
@@ -9621,6 +9904,13 @@
 													<Child Name="grdPackSlipList" Owner="{D61B736E-13AD-4FF0-B12F-B95DCCC9ECF6}" />
 												</Child>
 											</Child>
+										</Child>
+									</Child>
+								</Child>
+								<Child Name="dockableWindow1" Owner="{47C380C7-A99D-4FE6-8501-28E17CF4938C}">
+									<Child Name="detailPanel1" Owner="{91477B85-A44F-4E0B-A5D4-C1FA8DC1B3A2}">
+										<Child Name="groupBox2" Owner="{10674819-8591-4747-BD70-7A4805A8D920}">
+											<Child Name="cboStyle" Owner="{0926BA83-0280-46FF-8750-041084927DE0}" />
 										</Child>
 									</Child>
 								</Child>

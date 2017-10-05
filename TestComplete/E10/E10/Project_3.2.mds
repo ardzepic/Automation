@@ -35,62 +35,67 @@
 	<config language="{90813F19-086D-4670-83BC-DB51386DC224}" />
 	<testItems key="{FDA44FCB-1D2F-4167-A0F5-DDC45614A08F}">
 		<children>
-			<testItem name="TC_Dashboard_All_companies" key="{62720D75-CE77-45B8-8046-C416E588D9C2}" group="False" enabled="False" testMoniker="{B2CDC1E0-6DB3-4DF0-AB19-9D4BB1B994D4}TC_Dashboard_All_companies" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
-				<testParameters />
-				<children />
-			</testItem>
-			<testItem name="TC_Dashboard_BAQ_parameters" key="{AFE06E05-7DD1-4576-A445-B75CCB2FDAC9}" group="False" enabled="False" testMoniker="{B6FABD4A-44C5-46F2-94A4-C8B9FED9CFFE}Dashboard_BAQ_Parameters" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
-				<testParameters />
-				<children />
-			</testItem>
-			<testItem name="TC_Dashboard_Deployment" key="{50C743C9-D268-4816-83A4-2FA11DDD6707}" group="False" enabled="False" testMoniker="{92138E5C-1304-4087-ACB5-EF17B7076CC9}Dashboard_Deployment" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
-				<testParameters />
-				<children />
-			</testItem>
-			<testItem name="TC_Dashboard_Tracker_Views_1" key="{F7C551D8-7BD0-4EF9-AE47-8F8A7054CDE7}" group="False" enabled="False" testMoniker="{5123E3A4-D9DA-481D-A041-C2E0A80DD10F}TC_Dashboard_Tracker_Views_1" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
-				<testParameters />
-				<children />
-			</testItem>
-			<testItem name="TC_Dashboard_Tracker_Views_2" key="{46B37498-65BC-417B-8781-6CE1C82891A7}" group="False" enabled="False" testMoniker="{62AD19B9-1AFD-449C-8C67-7ACD8C93B5D1}TC_Dashboard_Tracker_Views_2" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
-				<testParameters />
-				<children />
-			</testItem>
-			<testItem name="TC_Dashboard_Tracker_Views_3" key="{0EFA7F36-3D76-4DA1-ADD5-167BB868CE08}" group="False" enabled="False" testMoniker="{18920326-7404-477C-9BCF-86FD1FE42DD2}TC_Dashboard_Tracker_Views_3" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
-				<testParameters />
-				<children />
-			</testItem>
-			<testItem name="TC_Dashboard_Updatable_Customized_Form_(embedded)" key="{F7EEE2BD-6BB9-4D96-9640-CCAF6505BA1A}" group="False" enabled="False" testMoniker="{4E564492-1786-4C87-B711-1BF2C343A7B9}TC_Dashboard_Updatable_Customized_Form" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
-				<testParameters />
-				<children />
-			</testItem>
-			<testItem name="TC_Dashboard_with_UD_tables" key="{82D43099-7CB1-4CF0-BCFD-B201CAD5A53D}" group="False" enabled="False" testMoniker="{A2433EB9-5075-4717-A91B-87191FB10470}Dashboard_with_UD_tables" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
-				<testParameters />
-				<children />
-			</testItem>
-			<testItem name="TC_Importing_exporting_Dashboards_E10" key="{140DD395-5CE8-4E1C-BAC6-FF5B09C4AA39}" group="False" enabled="False" testMoniker="{D76232C6-416E-4C0D-9561-36487BA44956}TC_Importing_exporting_Dashboards_E10" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
-				<testParameters />
-				<children />
-			</testItem>
-			<testItem name="TC_Importing_exporting_Dashboards_E9_E10" key="{CDFFF37B-D7EB-4EA6-B197-13C9340067B5}" group="False" enabled="False" testMoniker="{5D4A6C80-F80B-468B-B8C1-BF7F9E44760D}TC_Importing_exporting_Dashboards_E9E10" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
-				<testParameters />
-				<children />
-			</testItem>
-			<testItem name="TC_Dashboard_Publishing" key="{B7E1D0E4-7949-4584-AB9D-0CB3C51FE4DF}" group="False" enabled="False" testMoniker="{9057D3D0-1E5E-469C-B2A8-C8EEFF7086B1}Dashboard_Publishing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
-				<testParameters />
-				<children />
-			</testItem>
-			<testItem name="TC_Dashboard_Solution_Workbench_1" key="{1CD86477-285E-4558-8C95-BC4487DE3850}" group="False" enabled="True" testMoniker="{C86A5E91-40FA-4AAC-857A-FC5CA987EDCC}TC_Dashboard_Solution_Workbench_1" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
-				<testParameters />
-				<children />
-			</testItem>
-			<testItem name="TC_Dashboard_Solution_Workbench_2" key="{E6A8A8FF-596F-4E18-9D26-B5C6542AA5F2}" group="False" enabled="True" testMoniker="{1160BA5F-6AEC-47E2-81A8-6283D4AC9D79}TC_Dashboard_Solution_Workbench_2" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
-				<testParameters />
-				<children />
-			</testItem>
-			<testItem name="CompareReports" key="{44153623-8EE3-40E5-943D-DCE49E659B02}" group="False" enabled="False" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+			<testItem name="Dashboards" key="{BF9A0F6A-A4BC-48B2-92CC-2EB2ECCBE1DC}" group="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="2" stopOnException="0" description="">
 				<testParameters />
 				<children>
-					<testItem name="Print_PackingForm" key="{927A1EBD-0B15-47C9-AC67-5C32451B61A6}" group="False" enabled="True" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+					<testItem name="TC_Dashboard_All_companies" key="{62720D75-CE77-45B8-8046-C416E588D9C2}" group="False" enabled="False" testMoniker="{B2CDC1E0-6DB3-4DF0-AB19-9D4BB1B994D4}TC_Dashboard_All_companies" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="TC_Dashboard_Deployment" key="{50C743C9-D268-4816-83A4-2FA11DDD6707}" group="False" enabled="False" testMoniker="{92138E5C-1304-4087-ACB5-EF17B7076CC9}Dashboard_Deployment" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="TC_Dashboard_BAQ_parameters" key="{AFE06E05-7DD1-4576-A445-B75CCB2FDAC9}" group="False" enabled="False" testMoniker="{B6FABD4A-44C5-46F2-94A4-C8B9FED9CFFE}Dashboard_BAQ_Parameters" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="TC_Dashboard_with_UD_tables" key="{82D43099-7CB1-4CF0-BCFD-B201CAD5A53D}" group="False" enabled="False" testMoniker="{A2433EB9-5075-4717-A91B-87191FB10470}Dashboard_with_UD_tables" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="TC_Dashboard_Publishing" key="{B7E1D0E4-7949-4584-AB9D-0CB3C51FE4DF}" group="False" enabled="False" testMoniker="{9057D3D0-1E5E-469C-B2A8-C8EEFF7086B1}Dashboard_Publishing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="TC_Dashboard_Updatable_Customized_Form_(embedded)" key="{F7EEE2BD-6BB9-4D96-9640-CCAF6505BA1A}" group="False" enabled="True" testMoniker="{4E564492-1786-4C87-B711-1BF2C343A7B9}TC_Dashboard_Updatable_Customized_Form" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="TC_Dashboard_Tracker_Views_1" key="{F7C551D8-7BD0-4EF9-AE47-8F8A7054CDE7}" group="False" enabled="True" testMoniker="{5123E3A4-D9DA-481D-A041-C2E0A80DD10F}TC_Dashboard_Tracker_Views_1" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="TC_Dashboard_Tracker_Views_2" key="{46B37498-65BC-417B-8781-6CE1C82891A7}" group="False" enabled="True" testMoniker="{62AD19B9-1AFD-449C-8C67-7ACD8C93B5D1}TC_Dashboard_Tracker_Views_2" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="TC_Dashboard_Tracker_Views_3" key="{0EFA7F36-3D76-4DA1-ADD5-167BB868CE08}" group="False" enabled="True" testMoniker="{18920326-7404-477C-9BCF-86FD1FE42DD2}TC_Dashboard_Tracker_Views_3" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="TC_Importing_exporting_Dashboards_E9_E10" key="{CDFFF37B-D7EB-4EA6-B197-13C9340067B5}" group="False" enabled="True" testMoniker="{5D4A6C80-F80B-468B-B8C1-BF7F9E44760D}TC_Importing_exporting_Dashboards_E9E10" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="TC_Importing_exporting_Dashboards_E10" key="{140DD395-5CE8-4E1C-BAC6-FF5B09C4AA39}" group="False" enabled="True" testMoniker="{D76232C6-416E-4C0D-9561-36487BA44956}TC_Importing_exporting_Dashboards_E10" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="TC_Dashboard_Solution_Workbench_2" key="{E6A8A8FF-596F-4E18-9D26-B5C6542AA5F2}" group="False" enabled="True" testMoniker="{1160BA5F-6AEC-47E2-81A8-6283D4AC9D79}TC_Dashboard_Solution_Workbench_2" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="TC_Dashboard_Solution_Workbench_1" key="{1CD86477-285E-4558-8C95-BC4487DE3850}" group="False" enabled="True" testMoniker="{C86A5E91-40FA-4AAC-857A-FC5CA987EDCC}TC_Dashboard_Solution_Workbench_1" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+				</children>
+			</testItem>
+			<testItem name="CompareReports" key="{44153623-8EE3-40E5-943D-DCE49E659B02}" group="False" enabled="True" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+				<testParameters />
+				<children>
+					<testItem name="Print_PackingForm" key="{927A1EBD-0B15-47C9-AC67-5C32451B61A6}" group="False" enabled="False" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
 						<testParameters />
 						<children />
 					</testItem>
@@ -98,7 +103,7 @@
 						<testParameters />
 						<children />
 					</testItem>
-					<testItem name="ARInvoice" key="{3B6F3043-4AC5-4156-862F-CAC1071BB3B9}" group="False" enabled="True" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}ReportARInvoice" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+					<testItem name="ARInvoice" key="{3B6F3043-4AC5-4156-862F-CAC1071BB3B9}" group="False" enabled="False" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}ReportARInvoice" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
 						<testParameters />
 						<children />
 					</testItem>
@@ -120,18 +125,30 @@
 					</testItem>
 				</children>
 			</testItem>
-			<testItem name="GenerateReports" key="{8EF443AB-D27C-49A9-9158-44EF8368CC47}" group="False" enabled="False" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+			<testItem name="GenerateReports" key="{8EF443AB-D27C-49A9-9158-44EF8368CC47}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
 				<testParameters />
 				<children>
-					<testItem name="Print_PackingForm" key="{8C61EDAF-DBE5-498D-B489-884B38EED3EA}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportPrintPackingform" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+					<testItem name="Start E10" key="{019246DA-987B-418C-A0E1-C32D5E7AD88B}" group="False" enabled="False" testMoniker="{F1CD833E-48AA-4525-956C-8B6B09CA8D01}StartSmartClient" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
 						<testParameters />
-						<children />
+						<children>
+							<testItem name="login" key="{571A9DD7-3720-4177-A7F3-70CAAD06647B}" group="False" enabled="True" testMoniker="{F1CD833E-48AA-4525-956C-8B6B09CA8D01}Login" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters>
+									<param0 name="username" type="3" localVarName="username" localVarLevel="1" value="" />
+									<param1 name="password" type="3" localVarName="password" localVarLevel="1" value="" />
+								</testParameters>
+								<children />
+							</testItem>
+							<testItem name="Active tree" key="{8CBA8AFA-A217-465C-9162-4ED0F3ED54C0}" group="False" enabled="True" testMoniker="{F1CD833E-48AA-4525-956C-8B6B09CA8D01}ActivateFullTree" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
 					</testItem>
 					<testItem name="JobTraveler" key="{39AFC9C0-0EE3-4897-98A1-ECC7DD81305A}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportJobTraveler" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
 						<testParameters />
 						<children />
 					</testItem>
-					<testItem name="ARInvoice" key="{4D40D505-B9DF-4D22-871B-316AE1641F15}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportARInvoice" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+					<testItem name="ARInvoice" key="{4D40D505-B9DF-4D22-871B-316AE1641F15}" group="False" enabled="False" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportARInvoice" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
 						<testParameters />
 						<children />
 					</testItem>
@@ -151,7 +168,11 @@
 						<testParameters />
 						<children />
 					</testItem>
-					<testItem name="AP Payment Form" key="{2F9C4DFA-581D-41B9-B2CB-DB28062E6130}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportAPPaymentform" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+					<testItem name="Print_PackingForm" key="{8C61EDAF-DBE5-498D-B489-884B38EED3EA}" group="False" enabled="False" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportPrintPackingform" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children />
+					</testItem>
+					<testItem name="AP Payment Form" key="{2F9C4DFA-581D-41B9-B2CB-DB28062E6130}" group="False" enabled="False" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportAPPaymentform" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
 						<testParameters />
 						<children />
 					</testItem>
@@ -289,7 +310,7 @@
 			</data>
 		</setting>
 		<setting name="{85CD048A-29FF-4ABF-95A6-B915AEA2C10D}" type="1" value="False" />
-		<setting name="{2044DC7F-423E-4668-8114-68D23AE97AD6}" type="2" value="50" />
+		<setting name="{2044DC7F-423E-4668-8114-68D23AE97AD6}" type="2" value="150" />
 		<setting name="Recording_TestedAppsOnly" type="1" value="True" />
 		<setting name="{FB1CAF99-7FA6-447C-B963-D862CA8BFF89}" type="2" value="3000" />
 		<setting name="{3B76535B-58AD-456C-837E-091A5C480F6C}" type="1" value="True" />

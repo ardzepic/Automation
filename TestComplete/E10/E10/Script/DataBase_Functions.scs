@@ -5,7 +5,8 @@ function QueryDatabaseDashboards(DashBDID)
 {
   var aCon, aCmd, aRecSet, ConnectInfo, i;
  
-  ConnectInfo = "Provider=SQLOLEDB.1;User ID=sa; Password=Epicor123;Initial Catalog=erp10Staging;Persist Security Info=False;Data Source=" + Sys["HostName"];
+  ConnectInfo = "Provider=SQLOLEDB.1;User ID=sa; Password=Epicor123;Initial Catalog=ERP10Dev;Persist Security Info=False;Data Source=" + Sys["HostName"];
+  //ConnectInfo = "Provider=SQLOLEDB.1;User ID=sa; Password=Epicor123;Initial Catalog=erp10Staging;Persist Security Info=False;Data Source=" + Sys["HostName"];
  
   // Creates ADO connection
   aCon = ADO["CreateConnection"]();

@@ -1,16 +1,41 @@
-﻿//USEUNIT General_Functions
-//USEUNIT Dashboards_Functions
-//USEUNIT BAQs_Functions
-//USEUNIT Grid_Functions
-//USEUNIT Sys_Functions
+﻿//Script for report compare
+//Variables are defined with the full path of its location
+//A function for each report is created and called on TC routine 
+
+var pathFileReportSalesOrder = "C:\\EpicorData\\TenOne\\Reports\\epicor\\Sales Order Acknowledgment00885.xml"
+var pathFileReportQuoteform = "C:\\EpicorData\\TenOne\\Reports\\epicor\\Quote Form00886.xml"
+var pathFileReportPurchaseOrder = "C:\\EpicorData\\TenOne\\Reports\\epicor\\Purchase Order00884.xml"
+var pathFileReportProFormaInv = "C:\\EpicorData\\TenOne\\Reports\\epicor\\Pro-Forma Invoice00883.xml"
+var pathFileReportJobTraveler = "C:\\EpicorData\\TenOne\\Reports\\epicor\\Job Traveler00882.xml"
+var pathFileReportARInvoice = "C:\\EpicorData\\TenOne\\Reports\\epicor\\AR Invoice Form00970.xml"
+
 
 function Report_Testing(){
-
-//XML["XmlCheckpoint1"]["Check"]("C:\\Users\\Administrator\\Documents\\Reports\\Sales Order Acknowledgment00885.xml");
-var pathFileReport = "C:\\EpicorData\\Reports\\epicor\\Sales Order Acknowledgment00146.xml"
-
-  XML["XmlCheckpoint1"]["Check"](pathFileReport);
-
-
+	//XML["XmlCheckpoint1"]["Check"]("C:\\Users\\Administrator\\Documents\\Reports\\Sales Order Acknowledgment00885.xml");
+ 	// XML["XmlCheckpoint1"]["Check"](pathFileReport);
+  Log["Message"]("Starting Report comparing")
 }
 
+function ReportSalesOrder(){
+	XML["XmlSalesOrder"]["Check"](pathFileReportSalesOrder)
+}
+
+function ReportQuoteform(){
+	XML["XmlQuoteForm"]["Check"](pathFileReportQuoteform)
+}
+
+function ReportPurchaseOrder(){
+	XML["XmlPurchaseOrder"]["Check"](pathFileReportPurchaseOrder)
+}
+
+function ReportProFormaInv(){
+	XML["XmlProFormaInvoice"]["Check"](pathFileReportProFormaInv)
+}
+
+function ReportJobTraveler(){
+	XML["XMLJobTraveler"]["Check"](pathFileReportJobTraveler)
+}
+
+function ReportARInvoice(){
+	XML["XmlARInvoice"]["Check"](pathFileReportARInvoice)
+}

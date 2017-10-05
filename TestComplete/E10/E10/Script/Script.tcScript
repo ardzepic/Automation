@@ -79,6 +79,39 @@
 		<child name="TC_Dashboard_Updatable_Customized_Form_sys" key="{EA04227E-DEE9-43D0-A9F8-B89824F64EC9}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
 			<data path="TC_Dashboard_Updatable_Customized_Form_sys.scs" />
 		</child>
+		<child name="test" key="{9083BB60-C18C-4E35-BE1A-4389AE126115}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="test.scs" />
+		</child>
+		<child name="Menu_Functions" key="{5B84499A-AAE0-477C-8C64-3557C164CE26}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="Menu_Functions.scs" />
+		</child>
+		<child name="ObjectLib" key="{760A7BB6-828A-4855-9464-2EF545610801}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="ObjectLib.scs" />
+		</child>
+		<child name="Data_Dashboard_Deployment" key="{206693E5-7EAF-4852-899B-53830733BDC0}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="Data_Dashboard_Deployment.scs" />
+		</child>
+		<child name="Data_Dashboard_All_companies" key="{E472130F-3F05-4F4F-9533-F3806D7CE89C}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="Data_Dashboard_All_companies.scs" />
+		</child>
+		<child name="Data_Dashboard_Publishing" key="{9F4B11D9-7E7B-4CE2-A855-22DCC911991D}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="Data_Dashboard_Publishing.scs" />
+		</child>
+		<child name="Data_Dashboard_BAQParams" key="{7F75CD8A-F18D-4A94-BDE2-69E3CB7E0C9D}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="Data_Dashboard_BAQParams.scs" />
+		</child>
+		<child name="Data_Dashboard_UDs" key="{F5F69BE9-60A8-4F0A-AA3F-1390167544D5}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="Data_Dashboard_UDs.scs" />
+		</child>
+		<child name="Data_Dashboard_TrackerViews_1" key="{130E81CA-CC61-4D3B-B377-C35C43904821}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="Data_Dashboard_TrackerViews_1.scs" />
+		</child>
+		<child name="Data_Dashboard_TrackerViews_2" key="{1F87B69D-258C-4C04-997A-417AB1F9D55A}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="Data_Dashboard_TrackerViews_2.scs" />
+		</child>
+		<child name="Data_Dashboard_TrackerViews_3" key="{79722D56-5421-4E04-BABC-05CDEBE036F6}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="Data_Dashboard_TrackerViews_3.scs" />
+		</child>
 	</children>
 	<folders>
 		<folder caption="Dashboards" description="A logical folder that is used to organize project items and elements." moniker="">
@@ -98,18 +131,29 @@
 				<ref key="{5D4A6C80-F80B-468B-B8C1-BF7F9E44760D}" />
 				<ref key="{18920326-7404-477C-9BCF-86FD1FE42DD2}" />
 				<ref key="{EA04227E-DEE9-43D0-A9F8-B89824F64EC9}" />
+				<ref key="{9083BB60-C18C-4E35-BE1A-4389AE126115}" />
 			</references>
 		</folder>
 		<folder caption="Functions" description="A logical folder that is used to organize project items and elements." moniker="">
-			<references>
-				<ref key="{EFFC98B7-D96A-4B9F-B035-5E4CBACA7D99}" />
-				<ref key="{F0C1E2F5-A68D-408C-BF66-E92823E3EA90}" />
-				<ref key="{F1CD833E-48AA-4525-956C-8B6B09CA8D01}" />
-				<ref key="{A3B37A1C-29A8-4958-BA14-F6E8A00970A7}" />
-				<ref key="{AB222151-AEEB-4A05-98F0-7D153D262CA4}" />
-				<ref key="{6B3BCC67-756B-4AD1-BDB2-2FD1A4A5F426}" />
-				<ref key="{C7CEA1EF-0AFE-4DE7-8B38-494937F8161A}" />
-			</references>
+			<folders>
+				<folder caption="Control_Functions" description="A logical folder that is used to organize project items and elements." moniker="">
+					<references>
+						<ref key="{6B3BCC67-756B-4AD1-BDB2-2FD1A4A5F426}" />
+						<ref key="{C7CEA1EF-0AFE-4DE7-8B38-494937F8161A}" />
+						<ref key="{5B84499A-AAE0-477C-8C64-3557C164CE26}" />
+						<ref key="{760A7BB6-828A-4855-9464-2EF545610801}" />
+					</references>
+				</folder>
+				<folder caption="Tools_Functions" description="A logical folder that is used to organize project items and elements." moniker="">
+					<references>
+						<ref key="{EFFC98B7-D96A-4B9F-B035-5E4CBACA7D99}" />
+						<ref key="{F0C1E2F5-A68D-408C-BF66-E92823E3EA90}" />
+						<ref key="{AB222151-AEEB-4A05-98F0-7D153D262CA4}" />
+						<ref key="{A3B37A1C-29A8-4958-BA14-F6E8A00970A7}" />
+						<ref key="{F1CD833E-48AA-4525-956C-8B6B09CA8D01}" />
+					</references>
+				</folder>
+			</folders>
 		</folder>
 		<folder caption="Reports" description="A logical folder that is used to organize project items and elements." moniker="">
 			<references>
@@ -121,6 +165,14 @@
 			<references>
 				<ref key="{EB5A204E-4C5D-4367-8AD7-90C7A4B2DD54}" />
 				<ref key="{F64AE636-B4A2-41F0-9AB5-E32B5B6557FF}" />
+				<ref key="{206693E5-7EAF-4852-899B-53830733BDC0}" />
+				<ref key="{E472130F-3F05-4F4F-9533-F3806D7CE89C}" />
+				<ref key="{9F4B11D9-7E7B-4CE2-A855-22DCC911991D}" />
+				<ref key="{7F75CD8A-F18D-4A94-BDE2-69E3CB7E0C9D}" />
+				<ref key="{F5F69BE9-60A8-4F0A-AA3F-1390167544D5}" />
+				<ref key="{130E81CA-CC61-4D3B-B377-C35C43904821}" />
+				<ref key="{1F87B69D-258C-4C04-997A-417AB1F9D55A}" />
+				<ref key="{79722D56-5421-4E04-BABC-05CDEBE036F6}" />
 			</references>
 		</folder>
 	</folders>
