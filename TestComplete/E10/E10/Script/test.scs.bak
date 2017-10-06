@@ -13,10 +13,10 @@ function test(){
 
   var test = FindObject("*Combo*", "Name", "*cboCustomer_Country*", trackerMainPanel[4])
   
-  if(test["Exists"]){
-    Log["Message"]("Combo exists")
+  if(!test["Exists"]){
+    Log["Message"]("Combo is not visible")
   } else{
-    Log["Error"]("Combo doesnt exist")
+    Log["Error"]("Combo is visible. Visible behavior not modified.")
   } 
   
   //  EnterText("txtMenuID", "test"+  "[Tab]", "Adding Dashboard name")

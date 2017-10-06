@@ -112,6 +112,21 @@
 		<child name="Data_Dashboard_TrackerViews_3" key="{79722D56-5421-4E04-BABC-05CDEBE036F6}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
 			<data path="Data_Dashboard_TrackerViews_3.scs" />
 		</child>
+		<child name="TC_Dashb_All_companies" key="{12E7DB0C-261A-4E7E-8D10-431068B732CD}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="TC_Dashb_All_companies.scs" />
+		</child>
+		<child name="FormLib" key="{EA421B20-5512-435D-BE95-D8DB6F519216}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="FormLib.scs" />
+		</child>
+		<child name="TC_Dashb_BAQ_Parameters" key="{4330E6E0-C397-4BDF-9548-54817C7CDA2E}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="TC_Dashb_BAQ_Parameters.scs" />
+		</child>
+		<child name="TC_Dashb_Deployment" key="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="TC_Dashb_Deployment.scs" />
+		</child>
+		<child name="TC_Dashb_Publishing" key="{EA35E836-8C40-455D-AB89-B03A4ED00D56}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="TC_Dashb_Publishing.scs" />
+		</child>
 	</children>
 	<folders>
 		<folder caption="Dashboards" description="A logical folder that is used to organize project items and elements." moniker="">
@@ -142,6 +157,7 @@
 						<ref key="{C7CEA1EF-0AFE-4DE7-8B38-494937F8161A}" />
 						<ref key="{5B84499A-AAE0-477C-8C64-3557C164CE26}" />
 						<ref key="{760A7BB6-828A-4855-9464-2EF545610801}" />
+						<ref key="{EA421B20-5512-435D-BE95-D8DB6F519216}" />
 					</references>
 				</folder>
 				<folder caption="Tools_Functions" description="A logical folder that is used to organize project items and elements." moniker="">
@@ -173,6 +189,14 @@
 				<ref key="{130E81CA-CC61-4D3B-B377-C35C43904821}" />
 				<ref key="{1F87B69D-258C-4C04-997A-417AB1F9D55A}" />
 				<ref key="{79722D56-5421-4E04-BABC-05CDEBE036F6}" />
+			</references>
+		</folder>
+		<folder caption="Moduled Dashboards" description="A logical folder that is used to organize project items and elements." moniker="">
+			<references>
+				<ref key="{12E7DB0C-261A-4E7E-8D10-431068B732CD}" />
+				<ref key="{4330E6E0-C397-4BDF-9548-54817C7CDA2E}" />
+				<ref key="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}" />
+				<ref key="{EA35E836-8C40-455D-AB89-B03A4ED00D56}" />
 			</references>
 		</folder>
 	</folders>

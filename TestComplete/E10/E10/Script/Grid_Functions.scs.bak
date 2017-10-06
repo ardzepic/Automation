@@ -1,4 +1,6 @@
-﻿/* Retrieves the column index of the grid specified in the parameter
+﻿//USEUNIT ObjectLib
+
+/* Retrieves the column index of the grid specified in the parameter
 * @param: grid - An object that contains the information of a grid
 * @param: column - String that has the name of the column that will return the index
 * @return: the column Index*/

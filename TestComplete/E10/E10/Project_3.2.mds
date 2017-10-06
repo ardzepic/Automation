@@ -35,7 +35,7 @@
 	<config language="{90813F19-086D-4670-83BC-DB51386DC224}" />
 	<testItems key="{FDA44FCB-1D2F-4167-A0F5-DDC45614A08F}">
 		<children>
-			<testItem name="Dashboards" key="{BF9A0F6A-A4BC-48B2-92CC-2EB2ECCBE1DC}" group="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="2" stopOnException="0" description="">
+			<testItem name="Dashboards" key="{BF9A0F6A-A4BC-48B2-92CC-2EB2ECCBE1DC}" group="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="2" stopOnException="0" description="">
 				<testParameters />
 				<children>
 					<testItem name="TC_Dashboard_All_companies" key="{62720D75-CE77-45B8-8046-C416E588D9C2}" group="False" enabled="False" testMoniker="{B2CDC1E0-6DB3-4DF0-AB19-9D4BB1B994D4}TC_Dashboard_All_companies" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
@@ -92,7 +92,7 @@
 					</testItem>
 				</children>
 			</testItem>
-			<testItem name="CompareReports" key="{44153623-8EE3-40E5-943D-DCE49E659B02}" group="False" enabled="True" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+			<testItem name="CompareReports" key="{44153623-8EE3-40E5-943D-DCE49E659B02}" group="False" enabled="False" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
 				<testParameters />
 				<children>
 					<testItem name="Print_PackingForm" key="{927A1EBD-0B15-47C9-AC67-5C32451B61A6}" group="False" enabled="False" testMoniker="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
@@ -125,7 +125,7 @@
 					</testItem>
 				</children>
 			</testItem>
-			<testItem name="GenerateReports" key="{8EF443AB-D27C-49A9-9158-44EF8368CC47}" group="False" enabled="True" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+			<testItem name="GenerateReports" key="{8EF443AB-D27C-49A9-9158-44EF8368CC47}" group="False" enabled="False" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}Report_Testing" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
 				<testParameters />
 				<children>
 					<testItem name="Start E10" key="{019246DA-987B-418C-A0E1-C32D5E7AD88B}" group="False" enabled="False" testMoniker="{F1CD833E-48AA-4525-956C-8B6B09CA8D01}StartSmartClient" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
@@ -175,6 +175,199 @@
 					<testItem name="AP Payment Form" key="{2F9C4DFA-581D-41B9-B2CB-DB28062E6130}" group="False" enabled="False" testMoniker="{1F4BC975-385C-41C9-9994-C08251206F82}ReportAPPaymentform" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
 						<testParameters />
 						<children />
+					</testItem>
+				</children>
+			</testItem>
+			<testItem name="Dashboards v2" key="{0AF6FF58-A6AF-49DC-8A71-EFA3B295AF02}" group="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+				<testParameters />
+				<children>
+					<testItem name="All Companies" key="{F41DF331-1DCC-4696-B0C0-36E51B234500}" group="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children>
+							<testItem name="Create BAQ" key="{1634342F-39C1-4163-BB62-252139884A97}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}CreateBAQ" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create Dashboard 1" key="{333CA13D-5BFF-46A9-A38C-854EABB7EA47}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}CreateDashboard" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create Menu 1" key="{5F79F89B-117B-429A-A4DF-00D897C9AEE4}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}CreateMenuDashboard" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Restart E10" key="{811CAAFE-A5DB-4235-9224-D4125081F1AB}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}RestartE10" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Test Existence Menu 1 on EPIC06" key="{081F5845-CA15-4D1C-8DB0-E8D5B2A19F49}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}TestMenuDataDB1_EPIC06" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Test Existence Menu 1 on EPIC07" key="{7931D647-4EBF-4F65-8EED-BE4797A88A2F}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}TestMenuDataDB1_EPIC07" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Verify All companies chk Dashb 1 EPIC07" key="{744EA310-97FF-4AB9-ADCC-1F367D5EFA11}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}VerifyAllCompaniesChk" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create Dashboard 2" key="{7030F8C3-1F68-4E49-A825-6B3C7DE96101}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}CreateDashboard2" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create Menu 2" key="{AC19DF76-3CBD-4D34-9939-4FAD416E1DF2}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}CreateMenu2" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Restart E10" key="{BE27FA7D-00E6-45BD-9C83-DE7CA5B1A70C}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}RestartE10_2" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Test Grid Data Dashb 2 " key="{607C2CC2-43E1-4829-904E-8CA6D2430C15}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}TestMenuDataDB2_EPIC07" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Test Grid Data Dashb 1 - EPIC06" key="{1E08B696-BA0D-4951-B662-1CE8012F5F9D}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}RetrieveMenuDataDB1_EPIC06" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Retrieve Dashb 1 - Dashb Maintenance" key="{01E7F836-E4F9-4478-AACF-B8675D613AAB}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}DashbMaintenance" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create copy Dashb 1 " key="{79FB4A78-1B08-4087-9E58-D81F49013C77}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}CopyDashb1" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create Copy Sys Dashb" key="{504FDD07-BD6A-429F-8D3F-AE0E626C5CEE}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}CreateCopySysDashb" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Test Dashb SQL - Delete" key="{114C173E-87F8-4FBE-AD39-09A5429F41D1}" group="False" enabled="True" testMoniker="{12E7DB0C-261A-4E7E-8D10-431068B732CD}TestSQLDashbs" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+					<testItem name="BAQ PArameters" key="{3A52D21C-22E1-42E8-A04D-0E450C3858EF}" group="False" enabled="True" testMoniker="" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children>
+							<testItem name="Create BAQ 1" key="{FA08F50E-AC6C-4F85-85A4-FF5C8DB6EE81}" group="False" enabled="True" testMoniker="{4330E6E0-C397-4BDF-9548-54817C7CDA2E}CreateBAQ1" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create BAQ 2" key="{34498B44-AB09-4A2B-BBCD-C8B20C985339}" group="False" enabled="True" testMoniker="{4330E6E0-C397-4BDF-9548-54817C7CDA2E}CreateBAQ2" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create Dashboard" key="{D7AD5334-0B79-469C-9E1C-8CF5DB617B26}" group="False" enabled="True" testMoniker="{4330E6E0-C397-4BDF-9548-54817C7CDA2E}CreateDashboard1" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Restart E10" key="{1B4BD394-5F55-4CE8-8975-2E74BE6BCE6C}" group="False" enabled="True" testMoniker="{4330E6E0-C397-4BDF-9548-54817C7CDA2E}RestartE10" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Test Deployed Dashboard" key="{F189D548-3206-43FA-A28F-67699EC74215}" group="False" enabled="True" testMoniker="{4330E6E0-C397-4BDF-9548-54817C7CDA2E}TestDeployedDashb" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+					<testItem name="Deployment" key="{3215423B-72C3-4DB9-9427-794B7925C671}" group="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children>
+							<testItem name="Retrieve Sys Dashboard" key="{4B303F80-3EDD-4C3A-A231-6FCD8BFD99BC}" group="False" enabled="True" testMoniker="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}RetrieveSysDashb" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create Dashboard" key="{FC753BC3-8435-4975-A3D5-541CD6535316}" group="False" enabled="True" testMoniker="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}CreateDashb" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create Menu 1" key="{A1BA896B-4FBC-4ABD-A49E-F215A3B580D3}" group="False" enabled="True" testMoniker="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}CreateMenu1" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Restart E10" key="{E746E33F-6AB1-4276-B71B-2B8162B8CED7}" group="False" enabled="True" testMoniker="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}RestartE10" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Test Deployed Dashb from Fav Menu" key="{1CBC5A43-7DB7-437B-824C-B840121A87B7}" group="False" enabled="True" testMoniker="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}TestDeployedDbFavMenu" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Test Deployed Dashb from Menu" key="{E315D069-CDAE-4A50-B173-12BF33486795}" group="False" enabled="True" testMoniker="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}TestDeployedDbMenu" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Deploy Sys Dashb - Dashb Maintenance form" key="{B1223FD7-66DD-45B7-AE48-EC8446CD60BE}" group="False" enabled="True" testMoniker="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}SysDashbMaintenanceDeploy" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Modify Sys Dashb - Dashb Maintenance form" key="{CDE1D0EB-819F-4DD2-842A-F1A89E47F01D}" group="False" enabled="True" testMoniker="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}SysDashbMaintenanceModify" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="GenWeb Sys Dashb - Dashb Maintenance form" key="{39C13C70-5EA8-4E9D-96E4-E407590B325E}" group="False" enabled="True" testMoniker="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}SysDashbMaintenanceGenerateWeb" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create Menu 2" key="{8AA8B332-E34A-4CFB-9187-E7E97E5B64DC}" group="False" enabled="True" testMoniker="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}CreateMenu2" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Deploy Sys Dashb 2 - Dashb Maintenance form" key="{BE4EA197-3F1A-466C-8275-821C3021F191}" group="False" enabled="True" testMoniker="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}SysDashbMaintenanceDeploy2" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
+					</testItem>
+					<testItem name="Publishing" key="{814F7CA1-6802-469B-9101-F0E8D567A59F}" group="False" enabled="False" testMoniker="" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+						<testParameters />
+						<children>
+							<testItem name="Create BAQ 1" key="{40663F2C-9CAC-419C-9C02-26C35270DC90}" group="False" enabled="True" testMoniker="{EA35E836-8C40-455D-AB89-B03A4ED00D56}CreateBAQ1" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create BAQ 2" key="{43B2F062-B36C-4D35-9FB3-CE9BB5C2440E}" group="False" enabled="True" testMoniker="{EA35E836-8C40-455D-AB89-B03A4ED00D56}CreateBAQ2" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create Dashboard 1" key="{0843A21B-CEBE-42A4-A2CA-D40CD0D9FF13}" group="False" enabled="True" testMoniker="{EA35E836-8C40-455D-AB89-B03A4ED00D56}CreateDashboard" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Activate Publish View" key="{AD03EAF2-8055-40D4-BC20-0C749CB41956}" group="False" enabled="True" testMoniker="{EA35E836-8C40-455D-AB89-B03A4ED00D56}PublishView" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Retrieve Dashboard to publish" key="{844D59D7-041F-4665-9963-3C896F04331C}" group="False" enabled="True" testMoniker="{EA35E836-8C40-455D-AB89-B03A4ED00D56}RetrieveDashbForPublish" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Add query 2 dashb 1" key="{3EA86540-9088-43C5-9D31-6D87B484A4F1}" group="False" enabled="True" testMoniker="{EA35E836-8C40-455D-AB89-B03A4ED00D56}AddQuery2Dashb" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Test Dashboard 1" key="{83419C8D-94C2-40F8-86A0-9C89F6B947B1}" group="False" enabled="True" testMoniker="{EA35E836-8C40-455D-AB89-B03A4ED00D56}TestBeforeDeploy1" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Test Dashboard 2" key="{73AACE35-2F87-46A8-9CC6-B5D9E471E190}" group="False" enabled="True" testMoniker="{EA35E836-8C40-455D-AB89-B03A4ED00D56}TestBeforeDeploy2" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Test Dashboard 3" key="{7E716E5D-84CA-41A1-AF29-6B236889F734}" group="False" enabled="True" testMoniker="{EA35E836-8C40-455D-AB89-B03A4ED00D56}TestBeforeDeploy3" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+							<testItem name="Create Dashboard 2" key="{E8F4BBD3-D44C-4582-9799-BD6C2ACA36F2}" group="False" enabled="True" testMoniker="{EA35E836-8C40-455D-AB89-B03A4ED00D56}CreateDashboard2" count="1" timeout="0" stopOnError="2" stopOnException="2" description="">
+								<testParameters />
+								<children />
+							</testItem>
+						</children>
 					</testItem>
 				</children>
 			</testItem>

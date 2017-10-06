@@ -5,44 +5,17 @@
 //USEUNIT DataBase_Functions
 //USEUNIT ControlFunctions
 //USEUNIT Data_Dashboard_All_companies
+//USEUNIT FormLib
 
 function test(){
-  //var parentWnd = Sys.Process("Epicor")
-  //var test = FindObjects("*UltraToolbarsDockArea", ["Name"], ["*_Toolbars_Dock_Area_Top*"],parentWnd, 30 )
-  var trackerMainPanel = RetrieveTrackerMainPanel()
-
-  var test = FindObject("*Combo*", "Name", "*cboCustomer_Country*", trackerMainPanel[4])
-  
-  if(!test["Exists"]){
-    Log["Message"]("Combo is not visible")
-  } else{
-    Log["Error"]("Combo is visible. Visible behavior not modified.")
-  } 
-  
-  //  EnterText("txtMenuID", "test"+  "[Tab]", "Adding Dashboard name")
-  //ClickButton("OK")
-  
-  //OpenPanelTab("Update->Update Processing")
-  //ComboboxSelect("cboType","Dashboard-Assembly")
-  
-  //CheckboxState("chkInUse", true)
-  //verifyCheckbox("chkInUs", true)
-  
-  //CheckboxState("chkAllCompanies", true)
-  
-  //var queryprops = FindObject("*TabControl", "Name", "*Query*")
- // var treePanel = FindObject("*TreeView*", "Name",  "*treeView*")
-
-     //   treePanel["ClickItem"]("Updatable Fields|Customer_State")
-  
- /* var username = "epicor"
-  var password = "epicor"
-
-  userField = GetTextBox("txtUserID")
-  userField["Keys"](username + "[Tab]")
-
-  passwordField = GetTextBox("txtPassword")
-  passwordField["Keys"](password + "[Enter]")*/
+var dashb1 = "TestDashBD"
+   var verifyForm = VerifyForm(dashb1)
+    // if(Aliases["Epicor"]["Dashboard"]["Exists"] == true && Aliases["Epicor"]["Dashboard"]["WndCaption"] == dashb1){
+    if (verifyForm) {
+      Log["Checkpoint"]("dashboard designer is opened")
+    }else{
+      Log["Error"]("dashboard designer was not opened")
+    }  
 } 
 
 function RetrieveTrackerMainPanel(){

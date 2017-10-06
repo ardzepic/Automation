@@ -27,7 +27,7 @@ var baqData1 = {
 
 //Dashboards used for Test
 var dashb1 = "TestDashBD"
-var dashb2 = "JobStatusPlus"
+var dashb2 = "JobStatus"
 
 //Dashboards configurations
 var dashb1Config = "chkAllCompanies"

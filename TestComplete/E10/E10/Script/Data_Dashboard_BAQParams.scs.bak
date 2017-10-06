@@ -20,12 +20,20 @@ var treeMainPanel1 = setCompanyMainTree(company1,plant1)
     "Table" : "Customer",
     "Columns" : "CustNum"
   }
+  var baqData2 = {
+    "Id" : "baqParams2",
+    "Description" : "baqParams2",
+    "Table1" : "OrderDtl",
+    "ColumnsT1" : "Company,OrderNum,PartNum,CustNum",
+    "Table2" : "Customer",
+    "ColumnsT2" : "CustNum"
+  }
 
 //Dashboards used for Test
   var DashbData = {
     "dashboardID" : "DashBBAQ",
     "dashboardCaption" : "DashBBAQ",
     "dashDescription" : "DashBBAQ",
-    "baqQuery" : "baqParams2",
+    "baqQuery" : baqData2["Id"],
     "deploymentOptions" : "Deploy Smart Client,Add Favorite Item,Generate Web Form"
   }
