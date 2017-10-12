@@ -80,8 +80,6 @@ function PublishView(){
   EnterText("cmbGroup", publishDetails["group"])
   EnterText("txtDescription", publishDetails["description"])
 
-  //Click Ok
-  // Aliases["Epicor"]["PublishViewPropsDialog"]["btnOk"]["Click"]()
   ClickButton("OK")
   Log["Message"]("Published view added.")
 
@@ -91,7 +89,6 @@ function PublishView(){
 
   //5- Clear/Close the dashboard 
   Log["Message"]("Step 5")
-  // Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
   ExitDashboard()
 }
 
@@ -106,7 +103,6 @@ function RetrieveDashbForPublish(){
 
   //checks if the 'Available Views' panel is available
   if(!Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow2"]["Exists"]){
-    // Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&View|Published Views")
     ClickMenu("View->Published Views")
   }
 
@@ -153,7 +149,6 @@ function RetrieveDashbForPublish(){
     }
   }
   
-  // Aliases["Epicor"]["DashboardProperties"]["btnOkay"]["Click"]()
   ClickButton("OK")
   Log["Message"]("BAQ1 - properties 'ok' button was clicked")
 
@@ -182,6 +177,8 @@ function AddQuery2Dashb(){
   DashboardPropertiesTabs("Filter")
   Log["Message"](baqData2["Id"] + " - filter tab was selected")
 
+  var queryProperties = Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["QueryPropsPanel"]["PropertiesPanel_Fill_Panel"]["tcQueryProps"]
+
   var ultraGrid = queryProperties["tabFilter"]["WinFormsObject"]("pnlFilter")["WinFormsObject"]("ultraGrid1")
 
   SelectCellDropdownGrid("ColumnName", "OrderHed_CustNum", ultraGrid)
@@ -206,20 +203,16 @@ function AddQuery2Dashb(){
 function TestBeforeDeploy1(){
 
   //Operan 'Deploy dashboard' from menu
-  // Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Tools|Deploy Dashboard")
   ClickMenu("Tools->Deploy Dashboard")
   
   //9- Click 'Test Application'
-  // Aliases["Epicor"]["AppBuilderDeployDialog"]["deployOptionsPanel1"]["grpWinAssembly"]["btnTestLaunch"]["Click"]()
   ClickButton("Test Application")
   Delay(1500)
-  // Aliases["Epicor"]["AppBuilderDeployDialog"]["deployOptionsPanel1"]["btnCancel"]["Click"]()
   ClickButton("Cancel")
 
   /*9- Test data before deployment */
   Log["Message"]("Step 9")
   Log["Message"]("Ready to test data")
-  // Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh All")
 
   var DashboardMainPanel = Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["windowDockingArea1"]["dockableWindow1"]["MainPanel"]["MainDockPanel"]
 
@@ -277,6 +270,16 @@ function TestBeforeDeploy1(){
 // Step 10
 function TestBeforeDeploy2(){
 
+    var DashboardMainPanel = Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["windowDockingArea1"]["dockableWindow1"]["MainPanel"]["MainDockPanel"]
+
+    var gridDashboardPanelChildren = DashboardMainPanel["FindAllChildren"]("FullName", "*grid*", 15)["toArray"]();
+    
+    //Gives time to load the children inside the variable
+    Delay(2000)
+
+    var baq1Grid = gridDashboardPanelChildren[1]
+    var baq2Grid = gridDashboardPanelChildren[2]
+
   /* 10- In the second grid from the dashboard right click on any Order from "Order" column
    select open with > Sales Order Entry  (Or do the same with any CustID from the first grid and open it with Customer Maintenance) */
     Log["Message"]("Step 10")
@@ -302,6 +305,17 @@ function TestBeforeDeploy2(){
 
 // Step 11, 12
 function TestBeforeDeploy3(){
+
+    var DashboardMainPanel = Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["windowDockingArea1"]["dockableWindow1"]["MainPanel"]["MainDockPanel"]
+
+    var gridDashboardPanelChildren = DashboardMainPanel["FindAllChildren"]("FullName", "*grid*", 15)["toArray"]();
+
+    //Gives time to load the children inside the variable
+    Delay(2000)
+
+    var baq1Grid = gridDashboardPanelChildren[1]
+    var baq2Grid = gridDashboardPanelChildren[2]
+    
   /* 11- change between orders from second grid and see what happens to Sales Order Entry form that is already opened */
     Log["Message"]("Step 11")
     //Activate Dash window
@@ -350,11 +364,9 @@ function TestBeforeDeploy3(){
     }
 
     //Close Sales Order
-    // Aliases["Epicor"]["SalesOrderForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
     ClickMenu("File->Exit")
 
     //Close Dashboard Panel
-    // Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
     ClickMenu("File->Exit")      
 
     Log["Checkpoint"]("Data was validated, no errors found")
@@ -390,7 +402,6 @@ function CreateDashboard2(){
   Log["Message"]("Dashboard saved")
 
   if(!Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow2"]["Exists"]){
-    // Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&View|Published Views")
     ClickMenu("View->Published Views")
   }
 
@@ -409,7 +420,6 @@ function CreateDashboard2(){
   Log["Message"]("Dashboard saved")
 
   //Deactivate Published Views
-  // Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&View|Published Views")
   ClickMenu("View->Published Views")
 
   DeployDashboard(DashbData2["deploymentOptions"])

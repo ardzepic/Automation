@@ -6686,7 +6686,7 @@
 											</Property>
 										</Properties>
 									</Child>
-									<Child Name="windowDockingArea1" Key="{E516E3EC-A5DF-4848-9A2E-D10C6626CC6C}" ParallelWalk="True">
+									<Child Name="windowDockingArea1" Key="{E516E3EC-A5DF-4848-9A2E-D10C6626CC6C}" ParallelWalk="True" MultiVersion="True">
 										<Image FileName="1908326202" Left="178" Top="79" Right="1014" Bottom="734" />
 										<TypeInfo Item0="{DD50DF04-E8C4-4D42-837C-A08E944F2B6F}" />
 										<Properties>
@@ -6866,6 +6866,13 @@
 																																<Properties>
 																																	<Property Name="Pane.TextTabResolved">
 																																		<Value PropertyType="0" Value="Warehouse" Type="5" />
+																																	</Property>
+																																</Properties>
+																															</Child>
+																															<Child Name="DockableWindow2" Key="{E57C04C2-4D5A-4EEA-8307-9FA50F90AC73}" ParallelWalk="True">
+																																<Properties>
+																																	<Property Name="Pane.TextTabResolved">
+																																		<Value PropertyType="0" Value="Parts" Type="5" />
 																																	</Property>
 																																</Properties>
 																															</Child>
@@ -9659,6 +9666,7 @@
 													<Child Name="dbFillPanel1" Owner="{8A67C464-7491-434F-8C7A-1F5141B6E531}">
 														<Child Name="WindowDockingArea" Owner="{8E1D0371-3E8A-4027-B14F-C166288846A4}">
 															<Child Name="DockableWindow" Owner="{E6A51768-1933-46F7-81B0-0550FC89A346}" />
+															<Child Name="DockableWindow2" Owner="{E57C04C2-4D5A-4EEA-8307-9FA50F90AC73}" />
 														</Child>
 													</Child>
 												</Child>

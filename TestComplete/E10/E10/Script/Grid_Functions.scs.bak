@@ -330,6 +330,23 @@ function RetrieveGridsMainPanel(){
   return gridDashboardPanelChildren
 }
 
+//GetGrid MainPanel
+function GetGridMainPanel(value){
+  var gridsMainPanel = RetrieveGridsMainPanel()
+
+    for (var i = 0; i < gridsMainPanel["length"]; i++) {
+      if (gridsMainPanel[i]["WndCaption"] == value +': Summary') {
+        return gridsMainPanel[i]
+      }
+    }
+}
+
+
+function GetGrid(ctrlName){
+    var wnd = parentCtrl || FindTopMostForm()
+    return FindObject("*Grid*", "Name", "*" + ctrlName + "*", wnd) 
+}
+
 /* Finds value in cells inside a grid
 * @param: grid - An object that contains the information of a grid
 * @param: column - String that has the index of the column

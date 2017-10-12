@@ -120,11 +120,9 @@ function AddQueriesDashboard(baqQuery){
 
   for( var i = 0; i <= arrBaqQueries.length - 1 ; i++){
     //Add BAQ
-    Delay(2500)
     //Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&New...|New Query")
     ClickMenu("File->New...->New Query")
-    
-    Delay(2000)
+
     EnterText("txtQueryID", arrBaqQueries[i] + "[Tab]", "Adding Query text")  
     // Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["QueryPropsPanel"]["WinFormsObject"]("PropertiesPanel_Fill_Panel")["WinFormsObject"]("txtQueryID")["Keys"](arrBaqQueries[i])
     
@@ -159,8 +157,8 @@ function DeployDashboard(deploymentOptions){
   //Deploy Dashboard
   ClickMenu("Tools->Deploy Dashboard")
   // Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Tools|Deploy Dashboard")
-
-  //Selection the option for the Actions listed
+  Delay(2500)
+  //Selection the option for the Actions listed 
   var arrdeploymentOptions = deploymentOptions.split(",")
 
   for (var i = 0; i <= arrdeploymentOptions.length - 1; i++) {
@@ -458,12 +456,29 @@ function OpenDashboardFavMenu(DashboardID) {
 }*/
 
 /*Activates the tab specified in the parameter inside de grid of the properties panel of dahsboards
-* @param: dashboardPropsPanel - An object that contains the information of the panel of the dashboard properties 
+* @param: dashboardPropsPanel - An object that contains the information of the panel of the dashboard Query properties  
 * @param: tab - An String that contains the tab name that needs to be activated
 * @return: none*/  
 function DashboardPropertiesTabs(tab){
   // var queryProperties = Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["QueryPropsPanel"]["PropertiesPanel_Fill_Panel"]["tcQueryProps"]
   var dashboardPropsPanel = FindObject("*TabControl", "Name", "*Query*")
+
+  for (var i = 0; i <= dashboardPropsPanel["Tabs"]["VisibleTabsCount"] -1; i++) {
+    if (dashboardPropsPanel["Tabs"]["Item_2"](i)["Text"] == tab) {
+        dashboardPropsPanel["ActiveTab"] = dashboardPropsPanel["Tabs"]["Item_2"](i)
+        dashboardPropsPanel["Focus"]()
+        dashboardPropsPanel["Keys"]("[Enter]")
+    }
+  }
+}
+
+/*Activates the tab specified in the parameter inside de grid of the properties panel of dahsboards
+* @param: dashboardPropsPanel - An object that contains the information of the panel of the dashboard Grid properties  
+* @param: tab - An String that contains the tab name that needs to be activated
+* @return: none*/  
+function DashboardGridPropertiesTabs(tab){
+  // var queryProperties = Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["QueryPropsPanel"]["PropertiesPanel_Fill_Panel"]["tcQueryProps"]
+  var dashboardPropsPanel = FindObject("*TabControl", "Name", "*PropsTab*")
 
   for (var i = 0; i <= dashboardPropsPanel["Tabs"]["VisibleTabsCount"] -1; i++) {
     if (dashboardPropsPanel["Tabs"]["Item_2"](i)["Text"] == tab) {

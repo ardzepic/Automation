@@ -74,7 +74,18 @@ var E10 = Sys.Process("Epicor")
 
   function GetButtons(btnCaption, btnName, parentCtrl){
     var wnd = parentCtrl || FindTopMostForm()
-    return FindObjects("*Button", ["WndCaption", "Name"], ["*" + btnCaption, "*" + (btnName || "?") + "*"], wnd)
+    //return FindObjects("*Button", ["WndCaption", "Name"], ["*" + btnCaption, "*" + (btnName || "?") + "*"], wnd)
+
+    if(btnCaption != "")
+      return FindObjects("*Button", "WndCaption", ["*" + btnCaption + "*"], wnd)
+    if(btnName != "")
+      return FindObjects("*Button", "Name", ["*" + btnName], wnd)
+    if (btnCaption != "" && btnName != "")
+      return FindObjects("*Button", ["WndCaption", "Name"], ["*" + btnCaption, "*" + (btnName || "?") + "*"], wnd)
+      
+
+
+    //return FindObjects("*Button", ["WndCaption", "Name"], ["*" + btnCaption + "*", "*" + (btnName || "?*")], wnd)
   }
 
   /** Clicks on button set in parameters
@@ -167,6 +178,26 @@ var E10 = Sys.Process("Epicor")
     }
   }
 
+  /** Get text from the textbox
+  * @param ctrlName \a required Name of textbox control
+  * @return If textbox found then return text value, otherwise throw exception */
+  function GetText(ctrlName, parentWnd)
+  {
+      try{
+          var ctrl = GetTextBox(ctrlName, parentWnd)
+          if (!ctrl["Exists"])
+              throw "TextBox not found '" + ctrlName + "'"
+          
+          var text = ctrl["Text"]["OleValue"] //GetObjectProperty.Value(ctrl, "Text")
+          Log["Message"]("Text found '" + text.substr(0, 120) + "'")
+          return text
+      }
+      catch(e){    
+          Log["Message"](e["message"])
+          return null
+      }    
+  }
+
 //-------------------------------
 //PANEL (TABS) FUNTIONS
 //-------------------------------
@@ -232,7 +263,6 @@ var E10 = Sys.Process("Epicor")
         Log["Message"](e["Message"])
       }
   }
-
   //parse each branch of ctrl tree to search for first WindowDockingArea control and return array
   function findWndDockingAreas(ctrl, depth){
       if (!depth) return []
@@ -355,11 +385,21 @@ var E10 = Sys.Process("Epicor")
   }
 
 
+
 function GetTreePanel(value){
   var treeObj = FindObject("*Tree*", "Name", "*" + value + "*")
 
   return treeObj
 }
 
+function GetList(cntrlName){
+  var listObj = FindObject("*ListBox*", "Name", "*" + cntrlName + "*")
 
-  
+  return listObj
+}
+
+function GetRadioBtn(cntrlName){
+  var radioBtn = FindObject("*RadioButton*", "Name", "*"+ cntrlName +"*")
+
+  return radioBtn
+}

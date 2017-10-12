@@ -111,7 +111,7 @@ function TestMenuDataDB1_EPIC07(){
 
     MainMenuTreeViewSelect(treeMainPanel2 + "Sales Management;Customer Relationship Management;Setup;" + MenuData1["menuName"])
 
-    var verifyForm = VerifyForm(caption)
+    var verifyForm = VerifyForm(MenuData1["menuName"])
 
     if(verifyForm){
       Log["Checkpoint"]("Menu is available for this company")

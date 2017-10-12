@@ -127,6 +127,15 @@
 		<child name="TC_Dashb_Publishing" key="{EA35E836-8C40-455D-AB89-B03A4ED00D56}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
 			<data path="TC_Dashb_Publishing.scs" />
 		</child>
+		<child name="TC_Dashb_UD_Tables" key="{1F7BE7BD-C6F9-4ACD-BFC5-24661F18479D}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="TC_Dashb_UD_Tables.scs" />
+		</child>
+		<child name="TC_Dashb_Updatable_Cust_Form_sys" key="{8EC40502-29CF-4AD1-B6F1-C77F25260A97}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="TC_Dashb_Updatable_Cust_Form_sys.scs" />
+		</child>
+		<child name="TC_Dashb_Updatable_Dashb_Form" key="{66A4C905-2005-41AB-AD59-E9D9E4B0FA4F}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="TC_Dashb_Updatable_Dashb_Form.scs" />
+		</child>
 	</children>
 	<folders>
 		<folder caption="Dashboards" description="A logical folder that is used to organize project items and elements." moniker="">
@@ -197,6 +206,9 @@
 				<ref key="{4330E6E0-C397-4BDF-9548-54817C7CDA2E}" />
 				<ref key="{3AE8FD2B-D201-4BFF-9ACD-4FF0A50BB957}" />
 				<ref key="{EA35E836-8C40-455D-AB89-B03A4ED00D56}" />
+				<ref key="{1F7BE7BD-C6F9-4ACD-BFC5-24661F18479D}" />
+				<ref key="{8EC40502-29CF-4AD1-B6F1-C77F25260A97}" />
+				<ref key="{66A4C905-2005-41AB-AD59-E9D9E4B0FA4F}" />
 			</references>
 		</folder>
 	</folders>

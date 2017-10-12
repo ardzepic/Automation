@@ -19,6 +19,15 @@
 		<child name="XmlSalesOrder" key="{058EABB0-54F5-461A-A245-005DE1ED7245}" type="XML Checkpoint" typeId="{CEC2489F-ECDE-4F42-9ED4-4EB3223B444D}" pluginName="Stores">
 			<data path="XmlSalesOrder\XmlSalesOrder.tcXmlCheckpoint" />
 		</child>
+		<child name="XmlPackingForm" key="{1BEB05C5-3629-4B28-A4A4-228541983702}" type="XML Checkpoint" typeId="{CEC2489F-ECDE-4F42-9ED4-4EB3223B444D}" pluginName="Stores">
+			<data path="XmlCheckpoint2\XmlPackingForm.tcXmlCheckpoint" />
+		</child>
+		<child name="XmlCustomerStatements" key="{985CD0FA-F38D-49CD-95E0-59F62B517BE8}" type="XML Checkpoint" typeId="{CEC2489F-ECDE-4F42-9ED4-4EB3223B444D}" pluginName="Stores">
+			<data path="XmlCheckpoint3\XmlCustomerStatements.tcXmlCheckpoint" />
+		</child>
+		<child name="XmlSOPickList" key="{9257D336-CCCF-483F-A839-4CA425D3F846}" type="XML Checkpoint" typeId="{CEC2489F-ECDE-4F42-9ED4-4EB3223B444D}" pluginName="Stores">
+			<data path="XmlCheckpoint4\XmlSOPickList.tcXmlCheckpoint" />
+		</child>
 	</children>
 	<folders />
 </Root>

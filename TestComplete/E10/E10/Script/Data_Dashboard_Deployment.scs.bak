@@ -16,7 +16,7 @@ var treeMainPanel1 = setCompanyMainTree(company1,plant1)
 //Dashboards used for Test
 var dashb1 = "JobStatus"
 var dashb2 = "Dash2Deploy"
-var dashb3 = "POStatus"
+var dashb3 = "QuoteStatus"
 
 //Queries
 var dashb2Query1 = "COM-90daysSORel"
