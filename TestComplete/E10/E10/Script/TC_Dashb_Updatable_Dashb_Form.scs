@@ -323,7 +323,8 @@ function AddCustomizationDashb(){
 
     // Open Sales Management > Customer Relationship Management > Setup > Customer(select Base only option and click OK in the ""Select Customization"" dialog)
     MainMenuTreeViewSelect(treeMainPanel1 + "Sales Management;Customer Relationship Management;Setup;Customer")
-
+    
+    Delay(2500)
     // Aliases["Epicor"]["CustomSelectCustTransDialog"]["grpCustomization"]["grpNoLayer"]["chkBaseOnly"]["Checked"] = true
     CheckboxState("chkBaseOnly", true)
 

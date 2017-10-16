@@ -8,7 +8,356 @@ var continueTest = true
 
 function TC_Dashboard_Tracker_Views_1(){
   
+
+      ExpandComp(company1)
+
+      ChangePlant(plant1)
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+
+  //--- Creates BAQs --------------------------------------------------------------------------------------------------------------------------'
+    //Step2- Copy zCustomer01 BAQ
+      Log["Message"]("Step 2")
+      //Open Business Activity Query to create BAQ   
+      MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+      Log["Message"]("BAQ opened")
+
+      //Create a copy of 'zCustomer01' table
+      CopyBAQ(baq, baq1Copy)
+      Log["Message"]("BAQ '" + baq + "' copied to '" + baq1Copy + "'")
+      
+      //Go to Query Builder Tab and on Display Fields tab add GroupCode to Display Column(s)
+      var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
+      
+      AddColumnsBAQ(BAQFormDefinition, "Customer", "GroupCode")
+
+      AnalyzeSyntaxisBAQ(BAQFormDefinition)
+      TestResultsBAQ(BAQFormDefinition)
+      SaveBAQ()
+      ExitBAQ()
+      Log["Message"](baq1Copy + " created")
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------'  
   
+  //--- Creates Dashboards --------------------------------------------------------------------------------------------------------------------'
+    //Step3- Navigate and open Dashboard
+      Log["Message"]("Step 3")
+      MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
+      Log["Message"]("Dashboard opened")
+      //Enable Dashboard Developer Mode  
+      DevMode()
+      Log["Message"]("DevMode activated")
+
+    //Step4- Creating dashboard
+      Log["Message"]("Step 4")
+      NewDashboard(dashb1, dashb1, dashb1, "chkInhibitRefreshAll")
+    
+    //Step5- Add query
+      Log["Message"]("Step 5")
+      var rect 
+      
+      Delay(2000)
+      AddQueriesDashboard(baq1Copy)
+      
+    //Step6- Add a New Tracker View       
+      Log["Message"]("Step 6")
+      if(!Aliases["Epicor"]["ExceptionDialog"]['Exists']){
+        //Right click on the query summary and click on the Query        
+        rect = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]["Nodes"]["Item"](0)["Nodes"]["Item"](0)["UIElement"]["Rect"]
+        Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]["ClickR"](rect.X, rect.Y + rect.Height/2)
+        Log["Message"]("BAQ - right click")
+
+        // click 'New Tracker View' option from menu
+        Aliases["Epicor"]["Dashboard"]["dbPanel"]["UltraPopupMenu"]["Click"]("New Tracker View");
+        Log["Message"]("BAQTrackerV1 Summary - New Tracker View was selected from Menu")
+
+        // Step7- Select Clear All button  
+        Log["Message"]("Step 7")      
+        if (Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["TrackerViewPropsPanel"]["Exists"]) {
+          Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["TrackerViewPropsPanel"]["viewPropsTabCtrl"]["GeneralTab"]["pnlTrackerControls"]["btnClearAll"]["Click"]()
+        }
+
+        //Step8- Click Ok to close Properties
+        Log["Message"]("Step 8")
+        Delay(2000)
+        // Aliases["Epicor"]["DashboardProperties"]["btnOkay"]["Click"]()
+        ClickButton("OK")
+
+        //Save dashboard
+        SaveDashboard()
+
+        rect = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]["Nodes"]["Item"](0)["Nodes"]["Item"](0)["Nodes"]["Item"](1)["UIElement"]["Rect"]
+        Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]["ClickR"](rect.X + rect.Width - 5, rect.Y + rect.Height/2)
+
+        //Step9- click 'Properties' option from menu
+        Log["Message"]("Step 9")
+        Aliases["Epicor"]["Dashboard"]["dbPanel"]["UltraPopupMenu"]["Click"]("Properties");
+        Log["Message"]("BAQTrackerV1 Summary - Properties was selected from Menu")
+
+        //Step10 - Select Select All   
+        Log["Message"]("Step 10")    
+        if (Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["TrackerViewPropsPanel"]["Exists"]) {
+          Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["TrackerViewPropsPanel"]["viewPropsTabCtrl"]["GeneralTab"]["pnlTrackerControls"]["btnSelectAll"]["Click"]()
+        }
+        
+        //Step11 - Check Prompt check box on GroupCode field        
+        Log["Message"]("Step 11")
+        var TrackerViewsGrid = Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["TrackerViewPropsPanel"]["viewPropsTabCtrl"]["GeneralTab"]["pnlTrackerControls"]["ultraGrid1"]
+        
+        var column = getColumn(TrackerViewsGrid, "Column")
+        var columnPrompt = getColumn(TrackerViewsGrid, "Prompt")
+
+        //find the row where GroupCode is located
+        for (var i = 0; i <= TrackerViewsGrid["wRowCount"] - 1; i++) {
+          //Select Customer_GroupCode row and check Prompt checkbox
+          var cell = TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](column)
+
+          if (cell["Text"] == "Customer_GroupCode") {
+            Log["Message"]("Data doesn't match with the parameter given = promptIndex > "+ columnPrompt )
+            TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["Click"]()
+            // Check Prompt check box on GroupCode field
+            TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["EditorResolved"]["CheckState"] = "Checked"
+          }
+        }
+
+        //Step12- Click Ok to close Properties
+        Log["Message"]("Step 12")
+        // Aliases["Epicor"]["DashboardProperties"]["btnOkay"]["Click"]()
+        ClickButton("OK")
+
+        //Save dashboard
+        SaveDashboard()
+
+        //Step13- Click Refresh  
+        Log["Message"]("Step 13")     
+        Delay(2000)
+        // Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")
+        ClickMenu("Edit->Refresh")
+
+        //Step15- Right click on the query summary and click on the Query to add a New Tracker View    
+        Log["Message"]("Step 15, 16")   
+        rect = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]["Nodes"]["Item"](0)["Nodes"]["Item"](0)["UIElement"]["Rect"]
+        Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]["ClickR"](rect.X, rect.Y + rect.Height/2)
+        Log["Message"]("BAQ - right clicked")
+
+        // click 'New Tracker View' option from menu
+        Aliases["Epicor"]["Dashboard"]["dbPanel"]["UltraPopupMenu"]["Click"]("New Tracker View");
+        Log["Message"]("New Tracker View was selected from Menu")
+
+        //Step16- Check Prompt check box on GroupCode field       
+        for (var i = 0; i <= TrackerViewsGrid["wRowCount"] - 1; i++) {
+          //Select Customer_GroupCode row and check Prompt checkbox
+          var cell = TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](column)
+
+          if (cell["Text"] == "Customer_GroupCode") {
+            Log["Message"]("Data doesn't match with the parameter given = promptIndex > "+ columnPrompt )
+            TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["Click"]()
+            // Check Prompt check box on GroupCode field
+            TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["EditorResolved"]["CheckState"] = "Checked"
+          }
+        }
+
+        //Step17- Click Ok to close Properties
+        Log["Message"]("Step 17")
+        // Aliases["Epicor"]["DashboardProperties"]["btnOkay"]["Click"]()
+        ClickButton("OK")
+
+        //Save dashboard
+        SaveDashboard()
+
+        //Step18- Click Refresh       
+        // Log["Message"]("Step 18")
+        // Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")
+        // ClickMenu("Edit->Refresh")
+
+      }else{
+        Log["Error"]("Exception dialog appeared with the following text > " + Aliases["Epicor"]["ExceptionDialog"]["exceptionDialogFillPanel"]["rtbMessage"]["Text"])
+        continueTest = false
+      }
+    //   end of first query
+
+    //Step20- Add a New Query and select the same Query you previously created - second query
+      Log["Message"]("Step 20")
+      Delay(2000)
+      AddQueriesDashboard(baq1Copy)
+
+      //Validates if there is no Exception Dialog before continue the script execution
+      if(!Aliases["Epicor"]["ExceptionDialog"]['Exists']){
+        //Right click on the query summary and click on the Query        
+        rect = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]["Nodes"]["Item"](0)["Nodes"]["Item"](1)["UIElement"]["Rect"]
+        Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]["ClickR"](rect.X, rect.Y + rect.Height/2)
+        Log["Message"]("BAQ - right click")
+
+        //Step21- click 'New Tracker View' option from menu
+        Log["Message"]("Step 21")
+        Aliases["Epicor"]["Dashboard"]["dbPanel"]["UltraPopupMenu"]["Click"]("New Tracker View");
+        Log["Message"]("BAQTrackerV1 Summary - New Tracker View was selected from Menu")
+
+        //Step22- Check Prompt check box for CustID field and on Condition select StartsWith    
+        Log["Message"]("Step 22")   
+        var TrackerViewsGrid = Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["TrackerViewPropsPanel"]["viewPropsTabCtrl"]["GeneralTab"]["pnlTrackerControls"]["ultraGrid1"] 
+        var columnCondition = getColumn(TrackerViewsGrid, "Condition")
+
+        //find the row where CustID is located
+        for (var i = 0; i <= TrackerViewsGrid["wRowCount"] - 1; i++) {
+          //Select Customer_CustID row and check Prompt checkbox
+          var cell = TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](column)
+
+          if (cell["Text"] == "Customer_CustID") {
+            Log["Message"]("Data doesn't match with the parameter given = promptIndex > "+ columnPrompt )
+            TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["Click"]()
+            // Check Prompt check box on GroupCode field
+            TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["EditorResolved"]["CheckState"] = "Checked"
+
+            //Activates 'Condition' column
+            TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnCondition)["Click"]()
+
+            while(true){
+              TrackerViewsGrid["Keys"]("[Down]")
+              if (TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnCondition)["EditorResolved"]["SelectedText"] == "StartsWith") {
+                break
+              }
+            }
+          }
+        }
+
+        //Step23- Click Ok to close Properties
+        Log["Message"]("Step 23")
+        // Aliases["Epicor"]["DashboardProperties"]["btnOkay"]["Click"]()
+        ClickButton("OK")
+
+        //Save dashboard
+        SaveDashboard()
+
+        //Step24- Click Refresh    
+        Log["Message"]("Step 24")   
+        Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh All")
+        
+        // Maximize Dashboard
+        Aliases["Epicor"]["Dashboard"]["Maximize"]();
+
+      }else{
+        Log["Error"]("Exception dialog appeared with the following text > " + Aliases["Epicor"]["ExceptionDialog"]["exceptionDialogFillPanel"]["rtbMessage"]["Text"])
+        continueTest = false
+      }
+
+      if(continueTest){
+        //Step25- Right Click on your tracker view and select the option Customize Tracker View.        
+        Log["Message"]("Step 25")
+        Delay(2000)
+        rect = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]["Nodes"]["Item"](0)["Nodes"]["Item"](1)["Nodes"]["Item"](1)["UIElement"]["Rect"]
+        Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]["ClickR"](rect.X + rect.Width - 5, rect.Y + rect.Height/2)
+
+        // click 'Customize Tracker View' option from menu
+        Aliases["Epicor"]["Dashboard"]["dbPanel"]["UltraPopupMenu"]["Click"]("Customize Tracker View");
+        Log["Message"]("BAQTrackerV1 Summary - Customize Tracker View was selected from Menu")
+
+        //Step26- Go to Wizards> Sheet Wizard tab and click on button New Custom Sheet, and select the available parent docking sheet.   
+        Log["Message"]("Step 26")     
+        var CustomToolsDialog = Aliases["Epicor"]["CustomToolsDialog"]["tabCustomToolsDialog"]
+        //Wizards
+        CustomToolsDialog["tpgCodeWizards"]["Tab"]["Selected"] = true
+        //Sheet Wizard
+        CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["Tab"]["Selected"] = true
+        
+        if (CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["Exists"]) {
+          CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["btnNewCustomSheet"]["Click"]()
+
+          // select the available parent docking sheet.
+          CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["lstStandardSheets"]["ClickItem"](0)
+
+          //Step27- Add a Name, Text and Tab Text for the new sheet.
+          Log["Message"]("Step 27")
+          CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["txtSheetName"]["Keys"]("test")
+          CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["txtSheetText"]["Keys"]("test")
+          CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["txtSheetTextTab"]["Keys"]("test")
+          
+          // Click on the arrow pointing to the right       
+          CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["btnAddCustomSheet"]["Click"]()
+          
+          // Select the newly added tab on your tracker
+          CustomToolsDialog["tpgCodeWizards"]["tabEventWizard"]["tpgSheetWizard"]["customSheetWizard"]["lstCustomSheets"]["ClickItem"](0)
+          
+          Aliases["Epicor"]["Dashboard"]["Activate"]()
+
+          var dashboardPanel = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow3"]["dbFillPanel1"]
+
+          var custTrackerTestTabDashbPanelChild = dashboardPanel["FindAllChildren"]("FullName", "*test*", 30)["toArray"]();
+          custTrackerTestTabDashbPanelChild[0]["Parent"]["Activate"]()
+          
+          Aliases["Epicor"]["CustomToolsDialog"]["Activate"]()
+          
+          //Step28- Select Tools>Tool box from the customization tools dialog
+          Log["Message"]("Step 28")
+          // Aliases["Epicor"]["CustomToolsDialog"]["UltraMainMenu"]["Click"]("Tools|ToolBox");
+          Aliases["Epicor"]["CustomToolsDialog"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Tools|ToolBox")
+
+          Delay(2000)
+
+          //Step29- On your new tab drop a label, a text box, add a combo box and a date time editor. Then Save and close the customization window        
+          Aliases["Epicor"]["ToolboxForm"]["toolbox"]["ToolboxTab"]["tableLayoutPanel1"]["lvwItems"]["ClickItemXY"]("EpiLabel", -1, 50, 10);
+          epiBasePanel =  custTrackerTestTabDashbPanelChild[0]
+          epiBasePanel["Click"](90, 35);
+          // epiBasePanel["Click"](90, 35);
+          // Aliases["Epicor"]["CustomToolsDialog"]["UltraMainMenu"]["Click"]("Tools|ToolBox");
+          Aliases["Epicor"]["CustomToolsDialog"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Tools|ToolBox")
+          Aliases["Epicor"]["ToolboxForm"]["toolbox"]["ToolboxTab"]["tableLayoutPanel1"]["lvwItems"]["ClickItemXY"]("EpiTextBox", -1, 74, 11);
+          epiBasePanel["Click"](190, 35);
+          // epiBasePanel["Click"](232, 34);
+          // epiBasePanel["epiTextBox12"]["Click"](0, 0);
+          // Aliases["Epicor"]["CustomToolsDialog"]["UltraMainMenu"]["Click"]("Tools|ToolBox");
+          Aliases["Epicor"]["CustomToolsDialog"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Tools|ToolBox")
+          Aliases["Epicor"]["ToolboxForm"]["toolbox"]["ToolboxTab"]["tableLayoutPanel1"]["lvwItems"]["ClickItemXY"]("EpiCombo", -1, 63, 8);
+          epiBasePanel["Click"](290, 35);
+          // epiBasePanel["Click"](99, 91);
+          // Aliases["Epicor"]["CustomToolsDialog"]["UltraMainMenu"]["Click"]("Tools|ToolBox");
+          Aliases["Epicor"]["CustomToolsDialog"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Tools|ToolBox")
+          Aliases["Epicor"]["ToolboxForm"]["toolbox"]["ToolboxTab"]["tableLayoutPanel1"]["lvwItems"]["ClickItemXY"]("EpiDateTimeEditor", -1, 89, 12);
+          epiBasePanel["Click"](390, 35);
+          // epiBasePanel["Click"](239, 89);
+
+        }
+        Log["Message"]("Step 29")
+        //Save Customization and close
+        Aliases["Epicor"]["CustomToolsDialog"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Save Customization");
+        Aliases["Epicor"]["CustomToolsDialog"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Close");
+
+        //Step30- Save dashboard
+        Log["Message"]("Step 30")
+        SaveDashboard()
+
+        //Step31- Right Click on your tracker view and select the option Properties.        
+        Log["Message"]("Step 31")
+        rect = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]["Nodes"]["Item"](0)["Nodes"]["Item"](1)["Nodes"]["Item"](1)["UIElement"]["Rect"]
+        Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]["ClickR"](rect.X, rect.Y + rect.Height/2)
+
+        // click 'Properties' option from menu
+        Aliases["Epicor"]["Dashboard"]["dbPanel"]["UltraPopupMenu"]["Click"]("Properties");
+        Log["Message"]("BAQTrackerV1 Summary - Customize Tracker View was selected from Menu")
+
+        //Step32- Modify any Label caption and click Ok.
+        Log["Message"]("Step 32")
+        var columnLabel = getColumn(TrackerViewsGrid, "Label Caption")
+
+        //find the row where Cust. ID is located
+        for (var i = 0; i <= TrackerViewsGrid["wRowCount"] - 1; i++) {
+          //Select Label caption cell
+          var cell = TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnLabel)
+
+          if (cell["Text"] == "Cust. ID") {
+            Log["Message"]("Data doesn't match with the parameter given = promptIndex > "+ columnLabel )
+            TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnLabel)["Click"]()
+            // Modify any Label caption
+            TrackerViewsGrid["Rows"]["Item"](i)["Cells"]["Item"](columnLabel)["EditorResolved"]["Value"] = "Customer ID"
+          }
+        }
+
+        //Click Ok to close Properties
+        Aliases["Epicor"]["DashboardProperties"]["btnOkay"]["Click"]()
+
+        //Step33- Save dashboard
+        Log["Message"]("Step 33")
+        SaveDashboard()
+
         //Step34- Deploy dashboard
         Log["Message"]("Step 34")
         DeployDashboard("Deploy Smart Client,Generate Web Form")
@@ -16,7 +365,7 @@ function TC_Dashboard_Tracker_Views_1(){
         ExitDashboard()
 
         Log["Checkpoint"]("Dashboard created")
-      
+      }
   //-------------------------------------------------------------------------------------------------------------------------------------------'
   
   //--- Menu maintenance ----------------------------------------------------------------------------------------------------------------------'

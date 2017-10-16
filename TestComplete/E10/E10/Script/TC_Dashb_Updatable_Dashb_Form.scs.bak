@@ -488,6 +488,7 @@ function TestCustomizedForm(){
   // Go to the ""TEST"" tab (where the dashboard is contained) and take a look at its content"    
   // Aliases["Epicor"]["CustomerEntryForm"]["windowDockingArea1"]["dockableWindow1"]["mainDock1"]["windowDockingArea1"]["dockableWindow1"]["customerDock1"]["windowDockingArea1"]["DockableWindow"]["Activate"]();
   OpenPanelTab("test")
+  ClickButton("Retrieve")
 
     // var grid = Aliases["Epicor"]["CustomerEntryForm"]["FindChild"](["WndCaption", "ClrClassName"], ["*baqID: Summary*", "*Grid*"], 30)
   var grid = GetGridMainPanel(baqID)

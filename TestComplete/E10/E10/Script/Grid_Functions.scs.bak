@@ -343,7 +343,7 @@ function GetGridMainPanel(value){
 
 
 function GetGrid(ctrlName){
-    var wnd = parentCtrl || FindTopMostForm()
+    var wnd = FindTopMostForm()
     return FindObject("*Grid*", "Name", "*" + ctrlName + "*", wnd) 
 }
 

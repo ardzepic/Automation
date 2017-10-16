@@ -11,12 +11,11 @@
 
 function test(){
    
-    // var dropdownColumns = Aliases["Epicor"]["QueryNavProperties"]["grpMediaProps"]["lstAvailable"]
-    //var dropdownColumns = GetList("lstAvailable")
-    //dropdownColumns["ClickItem"]("CustNum")
-    ClickButton("Cancel")
-
+//ComboboxSelect("cboRowRulesFields","Customer_CustNum")
   
+      //ComboboxSelect("cboRowRulesFields","Customer_CustNum")
+EnterText("cboRowRulesFields","Customer_CustNum" + "[Tab]")
+
 
 } 
 

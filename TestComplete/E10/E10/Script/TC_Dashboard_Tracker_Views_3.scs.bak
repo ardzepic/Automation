@@ -7,40 +7,11 @@
 //USEUNIT Data_Dashboard_TrackerViews_3
 
 function TC_Dashboard_Tracker_Views_3(){
-  
-  //--- Setup Estonian culture for Windows -----------------------------------------------------------------------------------------------------'
 
-    /* Step 1: 
-      Setup Estonian culture for Windows
-
-      Go to Windows Control Panel-Region-Format
-      Select Estonian (Estonia)
-      Press Additional Settings button at the bottom of the form->Customize Format window appears
-      Select Decimal Symbol=comma. 
-      Save */       
-      Log["Message"]("Step 1")
-      //opens control cmd and opens control panel
-      OpenCMD("control")
-      
-      ChangeRegionControlPanel("Estonian (Estonia)")
-
-      CloseCMD()
-
-  //-------------------------------------------------------------------------------------------------------------------------------------------'
-
-  //--- Start Smart Client and log in ---------------------------------------------------------------------------------------------------------'
-    
-    // Step2- Log in  
-      Log["Message"]("Step 2")
-      StartSmartClient()
-
-      Login(Project["Variables"]["username"], Project["Variables"]["password"])
-
-      ActivateFullTree()
 
       ExpandComp("Epicor Education")
 
-      ChangePlant("Main Plant")
+      ChangePlant("Main")
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //--- User Account Security Maintenance -----------------------------------------------------------------------------------------------------'
@@ -52,7 +23,7 @@ function TC_Dashboard_Tracker_Views_3(){
           Select your user and check that Format Culture= Invariant Language (Invariant Country)"        
     */
       Log["Message"]("Step 3")
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;User Account Security Maintenance")
+      MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;User Account Security Maintenance")
 
       var accountMgmtPanel = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]
 
@@ -90,7 +61,7 @@ function TC_Dashboard_Tracker_Views_3(){
     // Step 4
       Log["Message"]("Step 4")
       //Go to Executive Analysis-Business Activity Management-Setup-BAQ 
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
       Log["Checkpoint"]("BAQ opened")
 
 
@@ -132,7 +103,7 @@ function TC_Dashboard_Tracker_Views_3(){
     //Step 5
       Log["Message"]("Step 5")
       //Go to Executive Analysis-Business Activity Management-General Operations-Dashboard       
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
       Log["Checkpoint"]("Dashboard opened")
@@ -298,7 +269,7 @@ function TC_Dashboard_Tracker_Views_3(){
 
       ExpandComp("Epicor Education")
 
-      ChangePlant("Main Plant")
+      ChangePlant("Main")
 
   //--- User Account Security Maintenance -----------------------------------------------------------------------------------------------------'
     // Aliases["Epicor"]["MenuForm"]["windowDockingArea1"]["dockableWindow3"]["Activate"]()
@@ -309,7 +280,7 @@ function TC_Dashboard_Tracker_Views_3(){
           Select your user and check that Format Culture= Estonian(Estonia)
     */
       Log["Message"]("Step 23")
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;User Account Security Maintenance")
+      MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;User Account Security Maintenance")
 
       var accountMgmtPanel = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]
 

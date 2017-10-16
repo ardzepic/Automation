@@ -11,6 +11,7 @@ function TC_Dashboard_All_companies(){
   
 }
 
+
 //Step 2
 function CreateBAQ(){
   ExpandComp(company1)
@@ -48,6 +49,10 @@ function CreateDashboard(){
 
   dashboardTree["ClickItem"]("Queries|" + baqData1["Id"] + ": " + baqData1["Id"])
 
+  // var rect = dashboardTree["Nodes"]["Item"](0)["Nodes"]["Item"](0)
+  // dashboardTree["ClickR"]((rect["Bounds"]["Left"]+ rect["Bounds"]["Right"])/2, (rect["Bounds"]["Top"]+ rect["Bounds"]["Bottom"])/2)
+
+
   // click 'Properties' option from menu
   // Aliases["Epicor"]["Dashboard"]["dbPanel"]["UltraPopupMenu"]["Click"]("New Tracker View");
   // Log["Message"]("'New Tracker View' was selected from Menu")
@@ -58,17 +63,20 @@ function CreateDashboard(){
  
   Log["Message"]("Step 10, 11")
   DeployDashboard("Deploy Smart Client,Generate Web Form")
+
+  ExitDashboard()
 }
 
 //Step 12
 function CreateMenuDashboard(){
-    Log["Message"]("Step 12")
-    
-    //Open Menu maintenance   
-    MainMenuTreeViewSelect(treeMainPanel1 + "System Setup;Security Maintenance;Menu Maintenance")
 
-    //Creates Menu
-    CreateMenu(MenuData1)
+  Log["Message"]("Step 12")
+  
+  //Open Menu maintenance   
+  MainMenuTreeViewSelect(treeMainPanel1 + "System Setup;Security Maintenance;Menu Maintenance")
+
+  //Creates Menu
+  CreateMenu(MenuData1)
 }
 
 //Step 13
@@ -82,6 +90,10 @@ function RestartE10(){
 // Steps 14 to 16
 function TestMenuDataDB1_EPIC06(){
 
+  ExpandComp(company1)
+
+  ChangePlant(plant1)
+
   Log["Message"]("Step 14")
 
   MainMenuTreeViewSelect(treeMainPanel1 + "Sales Management;Customer Relationship Management;Setup;" + MenuData1["menuName"])
@@ -90,7 +102,7 @@ function TestMenuDataDB1_EPIC06(){
 
   ClickMenu("Edit->Refresh")
 
-  var gridPanel = GetGrid(baqData1["Id"])
+  var gridPanel = GetGridMainPanel(baqData1["Id"])
 
   if(gridPanel["Rows"]["Count"] > 0){
     Log["Checkpoint"]("Data from grid was populated")
@@ -111,7 +123,7 @@ function TestMenuDataDB1_EPIC07(){
 
     MainMenuTreeViewSelect(treeMainPanel2 + "Sales Management;Customer Relationship Management;Setup;" + MenuData1["menuName"])
 
-    var verifyForm = VerifyForm(MenuData1["menuName"])
+    var verifyForm = VerifyForm(MenuData1["dll"])
 
     if(verifyForm){
       Log["Checkpoint"]("Menu is available for this company")
@@ -125,7 +137,7 @@ function TestMenuDataDB1_EPIC07(){
 // Steps 19 to 21
 function VerifyAllCompaniesChk() {
 
-    Log["Message"]("Step 19")
+   Log["Message"]("Step 19")
     MainMenuTreeViewSelect(treeMainPanel2 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
     // var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
@@ -139,14 +151,9 @@ function VerifyAllCompaniesChk() {
     OpenDashboard(dashb1)
 
     //Verify dialog message
-    if(Aliases["Epicor"]["dlgDashboardCompanyMismatchWarning"]){
-     Log["Message"]("message 'Dashboards created in remote company may not be modified' is displayed")
-     // Aliases["Epicor"]["dlgDashboardCompanyMismatchWarning"]["btnOK"]["Click"]()
-     ClickButton("OK")
-    }else{
-      Log["Error"]("message 'Dashboards created in remote company may not be modified' is not displayed")
-    }
+    CheckWindowMessage("Dashboard")
 
+   Delay(3500)
     OpenPanelTab("General")
 
     // Verify checkbox 'All companies' 
@@ -221,7 +228,7 @@ function TestMenuDataDB2_EPIC07(){
 
   ClickMenu("Edit->Refresh")
 
-  var gridPanel = GetGrid(baqData1["Id"])
+  var gridPanel = GetGridMainPanel(baqData1["Id"])
 
   if(gridPanel["Rows"]["Count"] > 0){
     Log["Checkpoint"]("Data from grid was populated")
@@ -244,7 +251,7 @@ function RetrieveMenuDataDB1_EPIC06(){
 
   ClickMenu("Edit->Refresh")
 
-  var gridPanel = GetGrid(baqData1["Id"])
+  var gridPanel = GetGridMainPanel(baqData1["Id"])
 
   if(gridPanel["Rows"]["Count"] > 0){
     Log["Checkpoint"]("Data from grid was populated")
@@ -262,7 +269,6 @@ function DashbMaintenance(){
     ExpandComp(company1)
     ChangePlant(plant1)
     MainMenuTreeViewSelect(treeMainPanel1 + "System Management;Upgrade/Mass Regeneration;Dashboard Maintenance")
-
 
     Log["Message"]("Step 35")
 
@@ -339,7 +345,7 @@ function DashbMaintenance(){
     Log["Message"]("Step 42")
 
     ClickMenu("Actions->Modify Dashboard")
-    
+
     Delay(5000)
     
     var verifyForm = VerifyForm(dashb1)
@@ -384,26 +390,7 @@ function CreateCopySysDashb(){
 
     ClickMenu("Actions->Modify Dashboard")
    
-    var count = 0
-    while(true){
-      var windowsExceptionDialogBtn = Aliases["Epicor"]["FindAllChildren"]("FullName", "*Button*", 2)["toArray"]();
-
-      if (windowsExceptionDialogBtn[0] != null && windowsExceptionDialogBtn[0] != null || windowsExceptionDialogBtn[0] != undefined && windowsExceptionDialogBtn[0] != undefined) {
-        if(windowsExceptionDialogBtn[0]["Exists"]){
-          Log["Message"]("Validating Warning - System Dashboards may not be modified. - Clicked OK on message ")
-          // windowsExceptionDialogBtn[0]["Click"]()
-           ClickButton("OK")
-          break
-        }
-      }
-      count++
-
-      if(count == 5){
-        break
-        Runner["Stop"]()
-        Log["Error"]("Check")
-      }
-    } 
+    CheckWindowMessage("System Dashboards")
     
     Log["Message"]("Step 49")
     Delay(2000)
@@ -418,6 +405,10 @@ function CreateCopySysDashb(){
          
     Log["Message"]("Step 51")
     SaveDashboard()
+    ExitDashboard()
+    
+    //Used to close dashboard maintenance
+    ClickMenu("File->Exit")
 }   
    
 //Steps 52 to 55   

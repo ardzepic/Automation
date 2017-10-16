@@ -67,7 +67,7 @@ function NewDashboard(dashboardID,dashboardCaption,dashDescription, generalOptio
   Delay(1500)
    if(Aliases["Epicor"]["ExceptionDialog"]["Exists"]){    
     var aString = Aliases["Epicor"]["ExceptionDialog"]["exceptionDialogFillPanel"]["rtbMessage"]["Text"]["OleValue"]
-    var aSubString = "TestDashBD set for All Companies already exists"
+    var aSubString = dashboardID + " set for All Companies already exists"
     var Res, flag = true;
 
     Res = aqString["Find"](aString, aSubString)

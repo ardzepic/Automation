@@ -9,38 +9,6 @@
 function TC_Dashboard_Tracker_Views_3(){
 
 
-  //--- Setup Invariant culture for Windows ---------------------------------------------------------------------------------------------------'
-
-    /* Step 21: 
-        Go to Windows Control Panel-Region-Format
-        Select Match Windows display language (recommended)
-        Press Additional Settings button at the bottom of the form->Customize Format window appears
-        Select Decimal Symbol=dot. 
-        Save */       
-      Log["Message"]("Step 21")
-      
-      //opens control cmd and opens control panel
-      OpenCMD("control")
-      
-      ChangeRegionControlPanel("Match Windows display language (recommended)")
-
-      CloseCMD()
-
-  //-------------------------------------------------------------------------------------------------------------------------------------------'
-      Delay(2500)
-
-    // Step 22 - Log in  
-      Log["Message"]("Step 22")
-      StartSmartClient()
-
-      Login("manager", "manager")
-      
-      ActivateFullTree()
-
-      ExpandComp("Epicor Education")
-
-      ChangePlant("Main Plant")
-
   //--- User Account Security Maintenance -----------------------------------------------------------------------------------------------------'
     // Aliases["Epicor"]["MenuForm"]["windowDockingArea1"]["dockableWindow3"]["Activate"]()
     /*
@@ -50,7 +18,7 @@ function TC_Dashboard_Tracker_Views_3(){
           Select your user and check that Format Culture= Estonian(Estonia)
     */
       Log["Message"]("Step 23")
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;User Account Security Maintenance")
+      MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;User Account Security Maintenance")
 
       var accountMgmtPanel = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]
 

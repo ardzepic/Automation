@@ -331,12 +331,14 @@ function DeleteBAQ(baqIDs){
 * @return: none*/
 function CopyBAQ(baqID, newID){
   var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
-
+  
   //Set ID and description
   // BAQFormDefinition["dockableWindow1"]["optionsPanel1"]["gbID"]["txtQueryID"]["Keys"](baqID)
   // BAQFormDefinition["dockableWindow1"]["optionsPanel1"]["gbID"]["txtDescription"]["Keys"]("[Tab]")
   EnterText("txtQueryID", baqID + "[Tab]")
-
+  
+  Delay(2500)
+  
   // Aliases["Epicor"]["BAQDiagramForm"]["ToolbarsDockAreaTop"]["ClickItem"]("[0]|&Actions|Copy Query")
   ClickMenu("Actions->Copy Query")
   // Aliases["Epicor"]["CopyQueryForm"]["copyQueryPanel1"]["gbCopyTo"]["txtToID"]["Keys"](newID)

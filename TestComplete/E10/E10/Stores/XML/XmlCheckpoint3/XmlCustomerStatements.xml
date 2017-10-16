@@ -1070,7 +1070,6 @@
 			<ProcessId>ARRP4002</ProcessId>
 			<AssemblyName>Erp.UIRpt.CustomerStatement</AssemblyName>
 			<CustomizationId></CustomizationId>
-			<CurrentUserId>epicor</CurrentUserId>
 			<CurrentCompany>EPIC03</CurrentCompany>
 			<CurrentPlant>MfgSys</CurrentPlant>
 			<SysRowID>00000000-0000-0000-0000-000000000000</SysRowID>
