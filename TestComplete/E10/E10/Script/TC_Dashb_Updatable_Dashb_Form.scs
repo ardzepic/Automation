@@ -34,16 +34,15 @@ function CreateBAQ1(){
   MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;Setup;Business Activity Query")
 
   // Enter the following in the "General" tab
-  var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
   
   // QueryID: baqID
   // Description: baqID
   // Shared: Checked | Updatable: Checked
   CreateBAQ(baqID, baqID, "chkShared,chkUpdatable")
   // drag and drop the "Customer" table design area in "Phrase Build" tab
-  AddTableBAQ(BAQFormDefinition, "Customer")
+  AddTableBAQ("Erp.Customer", "Customer")
   // In the Display Fields> Column Select tab for the "Customer" table select the Company, CustID, CustNum, Name and Address1 columns and add them to "Display Columns" area
-  AddColumnsBAQ(BAQFormDefinition, "Customer", "Company,CustID,CustNum,Name,Address1")
+  AddColumnsBAQ("Customer", "Company,CustID,CustNum,Name,Address1")
 
   // Move to Update> General Properties tab and check "Customer_Name" and "Customer_Address1" column as updatable
   UpdateTabBAQ("Customer_Name", "Updatable")
@@ -95,6 +94,7 @@ function AddQueryDashboard(){
     SaveDashboard()
     Log["Message"]("Dashboard with " + baqID +" created")
 
+    E10["Refresh"]()
     var dashboardTree =  GetTreePanel("DashboardTree")
 
     Log["Message"]("Step 6")
@@ -319,11 +319,14 @@ function AddCustomizationDashb(){
 
     //Developer mode 
     // Aliases["Epicor"]["MenuForm"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Options|&Developer Mode")
-    ClickMenu("Options->Developer Mode")
+    // ClickMenu("Options->Developer Mode")
+    ActivateMainDevMode()
 
     // Open Sales Management > Customer Relationship Management > Setup > Customer(select Base only option and click OK in the ""Select Customization"" dialog)
     MainMenuTreeViewSelect(treeMainPanel1 + "Sales Management;Customer Relationship Management;Setup;Customer")
     
+    E10["Refresh"]()
+
     Delay(2500)
     // Aliases["Epicor"]["CustomSelectCustTransDialog"]["grpCustomization"]["grpNoLayer"]["chkBaseOnly"]["Checked"] = true
     CheckboxState("chkBaseOnly", true)
@@ -332,6 +335,7 @@ function AddCustomizationDashb(){
     // Aliases["Epicor"]["CustomSelectCustTransDialog"]["btnOK"]["Click"]()
 
     Delay(2500)
+    E10["Refresh"]()
     // click Tools > Customization
     // Aliases["Epicor"]["CustomerEntryForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Tools|Customization")
     ClickMenu("Tools->Customization")
@@ -441,6 +445,7 @@ function OpenCustomizedForm() {
   Log["Message"]("Step 18")
   // Go to Sales Management> Customer Relationship Management> Setup> Customer and select the customization from previous step
   MainMenuTreeViewSelect(treeMainPanel1 + "Sales Management;Customer Relationship Management;Setup;Customer")
+  E10["Refresh"]()
   /*(FUTURE REFERENCE FOR TREE LIST ITEMS)*/
   // Aliases["Epicor"]["CustomSelectCustTransDialog"]["grpCustomization"]["etvAvailableLayers"]["ClickItem"]("Base|EP|Customizations|Automation_test")
   var availableLayers = GetTreePanel("AvailableLayers")
@@ -450,7 +455,7 @@ function OpenCustomizedForm() {
 }
 
 function TestCustomizedForm(){
-  Delay(1500)
+  Delay(2500)
   OpenPanelTab("Detail")
 
   // In the Customer> Detail tab retrieve ""Addison""
@@ -500,9 +505,12 @@ function TestCustomizedForm(){
     Log["Error"]("Dashboard didn't retrive data for Dalton Customer")
   }
 
+  Delay(2500)
+
+  ClickMenu("File->Exit")
   // deactivate dev mode
   // Aliases["Epicor"]["MenuForm"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Options|&Developer Mode")  
-  ClickMenu("Options->Developer Mode")  
+  DeactivateMainDevMode()
 
 }
  

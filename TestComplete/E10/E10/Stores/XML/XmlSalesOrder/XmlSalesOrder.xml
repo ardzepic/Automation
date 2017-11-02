@@ -1581,6 +1581,12 @@
 								<xs:element name="WICustomer" msprop:DataTableID="Customer" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WIShippingCosts" msprop:DataTableID="Customer" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
 								<xs:element name="Zip" msdata:Caption="Postal Code" msprop:DataTableID="Customer" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character01" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character02" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character03" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character04" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="CheckBox01" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="Number10" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
@@ -1798,6 +1804,35 @@
 								<xs:element name="WarrantyComment" msprop:DataTableID="OrderDtl" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="XPartNum" msdata:Caption="Cust Part" msprop:DataTableID="OrderDtl" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="XRevisionNum" msdata:Caption="Rev" msprop:DataTableID="OrderDtl" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character01" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character03" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character04" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character05" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character06" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="CheckBox02" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox11" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox12" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox13" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="Date01" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:dateTime" minOccurs="0"/>
+								<xs:element name="Number01" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number02" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number04" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number05" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number06" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number10" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number11" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number12" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number13" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number16" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number18" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number19" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="OrderDtl_c" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="PbsId_c" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:int" minOccurs="0"/>
+								<xs:element name="ShortChar01" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar03" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar04" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar06" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar10" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_Duration" msdata:Caption="Duration" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_ExtPrice" msdata:Caption="Ext. Price" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="Calc_LabDur" msdata:Caption="LbMod" type="xs:string" minOccurs="0"/>
@@ -1909,6 +1944,29 @@
 								<xs:element name="WIOrder" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WIUserID" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WIUsername" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character06" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character07" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character08" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character09" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="CheckBox01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox15" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox16" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox17" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="Number05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number20" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="orderhed_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="PbsId_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="PbsStage_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar06" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar08" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar09" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_BillToAddressList" msdata:Caption="Bill To Address" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_BillToContact" msdata:Caption="Bill To Contact" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_BTAddressList" msdata:Caption="BT Address" type="xs:string" minOccurs="0"/>
@@ -2143,6 +2201,10 @@
 								<xs:element name="WIItemShipCost" msprop:DataTableID="OrderRel" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="WIOrder" msprop:DataTableID="OrderRel" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WIOrderLine" msprop:DataTableID="OrderRel" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="PbsDefaultTaxRemoved_c" msdata:Caption="" msprop:DataTableID="OrderRel_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="PbsTaxCalculated_c" msdata:Caption="" msprop:DataTableID="OrderRel_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="ShortChar01" msdata:Caption="" msprop:DataTableID="OrderRel_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar02" msdata:Caption="" msprop:DataTableID="OrderRel_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_OrderRelCounter" msdata:Caption="Order Release Counter" type="xs:int" minOccurs="0"/>
 								<xs:element name="Calc_PrevNeedByDate" msdata:Caption="Previous Need By Date" type="xs:dateTime" minOccurs="0"/>
 								<xs:element name="Calc_PrevReqDate" msdata:Caption="Previous Req Date" type="xs:dateTime" minOccurs="0"/>
@@ -2499,6 +2561,8 @@
 								<xs:element name="UPSQVShipFromName" msdata:Caption="UPS QV Ship From" msprop:DataTableID="ShipTo" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WIWebShipTo" msprop:DataTableID="ShipTo" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
 								<xs:element name="ZIP" msdata:Caption="Postal Code" msprop:DataTableID="ShipTo" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar01" msdata:Caption="" msprop:DataTableID="ShipTo_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar10" msdata:Caption="" msprop:DataTableID="ShipTo_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
@@ -2693,6 +2757,7 @@
 			<ProcessId>SSMN3040</ProcessId>
 			<AssemblyName>Erp.UIRpt.SalesOrderAck</AssemblyName>
 			<CustomizationId></CustomizationId>
+			<CurrentUserId>epicor</CurrentUserId>
 			<CurrentCompany>EPIC03</CurrentCompany>
 			<CurrentPlant>MfgSys</CurrentPlant>
 			<SysRowID>00000000-0000-0000-0000-000000000000</SysRowID>
@@ -3690,8 +3755,8 @@
 			<DecimalsCost>2</DecimalsCost>
 			<DecimalsPrice>2</DecimalsPrice>
 			<GlbDecimalsGeneral>2</GlbDecimalsGeneral>
-			<GlbDecimalsCost>5</GlbDecimalsCost>
-			<GlbDecimalsPrice>5</GlbDecimalsPrice>
+			<GlbDecimalsCost>2</GlbDecimalsCost>
+			<GlbDecimalsPrice>2</GlbDecimalsPrice>
 			<DecimalsQuantity>2</DecimalsQuantity>
 		</RptParameter>
 		<Company>
@@ -3787,8 +3852,8 @@
 			<SyncNameToPerCon>true</SyncNameToPerCon>
 			<SyncPhoneToPerCon>true</SyncPhoneToPerCon>
 			<SyncToExternalCRM>false</SyncToExternalCRM>
-			<SysRevID>-435955260901556224</SysRevID>
-			<SysRowID>bb9e27ae-d3c3-7897-dd11-877e64f69c9e</SysRowID>
+			<SysRevID>8232334927740272640</SysRevID>
+			<SysRowID>c0d30fea-47cd-41e0-99fd-a33b015c0baa</SysRowID>
 			<Twitter></Twitter>
 			<WebLink1></WebLink1>
 			<WebLink2></WebLink2>
@@ -3865,8 +3930,8 @@
 			<SyncNameToPerCon>true</SyncNameToPerCon>
 			<SyncPhoneToPerCon>true</SyncPhoneToPerCon>
 			<SyncToExternalCRM>false</SyncToExternalCRM>
-			<SysRevID>-219782478787772416</SysRevID>
-			<SysRowID>e37ecf0a-e614-02be-e111-debbc38dd5d1</SysRowID>
+			<SysRevID>8448507709854056448</SysRevID>
+			<SysRowID>0cceb2e3-f1fa-4a60-90d3-a33b015c0baa</SysRowID>
 			<Twitter></Twitter>
 			<WebLink1></WebLink1>
 			<WebLink2></WebLink2>
@@ -3943,8 +4008,8 @@
 			<SyncNameToPerCon>true</SyncNameToPerCon>
 			<SyncPhoneToPerCon>true</SyncPhoneToPerCon>
 			<SyncToExternalCRM>false</SyncToExternalCRM>
-			<SysRevID>-147724884749844480</SysRevID>
-			<SysRowID>ae0da964-2a73-13b7-dd11-487f901e7585</SysRowID>
+			<SysRevID>8520565303891984384</SysRevID>
+			<SysRowID>f1dcaa99-d576-49a9-86a3-a33b015c0baa</SysRowID>
 			<Twitter></Twitter>
 			<WebLink1></WebLink1>
 			<WebLink2></WebLink2>
@@ -4021,8 +4086,8 @@
 			<SyncNameToPerCon>true</SyncNameToPerCon>
 			<SyncPhoneToPerCon>true</SyncPhoneToPerCon>
 			<SyncToExternalCRM>false</SyncToExternalCRM>
-			<SysRevID>-75667290711916544</SysRevID>
-			<SysRowID>bb9e27ae-d3c3-7897-dd11-887ee4b3f17c</SysRowID>
+			<SysRevID>8592622897929912320</SysRevID>
+			<SysRowID>8233f188-935b-435c-80cb-a33b015c0baa</SysRowID>
 			<Twitter></Twitter>
 			<WebLink1></WebLink1>
 			<WebLink2></WebLink2>
@@ -4043,7 +4108,7 @@
 			<Address1>2968 West River Parkway</Address1>
 			<Address2></Address2>
 			<Address3></Address3>
-			<AddressVal>false</AddressVal>
+			<AddressVal>true</AddressVal>
 			<AEPLOQType></AEPLOQType>
 			<AGAFIPResponsibilityCode></AGAFIPResponsibilityCode>
 			<AGBillToProvinceCode></AGBillToProvinceCode>
@@ -4078,9 +4143,9 @@
 			<BTZip>55128</BTZip>
 			<BusinessCust></BusinessCust>
 			<CertOfOrigin>false</CertOfOrigin>
-			<ChangeDate>2013-04-05T00:00:00</ChangeDate>
+			<ChangeDate>2014-04-18T00:00:00</ChangeDate>
 			<ChangedBy>epicor</ChangedBy>
-			<ChangeTime>55167</ChangeTime>
+			<ChangeTime>34028</ChangeTime>
 			<ChargeCode>LATEFEE</ChargeCode>
 			<CheckConfirmCapPromise>false</CheckConfirmCapPromise>
 			<CheckDateCapPromise>false</CheckDateCapPromise>
@@ -4350,16 +4415,16 @@
 			<ShippingQualifier>L</ShippingQualifier>
 			<ShipToNum>Plant1</ShipToNum>
 			<ShipToTerrList>US MID</ShipToTerrList>
-			<ShipViaCode>BEST</ShipViaCode>
+			<ShipViaCode>BW</ShipViaCode>
 			<State>MN</State>
 			<SyncToExternalCRM>false</SyncToExternalCRM>
-			<SysRevID>-8982405241764839424</SysRevID>
-			<SysRowID>956fb026-32e0-bdae-df11-4b3be79b4ee8</SysRowID>
+			<SysRevID>-4374104645409177600</SysRevID>
+			<SysRowID>5fb21d31-e2b1-4d12-ba2a-a33b015c598c</SysRowID>
 			<TaxAuthorityCode></TaxAuthorityCode>
 			<TaxEntityType></TaxEntityType>
 			<TaxExempt></TaxExempt>
 			<TaxMethod>L</TaxMethod>
-			<TaxRegionCode></TaxRegionCode>
+			<TaxRegionCode>Ava</TaxRegionCode>
 			<TaxRegReason></TaxRegReason>
 			<TaxRoundRule>0</TaxRoundRule>
 			<TermsCode>1/10</TermsCode>
@@ -4382,11 +4447,17 @@
 			<ValidShipTo>true</ValidShipTo>
 			<ValidSoldTo>true</ValidSoldTo>
 			<Variations>false</Variations>
-			<WebCustomer>false</WebCustomer>
+			<WebCustomer>true</WebCustomer>
 			<WIApplication></WIApplication>
 			<WICustomer></WICustomer>
 			<WIShippingCosts>false</WIShippingCosts>
 			<Zip>55406</Zip>
+			<Character01></Character01>
+			<Character02></Character02>
+			<Character03></Character03>
+			<Character04></Character04>
+			<CheckBox01>false</CheckBox01>
+			<Number10>0.000000000</Number10>
 		</Customer>
 		<CustomerDocs>
 			<RptLanguageID>enu</RptLanguageID>
@@ -4406,9 +4477,9 @@
 		</CustomerDocs>
 		<OrderDtl>
 			<RptLanguageID>enu</RptLanguageID>
-			<ChangeDate>2013-06-08T00:00:00</ChangeDate>
+			<ChangeDate>2014-03-24T00:00:00</ChangeDate>
 			<ChangedBy>epicor</ChangedBy>
-			<ChangeTime>36863</ChangeTime>
+			<ChangeTime>42439</ChangeTime>
 			<CommodityCode></CommodityCode>
 			<Company>EPIC03</Company>
 			<ContractID></ContractID>
@@ -4497,8 +4568,8 @@
 			<Rpt1InOrdBasedPrice>0</Rpt1InOrdBasedPrice>
 			<Rpt1InUnitPrice>0</Rpt1InUnitPrice>
 			<Rpt1ListPrice>256.65444</Rpt1ListPrice>
-			<Rpt1OrdBasedPrice>256.65444</Rpt1OrdBasedPrice>
-			<Rpt1UnitPrice>256.65444</Rpt1UnitPrice>
+			<Rpt1OrdBasedPrice>256.65000</Rpt1OrdBasedPrice>
+			<Rpt1UnitPrice>256.65000</Rpt1UnitPrice>
 			<Rpt2AdvanceBillBal>0</Rpt2AdvanceBillBal>
 			<Rpt2Discount>0</Rpt2Discount>
 			<Rpt2ExtPriceDtl>0</Rpt2ExtPriceDtl>
@@ -4528,8 +4599,8 @@
 			<SellingQuantity>100.00000000</SellingQuantity>
 			<SmartString></SmartString>
 			<SmartStringProcessed>false</SmartStringProcessed>
-			<SysRevID>3269069</SysRevID>
-			<SysRowID>fb0f1737-d808-c682-e211-4dd0ce482db6</SysRowID>
+			<SysRevID>330984</SysRevID>
+			<SysRowID>801d162d-74c6-4eea-bc4e-a33b015c417d</SysRowID>
 			<TotalReleases>1</TotalReleases>
 			<Unders>0</Unders>
 			<UndersPct>0</UndersPct>
@@ -4539,6 +4610,34 @@
 			<WarrantyComment></WarrantyComment>
 			<XPartNum></XPartNum>
 			<XRevisionNum></XRevisionNum>
+			<Character01></Character01>
+			<Character03></Character03>
+			<Character04></Character04>
+			<Character05></Character05>
+			<Character06></Character06>
+			<CheckBox02>false</CheckBox02>
+			<CheckBox11>false</CheckBox11>
+			<CheckBox12>false</CheckBox12>
+			<CheckBox13>false</CheckBox13>
+			<Number01>0.000000000</Number01>
+			<Number02>0.000000000</Number02>
+			<Number04>0.000000000</Number04>
+			<Number05>0.000000000</Number05>
+			<Number06>0.000000000</Number06>
+			<Number10>0.000000000</Number10>
+			<Number11>0.000000000</Number11>
+			<Number12>0.000000000</Number12>
+			<Number13>0</Number13>
+			<Number16>0</Number16>
+			<Number18>0</Number18>
+			<Number19>0</Number19>
+			<OrderDtl_c></OrderDtl_c>
+			<PbsId_c>0</PbsId_c>
+			<ShortChar01></ShortChar01>
+			<ShortChar03></ShortChar03>
+			<ShortChar04></ShortChar04>
+			<ShortChar06></ShortChar06>
+			<ShortChar10></ShortChar10>
 			<Calc_Duration></Calc_Duration>
 			<Calc_ExtPrice>1836.000</Calc_ExtPrice>
 			<Calc_LabDur></Calc_LabDur>
@@ -4598,7 +4697,7 @@
 			<InvCurrDepositBal>0</InvCurrDepositBal>
 			<IsCSRSet>false</IsCSRSet>
 			<LegalNumber></LegalNumber>
-			<NeedByDate>2013-06-28T00:00:00</NeedByDate>
+			<NeedByDate>2014-05-23T00:00:00</NeedByDate>
 			<OrderComment></OrderComment>
 			<OrderCSR></OrderCSR>
 			<OrderDate>2013-06-08T00:00:00</OrderDate>
@@ -4640,6 +4739,29 @@
 			<WIOrder></WIOrder>
 			<WIUserID></WIUserID>
 			<WIUsername></WIUsername>
+			<Character01></Character01>
+			<Character06></Character06>
+			<Character07></Character07>
+			<Character08></Character08>
+			<Character09></Character09>
+			<Character10></Character10>
+			<CheckBox01>false</CheckBox01>
+			<CheckBox05>false</CheckBox05>
+			<CheckBox10>false</CheckBox10>
+			<CheckBox15>false</CheckBox15>
+			<CheckBox16>false</CheckBox16>
+			<CheckBox17>false</CheckBox17>
+			<Number05>0.000000000</Number05>
+			<Number20></Number20>
+			<orderhed_c></orderhed_c>
+			<PbsId_c></PbsId_c>
+			<PbsStage_c></PbsStage_c>
+			<ShortChar01></ShortChar01>
+			<ShortChar05></ShortChar05>
+			<ShortChar06></ShortChar06>
+			<ShortChar08></ShortChar08>
+			<ShortChar09></ShortChar09>
+			<ShortChar10></ShortChar10>
 			<Calc_BillToAddressList>Dalton Manufacturing~2345 Jenson Street~Dock 8~P.O. Box 96695~St. Paul MN 55128~USA~~</Calc_BillToAddressList>
 			<Calc_BillToContact>Manny Kemple</Calc_BillToContact>
 			<Calc_BTAddressList>Dalton Manufacturing~2345 Jenson Street~Dock 8~P.O. Box 96695~St. Paul MN 55128~USA~~</Calc_BTAddressList>
@@ -4696,9 +4818,9 @@
 			<RptLanguageID>enu</RptLanguageID>
 			<ApplyChrg>false</ApplyChrg>
 			<BuyToOrder>false</BuyToOrder>
-			<ChangeDate>2013-06-08T00:00:00</ChangeDate>
+			<ChangeDate>2014-03-24T00:00:00</ChangeDate>
 			<ChangedBy>epicor</ChangedBy>
-			<ChangeTime>36902</ChangeTime>
+			<ChangeTime>42439</ChangeTime>
 			<ChrgAmount>0</ChrgAmount>
 			<COD>false</COD>
 			<CODAmount>0</CODAmount>
@@ -4726,7 +4848,7 @@
 			<Location></Location>
 			<MarkForNum>Plant1</MarkForNum>
 			<MFCustNum>9</MFCustNum>
-			<NeedByDate>2013-06-28T00:00:00</NeedByDate>
+			<NeedByDate>2014-05-23T00:00:00</NeedByDate>
 			<NotifyEMail></NotifyEMail>
 			<NotifyFlag>false</NotifyFlag>
 			<OpenOrder>true</OpenOrder>
@@ -4768,7 +4890,9 @@
 			<POLine>0</POLine>
 			<PONum>0</PONum>
 			<PORelNum>0</PORelNum>
+			<PrevNeedByDate>2014-04-30T00:00:00</PrevNeedByDate>
 			<PrevPartNum></PrevPartNum>
+			<PrevReqDate>2014-04-30T00:00:00</PrevReqDate>
 			<PrevSellQty>10.00</PrevSellQty>
 			<PrevShipToNum></PrevShipToNum>
 			<PrevXPartNum></PrevXPartNum>
@@ -4778,7 +4902,7 @@
 			<Reference></Reference>
 			<RefNotes></RefNotes>
 			<RelStatus></RelStatus>
-			<ReqDate>2013-06-28T00:00:00</ReqDate>
+			<ReqDate>2014-05-23T00:00:00</ReqDate>
 			<ResDelivery>false</ResDelivery>
 			<RevisionNum>A</RevisionNum>
 			<SalesUM>EA</SalesUM>
@@ -4804,8 +4928,8 @@
 			<ShipViaCode>UPS</ShipViaCode>
 			<ShpConNum>1</ShpConNum>
 			<SubShipTo></SubShipTo>
-			<SysRevID>3321372</SysRevID>
-			<SysRowID>fb0f1737-d808-c682-e211-4dd0b88039b6</SysRowID>
+			<SysRevID>757596</SysRevID>
+			<SysRowID>3a53343d-15d8-4a15-9df7-a33b015c40cc</SysRowID>
 			<TaxConnectCalc>false</TaxConnectCalc>
 			<TaxExempt></TaxExempt>
 			<TaxRegionCode></TaxRegionCode>
@@ -4820,7 +4944,13 @@
 			<WIItemShipCost>0</WIItemShipCost>
 			<WIOrder></WIOrder>
 			<WIOrderLine></WIOrderLine>
+			<PbsDefaultTaxRemoved_c>false</PbsDefaultTaxRemoved_c>
+			<PbsTaxCalculated_c>false</PbsTaxCalculated_c>
+			<ShortChar01></ShortChar01>
+			<ShortChar02></ShortChar02>
 			<Calc_OrderRelCounter>1</Calc_OrderRelCounter>
+			<Calc_PrevNeedByDate>2014-04-30T00:00:00-07:00</Calc_PrevNeedByDate>
+			<Calc_PrevReqDate>2014-04-30T00:00:00-07:00</Calc_PrevReqDate>
 			<Calc_PrevSellReqQty>10.00</Calc_PrevSellReqQty>
 			<Calc_PrevShipToNum></Calc_PrevShipToNum>
 			<Calc_ResaleID></Calc_ResaleID>
@@ -4896,8 +5026,8 @@
 			<ShowInputPrice>false</ShowInputPrice>
 			<SIValuesGroupSeq>0</SIValuesGroupSeq>
 			<SIValuesHeadNum>0</SIValuesHeadNum>
-			<SysRevID>5149003061565325312</SysRevID>
-			<SysRowID>956fb026-32e0-bdae-df11-4b3be6557df0</SysRowID>
+			<SysRevID>9041837169550819328</SysRevID>
+			<SysRowID>9241eaa5-cd71-4ee1-a07e-a33b015c0084</SysRowID>
 			<TLRBurdenCost>7.22000</TLRBurdenCost>
 			<TLRLaborCost>5.20000</TLRLaborCost>
 			<TLRMaterialCost>7.67000</TLRMaterialCost>
@@ -4954,8 +5084,8 @@
 			<SyncLinksToPerCon>true</SyncLinksToPerCon>
 			<SyncNameToPerCon>true</SyncNameToPerCon>
 			<SyncPhoneToPerCon>true</SyncPhoneToPerCon>
-			<SysRevID>-9165895066512785408</SysRevID>
-			<SysRowID>88a8fa42-a830-a580-dd11-f9336a4dcb47</SysRowID>
+			<SysRevID>4341473339320041472</SysRevID>
+			<SysRowID>8e691e70-0781-4822-b42a-a33b015bfe3b</SysRowID>
 			<Twitter></Twitter>
 			<ViewAllTer>true</ViewAllTer>
 			<ViewCompPipe>false</ViewCompPipe>
@@ -4975,7 +5105,7 @@
 			<Address1>495 South Greenbay Rd</Address1>
 			<Address2></Address2>
 			<Address3></Address3>
-			<AddressVal>false</AddressVal>
+			<AddressVal>true</AddressVal>
 			<AGApartment></AGApartment>
 			<AGExtraStreetNumber></AGExtraStreetNumber>
 			<AGFloor></AGFloor>
@@ -4988,9 +5118,9 @@
 			<ApplyChrg>false</ApplyChrg>
 			<BorderCrossing></BorderCrossing>
 			<CertOfOrigin>false</CertOfOrigin>
-			<ChangeDate>2013-06-27T00:00:00</ChangeDate>
+			<ChangeDate>2014-04-16T00:00:00</ChangeDate>
 			<ChangedBy>epicor</ChangedBy>
-			<ChangeTime>46293</ChangeTime>
+			<ChangeTime>70731</ChangeTime>
 			<CheckConfirmCapPromise>false</CheckConfirmCapPromise>
 			<CheckDateCapPromise>false</CheckDateCapPromise>
 			<CheckUpdateCapPromise>false</CheckUpdateCapPromise>
@@ -5118,13 +5248,13 @@
 			<ServSignature>false</ServSignature>
 			<ShipExprtDeclartn>false</ShipExprtDeclartn>
 			<ShipToNum>Plant1</ShipToNum>
-			<ShipViaCode>UPS</ShipViaCode>
+			<ShipViaCode>FEDX</ShipViaCode>
 			<State>WI</State>
-			<SysRevID>7450103898603257856</SysRevID>
-			<SysRowID>956fb026-32e0-bdae-df11-4b3badbd9ff1</SysRowID>
+			<SysRevID>8197401244302573568</SysRevID>
+			<SysRowID>71a27276-4c9d-4343-9687-a33b015c401a</SysRowID>
 			<TaxAuthorityCode></TaxAuthorityCode>
 			<TaxExempt></TaxExempt>
-			<TaxRegionCode></TaxRegionCode>
+			<TaxRegionCode>Ava</TaxRegionCode>
 			<TaxRegReason></TaxRegReason>
 			<TerritoryID>US MID</TerritoryID>
 			<TerritorySelect>SYST</TerritorySelect>
@@ -5134,6 +5264,8 @@
 			<UPSQVShipFromName></UPSQVShipFromName>
 			<WIWebShipTo>false</WIWebShipTo>
 			<ZIP>54956</ZIP>
+			<ShortChar01></ShortChar01>
+			<ShortChar10></ShortChar10>
 		</ShipTo>
 	</ReportDataSet>
 </ReportDataSet>

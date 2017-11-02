@@ -1648,6 +1648,12 @@
 								<xs:element name="WICustomer" msprop:DataTableID="Customer" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WIShippingCosts" msprop:DataTableID="Customer" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
 								<xs:element name="Zip" msdata:Caption="Postal Code" msprop:DataTableID="Customer" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character01" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character02" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character03" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character04" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="CheckBox01" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="Number10" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
@@ -1948,6 +1954,8 @@
 								<xs:element name="WorstCsRevenue" msdata:Caption="Worst Case Revenue" msprop:DataTableID="QuoteDtl" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="XPartNum" msdata:Caption="Cust Part" msprop:DataTableID="QuoteDtl" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="XRevisionNum" msdata:Caption="Rev" msprop:DataTableID="QuoteDtl" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character10" msdata:Caption="" msprop:DataTableID="QuoteDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Number12" msdata:Caption="" msprop:DataTableID="QuoteDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="Calc_Duration" msdata:Caption="Duration" type="xs:int" minOccurs="0"/>
 								<xs:element name="Calc_HasMisc" msdata:Caption="HasMisc" type="xs:boolean" minOccurs="0"/>
 								<xs:element name="Calc_Labor" msdata:Caption="Labor" type="xs:boolean" minOccurs="0"/>
@@ -2238,6 +2246,8 @@
 								<xs:element name="UseOTS" msdata:Caption="Use OTS" msprop:DataTableID="QuoteHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
 								<xs:element name="VoidQuote" msdata:Caption="Void" msprop:DataTableID="QuoteHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
 								<xs:element name="WorstCsPct" msdata:Caption="Worst Case" msprop:DataTableID="QuoteHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="Character09" msdata:Caption="" msprop:DataTableID="QuoteHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Number10" msdata:Caption="" msprop:DataTableID="QuoteHed_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="Calc_CompanyAddr" msdata:Caption="CompanyAddr" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_CompFax" msdata:Caption="CompFax" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_CompPhone" msdata:Caption="CompPhone" type="xs:string" minOccurs="0"/>
@@ -2374,6 +2384,8 @@
 								<xs:element name="TotalSellPrice" msprop:DataTableID="QuoteQty" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="UnitPrice" msdata:Caption="Unit Price" msprop:DataTableID="QuoteQty" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="UserChangedUnitPrice" msdata:Caption="User Changed Unit Price" msprop:DataTableID="QuoteQty" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="Number03" msdata:Caption="" msprop:DataTableID="QuoteQty_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number04" msdata:Caption="" msprop:DataTableID="QuoteQty_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="Calc_NetPrice" msdata:Caption="Net Price" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="Calc_QtyDiscAmt" msdata:Caption="QtyDiscAmt" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="Calc_RptUserID" msdata:Caption="RptUserID" type="xs:string" minOccurs="0"/>
@@ -2658,6 +2670,7 @@
 			<ProcessId>Erp.UIRpt.QuotForm</ProcessId>
 			<AssemblyName>Erp.UIRpt.QuotForm</AssemblyName>
 			<CustomizationId></CustomizationId>
+			<CurrentUserId>epicor</CurrentUserId>
 			<CurrentCompany>EPIC03</CurrentCompany>
 			<CurrentPlant>MfgSys</CurrentPlant>
 			<SysRowID>00000000-0000-0000-0000-000000000000</SysRowID>
@@ -3716,8 +3729,8 @@
 			<DecimalsCost>2</DecimalsCost>
 			<DecimalsPrice>2</DecimalsPrice>
 			<GlbDecimalsGeneral>2</GlbDecimalsGeneral>
-			<GlbDecimalsCost>5</GlbDecimalsCost>
-			<GlbDecimalsPrice>5</GlbDecimalsPrice>
+			<GlbDecimalsCost>2</GlbDecimalsCost>
+			<GlbDecimalsPrice>2</GlbDecimalsPrice>
 			<DecimalsQuantity>2</DecimalsQuantity>
 		</RptParameter>
 		<Company>
@@ -3747,8 +3760,8 @@
 			<ReportTypePref>SSRS</ReportTypePref>
 			<SendToFSA>false</SendToFSA>
 			<State>IL</State>
-			<SysRevID>1318849802</SysRevID>
-			<SysRowID>e7f27029-6d71-b186-dd11-c42d14efdd6e</SysRowID>
+			<SysRevID>9425484</SysRevID>
+			<SysRowID>558390ef-2a11-4498-a5bd-a33b015c0cec</SysRowID>
 			<TaxRegReason></TaxRegReason>
 			<WIApplication></WIApplication>
 			<WIAutoCreateJob>false</WIAutoCreateJob>
@@ -3769,8 +3782,8 @@
 			<PrimeRep>true</PrimeRep>
 			<QuoteNum>1114</QuoteNum>
 			<SalesRepCode>SCOTT</SalesRepCode>
-			<SysRevID>3296471</SysRevID>
-			<SysRowID>fd105578-60be-a294-e211-74c6485cf8eb</SysRowID>
+			<SysRevID>2968722</SysRevID>
+			<SysRowID>46bb45b6-edfb-4453-b7c3-a33b015c3738</SysRowID>
 			<Calc_RoleDesc>Sales Person</Calc_RoleDesc>
 			<QuoteNum_CurrencyCode>USD</QuoteNum_CurrencyCode>
 			<RoleCode_RoleDescription>Sales Person</RoleCode_RoleDescription>
@@ -3781,9 +3794,9 @@
 			<RptLanguageID>enu</RptLanguageID>
 			<BestCsPct>0</BestCsPct>
 			<BestCsRevenue>0</BestCsRevenue>
-			<ChangeDate>2013-06-08T00:00:00</ChangeDate>
+			<ChangeDate>2014-04-19T00:00:00</ChangeDate>
 			<ChangedBy>epicor</ChangedBy>
-			<ChangeTime>46322</ChangeTime>
+			<ChangeTime>56896</ChangeTime>
 			<Company>EPIC03</Company>
 			<ContractCode></ContractCode>
 			<ContractID></ContractID>
@@ -3868,7 +3881,7 @@
 			<RFQTemplate>00000000-0000-0000-0000-000000000000</RFQTemplate>
 			<Rpt1BestCsRevenue>0</Rpt1BestCsRevenue>
 			<Rpt1Discount>0</Rpt1Discount>
-			<Rpt1ExpectedRevenue>20.970</Rpt1ExpectedRevenue>
+			<Rpt1ExpectedRevenue>83.880</Rpt1ExpectedRevenue>
 			<Rpt1ExpUnitPrice>209.68500</Rpt1ExpUnitPrice>
 			<Rpt1ExtPriceDtl>209.690</Rpt1ExtPriceDtl>
 			<Rpt1InDiscount>0</Rpt1InDiscount>
@@ -3919,8 +3932,8 @@
 			<SellingFactorDirection>M</SellingFactorDirection>
 			<SmartString></SmartString>
 			<SmartStringProcessed>false</SmartStringProcessed>
-			<SysRevID>37726917</SysRevID>
-			<SysRowID>fd105578-60be-a294-e211-74c6eb21d4ec</SysRowID>
+			<SysRevID>2771849</SysRevID>
+			<SysRowID>45498233-4465-47ee-81b3-a33b015c0b86</SysRowID>
 			<Tax>0</Tax>
 			<TaxConnectCalc>false</TaxConnectCalc>
 			<TaxExempt></TaxExempt>
@@ -3934,6 +3947,8 @@
 			<WorstCsRevenue>0</WorstCsRevenue>
 			<XPartNum></XPartNum>
 			<XRevisionNum></XRevisionNum>
+			<Character10></Character10>
+			<Number12>0.000000000</Number12>
 			<Calc_Duration>0</Calc_Duration>
 			<Calc_HasMisc>false</Calc_HasMisc>
 			<Calc_Labor>false</Calc_Labor>
@@ -3963,9 +3978,9 @@
 			<AutoPrintReady>false</AutoPrintReady>
 			<BestCsPct>0</BestCsPct>
 			<BTCustNum>2</BTCustNum>
-			<ChangeDate>2013-06-08T00:00:00</ChangeDate>
+			<ChangeDate>2014-04-19T00:00:00</ChangeDate>
 			<ChangedBy>epicor</ChangedBy>
-			<ChangeTime>46567</ChangeTime>
+			<ChangeTime>56897</ChangeTime>
 			<ChrgAmount>0</ChrgAmount>
 			<COD>false</COD>
 			<CODAmount>0</CODAmount>
@@ -4068,7 +4083,7 @@
 			<Rpt1TotalBestCs>0</Rpt1TotalBestCs>
 			<Rpt1TotalDiscount>0</Rpt1TotalDiscount>
 			<Rpt1TotalDiscPct>0</Rpt1TotalDiscPct>
-			<Rpt1TotalExpected>20.970</Rpt1TotalExpected>
+			<Rpt1TotalExpected>83.880</Rpt1TotalExpected>
 			<Rpt1TotalGrossValue>209.690</Rpt1TotalGrossValue>
 			<Rpt1TotalMiscAmt>0</Rpt1TotalMiscAmt>
 			<Rpt1TotalPotential>209.690</Rpt1TotalPotential>
@@ -4118,14 +4133,14 @@
 			<ServRelease>false</ServRelease>
 			<ServSignature>false</ServSignature>
 			<ShipToCustNum>2</ShipToCustNum>
-			<SysRevID>3509519</SysRevID>
-			<SysRowID>fd105578-60be-a294-e211-74c60760f6eb</SysRowID>
+			<SysRevID>2223355</SysRevID>
+			<SysRowID>5eba8976-de36-42da-a7c5-a33b015c06e7</SysRowID>
 			<Tax>0</Tax>
 			<TaxRegionCode></TaxRegionCode>
 			<TotalBestCs>0</TotalBestCs>
 			<TotalDiscount>0</TotalDiscount>
 			<TotalDiscPct>0</TotalDiscPct>
-			<TotalExpected>1.500</TotalExpected>
+			<TotalExpected>6.000</TotalExpected>
 			<TotalGrossValue>15.000</TotalGrossValue>
 			<TotalMiscAmt>0</TotalMiscAmt>
 			<TotalPotential>15.000</TotalPotential>
@@ -4136,6 +4151,8 @@
 			<UseOTS>false</UseOTS>
 			<VoidQuote>false</VoidQuote>
 			<WorstCsPct>0</WorstCsPct>
+			<Character09></Character09>
+			<Number10>0.000000000</Number10>
 			<Calc_CompanyAddr>Epicor USA~12600 S Torrence Ave~Chicago IL 60633~USA~~~~</Calc_CompanyAddr>
 			<Calc_CompFax></Calc_CompFax>
 			<Calc_CompPhone></Calc_CompPhone>
@@ -4206,11 +4223,13 @@
 			<SalesUM>EA</SalesUM>
 			<SellingFactorDirection>D</SellingFactorDirection>
 			<SellingQuantity>1.00000000</SellingQuantity>
-			<SysRevID>3504113</SysRevID>
-			<SysRowID>fd105578-60be-a294-e211-74c6a39fc5ec</SysRowID>
+			<SysRevID>2751905</SysRevID>
+			<SysRowID>06a70f64-0912-4e1c-b13f-a33b015c11f2</SysRowID>
 			<TotalSellPrice>0</TotalSellPrice>
 			<UnitPrice>15.00000</UnitPrice>
 			<UserChangedUnitPrice>false</UserChangedUnitPrice>
+			<Number03>0.000000000</Number03>
+			<Number04>0.000000000</Number04>
 			<Calc_NetPrice>15.0000000000000</Calc_NetPrice>
 			<Calc_QtyDiscAmt>0</Calc_QtyDiscAmt>
 			<Calc_RptUserID>epicor</Calc_RptUserID>
@@ -4245,14 +4264,14 @@
 			<CanPersonalize>true</CanPersonalize>
 			<CanSuspend>true</CanSuspend>
 			<CanTheme>true</CanTheme>
-			<CanTranslate>false</CanTranslate>
+			<CanTranslate>true</CanTranslate>
 			<CanUseEntSearch>true</CanUseEntSearch>
 			<City>Irvine</City>
-			<CompList>01Master~02Test~EPIC01~EPIC02~EPIC03~EPIC04~EPIC05~EPIC06~EPIC07~EPIC08~EPIC100~EPIC60~EPIC70~EPIC80~EPIC90~EPICPF~GPC</CompList>
+			<CompList>EPIC01~EPIC02~EPIC03~EPIC04~EPIC05~EPIC06~EPIC07~EPICPF~GPC</CompList>
 			<Country>USA</Country>
 			<CurComp>EPIC03</CurComp>
 			<CurFolderSeq>0</CurFolderSeq>
-			<CurMenuID>XAMN5060</CurMenuID>
+			<CurMenuID>MAINMENU</CurMenuID>
 			<DashboardDeveloper>true</DashboardDeveloper>
 			<DcdUserID>epicor</DcdUserID>
 			<DispTips>false</DispTips>
@@ -4267,9 +4286,9 @@
 			<GroupList>OFFICE~SALES~SHOP~OWNER~PRODMGR~OFCMGR~PROD</GroupList>
 			<JCDept></JCDept>
 			<LangNameID>enu</LangNameID>
-			<LastDate>2017-07-13T00:00:00</LastDate>
+			<LastDate>2017-10-19T00:00:00</LastDate>
 			<LastGraphType></LastGraphType>
-			<LastTime>40805</LastTime>
+			<LastTime>0</LastTime>
 			<ListViewMode>2</ListViewMode>
 			<MaxGroupsFavorites>-1</MaxGroupsFavorites>
 			<MaxGroupsSystemMenu>0</MaxGroupsSystemMenu>
@@ -4278,12 +4297,11 @@
 			<Name>Epicor System Admin</Name>
 			<OfficePhone></OfficePhone>
 			<OSUserID>administrator</OSUserID>
-			<PayrollMgr>0b98f0a6d79439f8c1e61c867ddddec3</PayrollMgr>
+			<PayrollMgr></PayrollMgr>
 			<Phone></Phone>
-			<PwdExpires>2017-08-25T00:00:00</PwdExpires>
 			<PwdExpiresDays>0</PwdExpiresDays>
 			<PwdGrace>3</PwdGrace>
-			<PwdLastChanged>2015-08-14T00:00:00</PwdLastChanged>
+			<PwdLastChanged>2013-12-31T00:00:00</PwdLastChanged>
 			<RequireSso>false</RequireSso>
 			<SaveSettings>true</SaveSettings>
 			<SecurityAccessOnly>false</SecurityAccessOnly>
@@ -4296,8 +4314,8 @@
 			<StartMenuEWA></StartMenuEWA>
 			<StartMenuMobile></StartMenuMobile>
 			<State>CA</State>
-			<SysRevID>-1950084657563303936</SysRevID>
-			<SysRowID>bb1f213e-b564-8a9e-de11-b45a10d171d6</SysRowID>
+			<SysRevID>-7617398965046083584</SysRevID>
+			<SysRowID>a88a55bd-6bb5-4b27-ad5d-a33b015bffe3</SysRowID>
 			<TEAprRetrieveApproved>true</TEAprRetrieveApproved>
 			<TEAprRetrieveEntered>true</TEAprRetrieveEntered>
 			<TEAprRetrievePartiallyApproved>true</TEAprRetrievePartiallyApproved>
@@ -4313,18 +4331,18 @@
 			<UseInternalWebBrowser>true</UseInternalWebBrowser>
 			<UserAccessOnly>false</UserAccessOnly>
 			<UserDisabled>false</UserDisabled>
-			<ViewFavoriteBar>false</ViewFavoriteBar>
+			<ViewFavoriteBar>true</ViewFavoriteBar>
 			<ViewStatusBar>true</ViewStatusBar>
 			<ViewStatusPanelCompany>true</ViewStatusPanelCompany>
 			<ViewStatusPanelLanguage>true</ViewStatusPanelLanguage>
-			<ViewStatusPanelPlant>true</ViewStatusPanelPlant>
+			<ViewStatusPanelPlant>false</ViewStatusPanelPlant>
 			<ViewStatusPanelServer>true</ViewStatusPanelServer>
 			<ViewStatusPanelUserID>true</ViewStatusPanelUserID>
-			<ViewStatusPanelWorkstationID>true</ViewStatusPanelWorkstationID>
-			<ViewTreeOnly>0</ViewTreeOnly>
+			<ViewStatusPanelWorkstationID>false</ViewStatusPanelWorkstationID>
+			<ViewTreeOnly>2</ViewTreeOnly>
 			<WebUser>true</WebUser>
-			<WinHeight>830</WinHeight>
-			<WinWidth>1616</WinWidth>
+			<WinHeight>1056</WinHeight>
+			<WinWidth>1936</WinWidth>
 			<WinX>-2</WinX>
 			<WinY>0</WinY>
 			<ZIP>92612</ZIP>

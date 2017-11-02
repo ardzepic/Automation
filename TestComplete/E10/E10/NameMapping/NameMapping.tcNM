@@ -2755,6 +2755,76 @@
 																												<Value PropertyType="0" Value="WindowDockingArea" Type="5" />
 																											</Property>
 																										</Properties>
+																										<Children>
+																											<Child Name="dockableWindow2" Key="{4B33568B-EBA9-4B57-A53F-27FB74F8C4ED}" ParallelWalk="True">
+																												<Image FileName="163328011" Left="8" Top="553" Right="1924" Bottom="1024" />
+																												<Properties>
+																													<Property Name="Pane.TextTabResolved">
+																														<Value PropertyType="0" Value="Customer Tracker Query" Type="5" />
+																													</Property>
+																												</Properties>
+																												<Children>
+																													<Child Name="V_zCust01_1ViewDockPanel2" Key="{CBFC3257-EE3A-4861-9316-83A9B3200862}" ParallelWalk="True">
+																														<Image FileName="163328011" Left="8" Top="573" Right="1924" Bottom="1024" />
+																														<Properties>
+																															<Property Name="WinFormsControlName">
+																																<Value PropertyType="0" Value="V_zCust01_1ViewDockPanel2" Type="5" />
+																															</Property>
+																														</Properties>
+																														<Children>
+																															<Child Name="windowDockingArea1" Key="{435A7761-BEA4-487F-8F9A-E4D63905E801}" ParallelWalk="True">
+																																<Image FileName="163328011" Left="8" Top="573" Right="1924" Bottom="1024" />
+																																<Properties>
+																																	<Property Name="ClrClassName">
+																																		<Value PropertyType="0" Value="WindowDockingArea" Type="5" />
+																																	</Property>
+																																</Properties>
+																																<Children>
+																																	<Child Name="dockableWindow2" Key="{6121B40D-9C18-467C-B455-162BBAE7670C}" ParallelWalk="True">
+																																		<Image FileName="163328011" Left="8" Top="801" Right="1924" Bottom="1024" />
+																																		<Properties>
+																																			<Property Name="Pane.TextTabResolved">
+																																				<Value PropertyType="0" Value="zCust01: Tracker" Type="5" />
+																																			</Property>
+																																		</Properties>
+																																		<Children>
+																																			<Child Name="V_zCust01_1ViewDetailPanel1" Key="{4D9C1346-98BE-4E8E-8941-EAFE9F589CE2}" ParallelWalk="True">
+																																				<Image FileName="163328011" Left="8" Top="821" Right="1924" Bottom="1024" />
+																																				<Properties>
+																																					<Property Name="EpiGuid">
+																																						<Value PropertyType="0" Value="86889527-5156-456f-86eb-311505f00a6c" Type="5" />
+																																					</Property>
+																																				</Properties>
+																																				<Children>
+																																					<Child Name="windowDockingArea1" Key="{C048A596-C076-42EE-AB3A-E6898E27CC01}" ParallelWalk="True">
+																																						<Image FileName="163328011" Left="8" Top="821" Right="1924" Bottom="1024" />
+																																						<TypeInfo Item0="{9FB5D5A6-5D9F-47E3-9421-3A5D273750DB}" />
+																																						<Properties>
+																																							<Property Name="ClrClassName">
+																																								<Value PropertyType="0" Value="WindowDockingArea" Type="5" />
+																																							</Property>
+																																						</Properties>
+																																						<Children>
+																																							<Child Name="trackerDockableWindow1" Key="{BC43E6DA-2C21-4965-83A9-CD70199A4A62}" ParallelWalk="True">
+																																								<Properties>
+																																									<Property Name="Pane.TextTabResolved">
+																																										<Value PropertyType="0" Value="zCust01: Tracker" Type="5" />
+																																									</Property>
+																																								</Properties>
+																																							</Child>
+																																						</Children>
+																																					</Child>
+																																				</Children>
+																																			</Child>
+																																		</Children>
+																																	</Child>
+																																</Children>
+																															</Child>
+																														</Children>
+																													</Child>
+																												</Children>
+																											</Child>
+																										</Children>
 																									</Child>
 																								</Children>
 																							</Child>
@@ -9021,7 +9091,21 @@
 									<Child Name="dockableWindow1" Owner="{488B63FF-504A-4F15-9580-BBEE4B7CE0FB}">
 										<Child Name="MainPanel" Owner="{2FD26FD1-E926-4EE6-8475-A60B6493EBF5}">
 											<Child Name="MainDockPanel" Owner="{E0C0118D-8495-46A9-A82D-0C50A58719A1}">
-												<Child Name="windowDockingArea1" Owner="{B3BD452F-85A9-4438-B893-37802F37BDEB}" />
+												<Child Name="windowDockingArea1" Owner="{B3BD452F-85A9-4438-B893-37802F37BDEB}">
+													<Child Name="dockableWindow2" Owner="{4B33568B-EBA9-4B57-A53F-27FB74F8C4ED}">
+														<Child Name="V_zCust01_1ViewDockPanel2" Owner="{CBFC3257-EE3A-4861-9316-83A9B3200862}">
+															<Child Name="windowDockingArea1" Owner="{435A7761-BEA4-487F-8F9A-E4D63905E801}">
+																<Child Name="dockableWindow2" Owner="{6121B40D-9C18-467C-B455-162BBAE7670C}">
+																	<Child Name="V_zCust01_1ViewDetailPanel1" Owner="{4D9C1346-98BE-4E8E-8941-EAFE9F589CE2}">
+																		<Child Name="windowDockingArea1" Owner="{C048A596-C076-42EE-AB3A-E6898E27CC01}">
+																			<Child Name="trackerDockableWindow1" Owner="{BC43E6DA-2C21-4965-83A9-CD70199A4A62}" />
+																		</Child>
+																	</Child>
+																</Child>
+															</Child>
+														</Child>
+													</Child>
+												</Child>
 											</Child>
 										</Child>
 									</Child>
@@ -15534,6 +15618,73 @@
 							<ParamDesc Flags="1" />
 						</Param0>
 						<ReturnValue Param0="9" />
+					</Child>
+					<Child Name="SetFocus" Doc="Sets focus to the specified Window object." IsBasic="True" Data="ZI4L1L4ZN18ZN">
+						<ReturnValue Param0="24" />
+					</Child>
+					<Child Name="Click" Doc="Simulates a left-button single click in a window or control as specified (relative position, shift keys)." IsBasic="True" Param0="ClientX" Param1="ClientY" Param2="Shift" Data="ZI4L1L4L3Z018ZN">
+						<Param0>
+							<TypeDesc Param0="3" />
+							<ParamDesc Flags="49" Value="-1" Type="0" />
+						</Param0>
+						<Param1>
+							<TypeDesc Param0="3" />
+							<ParamDesc Flags="49" Value="-1" Type="0" />
+						</Param1>
+						<Param2>
+							<TypeDesc Param0="29" Type0="TShiftKey" />
+							<ParamDesc Flags="49" Value="0" Type="0" />
+						</Param2>
+						<ReturnValue Param0="24" />
+					</Child>
+					<Child Name="ClickR" Doc="Simulates a right-button single click in a window or control as specified (relative position, shift keys)." IsBasic="True" Param0="ClientX" Param1="ClientY" Param2="Shift" Data="ZI4L1L4L3Z018ZN">
+						<Param0>
+							<TypeDesc Param0="3" />
+							<ParamDesc Flags="49" Value="-1" Type="0" />
+						</Param0>
+						<Param1>
+							<TypeDesc Param0="3" />
+							<ParamDesc Flags="49" Value="-1" Type="0" />
+						</Param1>
+						<Param2>
+							<TypeDesc Param0="29" Type0="TShiftKey" />
+							<ParamDesc Flags="49" Value="0" Type="0" />
+						</Param2>
+						<ReturnValue Param0="24" />
+					</Child>
+					<Child Name="Keys" Doc="Simulates one or several keypresses." IsBasic="True" Param0="Keys" Data="ZI4L1L4L1Z018ZN">
+						<Param0>
+							<TypeDesc Param0="8" />
+							<ParamDesc Flags="1" />
+						</Param0>
+						<ReturnValue Param0="24" />
+					</Child>
+					<Child Name="Visible" IsBasic="True" Data="ZI4L2L4ZOBZN">
+						<ReturnValue Param0="11" />
+					</Child>
+					<Child Name="Width" IsBasic="True" Data="ZI4L2L4ZN13ZN">
+						<ReturnValue Param0="19" />
+					</Child>
+					<Child Name="Height" IsBasic="True" Data="ZI4L2L4ZN13ZN">
+						<ReturnValue Param0="19" />
+					</Child>
+					<Child Name="Enabled" IsBasic="True" Data="ZI4L2L4ZOBZN">
+						<ReturnValue Param0="11" />
+					</Child>
+				</FunctionDescriptions>
+			</Data>
+		</Child>
+		<Child Hash="928586931" Key="{9FB5D5A6-5D9F-47E3-9421-3A5D273750DB}">
+			<Data Properties="24D2424C42C0C14C9F0F7A71B12F5ABAUFFFFFFFFFFFFFFFFV4LBZZY">
+				<FunctionDescriptions>
+					<Child Name="Activate" Doc="Activates the window&apos;s dockable pane. It can also expand the pane&apos;s group, activate the tab where the pane is located, or make the auto-hidden pane visible." IsBasic="True" Data="ZI4L1L4ZN18ZN">
+						<ReturnValue Param0="24" />
+					</Child>
+					<Child Name="Maximize" Doc="Simulates a mouse click on the Maximize button of the window&apos;s dockable pane." IsBasic="True" Data="ZI4L1L4ZN18ZN">
+						<ReturnValue Param0="24" />
+					</Child>
+					<Child Name="Minimize" Doc="Simulates a mouse click on the Minimize button of the window&apos;s dockable pane." IsBasic="True" Data="ZI4L1L4ZN18ZN">
+						<ReturnValue Param0="24" />
 					</Child>
 					<Child Name="SetFocus" Doc="Sets focus to the specified Window object." IsBasic="True" Data="ZI4L1L4ZN18ZN">
 						<ReturnValue Param0="24" />

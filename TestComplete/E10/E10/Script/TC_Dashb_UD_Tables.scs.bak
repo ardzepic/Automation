@@ -4,7 +4,6 @@
 //USEUNIT Grid_Functions
 //USEUNIT ControlFunctions
 //USEUNIT Data_Dashboard_UDs
-//USEUNIT FormLib
 
 function Dashboard_with_UD_tables(){
 }
@@ -206,6 +205,7 @@ function AddQuery2Dashb(){
     DashboardPropertiesTabs("Filter")
     Log["Message"]("BAQ1 - filter tab was selected")
 
+    var queryProperties = Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["QueryPropsPanel"]["PropertiesPanel_Fill_Panel"]["tcQueryProps"]
     var ultraGrid = queryProperties["tabFilter"]["WinFormsObject"]("pnlFilter")["WinFormsObject"]("ultraGrid1")
 
     //GRID 

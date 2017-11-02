@@ -13,6 +13,7 @@ var plant1 = "Main"
 //Used to navigate thru the Main tree panel
 var treeMainPanel1 = setCompanyMainTree(company1,plant1)
 
+
 //Copy BAQ data
 var baq = "zCustomer01"
 var baq1Copy = "zCust01"

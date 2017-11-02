@@ -9,119 +9,7 @@
 var continueTest = true
 
 function TC_Dashboard_Tracker_Views_2(){
-  
 
-
-    /*
-      Step No: 55B
-      Step: > Add a new tracker view
-            >In the Tracker view properties enter "hidden country" in Caption field
-            >click "Clear All" button
-            > Activate "Visible" and "prompt" options for Customer_Country column
-            > ClickOK button          
-    */   
-      Log["Message"]("Step 55B")
-        //Right click on the query summary and click on the Query      
-        var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]  
-        rect = dashboardTree["Nodes"]["Item"](0)["Nodes"]["Item"](3)
-        dashboardTree["ClickR"]((rect["Bounds"]["Left"]+ rect["Bounds"]["Right"])/2, (rect["Bounds"]["Top"]+ rect["Bounds"]["Bottom"])/2)
-        Log["Message"]("BAQ - right click")
-
-        // click 'New Tracker View' option from menu
-        Aliases["Epicor"]["Dashboard"]["dbPanel"]["UltraPopupMenu"]["Click"]("New Tracker View");
-        Log["Message"]("New Tracker View was selected from Menu")
-
-        EnterText("txtCaption", "Hidden Country")
-
-        // Select Clear All button        
-        if (Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["TrackerViewPropsPanel"]["Exists"]) {
-          Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["TrackerViewPropsPanel"]["viewPropsTabCtrl"]["GeneralTab"]["pnlTrackerControls"]["btnClearAll"]["Click"]()
-        }
-
-        // select 'prompt' for Phone and EMailAddress. Click Ok
-        var dashboardTrackerView = Aliases["Epicor"]["DashboardProperties"]["FillPanel"]["TrackerViewPropsPanel"]["viewPropsTabCtrl"]["GeneralTab"]["pnlTrackerControls"]["ultraGrid1"]
-        
-        var column = getColumn(dashboardTrackerView, "Column")
-        var columnPrompt = getColumn(dashboardTrackerView, "Prompt")
-        // var columnLabel = getColumn(dashboardTrackerView, "Label Caption")
-        var columnVisible = getColumn(dashboardTrackerView, "Visible")
-        
-        var promptFields = "Customer_Country"
- 
-        promptFields = promptFields.split(",")
-
-        for (var i = 0; i <= dashboardTrackerView["wRowCount"] - 1; i++) {
-          //Select row and check Prompt checkbox
-          var cell = dashboardTrackerView["Rows"]["Item"](i)["Cells"]["Item"](column)
-
-          for (var j = 0; j < promptFields["length"]; j++) {
-            if (cell["Text"] == promptFields[j]) {
-              // Makes field visible
-              dashboardTrackerView["Rows"]["Item"](i)["Cells"]["Item"](columnVisible)["Click"]()
-              dashboardTrackerView["Rows"]["Item"](i)["Cells"]["Item"](columnVisible)["EditorResolved"]["CheckState"] = "Checked"
-
-              // Check Prompt check box on field
-              dashboardTrackerView["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["Click"]()
-              dashboardTrackerView["Rows"]["Item"](i)["Cells"]["Item"](columnPrompt)["EditorResolved"]["CheckState"] = "Checked"              
-              break
-            }
-          }
-        }        
-
-        ClickButton("OK")
-    /*
-      Step No: 55C
-      Step: " > Right click over the tracker view and select ""Customize tracker view"" option
-              > click the country dropdown list from the tracker
-              > Change its Visible property to ""False"""       
-    */ 
-      Log["Message"]("Step 55C")
-
-      rect = dashboardTree["Nodes"]["Item"](0)["Nodes"]["Item"](3)["Nodes"]["Item"](1)
-      dashboardTree["ClickR"]((rect["Bounds"]["Left"]+ rect["Bounds"]["Right"])/2, (rect["Bounds"]["Top"]+ rect["Bounds"]["Bottom"])/2)
-      Log["Message"]("BAQ - right click")
-
-      // click 'New Tracker View' option from menu
-      Aliases["Epicor"]["Dashboard"]["dbPanel"]["UltraPopupMenu"]["Click"]("Customize Tracker View");
-      Log["Message"]("BAQ1 Summary - Customize Tracker View was selected from Menu")
-
-      var trackerNode = Aliases["Epicor"]["CustomToolsDialog"]["grpControlTree"]["utrControls"]["Nodes"]["Item"](0)
-      trackerNode["Expanded"] = true
-
-      for (var i = 0; i < trackerNode["Nodes"]["Count"]; i++) {
-        if (trackerNode["Nodes"]["Item"](i)["Text"] == "TrackerPanel") {
-          trackerNode["Nodes"]["Item"](i)["Selected"] = true
-          trackerNode["Nodes"]["Item"](i)["Expanded"] = true
-          for (var j = 0; j < trackerNode["Nodes"]["Item"](i)["Nodes"]["Count"]; j++) {
-            if(trackerNode["Nodes"]["Item"](i)["Nodes"]["Item"](j)["Text"] == "cboCustomer_Country"){
-              trackerNode["Nodes"]["Item"](i)["Nodes"]["Item"](j)["Selected"] = true
-              break
-            }
-          }
-        }
-      }
-      
-      var epiPropertyGrid = Aliases["Epicor"]["CustomToolsDialog"]["tabCustomToolsDialog"]["tpgProperties"]["pnlControlProperties"]["pnlProperties"]["pgdProperties"]
-
-      delay(1000)
-      epiPropertyGrid["wItems"]("Behavior")["ClickLabel"]("Visible");
-      epiPropertyGrid["Keys"]("^a[Del]" + "False" + "[Enter]");
-      delay(1000)
-
-      Aliases["Epicor"]["CustomToolsDialog"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|Save Customization")
-      Aliases["Epicor"]["CustomToolsDialog"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Close")
-
-    /*
-      Step No: 56
-      Step: Save and deploy dashboard to a Smart Client Application and Generate Web Form       
-      Result: The deployment is finished without errors       
-    */    
-    Log["Message"]("Step 56")
-    SaveDashboard()
-    Delay(2500)
-    DeployDashboard("Deploy Smart Client,Add Favorite Item,Generate Web Form")
-    ExitDashboard()
-  //-------------------------------------------------------------------------------------------------------------------------------------------'
   
   //--- Menu maintenance ----------------------------------------------------------------------------------------------------------------------'
 
@@ -145,6 +33,7 @@ function TC_Dashboard_Tracker_Views_2(){
       Result: E10 is restarted        
     */    
       Aliases["Epicor"]["MenuForm"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Options|Clear Client Cache")
+      ClickButton("Yes")
 
       Log["Message"]("Step 60")
       Delay(1000)

@@ -7,7 +7,20 @@
 //USEUNIT Data_Dashboard_TrackerViews_3
 
 function TC_Dashboard_Tracker_Views_3(){
+  
+ 
 
+    // Step 22 - Log in  
+      Log["Message"]("Step 22")
+      StartSmartClient()
+
+      Login("epicor", "epicor")
+      
+      ActivateFullTree()
+
+      ExpandComp("Epicor Education")
+
+      ChangePlant("Main")
 
   //--- User Account Security Maintenance -----------------------------------------------------------------------------------------------------'
     // Aliases["Epicor"]["MenuForm"]["windowDockingArea1"]["dockableWindow3"]["Activate"]()

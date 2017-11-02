@@ -11,7 +11,6 @@ function TC_Dashboard_All_companies(){
   
 }
 
-
 //Step 2
 function CreateBAQ(){
   ExpandComp(company1)
@@ -116,14 +115,34 @@ function TestMenuDataDB1_EPIC06(){
 }
 
 //Step 17, 18
-function TestMenuDataDB1_EPIC07(){
+function Dashb1Exists_EPIC07(){
 
     Log["Message"]("Step 17, 18")
     ExpandComp(company2)
 
     MainMenuTreeViewSelect(treeMainPanel2 + "Sales Management;Customer Relationship Management;Setup;" + MenuData1["menuName"])
 
-    var verifyForm = VerifyForm(MenuData1["dll"])
+    var verifyForm = VerifyForm(MenuData1["menuName"])
+
+    if(verifyForm){
+      Log["Checkpoint"]("Menu is available for this company")
+    }else{
+      Log["Message"]("Menu is not available for " + company2 + " company")
+      Dashb1Exists_EPIC05()
+    }
+
+    ClickMenu("File->Exit")
+}
+
+//Used to verify all companies dahsboard
+function Dashb1Exists_EPIC05(){
+
+    Log["Message"]("Step 17, 18")
+    ExpandComp(company3)
+
+    MainMenuTreeViewSelect(treeMainPanel3 + "Sales Management;Customer Relationship Management;Setup;" + MenuData1["menuName"])
+
+    var verifyForm = VerifyForm(MenuData1["menuName"])
 
     if(verifyForm){
       Log["Checkpoint"]("Menu is available for this company")
@@ -137,7 +156,7 @@ function TestMenuDataDB1_EPIC07(){
 // Steps 19 to 21
 function VerifyAllCompaniesChk() {
 
-   Log["Message"]("Step 19")
+    Log["Message"]("Step 19")
     MainMenuTreeViewSelect(treeMainPanel2 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
     // var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
@@ -151,9 +170,12 @@ function VerifyAllCompaniesChk() {
     OpenDashboard(dashb1)
 
     //Verify dialog message
-    CheckWindowMessage("Dashboard")
+    // CheckWindowMessage("Dashboard")
+    CheckWindowMessageModals()
+    Delay(2500)
+    ClickButton("OK")
 
-   Delay(3500)
+    Delay(3500)
     OpenPanelTab("General")
 
     // Verify checkbox 'All companies' 
@@ -390,7 +412,10 @@ function CreateCopySysDashb(){
 
     ClickMenu("Actions->Modify Dashboard")
    
-    CheckWindowMessage("System Dashboards")
+    // CheckWindowMessage("System Dashboards")
+    CheckWindowMessageModals()
+    Delay(2500)
+    ClickButton("OK")
     
     Log["Message"]("Step 49")
     Delay(2000)
@@ -405,10 +430,6 @@ function CreateCopySysDashb(){
          
     Log["Message"]("Step 51")
     SaveDashboard()
-    ExitDashboard()
-    
-    //Used to close dashboard maintenance
-    ClickMenu("File->Exit")
 }   
    
 //Steps 52 to 55   

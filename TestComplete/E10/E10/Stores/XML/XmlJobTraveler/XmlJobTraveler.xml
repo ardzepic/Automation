@@ -1409,6 +1409,12 @@
 								<xs:element name="WICustomer" msprop:DataTableID="Customer" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WIShippingCosts" msprop:DataTableID="Customer" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
 								<xs:element name="Zip" msdata:Caption="Postal Code" msprop:DataTableID="Customer" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character01" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character02" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character03" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character04" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="CheckBox01" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="Number10" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
@@ -1450,6 +1456,7 @@
 								<xs:element name="SendToPressInitiator" msprop:DataTableID="JobAsmbl" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
 								<xs:element name="StartDate" msdata:Caption="Start Date" msdata:DateTimeMode="Unspecified" msprop:DataTableID="JobAsmbl" msprop:SystemCode="ERP" type="xs:dateTime" minOccurs="0"/>
 								<xs:element name="TLAODCCost" msdata:Caption="This Level Actual Other Direct Cost" msprop:DataTableID="JobAsmbl" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Character03" msdata:Caption="" msprop:DataTableID="JobAsmbl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_BCAsmSeq" msdata:Caption="BCAsmSeq" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_BCJobNum" msdata:Caption="BCJobNum" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_BCPartNum" msdata:Caption="BCPartNum" type="xs:string" minOccurs="0"/>
@@ -1521,6 +1528,10 @@
 								<xs:element name="StartDate" msdata:Caption="Start Date" msdata:DateTimeMode="Unspecified" msprop:DataTableID="JobHead" msprop:SystemCode="ERP" type="xs:dateTime" minOccurs="0"/>
 								<xs:element name="SyncReqBy" msprop:DataTableID="JobHead" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
 								<xs:element name="UnReadyCostProcess" msprop:DataTableID="JobHead" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="Character01" msdata:Caption="" msprop:DataTableID="JobHead_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character10" msdata:Caption="" msprop:DataTableID="JobHead_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="CheckBox10" msdata:Caption="" msprop:DataTableID="JobHead_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="ShortChar10" msdata:Caption="" msprop:DataTableID="JobHead_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_BOMSequence" msdata:Caption="BOMSequence" type="xs:int" minOccurs="0"/>
 								<xs:element name="Calc_custADDR1" msdata:Caption="custADDR1" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_custADDR2" msdata:Caption="custADDR2" type="xs:string" minOccurs="0"/>
@@ -1774,6 +1785,10 @@
 								<xs:element name="StartDate" msdata:Caption="Start Date" msdata:DateTimeMode="Unspecified" msprop:DataTableID="JobOper" msprop:SystemCode="ERP" type="xs:dateTime" minOccurs="0"/>
 								<xs:element name="StdFormat" msdata:Caption="Std. Format" msprop:DataTableID="JobOper" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WIQueStartDate" msdata:Caption="Start Date" msdata:DateTimeMode="Unspecified" msprop:DataTableID="JobOper" msprop:SystemCode="ERP" type="xs:dateTime" minOccurs="0"/>
+								<xs:element name="CheckBox01" msdata:Caption="" msprop:DataTableID="JobOper_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="ShortChar08" msdata:Caption="" msprop:DataTableID="JobOper_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar09" msdata:Caption="" msprop:DataTableID="JobOper_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar10" msdata:Caption="" msprop:DataTableID="JobOper_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_BCOpCode" msdata:Caption="BCOpCode" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_BCOperCode" msdata:Caption="BCOperCode" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_BCOprSeq" msdata:Caption="BCOprSeq" type="xs:string" minOccurs="0"/>
@@ -1851,6 +1866,8 @@
 								<xs:element name="TFLineNum" msdata:Caption="Line Number" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WarehouseCode" msdata:Caption="Warehouse" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WIPQty" msdata:Caption="WIP Qty" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="ShortChar01" msdata:Caption="" msprop:DataTableID="JobProd_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar02" msdata:Caption="" msprop:DataTableID="JobProd_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
@@ -2259,6 +2276,29 @@
 								<xs:element name="WIUsername" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="XRefContractDate" msdata:Caption="X Contract Date" msdata:DateTimeMode="Unspecified" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:dateTime" minOccurs="0"/>
 								<xs:element name="XRefContractNum" msdata:Caption="X Contract Number" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character06" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character07" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character08" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character09" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="CheckBox01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox15" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox16" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox17" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="Number05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number20" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="orderhed_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="PbsId_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="PbsStage_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar06" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar08" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar09" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
@@ -2428,6 +2468,10 @@
 								<xs:element name="WIItemShipCost" msprop:DataTableID="OrderRel" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="WIOrder" msprop:DataTableID="OrderRel" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WIOrderLine" msprop:DataTableID="OrderRel" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="PbsDefaultTaxRemoved_c" msdata:Caption="" msprop:DataTableID="OrderRel_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="PbsTaxCalculated_c" msdata:Caption="" msprop:DataTableID="OrderRel_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="ShortChar01" msdata:Caption="" msprop:DataTableID="OrderRel_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar02" msdata:Caption="" msprop:DataTableID="OrderRel_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
@@ -2850,6 +2894,7 @@
 			<ProcessId>JCRP4008</ProcessId>
 			<AssemblyName>Erp.UIRpt.JobTrav</AssemblyName>
 			<CustomizationId></CustomizationId>
+			<CurrentUserId>epicor</CurrentUserId>
 			<CurrentCompany>EPIC03</CurrentCompany>
 			<CurrentPlant>MfgSys</CurrentPlant>
 			<SysRowID>00000000-0000-0000-0000-000000000000</SysRowID>
@@ -3768,8 +3813,8 @@
 			<DecimalsCost>2</DecimalsCost>
 			<DecimalsPrice>2</DecimalsPrice>
 			<GlbDecimalsGeneral>2</GlbDecimalsGeneral>
-			<GlbDecimalsCost>5</GlbDecimalsCost>
-			<GlbDecimalsPrice>5</GlbDecimalsPrice>
+			<GlbDecimalsCost>2</GlbDecimalsCost>
+			<GlbDecimalsPrice>2</GlbDecimalsPrice>
 			<DecimalsQuantity>2</DecimalsQuantity>
 		</RptParameter>
 		<Company>
@@ -3827,16 +3872,16 @@
 			<BTCountry>USA</BTCountry>
 			<BTCountryNum>1</BTCountryNum>
 			<BTFaxNum></BTFaxNum>
-			<BTFormatStr></BTFormatStr>
+			<BTFormatStr>&lt;CP&gt;~&lt;A1&gt;~&lt;A2&gt;~&lt;A3&gt;~&lt;CT&gt;`&lt;ST&gt;`&lt;ZP&gt;`&lt;CR&gt;</BTFormatStr>
 			<BTName>Addison, INC</BTName>
 			<BTPhoneNum></BTPhoneNum>
 			<BTState>WI</BTState>
 			<BTZip>53703</BTZip>
 			<BusinessCust></BusinessCust>
 			<CertOfOrigin>false</CertOfOrigin>
-			<ChangeDate>2011-10-31T00:00:00</ChangeDate>
+			<ChangeDate>2015-06-04T00:00:00</ChangeDate>
 			<ChangedBy>epicor</ChangedBy>
-			<ChangeTime>38387</ChangeTime>
+			<ChangeTime>59350</ChangeTime>
 			<ChargeCode>FinChrg</ChargeCode>
 			<CheckConfirmCapPromise>false</CheckConfirmCapPromise>
 			<CheckDateCapPromise>false</CheckDateCapPromise>
@@ -4109,8 +4154,8 @@
 			<ShipViaCode>COMP</ShipViaCode>
 			<State>WI</State>
 			<SyncToExternalCRM>false</SyncToExternalCRM>
-			<SysRevID>8959935673679216640</SysRevID>
-			<SysRowID>956fb026-32e0-bdae-df11-4b3be09b4ee8</SysRowID>
+			<SysRevID>6868993285856165888</SysRevID>
+			<SysRowID>ea6716b2-6634-4c4e-9a17-a33b015c598c</SysRowID>
 			<TaxAuthorityCode></TaxAuthorityCode>
 			<TaxEntityType></TaxEntityType>
 			<TaxExempt></TaxExempt>
@@ -4143,6 +4188,12 @@
 			<WICustomer></WICustomer>
 			<WIShippingCosts>false</WIShippingCosts>
 			<Zip>53703</Zip>
+			<Character01></Character01>
+			<Character02></Character02>
+			<Character03></Character03>
+			<Character04></Character04>
+			<CheckBox01>false</CheckBox01>
+			<Number10>0.000000000</Number10>
 		</Customer>
 		<JobAsmbl>
 			<RptLanguageID>enu</RptLanguageID>
@@ -4181,6 +4232,7 @@ Memory 1GB.  Disk Capacity 100 GB</Description>
 			<SendToPressInitiator>0</SendToPressInitiator>
 			<StartDate>2012-08-31T00:00:00</StartDate>
 			<TLAODCCost>0</TLAODCCost>
+			<Character03></Character03>
 			<Calc_BCAsmSeq>*0*</Calc_BCAsmSeq>
 			<Calc_BCJobNum>*005354-1-1*</Calc_BCJobNum>
 			<Calc_BCPartNum>*PC*</Calc_BCPartNum>
@@ -4240,8 +4292,9 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<SendToPrePress>false</SendToPrePress>
 			<SendToPress>false</SendToPress>
 			<SendToPressInitiator>0</SendToPressInitiator>
-			<StartDate>2013-05-22T00:00:00</StartDate>
+			<StartDate>2014-05-01T00:00:00</StartDate>
 			<TLAODCCost>0</TLAODCCost>
+			<Character03></Character03>
 			<Calc_BCAsmSeq>*0*</Calc_BCAsmSeq>
 			<Calc_BCJobNum>*2000*</Calc_BCJobNum>
 			<Calc_BCPartNum>*ADD-200-S*</Calc_BCPartNum>
@@ -4300,6 +4353,7 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<SendToPress>false</SendToPress>
 			<SendToPressInitiator>0</SendToPressInitiator>
 			<TLAODCCost>0</TLAODCCost>
+			<Character03></Character03>
 			<Calc_BCAsmSeq>*0*</Calc_BCAsmSeq>
 			<Calc_BCJobNum>*2022*</Calc_BCJobNum>
 			<Calc_BCPartNum>*PC1*</Calc_BCPartNum>
@@ -4355,6 +4409,10 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StartDate>2012-08-31T00:00:00</StartDate>
 			<SyncReqBy>false</SyncReqBy>
 			<UnReadyCostProcess>false</UnReadyCostProcess>
+			<Character01></Character01>
+			<Character10></Character10>
+			<CheckBox10>false</CheckBox10>
+			<ShortChar10></ShortChar10>
 			<Calc_BOMSequence>0</Calc_BOMSequence>
 			<Calc_custADDR1>2100 Martin Luther King Blvd</Calc_custADDR1>
 			<Calc_custADDR2></Calc_custADDR2>
@@ -4387,7 +4445,7 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<CustID></CustID>
 			<CustName></CustName>
 			<DaysLate>0</DaysLate>
-			<DueDate>2013-05-31T00:00:00</DueDate>
+			<DueDate>2014-05-30T00:00:00</DueDate>
 			<EPMExportLevel>0</EPMExportLevel>
 			<ExternalMES>false</ExternalMES>
 			<ExternalMESSyncRequired>false</ExternalMESSyncRequired>
@@ -4405,12 +4463,16 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<ProcSuspendedUpdates></ProcSuspendedUpdates>
 			<ProdQty>250.00000000</ProdQty>
 			<ProjProcessed>false</ProjProcessed>
-			<ReqDueDate>2013-05-31T00:00:00</ReqDueDate>
+			<ReqDueDate>2014-05-30T00:00:00</ReqDueDate>
 			<RoughCut>true</RoughCut>
 			<SchedPriority>0</SchedPriority>
-			<StartDate>2013-05-22T00:00:00</StartDate>
+			<StartDate>2014-05-01T00:00:00</StartDate>
 			<SyncReqBy>false</SyncReqBy>
 			<UnReadyCostProcess>false</UnReadyCostProcess>
+			<Character01></Character01>
+			<Character10></Character10>
+			<CheckBox10>false</CheckBox10>
+			<ShortChar10></ShortChar10>
 			<Calc_BOMSequence>0</Calc_BOMSequence>
 			<Calc_custADDR1></Calc_custADDR1>
 			<Calc_custADDR2></Calc_custADDR2>
@@ -4470,6 +4532,10 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StartDate>2008-09-12T00:00:00</StartDate>
 			<SyncReqBy>false</SyncReqBy>
 			<UnReadyCostProcess>false</UnReadyCostProcess>
+			<Character01></Character01>
+			<Character10></Character10>
+			<CheckBox10>false</CheckBox10>
+			<ShortChar10></ShortChar10>
 			<Calc_BOMSequence>0</Calc_BOMSequence>
 			<Calc_custADDR1></Calc_custADDR1>
 			<Calc_custADDR2></Calc_custADDR2>
@@ -4558,8 +4624,8 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingLotNum></StagingLotNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
-			<SysRevID>34769611</SysRevID>
-			<SysRowID>af352535-8151-fc9d-e111-bef2e02f9278</SysRowID>
+			<SysRevID>4546</SysRevID>
+			<SysRowID>05703997-510a-4c0c-8eda-a33b015c21e2</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<Weight>0</Weight>
 			<WeightUOM>g</WeightUOM>
@@ -4650,8 +4716,8 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingLotNum></StagingLotNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
-			<SysRevID>34769612</SysRevID>
-			<SysRowID>af352535-8151-fc9d-e111-bef2f0c79478</SysRowID>
+			<SysRevID>4547</SysRevID>
+			<SysRowID>3f4f63a3-8658-49ff-a6f9-a33b015c21e2</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<Weight>0</Weight>
 			<WeightUOM>g</WeightUOM>
@@ -4742,8 +4808,8 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingLotNum></StagingLotNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
-			<SysRevID>34769613</SysRevID>
-			<SysRowID>af352535-8151-fc9d-e111-bef2c0c39678</SysRowID>
+			<SysRevID>4548</SysRevID>
+			<SysRowID>f44c9d75-ae2f-4c9d-b405-a33b015c21e2</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<Weight>0</Weight>
 			<WeightUOM>g</WeightUOM>
@@ -4834,8 +4900,8 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingLotNum></StagingLotNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
-			<SysRevID>34769614</SysRevID>
-			<SysRowID>af352535-8151-fc9d-e111-bef2b00d9978</SysRowID>
+			<SysRevID>4549</SysRevID>
+			<SysRowID>9e5ff540-f881-4951-9b68-a33b015c21e2</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<Weight>0</Weight>
 			<WeightUOM>g</WeightUOM>
@@ -4926,8 +4992,8 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingLotNum></StagingLotNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
-			<SysRevID>34769615</SysRevID>
-			<SysRowID>af352535-8151-fc9d-e111-bef280099b78</SysRowID>
+			<SysRevID>4550</SysRevID>
+			<SysRowID>9df0160f-54d8-44c7-b092-a33b015c21e2</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<Weight>0</Weight>
 			<WeightUOM>g</WeightUOM>
@@ -5018,8 +5084,8 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingLotNum></StagingLotNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
-			<SysRevID>34769616</SysRevID>
-			<SysRowID>af352535-8151-fc9d-e111-bef250059d78</SysRowID>
+			<SysRevID>4551</SysRevID>
+			<SysRowID>1f908fc2-76ed-4129-bfa4-a33b015c21e2</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<Weight>0</Weight>
 			<WeightUOM>g</WeightUOM>
@@ -5110,8 +5176,8 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingLotNum></StagingLotNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
-			<SysRevID>34769617</SysRevID>
-			<SysRowID>af352535-8151-fc9d-e111-bef2404f9f78</SysRowID>
+			<SysRevID>4552</SysRevID>
+			<SysRowID>975aba60-9e91-49e9-aa58-a33b015c21e2</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<Weight>0</Weight>
 			<WeightUOM>g</WeightUOM>
@@ -5202,8 +5268,8 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingLotNum></StagingLotNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
-			<SysRevID>34769618</SysRevID>
-			<SysRowID>af352535-8151-fc9d-e111-bef250e7a178</SysRowID>
+			<SysRevID>4553</SysRevID>
+			<SysRowID>b8c2ed47-a1b3-42f6-b36b-a33b015c21e2</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<Weight>0</Weight>
 			<WeightUOM>g</WeightUOM>
@@ -5294,8 +5360,8 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingLotNum></StagingLotNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
-			<SysRevID>34769619</SysRevID>
-			<SysRowID>af352535-8151-fc9d-e111-bef290f4a478</SysRowID>
+			<SysRevID>4554</SysRevID>
+			<SysRowID>2ecf7f3a-67b3-4497-a6ad-a33b015c21e2</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<Weight>0</Weight>
 			<WeightUOM>g</WeightUOM>
@@ -5386,8 +5452,8 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingLotNum></StagingLotNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
-			<SysRevID>34769620</SysRevID>
-			<SysRowID>af352535-8151-fc9d-e111-bef2d001a878</SysRowID>
+			<SysRevID>4555</SysRevID>
+			<SysRowID>79ac951f-7a8d-4950-b290-a33b015c21e2</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<Weight>0</Weight>
 			<WeightUOM>g</WeightUOM>
@@ -5460,7 +5526,7 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<ReassignSNAsm>false</ReassignSNAsm>
 			<RelatedOperation>10</RelatedOperation>
 			<RemovedFromPlan>false</RemovedFromPlan>
-			<ReqDate>2013-05-21T00:00:00</ReqDate>
+			<ReqDate>2014-04-30T00:00:00</ReqDate>
 			<ReqRefDes>1</ReqRefDes>
 			<RequiredQty>250.00000000</RequiredQty>
 			<Rpt1BillableUnitPrice>0</Rpt1BillableUnitPrice>
@@ -5478,13 +5544,13 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingLotNum></StagingLotNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
-			<SysRevID>34769624</SysRevID>
-			<SysRowID>cf40d638-d1a7-8a93-df11-846320d04083</SysRowID>
+			<SysRevID>4559</SysRevID>
+			<SysRowID>4a028c61-e025-4a73-bcec-a33b015c21e2</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<Weight>0</Weight>
 			<WeightUOM>E</WeightUOM>
 			<WhseAllocFlag>false</WhseAllocFlag>
-			<WIReqDate>2013-05-21T00:00:00</WIReqDate>
+			<WIReqDate>2014-04-30T00:00:00</WIReqDate>
 			<Calc_BCMtlSeq>*10*</Calc_BCMtlSeq>
 			<Calc_BCPartNum>*CS-87-4578*</Calc_BCPartNum>
 			<Calc_InventoryQty>250.00000000</Calc_InventoryQty>
@@ -5567,8 +5633,8 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingLotNum></StagingLotNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
-			<SysRevID>34769625</SysRevID>
-			<SysRowID>df4798d1-953d-7990-dd11-13811ba75220</SysRowID>
+			<SysRevID>4560</SysRevID>
+			<SysRowID>9a6bfdc9-b041-46e7-a132-a33b015c21e2</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<Weight>0</Weight>
 			<WeightUOM>g</WeightUOM>
@@ -5655,8 +5721,8 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingLotNum></StagingLotNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
-			<SysRevID>34769626</SysRevID>
-			<SysRowID>df4798d1-953d-7990-dd11-138179095520</SysRowID>
+			<SysRevID>4561</SysRevID>
+			<SysRowID>c940d4cf-8713-46e1-a5a4-a33b015c21e2</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<Weight>0</Weight>
 			<WeightUOM>g</WeightUOM>
@@ -6264,6 +6330,10 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StartDate>2012-08-31T00:00:00</StartDate>
 			<StdFormat>HP</StdFormat>
 			<WIQueStartDate>2012-08-31T00:00:00</WIQueStartDate>
+			<CheckBox01>false</CheckBox01>
+			<ShortChar08></ShortChar08>
+			<ShortChar09></ShortChar09>
+			<ShortChar10></ShortChar10>
 			<Calc_BCOpCode>*ASSEM*</Calc_BCOpCode>
 			<Calc_BCOprSeq>*10*</Calc_BCOprSeq>
 			<Calc_BCResGrpID>*ASM*</Calc_BCResGrpID>
@@ -6336,6 +6406,10 @@ Memory 1GB.  Disk Capacity 100 GB</JobNum_PartDescription>
 			<StartDate>2012-08-31T00:00:00</StartDate>
 			<StdFormat>HP</StdFormat>
 			<WIQueStartDate>2012-08-31T00:00:00</WIQueStartDate>
+			<CheckBox01>false</CheckBox01>
+			<ShortChar08></ShortChar08>
+			<ShortChar09></ShortChar09>
+			<ShortChar10></ShortChar10>
 			<Calc_BCOpCode>*ASSEM*</Calc_BCOpCode>
 			<Calc_BCOprSeq>*20*</Calc_BCOprSeq>
 			<Calc_BCResGrpID>*ASM*</Calc_BCResGrpID>
@@ -6367,7 +6441,7 @@ See attached documents</CommentText>
 			<ContractID></ContractID>
 			<CurrentPkgCode></CurrentPkgCode>
 			<DaysOut>0</DaysOut>
-			<DueDate>2013-05-24T00:00:00</DueDate>
+			<DueDate>2014-05-02T00:00:00</DueDate>
 			<EstProdHours>13.89</EstProdHours>
 			<EstSetHours>1.00</EstSetHours>
 			<EstStdDescription></EstStdDescription>
@@ -6406,9 +6480,13 @@ See attached documents</CommentText>
 			<RunQty>250.00000000</RunQty>
 			<SetupMaterial>0</SetupMaterial>
 			<SetupURL></SetupURL>
-			<StartDate>2013-05-21T00:00:00</StartDate>
+			<StartDate>2014-04-30T00:00:00</StartDate>
 			<StdFormat>PH</StdFormat>
-			<WIQueStartDate>2013-05-22T00:00:00</WIQueStartDate>
+			<WIQueStartDate>2014-05-01T00:00:00</WIQueStartDate>
+			<CheckBox01>false</CheckBox01>
+			<ShortChar08></ShortChar08>
+			<ShortChar09></ShortChar09>
+			<ShortChar10></ShortChar10>
 			<Calc_BCOpCode>*MILL*</Calc_BCOpCode>
 			<Calc_BCOprSeq>*10*</Calc_BCOprSeq>
 			<Calc_BCResGrpID>*HM3*</Calc_BCResGrpID>
@@ -6437,8 +6515,8 @@ See attached documents</CommentText>
 			<ContractID></ContractID>
 			<CurrentPkgCode></CurrentPkgCode>
 			<DaysOut>0</DaysOut>
-			<DueDate>2013-05-27T00:00:00</DueDate>
-			<EstProdHours>8.33</EstProdHours>
+			<DueDate>2014-05-16T00:00:00</DueDate>
+			<EstProdHours>25.00</EstProdHours>
 			<EstSetHours>0.50</EstSetHours>
 			<EstStdDescription></EstStdDescription>
 			<EstStdType>0</EstStdType>
@@ -6467,7 +6545,7 @@ See attached documents</CommentText>
 			<PrimaryProdOpDtl>20</PrimaryProdOpDtl>
 			<PrimarySetupOpDtl>20</PrimarySetupOpDtl>
 			<PrinterID></PrinterID>
-			<ProdStandard>30.00000000</ProdStandard>
+			<ProdStandard>10.00000000</ProdStandard>
 			<ProdUOM></ProdUOM>
 			<QtyPerCycle>0</QtyPerCycle>
 			<RemovedfromPlan>false</RemovedfromPlan>
@@ -6476,9 +6554,13 @@ See attached documents</CommentText>
 			<RunQty>250.00000000</RunQty>
 			<SetupMaterial>0</SetupMaterial>
 			<SetupURL></SetupURL>
-			<StartDate>2013-05-23T00:00:00</StartDate>
+			<StartDate>2014-05-07T00:00:00</StartDate>
 			<StdFormat>PH</StdFormat>
-			<WIQueStartDate>2013-05-24T00:00:00</WIQueStartDate>
+			<WIQueStartDate>2014-05-08T00:00:00</WIQueStartDate>
+			<CheckBox01>false</CheckBox01>
+			<ShortChar08></ShortChar08>
+			<ShortChar09></ShortChar09>
+			<ShortChar10></ShortChar10>
 			<Calc_BCOpCode>*DRILL*</Calc_BCOpCode>
 			<Calc_BCOprSeq>*20*</Calc_BCOprSeq>
 			<Calc_BCResGrpID>*DRIL*</Calc_BCResGrpID>
@@ -6507,7 +6589,7 @@ See attached documents</CommentText>
 			<ContractID></ContractID>
 			<CurrentPkgCode></CurrentPkgCode>
 			<DaysOut>0</DaysOut>
-			<DueDate>2013-05-28T00:00:00</DueDate>
+			<DueDate>2014-05-22T00:00:00</DueDate>
 			<EstProdHours>11.36</EstProdHours>
 			<EstSetHours>0.50</EstSetHours>
 			<EstStdDescription></EstStdDescription>
@@ -6546,9 +6628,13 @@ See attached documents</CommentText>
 			<RunQty>250.00000000</RunQty>
 			<SetupMaterial>0</SetupMaterial>
 			<SetupURL></SetupURL>
-			<StartDate>2013-05-27T00:00:00</StartDate>
+			<StartDate>2014-05-16T00:00:00</StartDate>
 			<StdFormat>PH</StdFormat>
-			<WIQueStartDate>2013-05-27T00:00:00</WIQueStartDate>
+			<WIQueStartDate>2014-05-16T00:00:00</WIQueStartDate>
+			<CheckBox01>false</CheckBox01>
+			<ShortChar08></ShortChar08>
+			<ShortChar09></ShortChar09>
+			<ShortChar10></ShortChar10>
 			<Calc_BCOpCode>*DEBUR*</Calc_BCOpCode>
 			<Calc_BCOprSeq>*30*</Calc_BCOprSeq>
 			<Calc_BCResGrpID>*DBRM*</Calc_BCResGrpID>
@@ -6577,7 +6663,7 @@ See attached documents</CommentText>
 			<ContractID></ContractID>
 			<CurrentPkgCode></CurrentPkgCode>
 			<DaysOut>3.00</DaysOut>
-			<DueDate>2013-05-31T00:00:00</DueDate>
+			<DueDate>2014-05-30T00:00:00</DueDate>
 			<EstProdHours>0</EstProdHours>
 			<EstSetHours>0</EstSetHours>
 			<EstStdDescription></EstStdDescription>
@@ -6616,9 +6702,13 @@ See attached documents</CommentText>
 			<RunQty>250.00000000</RunQty>
 			<SetupMaterial>0</SetupMaterial>
 			<SetupURL></SetupURL>
-			<StartDate>2013-05-28T00:00:00</StartDate>
+			<StartDate>2014-05-22T00:00:00</StartDate>
 			<StdFormat>PH</StdFormat>
-			<WIQueStartDate>2013-05-28T00:00:00</WIQueStartDate>
+			<WIQueStartDate>2014-05-22T00:00:00</WIQueStartDate>
+			<CheckBox01>false</CheckBox01>
+			<ShortChar08></ShortChar08>
+			<ShortChar09></ShortChar09>
+			<ShortChar10></ShortChar10>
 			<Calc_BCOpCode>*OVPLA*</Calc_BCOpCode>
 			<Calc_BCOprSeq>*35*</Calc_BCOprSeq>
 			<Calc_BCResGrpID>*OSV*</Calc_BCResGrpID>
@@ -6655,7 +6745,7 @@ Inspected by:_____________  Date:_________  Time:___________</Calc_OPText>
 			<ContractID></ContractID>
 			<CurrentPkgCode></CurrentPkgCode>
 			<DaysOut>0</DaysOut>
-			<DueDate>2013-05-31T00:00:00</DueDate>
+			<DueDate>2014-05-30T00:00:00</DueDate>
 			<EstProdHours>2.50</EstProdHours>
 			<EstSetHours>0</EstSetHours>
 			<EstStdDescription></EstStdDescription>
@@ -6694,9 +6784,13 @@ Inspected by:_____________  Date:_________  Time:___________</Calc_OPText>
 			<RunQty>250.00000000</RunQty>
 			<SetupMaterial>0</SetupMaterial>
 			<SetupURL></SetupURL>
-			<StartDate>2013-05-31T00:00:00</StartDate>
+			<StartDate>2014-05-30T00:00:00</StartDate>
 			<StdFormat>PH</StdFormat>
-			<WIQueStartDate>2013-05-31T00:00:00</WIQueStartDate>
+			<WIQueStartDate>2014-05-30T00:00:00</WIQueStartDate>
+			<CheckBox01>false</CheckBox01>
+			<ShortChar08></ShortChar08>
+			<ShortChar09></ShortChar09>
+			<ShortChar10></ShortChar10>
 			<Calc_BCOpCode>*SHIP*</Calc_BCOpCode>
 			<Calc_BCOprSeq>*40*</Calc_BCOprSeq>
 			<Calc_BCResGrpID>*SHIP*</Calc_BCResGrpID>
@@ -6764,6 +6858,10 @@ Inspected by:_____________  Date:_________  Time:___________</Calc_OPText>
 			<SetupMaterial>0</SetupMaterial>
 			<SetupURL></SetupURL>
 			<StdFormat>HP</StdFormat>
+			<CheckBox01>false</CheckBox01>
+			<ShortChar08></ShortChar08>
+			<ShortChar09></ShortChar09>
+			<ShortChar10></ShortChar10>
 			<Calc_BCOpCode>*ASSEM*</Calc_BCOpCode>
 			<Calc_BCOprSeq>*10*</Calc_BCOprSeq>
 			<Calc_BCResGrpID>*ASM*</Calc_BCResGrpID>
@@ -6796,8 +6894,8 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<RevisionNum>1</RevisionNum>
 			<ShipDocAvail>false</ShipDocAvail>
 			<ShipDocReq>false</ShipDocReq>
-			<SysRevID>34637841</SysRevID>
-			<SysRowID>af352535-8151-fc9d-e111-bef260a48978</SysRowID>
+			<SysRevID>3613</SysRevID>
+			<SysRowID>2677af67-27e6-4164-a651-a33b015bfc98</SysRowID>
 			<WIPQty>0</WIPQty>
 		</JobPart>
 		<JobPart>
@@ -6815,8 +6913,8 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<RevisionNum>A</RevisionNum>
 			<ShipDocAvail>false</ShipDocAvail>
 			<ShipDocReq>false</ShipDocReq>
-			<SysRevID>34637722</SysRevID>
-			<SysRowID>cf40d638-d1a7-8a93-df11-8463f022ee30</SysRowID>
+			<SysRevID>3614</SysRevID>
+			<SysRowID>75d40492-db77-4014-bd13-a33b015bfc98</SysRowID>
 			<WIPQty>250.00000000</WIPQty>
 		</JobPart>
 		<JobPart>
@@ -6834,8 +6932,8 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<RevisionNum>A</RevisionNum>
 			<ShipDocAvail>false</ShipDocAvail>
 			<ShipDocReq>false</ShipDocReq>
-			<SysRevID>34637846</SysRevID>
-			<SysRowID>df4798d1-953d-7990-dd11-1381a9d01b20</SysRowID>
+			<SysRevID>3615</SysRevID>
+			<SysRowID>2125b773-dcb7-4759-9d29-a33b015bfc98</SysRowID>
 			<WIPQty>0</WIPQty>
 		</JobPart>
 		<JobProd>
@@ -6858,14 +6956,16 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<ProdQty>1.00000000</ProdQty>
 			<ReceivedQty>0.00000000</ReceivedQty>
 			<ShippedQty>1.00000000</ShippedQty>
-			<SysRevID>-6770827788216696832</SysRevID>
-			<SysRowID>08c45412-d240-49e6-83d6-a2920140d547</SysRowID>
+			<SysRevID>6283650678623567872</SysRevID>
+			<SysRowID>aec77699-fb13-4520-a8ea-a33b015bfce8</SysRowID>
 			<TargetAssemblySeq>0</TargetAssemblySeq>
 			<TargetJobNum></TargetJobNum>
 			<TargetMtlSeq>0</TargetMtlSeq>
 			<TFLineNum></TFLineNum>
 			<WarehouseCode></WarehouseCode>
 			<WIPQty>0.00000000</WIPQty>
+			<ShortChar01></ShortChar01>
+			<ShortChar02></ShortChar02>
 		</JobProd>
 		<JobProd>
 			<RptLanguageID>enu</RptLanguageID>
@@ -6887,14 +6987,16 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<ProdQty>250.00000000</ProdQty>
 			<ReceivedQty>0.00000000</ReceivedQty>
 			<ShippedQty>0.00000000</ShippedQty>
-			<SysRevID>-6698770194178768896</SysRevID>
-			<SysRowID>cf40d638-d1a7-8a93-df11-846390f91560</SysRowID>
+			<SysRevID>6355708272661495808</SysRevID>
+			<SysRowID>c663c472-36c7-4229-952d-a33b015bfce8</SysRowID>
 			<TargetAssemblySeq>0</TargetAssemblySeq>
 			<TargetJobNum></TargetJobNum>
 			<TargetMtlSeq>0</TargetMtlSeq>
 			<TFLineNum></TFLineNum>
 			<WarehouseCode>CHI</WarehouseCode>
 			<WIPQty>250.00000000</WIPQty>
+			<ShortChar01></ShortChar01>
+			<ShortChar02></ShortChar02>
 		</JobProd>
 		<JobProd>
 			<RptLanguageID>enu</RptLanguageID>
@@ -6916,14 +7018,16 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<ProdQty>10.00000000</ProdQty>
 			<ReceivedQty>10.00000000</ReceivedQty>
 			<ShippedQty>0.00000000</ShippedQty>
-			<SysRevID>-6626712600140840960</SysRevID>
-			<SysRowID>df4798d1-953d-7990-dd11-138155a83320</SysRowID>
+			<SysRevID>6427765866699423744</SysRevID>
+			<SysRowID>70a4df5c-63e2-4744-911f-a33b015bfce8</SysRowID>
 			<TargetAssemblySeq>0</TargetAssemblySeq>
 			<TargetJobNum></TargetJobNum>
 			<TargetMtlSeq>0</TargetMtlSeq>
 			<TFLineNum></TFLineNum>
 			<WarehouseCode>CHI</WarehouseCode>
 			<WIPQty>0.00000000</WIPQty>
+			<ShortChar01></ShortChar01>
+			<ShortChar02></ShortChar02>
 		</JobProd>
 		<OrderHed>
 			<RptLanguageID>enu</RptLanguageID>
@@ -7232,8 +7336,8 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<SRCommAmt3>0.000</SRCommAmt3>
 			<SRCommAmt4>0.000</SRCommAmt4>
 			<SRCommAmt5>0.000</SRCommAmt5>
-			<SysRevID>6999772497398726656</SysRevID>
-			<SysRowID>925b5af5-a86c-438d-84c2-a2920140e315</SysRowID>
+			<SysRevID>7086987958737174528</SysRevID>
+			<SysRowID>bbf2cfc5-55ed-4c05-8219-a33b015c2a30</SysRowID>
 			<TaxRegionCode></TaxRegionCode>
 			<TermsCode>2/10</TermsCode>
 			<TotalAdvBill>0.000</TotalAdvBill>
@@ -7278,6 +7382,29 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<WIUserID></WIUserID>
 			<WIUsername></WIUsername>
 			<XRefContractNum></XRefContractNum>
+			<Character01></Character01>
+			<Character06></Character06>
+			<Character07></Character07>
+			<Character08></Character08>
+			<Character09></Character09>
+			<Character10></Character10>
+			<CheckBox01>false</CheckBox01>
+			<CheckBox05>false</CheckBox05>
+			<CheckBox10>false</CheckBox10>
+			<CheckBox15>false</CheckBox15>
+			<CheckBox16>false</CheckBox16>
+			<CheckBox17>false</CheckBox17>
+			<Number05>0.000000000</Number05>
+			<Number20></Number20>
+			<orderhed_c></orderhed_c>
+			<PbsId_c></PbsId_c>
+			<PbsStage_c></PbsStage_c>
+			<ShortChar01></ShortChar01>
+			<ShortChar05></ShortChar05>
+			<ShortChar06></ShortChar06>
+			<ShortChar08></ShortChar08>
+			<ShortChar09></ShortChar09>
+			<ShortChar10></ShortChar10>
 		</OrderHed>
 		<OrderRel>
 			<RptLanguageID>enu</RptLanguageID>
@@ -7420,8 +7547,8 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<StagingBinNum></StagingBinNum>
 			<StagingWarehouseCode></StagingWarehouseCode>
 			<SubShipTo></SubShipTo>
-			<SysRevID>-1536516922282082304</SysRevID>
-			<SysRowID>af352535-8151-fc9d-e111-bef2901b7360</SysRowID>
+			<SysRevID>4291661064535277568</SysRevID>
+			<SysRowID>e6a3f913-e0e2-484b-a6b7-a33b015c40cc</SysRowID>
 			<TaxConnectCalc>false</TaxConnectCalc>
 			<TaxExempt></TaxExempt>
 			<TaxRegionCode></TaxRegionCode>
@@ -7438,21 +7565,24 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<WIItemShipCost>0.00000</WIItemShipCost>
 			<WIOrder></WIOrder>
 			<WIOrderLine></WIOrderLine>
+			<PbsDefaultTaxRemoved_c>false</PbsDefaultTaxRemoved_c>
+			<PbsTaxCalculated_c>false</PbsTaxCalculated_c>
+			<ShortChar01></ShortChar01>
+			<ShortChar02></ShortChar02>
 		</OrderRel>
 		<PartRev>
 			<RptLanguageID>enu</RptLanguageID>
 			<AltMethod></AltMethod>
 			<AltMethodDesc></AltMethodDesc>
-			<Approved>true</Approved>
-			<ApprovedBy>epicor</ApprovedBy>
-			<ApprovedDate>2012-09-21T00:00:00</ApprovedDate>
+			<Approved>false</Approved>
+			<ApprovedBy></ApprovedBy>
 			<AutoRecOpr>0</AutoRecOpr>
 			<BasePartNum></BasePartNum>
 			<BaseRevisionNum></BaseRevisionNum>
 			<ChangedBy></ChangedBy>
 			<Company>EPIC03</Company>
-			<ConfigID>PC_1</ConfigID>
-			<Configured>true</Configured>
+			<ConfigID></ConfigID>
+			<Configured>false</Configured>
 			<CoPartsPerOp>0</CoPartsPerOp>
 			<CoPartsReqQty>0.00000000</CoPartsReqQty>
 			<CreatedBy></CreatedBy>
@@ -7496,8 +7626,8 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<ShowInputPrice>false</ShowInputPrice>
 			<SIValuesGroupSeq>0</SIValuesGroupSeq>
 			<SIValuesHeadNum>0</SIValuesHeadNum>
-			<SysRevID>-2200871530303324160</SysRevID>
-			<SysRowID>94490ebc-b81a-f489-e111-e9f1f044ccf3</SysRowID>
+			<SysRevID>2917223151303655424</SysRevID>
+			<SysRowID>e067952f-86c3-47d4-ba26-a33b015c0084</SysRowID>
 			<TLRBurdenCost>150.00000</TLRBurdenCost>
 			<TLRLaborCost>60.00000</TLRLaborCost>
 			<TLRMaterialCost>1491.00000</TLRMaterialCost>
@@ -7571,8 +7701,8 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<ShowInputPrice>false</ShowInputPrice>
 			<SIValuesGroupSeq>0</SIValuesGroupSeq>
 			<SIValuesHeadNum>0</SIValuesHeadNum>
-			<SysRevID>5149003061565325312</SysRevID>
-			<SysRowID>956fb026-32e0-bdae-df11-4b3be6557df0</SysRowID>
+			<SysRevID>9041837169550819328</SysRevID>
+			<SysRowID>9241eaa5-cd71-4ee1-a07e-a33b015c0084</SysRowID>
 			<TLRBurdenCost>7.22000</TLRBurdenCost>
 			<TLRLaborCost>5.20000</TLRLaborCost>
 			<TLRMaterialCost>7.67000</TLRMaterialCost>
@@ -7646,8 +7776,8 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<ShowInputPrice>false</ShowInputPrice>
 			<SIValuesGroupSeq>0</SIValuesGroupSeq>
 			<SIValuesHeadNum>0</SIValuesHeadNum>
-			<SysRevID>-2128813936265396224</SysRevID>
-			<SysRowID>f228cd2b-7266-5896-dd11-0b8129a29bda</SysRowID>
+			<SysRevID>2989280745341583360</SysRevID>
+			<SysRowID>1c2e2b14-403d-4a4d-beed-a33b015c0084</SysRowID>
 			<TLRBurdenCost>25.00000</TLRBurdenCost>
 			<TLRLaborCost>10.00000</TLRLaborCost>
 			<TLRMaterialCost>0.00000</TLRMaterialCost>
@@ -7957,8 +8087,8 @@ Memory 1GB.  Disk Capacity 100 GB</PartDescription>
 			<SalesRepCode></SalesRepCode>
 			<SendToFSA>false</SendToFSA>
 			<State></State>
-			<SysRevID>1071353134988656640</SysRevID>
-			<SysRowID>956fb026-32e0-bdae-df11-4b3ba0ded8f1</SysRowID>
+			<SysRevID>474580004873699328</SysRevID>
+			<SysRowID>a6fe276c-f80a-4d5d-8e6f-a33b015c0447</SysRowID>
 			<WarehouseCode>CHI</WarehouseCode>
 			<WarehouseType></WarehouseType>
 			<WarehouseTypeDefault>false</WarehouseTypeDefault>

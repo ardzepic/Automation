@@ -1,9 +1,11 @@
 ﻿//USEUNIT ObjectLib
-//USEUNIT ControlFunctions
 
 // Gets the object type checkbox
 function GetForm(FormName){
-  var wnd = FindObject("*EpiCheckBox*", "Name",  "WinFormsObject(\"" + FormName + "\")")
+  var E10 = Sys.Process("Epicor")
+
+  var wnd = FindObject("*Form*", "WndCaption", "*" + FormName + "*", E10 )
+
   return wnd
 }
 
@@ -18,19 +20,22 @@ function ActivateForm(FormName){
   }
 }
 
-function CloseForm(FormName){
-  var wnd = GetForm(FormName)
+function CloseForm(obj, FormName){
+  var wnd = obj ? obj : GetForm(FormName)
 
+  wndCaption = wnd["WndCaption"]
+  
   if(wnd["Exists"]){
     wnd["Close"]()
-    Log["Message"]("Form '" + FormName + "' closed.")
+    Log["Message"]("Form '" + (wndCaption || FormName) + "' closed.")
   }else{
-    Log["Error"]("Form '" + FormName + "' not found.")
+    Log["Error"]("Form '" + (wndCaption || FormName) + "' not found.")
   }
 }
 
   // CheckErrorWindow
 
+//Verifies if top form exists 
 function VerifyForm(caption){
   var wnd = FindTopMostForm()
 
@@ -41,6 +46,31 @@ function VerifyForm(caption){
   }
 
 }
+
+//Logs data of form on top
+function ValidatesFormOpened(caption){
+  var form = VerifyForm(caption)
+
+  if(form){
+    Log["Message"]("Form '" + caption + "' opened.")
+  }else{
+    Log["Error"]("Form '" + caption + "' not on screen or opened.")
+  }
+
+}
+
+//Logs data of form on top
+function ValidatesFormClosed(caption){
+  var form = GetForm(caption)
+
+  if(!form["Exists"]){
+    Log["Message"]("Form '" + caption + "' closed.")
+  }else{
+    CloseForm(form)
+  }
+
+}
+
 
 //Used to catch a windows message 
 // Designed for System Dashboards mainly
@@ -67,15 +97,83 @@ function CheckWindowMessage(WndCaption){
 }
 
 
-//Used to catch Exception object window
-/*function CheckExceptionWnd(){
+function CheckWindowMessageModals(){
+  var count = 0 
+  var name = "Static"
+  while(true){
+    Delay(2000)
+    var windowsMsg = FindObject("*", ["Name","WndCaption"],  ["*" + name + "*", "*Dashboard*"])
 
-  var eDialog = FindObject("*", "WndCaption",   "WinFormsObject(\"ExceptionDialog\")")
+    if(windowsMsg["Exists"]){
+      Log["Message"]("Validating Dialog Message - " + windowsMsg["WndCaption"])
+      return true
+    }
+    count++
 
-  if(eDialog["Exists"]){
-    return true
-  }else{
-    return false
+    if(count == 5){
+      return false
+      Log["Message"]("No dialog Message displayed")
+      Runner["Stop"]()
+    }
   }
+}
 
-}*/
+
+function CheckExceptionWnd(){
+  var wnd = FindObject("*", ["Name","WndCaption"],  ["*Exception*", "*Error*"])
+
+  // var errMessageBoxes = getChildControls("*Box*", "Name", "*tbMessage*", wnd)
+  try{
+    var tbMessage = GetText("tbMessage")
+    if (wnd["Exists"]) {
+      Log["Message"]("Exception message displayed: " + tbMessage)
+      return tbMessage
+    }else{
+      return false
+    }
+  }catch(e){
+    Log["Error"](e["message"])
+  }finally{
+    ClickButton("OK")
+  }
+}
+
+/*Checks if there is any Epic dialog on screen
+@Wnd: Window caption of the form displayed
+@action: action that will be performed for the dialog displayed (Yes/No)
+*/
+function CheckEpicMsgdialog(Wnd, action){
+    var wnd = GetForm(Wnd)
+
+    if (wnd["Exists"]) {
+      ClickButton(action)
+    }
+}
+
+
+TODO
+WORK FUNCTION TO CALL ULTRAMENUS FOR BAQs
+baqID = "COM-90daysSORel"
+
+
+
+C:\inetpub\wwwroot\ERP102100\Server
+
+BatchVSInstr dlls-C:\_projects\ERP10CC\Current\Deployment\Server\ key-C:\_projects\ERP10CC\Current\Source\Epicor.snk
+
+C:\Users\Administrator\Documents\
+
+BatchVSInstr dlls-C:\inetpub\wwwroot\ERP102100\Server key-C:\Users\Administrator\Documents\Epicor.snk
+
+
+
+var id = "test"
+// id : caption
+
+
+var dashtree = GetTree("DashboardTree")
+
+dashtree["ClickItem"]("Queries|" + id + ": " + id)
+dashtree["ClickR"]("Queries|" + id + ": " + id)
+
+

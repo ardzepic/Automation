@@ -7,12 +7,8 @@
 //USEUNIT Data_Dashboard_TrackerViews_3
 
 function TC_Dashboard_Tracker_Views_3(){
-
-
-      ExpandComp("Epicor Education")
-
-      ChangePlant("Main")
-  //-------------------------------------------------------------------------------------------------------------------------------------------'
+  
+ 
 
   //--- User Account Security Maintenance -----------------------------------------------------------------------------------------------------'
 
@@ -263,7 +259,7 @@ function TC_Dashboard_Tracker_Views_3(){
       Log["Message"]("Step 22")
       StartSmartClient()
 
-      Login("manager", "manager")
+      Login("epicor", "epicor")
       
       ActivateFullTree()
 

@@ -17,16 +17,13 @@ var treeMainPanel1 = setCompanyMainTree(company1,plant1)
   var baqData = {
     "Id" : "baqParams1",
     "Description" : "baqParams1",
-    "Table" : "Customer",
+    "Table" : "Erp.Customer",
+    "Alias" : "Customer",
     "Columns" : "CustNum"
   }
   var baqData2 = {
     "Id" : "baqParams2",
-    "Description" : "baqParams2",
-    "Table1" : "OrderDtl",
-    "ColumnsT1" : "Company,OrderNum,PartNum,CustNum",
-    "Table2" : "Customer",
-    "ColumnsT2" : "CustNum"
+    "Description" : "baqParams2"
   }
 
 //Dashboards used for Test

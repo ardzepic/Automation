@@ -917,6 +917,12 @@
 								<xs:element name="WIApplication" msprop:DataTableID="Customer" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WICustomer" msprop:DataTableID="Customer" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WIShippingCosts" msprop:DataTableID="Customer" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="Character01" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character02" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character03" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character04" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="CheckBox01" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="Number10" msdata:Caption="" msprop:DataTableID="Customer_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
@@ -1007,6 +1013,35 @@
 								<xs:element name="Unders" msprop:DataTableID="OrderDtl" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="UndersPct" msprop:DataTableID="OrderDtl" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="XPartNum" msdata:Caption="Cust Part" msprop:DataTableID="OrderDtl" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character01" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character03" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character04" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character05" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character06" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="CheckBox02" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox11" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox12" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox13" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="Date01" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:dateTime" minOccurs="0"/>
+								<xs:element name="Number01" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number02" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number04" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number05" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number06" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number10" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number11" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number12" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number13" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number16" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number18" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number19" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="OrderDtl_c" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="PbsId_c" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:int" minOccurs="0"/>
+								<xs:element name="ShortChar01" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar03" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar04" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar06" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar10" msdata:Caption="" msprop:DataTableID="OrderDtl_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_DocTaxAmt" msdata:Caption="DocTaxAmt" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="Calc_LineDesc" msdata:Caption="Description" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_ProFormaComment" msdata:Caption="" type="xs:string" minOccurs="0"/>
@@ -1084,6 +1119,29 @@
 								<xs:element name="WIOrder" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WIUserID" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
 								<xs:element name="WIUsername" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character06" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character07" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character08" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character09" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="CheckBox01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox15" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox16" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox17" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="Number05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number20" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="orderhed_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="PbsId_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="PbsStage_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar06" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar08" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar09" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_BillToAddressList" msdata:Caption="Bill To:" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_CompanyAddressList" msdata:Caption="" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_CurrDocDesc" msdata:Caption="CurrDocDesc" type="xs:string" minOccurs="0"/>
@@ -1375,6 +1433,8 @@
 								<xs:element name="UseOTS" msdata:Caption="Use OTS" msprop:DataTableID="QuoteHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
 								<xs:element name="VoidQuote" msdata:Caption="Void" msprop:DataTableID="QuoteHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
 								<xs:element name="WorstCsPct" msdata:Caption="Worst Case" msprop:DataTableID="QuoteHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="Character09" msdata:Caption="" msprop:DataTableID="QuoteHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Number10" msdata:Caption="" msprop:DataTableID="QuoteHed_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
@@ -1560,6 +1620,7 @@
 			<ProcessId>Erp.UIRpt.ProFormaInvc</ProcessId>
 			<AssemblyName>Erp.UIRpt.ProFormaInvc</AssemblyName>
 			<CustomizationId></CustomizationId>
+			<CurrentUserId>epicor</CurrentUserId>
 			<CurrentCompany>EPIC03</CurrentCompany>
 			<CurrentPlant>MfgSys</CurrentPlant>
 			<SysRowID>00000000-0000-0000-0000-000000000000</SysRowID>
@@ -2160,8 +2221,8 @@
 			<DecimalsCost>2</DecimalsCost>
 			<DecimalsPrice>2</DecimalsPrice>
 			<GlbDecimalsGeneral>2</GlbDecimalsGeneral>
-			<GlbDecimalsCost>5</GlbDecimalsCost>
-			<GlbDecimalsPrice>5</GlbDecimalsPrice>
+			<GlbDecimalsCost>2</GlbDecimalsCost>
+			<GlbDecimalsPrice>2</GlbDecimalsPrice>
 			<DecimalsQuantity>2</DecimalsQuantity>
 		</RptParameter>
 		<Company>
@@ -2247,8 +2308,8 @@
 			<SyncNameToPerCon>true</SyncNameToPerCon>
 			<SyncPhoneToPerCon>true</SyncPhoneToPerCon>
 			<SyncToExternalCRM>false</SyncToExternalCRM>
-			<SysRevID>-363897666863628288</SysRevID>
-			<SysRowID>ae0da964-2a73-13b7-dd11-487f40f3890d</SysRowID>
+			<SysRevID>8304392521778200576</SysRevID>
+			<SysRowID>266876b7-e220-4eff-9795-a33b015c0baa</SysRowID>
 			<Twitter></Twitter>
 			<WebLink1></WebLink1>
 			<WebLink2></WebLink2>
@@ -2360,6 +2421,12 @@
 			<WIApplication></WIApplication>
 			<WICustomer></WICustomer>
 			<WIShippingCosts>false</WIShippingCosts>
+			<Character01></Character01>
+			<Character02></Character02>
+			<Character03></Character03>
+			<Character04></Character04>
+			<CheckBox01>false</CheckBox01>
+			<Number10>0.000000000</Number10>
 		</Customer>
 		<OrderDtl>
 			<RptLanguageID>enu</RptLanguageID>
@@ -2407,6 +2474,34 @@
 			<Unders>0</Unders>
 			<UndersPct>0</UndersPct>
 			<XPartNum></XPartNum>
+			<Character01></Character01>
+			<Character03></Character03>
+			<Character04></Character04>
+			<Character05></Character05>
+			<Character06></Character06>
+			<CheckBox02>false</CheckBox02>
+			<CheckBox11>false</CheckBox11>
+			<CheckBox12>false</CheckBox12>
+			<CheckBox13>false</CheckBox13>
+			<Number01>0.000000000</Number01>
+			<Number02>0.000000000</Number02>
+			<Number04>0.000000000</Number04>
+			<Number05>0.000000000</Number05>
+			<Number06>0.000000000</Number06>
+			<Number10>0.000000000</Number10>
+			<Number11>0.000000000</Number11>
+			<Number12>0.000000000</Number12>
+			<Number13>0</Number13>
+			<Number16>0</Number16>
+			<Number18>0</Number18>
+			<Number19>0</Number19>
+			<OrderDtl_c></OrderDtl_c>
+			<PbsId_c>0</PbsId_c>
+			<ShortChar01></ShortChar01>
+			<ShortChar03></ShortChar03>
+			<ShortChar04></ShortChar04>
+			<ShortChar06></ShortChar06>
+			<ShortChar10></ShortChar10>
 			<Calc_DocTaxAmt>0</Calc_DocTaxAmt>
 			<Calc_LineDesc>Machined Casting</Calc_LineDesc>
 			<Calc_ProFormaComment></Calc_ProFormaComment>
@@ -2466,7 +2561,7 @@
 			<PrcConNum>2</PrcConNum>
 			<ProFormaInvComment></ProFormaInvComment>
 			<ReadyToFulfill>false</ReadyToFulfill>
-			<ReprintSOAck>false</ReprintSOAck>
+			<ReprintSOAck>true</ReprintSOAck>
 			<ShipByTime>0</ShipByTime>
 			<TermsCode>1/10</TermsCode>
 			<TWFiscalPeriod>0</TWFiscalPeriod>
@@ -2480,6 +2575,29 @@
 			<WIOrder></WIOrder>
 			<WIUserID></WIUserID>
 			<WIUsername></WIUsername>
+			<Character01></Character01>
+			<Character06></Character06>
+			<Character07></Character07>
+			<Character08></Character08>
+			<Character09></Character09>
+			<Character10></Character10>
+			<CheckBox01>false</CheckBox01>
+			<CheckBox05>false</CheckBox05>
+			<CheckBox10>false</CheckBox10>
+			<CheckBox15>false</CheckBox15>
+			<CheckBox16>false</CheckBox16>
+			<CheckBox17>false</CheckBox17>
+			<Number05>0.000000000</Number05>
+			<Number20></Number20>
+			<orderhed_c></orderhed_c>
+			<PbsId_c></PbsId_c>
+			<PbsStage_c></PbsStage_c>
+			<ShortChar01></ShortChar01>
+			<ShortChar05></ShortChar05>
+			<ShortChar06></ShortChar06>
+			<ShortChar08></ShortChar08>
+			<ShortChar09></ShortChar09>
+			<ShortChar10></ShortChar10>
 			<Calc_BillToAddressList>Dalton Manufacturing~2345 Jenson Street~Dock 8~P.O. Box 96695~St. Paul MN 55128~USA~~</Calc_BillToAddressList>
 			<Calc_CompanyAddressList>Epicor USA~12600 S Torrence Ave~Chicago IL 60633~USA~~~~</Calc_CompanyAddressList>
 			<Calc_CurrDocDesc>United States Dollar</Calc_CurrDocDesc>
@@ -2514,8 +2632,8 @@
 			<PartPayment>true</PartPayment>
 			<ReqLOC>false</ReqLOC>
 			<SysDefault>false</SysDefault>
-			<SysRevID>8516366268985507840</SysRevID>
-			<SysRowID>956fb026-32e0-bdae-df11-4b3be005aef1</SysRowID>
+			<SysRevID>3363348894762139648</SysRevID>
+			<SysRowID>60763371-c9a3-4600-944c-a33b015c22cb</SysRowID>
 			<TermsCode>1/10</TermsCode>
 			<TermsType>D</TermsType>
 		</Terms>

@@ -40,20 +40,19 @@ function OpenFormDevMode(){
 
     // Aliases["Epicor"]["CustomSelectCustTransDialog"]["btnOK"]["Click"]()
     ClickButton("OK")
-    Delay(2500)
-      
+    Delay(10000)
+    
+    E10["Refresh"]()
     // 5- click Tools > Customization
     Log["Message"]("Step 5")
-
+    
     // Aliases["Epicor"]["PartForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Tools|Customization")
     ClickMenu("Tools->Customization")
 }
 
 // Steps 5 to 22
 function CreateCustomization() {
-      
-    Delay(2000)
-    
+  Delay(2500)  
     // 6- go to Wizards > Sheet Wizard  tab
     Log["Message"]("Step 6")
     
@@ -170,11 +169,11 @@ function CreateCustomization() {
 function OpenCustomedForm(){
     // 23- Go to Production Management> Job Management> Setup> Part (Open again Part Maintenance (using developer mode)
     Log["Message"]("Step 23")
-    ActivateMainDevMode()
+    //ActivateMainDevMode()
     MainMenuTreeViewSelect(treeMainPanel1 + "Production Management;Job Management;Setup;Part")
 
-    Delay(2000)
-
+    Delay(2500)
+    E10["Refresh"]()
     /*(FUTURE REFERENCE FOR TREE LIST ITEMS)*/
     // 24- Select the created customizacion       
     Log["Message"]("Step 24")
@@ -190,7 +189,7 @@ function OpenCustomedForm(){
 
 
 function TestCustomedForm(){
-
+    E10["Refresh"]()
     var testPart = "00P1"
     // 25, 26 - Click on Part button - Click Search and select a Part and click Ok                              
     Log["Message"]("Step 25,26")

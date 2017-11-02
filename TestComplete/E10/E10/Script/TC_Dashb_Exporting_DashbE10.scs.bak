@@ -29,13 +29,11 @@ function CreateBAQ1(){
     Log["Message"]("Step 2")
     MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;Setup;Business Activity Query")
 
-    var BAQFormDefinition = Aliases["Epicor"]["BAQDiagramForm"]["windowDockingArea1"]["dockableWindow2"]["allPanels1"]["windowDockingArea1"]
-
     CreateBAQ(baqID, baqID, "chkUpdatable")
     
-    AddTableBAQ(BAQFormDefinition, "Customer")
+    AddTableBAQ("Erp.Customer", "Customer")
 
-    AddColumnsBAQ(BAQFormDefinition, "Customer", "Company,CustID,CustNum,Name,Country")
+    AddColumnsBAQ("Customer", "Company,CustID,CustNum,Name,Country")
 
     UpdateTabBAQ("Customer_Name", "Updatable", "chkSupportMDR")
 
@@ -86,7 +84,7 @@ function CreateDashboard(){
 }  
 
 function AddQueryDashb(){
- AddQueriesDashboard(baqID)
+  AddQueriesDashboard(baqID)
       var dashboardTree =  GetTreePanel("DashboardTree")
 
       // var rect = dashboardTree["Nodes"]["Item"](0)["Nodes"]["Item"](0)["Nodes"]["Item"](0)
@@ -293,15 +291,15 @@ function ImportDashb(){
           ClickButton("OK")
         }
 
-        Log["Message"]("Dashboard imported correctly")
+        Log["Message"]("Dashboard id added correctly")
       }else{
-        Log["Error"]("Dashboard wasn't imported correctly, Object doesn't exists")    
+        Log["Error"]("Dashboard id wasn't added correctly, Object doesn't exists")    
       }
 
 }
 
 function ImportBAQs(){
- 
+ Delay(2500)
   Log["Message"]("Step 7")
   if (Aliases["Epicor"]["DashboardBAQImportDialog"]["Exists"]) {
     Log["Message"]("BAQ Import dialog is displayed")
@@ -329,15 +327,20 @@ function ImportBAQs(){
   }
 
   // Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea1"]["dockableWindow2"]["pnlGeneral"]["windowDockingArea1"]["dockableWindow1"]["Activate"]()
-  OpenPanelTab("General")
+  //OpenPanelTab("General")
 
-  var defIDDashb = GetText("txtDefinitonID")
+  /*var defIDDashb = GetText("txtDefinitonID")
   if(defIDDashb == "DashBDExport2"){
     Log["Message"]("Dashboard Imported")
   }else{
     Log["Error"]("Dashboard wasn't imported")
-  }
+  }*/
 
+} 
+
+function DeployDashb(){
+  Delay(5000)
+  
   Log["Message"]("Step 8")
   SaveDashboard()
 
@@ -360,26 +363,27 @@ function RestartE10(){
   Log["Message"]("Step 11")
   Delay(1000)
   RestartSmartClient()
-  Log["Checkpoint"]("SmartClient Restarted")
+  Log["Message"]("SmartClient Restarted")
 }
 
 function TestMenu(){
-    Log["Message"]("Step 12")
-    //Open Menu created   
-    MainMenuTreeViewSelect(treeMainPanel1 + "Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
+  Log["Message"]("Step 12")
+  //Open Menu created   
+  MainMenuTreeViewSelect(treeMainPanel1 + "Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
 
-    Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")
+  // Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")
+  ClickMenu("Edit->Refresh")
 
+  var gridsMainPanel = RetrieveGridsMainPanel()
 
-    var gridsMainPanel = RetrieveGridsMainPanel()
-
-     if (gridsMainPanel[0]["Rows"]["Count"] > 0) {
-      Log["Message"]("Grid displays " + gridsMainPanel[0]["Rows"]["Count"] + " records")
-     }else{
-      Log["Error"]("There was a problem. Grid displays " + gridsMainPanel[0]["Rows"]["Count"] + " records")
-     }
-    
-    Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")  
+   if (gridsMainPanel[0]["Rows"]["Count"] > 0) {
+    Log["Message"]("Grid displays " + gridsMainPanel[0]["Rows"]["Count"] + " records")
+   }else{
+    Log["Error"]("There was a problem. Grid displays " + gridsMainPanel[0]["Rows"]["Count"] + " records")
+   }
+  
+  // Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")  
+  ClickMenu("Edit->Refresh")
 }
 
 

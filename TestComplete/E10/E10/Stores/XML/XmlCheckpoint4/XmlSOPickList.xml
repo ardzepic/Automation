@@ -1103,10 +1103,10 @@
 			<FromDate>2013-10-09T00:00:00-07:00</FromDate>
 			<IncSOWihoutShipDate>true</IncSOWihoutShipDate>
 			<NewPage>true</NewPage>
-			<OrderList>5484</OrderList>
+			<OrderList>5482</OrderList>
 			<PartList></PartList>
 			<PrintKitComponents>true</PrintKitComponents>
-			<ToDate>2017-10-09T00:00:00-07:00</ToDate>
+			<ToDate>2017-10-20T00:00:00-07:00</ToDate>
 			<ReportCultureCode>en-US</ReportCultureCode>
 			<ReportCurrencyCode>USD</ReportCurrencyCode>
 			<ThousandsSeparator>,</ThousandsSeparator>
@@ -1147,33 +1147,33 @@
 			<DisplaySeq>1.000</DisplaySeq>
 			<DocInAdvanceBillBal>0</DocInAdvanceBillBal>
 			<DupOnJobCrt>false</DupOnJobCrt>
-			<ECCOrderLine>0</ECCOrderLine>
-			<ECCOrderNum></ECCOrderNum>
-			<ECCPlant></ECCPlant>
+			<ECCOrderLine>1</ECCOrderLine>
+			<ECCOrderNum>WEB-100000039</ECCOrderNum>
+			<ECCPlant>MFGSYS</ECCPlant>
 			<ECCQuoteLine>0</ECCQuoteLine>
 			<ECCQuoteNum></ECCQuoteNum>
-			<GroupSeq>92</GroupSeq>
+			<GroupSeq>0</GroupSeq>
 			<InAdvanceBillBal>0</InAdvanceBillBal>
 			<KitFlag></KitFlag>
 			<KitParentLine>1</KitParentLine>
 			<KitQtyPer>0</KitQtyPer>
-			<KitShipComplete>false</KitShipComplete>
-			<LineDesc>9000 Tool Cart</LineDesc>
+			<KitShipComplete>true</KitShipComplete>
+			<LineDesc>Motor Module 12111</LineDesc>
 			<LinkToContract>false</LinkToContract>
 			<MfgJobType></MfgJobType>
 			<MOMsourceEst></MOMsourceEst>
 			<MOMsourceType></MOMsourceType>
 			<OrderLine>1</OrderLine>
-			<OrderNum>5484</OrderNum>
+			<OrderNum>5482</OrderNum>
 			<Overs>0</Overs>
 			<OversUnitPrice>0</OversUnitPrice>
-			<PartNum>9000TC</PartNum>
+			<PartNum>M10000</PartNum>
 			<PCLinkRemoved>false</PCLinkRemoved>
 			<PickListComment></PickListComment>
 			<PlanGUID>00000000-0000-0000-0000-000000000000</PlanGUID>
 			<PlanUserID></PlanUserID>
 			<ProFormaInvComment></ProFormaInvComment>
-			<RevisionNum>REV A</RevisionNum>
+			<RevisionNum></RevisionNum>
 			<Rpt1InAdvanceBillBal>0</Rpt1InAdvanceBillBal>
 			<Rpt2InAdvanceBillBal>0</Rpt2InAdvanceBillBal>
 			<Rpt3InAdvanceBillBal>0</Rpt3InAdvanceBillBal>
@@ -1209,15 +1209,15 @@
 			<ShortChar06></ShortChar06>
 			<ShortChar10></ShortChar10>
 			<Calc_BCLineNum>*1*</Calc_BCLineNum>
-			<Calc_BCPart>*9000TC*</Calc_BCPart>
-			<Calc_BCRev>*REV A*</Calc_BCRev>
+			<Calc_BCPart>*M10000*</Calc_BCPart>
+			<Calc_BCRev></Calc_BCRev>
 			<Calc_BinNum></Calc_BinNum>
 			<Calc_Discount>0</Calc_Discount>
 			<Calc_KitPartNum></Calc_KitPartNum>
 			<Calc_OnHandQty>0</Calc_OnHandQty>
 			<Calc_UOM>EA</Calc_UOM>
 			<Calc_whse></Calc_whse>
-			<PartNum_PartDescription>9000 Tool Cart</PartNum_PartDescription>
+			<PartNum_PartDescription>Motor Module 12111</PartNum_PartDescription>
 		</OrderDtl>
 		<OrderHed>
 			<RptLanguageID>enu</RptLanguageID>
@@ -1230,14 +1230,14 @@
 			<CounterSOAck>0</CounterSOAck>
 			<CustNum>2</CustNum>
 			<DispatchReason></DispatchReason>
-			<ECCOrderNum></ECCOrderNum>
+			<ECCOrderNum>WEB-100000039</ECCOrderNum>
 			<ECCPaymentMethod></ECCPaymentMethod>
-			<ECCPONum></ECCPONum>
+			<ECCPONum>WEB-100000039</ECCPONum>
 			<InvcOrderCmp>false</InvcOrderCmp>
 			<InvCurrDepositBal>0</InvCurrDepositBal>
 			<IsCSRSet>false</IsCSRSet>
 			<OrderCSR></OrderCSR>
-			<OrderNum>5484</OrderNum>
+			<OrderNum>5482</OrderNum>
 			<OrderOpenCredit>0</OrderOpenCredit>
 			<OTSShipToNum></OTSShipToNum>
 			<Plant></Plant>
@@ -1295,7 +1295,7 @@
 			<ShortChar09></ShortChar09>
 			<ShortChar10></ShortChar10>
 			<Calc_BCCustNum>*ADDISON*</Calc_BCCustNum>
-			<Calc_BCOrderNum>*5484*</Calc_BCOrderNum>
+			<Calc_BCOrderNum>*5482*</Calc_BCOrderNum>
 			<Calc_CustID>ADDISON</Calc_CustID>
 			<Calc_CustName>Addison, Inc</Calc_CustName>
 			<Calc_FOBDesc>Factory</Calc_FOBDesc>
@@ -1306,18 +1306,19 @@
 			<RptLanguageID>enu</RptLanguageID>
 			<Company>EPIC03</Company>
 			<ContractID></ContractID>
-			<ECCPlant></ECCPlant>
+			<ECCPlant>MFGSYS</ECCPlant>
 			<EntityUseCode></EntityUseCode>
 			<LinkToContract>false</LinkToContract>
 			<OrderLine>1</OrderLine>
-			<OrderNum>5484</OrderNum>
+			<OrderNum>5482</OrderNum>
 			<OrderRelNum>1</OrderRelNum>
 			<OTSShipToNum></OTSShipToNum>
 			<PhaseID></PhaseID>
 			<ReadyToFulfill>false</ReadyToFulfill>
+			<ReqDate>2014-04-15T00:00:00</ReqDate>
 			<ShipOvers>false</ShipOvers>
-			<ShipToNum>002</ShipToNum>
-			<ShipViaCode>FEDX</ShipViaCode>
+			<ShipToNum></ShipToNum>
+			<ShipViaCode>COMP</ShipViaCode>
 			<WasRecInvoiced>false</WasRecInvoiced>
 			<WebSKU></WebSKU>
 			<WIItemPrice>0</WIItemPrice>
@@ -1329,7 +1330,8 @@
 			<ShortChar01></ShortChar01>
 			<ShortChar02></ShortChar02>
 			<Calc_BCRelNum>*1*</Calc_BCRelNum>
-			<Calc_RelQty>10.00000000</Calc_RelQty>
+			<Calc_NeedByDate>4/15/2014 12:00:00 AM</Calc_NeedByDate>
+			<Calc_RelQty>1.00000000</Calc_RelQty>
 			<Calc_RelShipAddr1></Calc_RelShipAddr1>
 			<Calc_RelShipAddr2></Calc_RelShipAddr2>
 			<Calc_RelShipAddr3></Calc_RelShipAddr3>
@@ -1338,7 +1340,7 @@
 			<Calc_RelShipAddr6></Calc_RelShipAddr6>
 			<Calc_RelShipAddr7></Calc_RelShipAddr7>
 			<Calc_RelShipAddr8></Calc_RelShipAddr8>
-			<Calc_ShipToAddr>Addison, INC~600 S Hwy 169~Minneapolis MN 55426~USA~~~~</Calc_ShipToAddr>
+			<Calc_ShipToAddr>Addison, Inc~2100 Martin Luther King Blvd~Madison WI 53703~USA~~~~</Calc_ShipToAddr>
 			<Calc_Source></Calc_Source>
 		</OrderRel>
 	</ReportDataSet>

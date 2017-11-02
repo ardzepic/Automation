@@ -10,7 +10,7 @@
 					<param name="RunAs" parameters="" workFolder="" userName="" password="" domain="" />
 					<param name="Profile" parameters="" workFolder="" useProject="False" projectFileName="" overrideProfiler="False" profilerName="" profileRunMode="Silent" AQtimeVersion="0" forceRunMode="False" />
 					<param name="Debug" parameters="" workFolder="" />
-					<param name="Simple" fileName="Epicor.exe" filePath="C:\Epicor\ERP10\LocalClients\ERP102100\" parameters="" workFolder="" />
+					<param name="Simple" fileName="Epicor.exe" filePath="C:\Users\Administrator\Desktop\ERP102100\" parameters="" workFolder="" />
 				</runModeParams>
 			</config>
 			<testData />
