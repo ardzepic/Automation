@@ -221,9 +221,11 @@ function LogInE10(){
   Log["Message"]("Step 22")
   StartSmartClient()
 
-  Login("epicor", "epicor")
+  Login(Project["Variables"]["username"], Project["Variables"]["password"])
   
   ActivateFullTree()
+  
+  OpenPanelTab("Menu Groups")
 
   ExpandComp(company1)
 

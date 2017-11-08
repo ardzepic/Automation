@@ -1,7 +1,7 @@
 ﻿//USEUNIT ObjectLib
-//USEUNIT FormLib
 
 var E10 = Sys.Process("Epicor")
+E10["Refresh"]()
 
 //-------------------------------
 //CHECKBOX FUNTIONS
@@ -215,10 +215,8 @@ var E10 = Sys.Process("Epicor")
 
     var panels = panelPath["split"]("->")
 
-    if(!formName){
-      var pnlCtrl = formName ? GetForm(formName) : FindTopMostForm()
-    }
-
+    var pnlCtrl = formName ? GetForm(formName) : FindTopMostForm()
+    
     if (!pnlCtrl["Exists"]) 
       throw "Parent form not found. Verify the path is correct: '" + formName + "'" 
 
@@ -355,7 +353,6 @@ var E10 = Sys.Process("Epicor")
     cmbCtrl["Keys"]("[Down]")
     cmbCtrl["Keys"]("[Hold]~[Down][Release]")
     
-    // Log.Warning("List Index: " + cmbCtrl.SelectedRow.ListIndex)
     if (cmbCtrl["SelectedRow"] && cmbCtrl["SelectedRow"]["ListIndex"])
       cmbCtrl["Keys"]("[Home]") //to the top of the list
   }
@@ -381,13 +378,7 @@ var E10 = Sys.Process("Epicor")
         idx++;
     }        
 
-    // cmbCtrl["Click"](1,1)
     cmbCtrl["Keys"]("[Tab]")
-
-    // if (E10["WaitWinFormsObject"]("*DropDown*", "", 0)["Exists"]){
-    //     Log["Warning"]("ddWnd not closed correctly")
-    //     cmbCtrl["parent"]["Click"]()
-    // }
 
     return true
   }

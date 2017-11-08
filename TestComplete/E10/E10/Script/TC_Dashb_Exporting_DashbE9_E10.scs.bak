@@ -380,7 +380,7 @@ function TestMenu(){
   gridsMainPanel[0]["Rows"]["Item"](0)["Cells"]["Item"](columnAddress)["Click"]()
 
   var oldValueAddress = gridsMainPanel[0]["Rows"]["Item"](0)["Cells"]["Item"](columnAddress)["Text"]["OleValue"]
-  var newValueAddress = gridsMainPanel[0]["Rows"]["Item"](0)["Cells"]["Item"](columnAddress)["EditorResolved"]["SelectedText"] = "TEST"
+  var newValueAddress = gridsMainPanel[0]["Rows"]["Item"](0)["Cells"]["Item"](columnAddress)["EditorResolved"]["SelectedText"] = "TEST2"
   gridsMainPanel[0]["Rows"]["Item"](1)["Cells"]["Item"](columnAddress)["Click"]()
 
   if(oldValueAddress != newValueAddress){

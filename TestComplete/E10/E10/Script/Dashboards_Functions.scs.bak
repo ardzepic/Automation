@@ -1,4 +1,5 @@
-﻿//USEUNIT ControlFunctions
+﻿
+//USEUNIT ControlFunctions
 //USEUNIT General_Functions
 //USEUNIT Menu_Functions
 
@@ -116,14 +117,17 @@ function NewDashboard(dashboardID,dashboardCaption,dashDescription, generalOptio
 /*funtion that adds a query on dashboard defined
 * @param: baqQuery - String that contains the information of the query (ID)
 * @return: none*/
-function AddQueriesDashboard(baqQuery){
+function AddQueriesDashboard(baqQuery, baqCaption){
   var arrBaqQueries = baqQuery.split(",")
 
   for( var i = 0; i <= arrBaqQueries.length - 1 ; i++){
     ClickMenu("File->New...->New Query")
 
     EnterText("txtQueryID", arrBaqQueries[i] + "[Tab]", "Adding Query text")  
-    
+
+    if(baqCaption != undefined)
+      EnterText("txtCaption", baqCaption + "[Tab]")  
+      
     ClickButton("OK")
   }
   
@@ -195,6 +199,9 @@ function DeployDashboard(deploymentOptions){
   Delay(1500)
   if(deploymentStatus) {
     E10["Refresh"]()
+
+    CheckEpicMsgdialog()
+    
     ClickButton("OK")
     Log["Message"]("Dashboard was deployed correctly. Clicked OK button to close Deploy Dashboard window.")
   }else{
@@ -267,18 +274,18 @@ function CreateMenu(MenuData){
   }else if (MenuData["menuType"] == "Menu item") {
     EnterText("txtProgram", MenuData["dll"] + "[Tab]", "Adding dll text") 
   }
-  
+
   //Validations on the form
   if(MenuData["validations"] != undefined && MenuData["validations"] != "" && MenuData["validations"] != null){
     var validations = MenuData["validations"].split(",")
 
     for(var i = 0; i < validations["length"]; i++){
-      if(validations[i] != "All Companies"){
+      if(validations[i] == "All Companies"){
         CheckboxState("chkAllCompanies", true)
         Log["Message"]("Checkbox from menu was selected - " + validations[i])
       }
 
-      if(validations[i] != "Enable"){
+      if(validations[i] == "Enable"){
         var enabled = verifyStateCheckbox("chkEnable")
 
         if(enabled){
@@ -288,7 +295,7 @@ function CreateMenu(MenuData){
         }
       }
 
-      if(validations[i] != "Web Access"){
+      if(validations[i] == "Web Access"){
         var webAccess = Aliases["Epicor"]["MenuMForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["grpProgramMain"]["eshWebAccess"]["EnabledCaption"]
         if(webAccess == "Available"){
           Log["Checkpoint"]("Web Access  " + validations[i] + " is Available.")
@@ -307,8 +314,9 @@ function CreateMenu(MenuData){
 
     ClickMenu("File->Save")
     Delay(1000)
-    ClickMenu("File->Close")
+    ClickMenu("File->Exit")
     Log["Message"]("Menu created correctly")
+    Delay(1000)
   }else{
     Log["Error"]("There was a problem while creating the menu")
   }

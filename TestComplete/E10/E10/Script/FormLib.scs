@@ -1,4 +1,5 @@
 ﻿//USEUNIT ObjectLib
+//USEUNIT ControlFunctions
 
 // Gets the object type checkbox
 function GetForm(FormName){
@@ -71,7 +72,6 @@ function ValidatesFormClosed(caption){
 
 }
 
-
 //Used to catch a windows message 
 // Designed for System Dashboards mainly
 function CheckWindowMessage(WndCaption){
@@ -96,7 +96,6 @@ function CheckWindowMessage(WndCaption){
   }
 }
 
-
 function CheckWindowMessageModals(){
   var count = 0 
   var name = "Static"
@@ -117,7 +116,6 @@ function CheckWindowMessageModals(){
     }
   }
 }
-
 
 function CheckExceptionWnd(){
   var wnd = FindObject("*", ["Name","WndCaption"],  ["*Exception*", "*Error*"])
@@ -142,13 +140,12 @@ function CheckExceptionWnd(){
 @Wnd: Window caption of the form displayed
 @action: action that will be performed for the dialog displayed (Yes/No)
 */
-function CheckEpicMsgdialog(Wnd, action){
-    var wnd = GetForm(Wnd)
+function CheckEpicMsgdialog(){
+    var name = "Static"
+    var windowsMsg = FindObject("*", ["Name","WndCaption"],  ["*" + name + "*", "*Exception*"])
 
-    if (wnd["Exists"]) {
-      ClickButton(action)
+    if (windowsMsg["Exists"]) {
+      // ClickButton("OK")
+      Log["Message"]("Message dialog displayed. '" + windowsMsg["WndCaption"]+ "'")
     }
 }
-
-
-

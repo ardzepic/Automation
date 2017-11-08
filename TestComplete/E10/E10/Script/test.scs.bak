@@ -11,89 +11,29 @@
 
 
 function test(){
-CreateMenu(MenuData1)
+
+var publishedViewsGrid = GetGrid("grdPubViews")
+  //checks if the 'Available Views' panel is available
+  if(!publishedViewsGrid["Exists"]){
+    ClickMenu("View->Published Views")
+  }
+
+  //Checks if there is any published view available on the 'Available Views' panel
+  if(publishedViewsGrid["Rows"]["Count"] > 0){
+    Log["Message"]("BAQs " + publishedViewsGrid["Rows"]["Count"] +  " count of published views")
+  }
+  /*ultraToolbarsDockArea = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow2"]["pnlPubViews"]["zEpiDockManagerPanel_Toolbars_Dock_Area_Top"];
+  ultraToolbarsDockArea["ClickItemXY"]("[0]|Filtering", 73, 8);
+  ultraToolbarsDockArea["zEpiDockManagerPanel_Toolbars_Dock_Area_Top_EmbeddableTextBox"]["SetText"]("bsq");
+
+  */
+
+  SetToolButtonText("pnlPubViews", "Filtering", "baq")
+
+E10["Refresh"]()
+
+publishedViewsGrid["Drag"](77, 30, 11, -127);
+//publishedViewsGrid["Drag"](x, y, dx, dy)
+
 } 
 
-
-function CreateMenu(MenuData){  
-  Delay(1000)
-  var MenuMFormTree = Aliases["Epicor"]["MenuMForm"]["windowDockingArea2"]["dockableWindow2"]["jobTreeViewPanel"]["methodTree"]  
-  var CountElem = MenuMFormTree["SelectedNodes"]["Item"](0)["Nodes"]["Count"]  
- 
-  var arrMenuLocation = MenuData["menuLocation"].split(">")
-  
-    for (var i = 1; i <= arrMenuLocation.length; i++) {
-      for (var j = 0; j <= CountElem; j++) {
-        MenuMFormTree.SelectedNodes.Item(0).Nodes.Item(j).Expanded = true
-        if (arrMenuLocation[i] == MenuMFormTree.SelectedNodes.Item(0).Nodes.Item(j).Text){
-           MenuMFormTree.ActiveNode = MenuMFormTree.SelectedNodes.Item(0).Nodes.Item(j)
-           MenuMFormTree.SelectedNodes.Item(0).Nodes.Item(j).Selected = true
-           break
-         } 
-      }
-    }
-
-  //Add New Item
-  ClickMenu("File->New...->New Menu")
-
-  EnterText("txtMenuID", MenuData["menuID"] + "[Tab]", "Adding Menu ID text")  
-  EnterText("txtName", MenuData["menuName"] + "[Tab]", "Adding Menu Name text")  
-  EnterText("nedSeq", MenuData["orderSequence"] + "[Tab]", "Adding Order Sequence text")  
-  ComboboxSelect("cboType", MenuData["menuType"])
-   
-  var flag = true
-
-  //Menu type
-  if (MenuData["menuType"] == "Dashboard-Assembly") {
-    EnterText("cboDashboard", MenuData["dll"] + "[Tab]", "Adding dll text") 
-  }else if (MenuData["menuType"] == "Menu item") {
-    EnterText("txtProgram", MenuData["dll"] + "[Tab]", "Adding dll text") 
-  }
-
-  //Validations on the form
-  if(MenuData["validations"] != undefined && MenuData["validations"] != "" && MenuData["validations"] != null){
-    var validations = MenuData["validations"].split(",")
-
-    for(var i = 0; i < validations["length"]; i++){
-      if(validations[i] == "All Companies"){
-        // CheckboxState("chkAllCompanies", true)
-        Aliases["Epicor"]["MenuMForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["dbxDetail"]["chkAllCompanies"]
-        Log["Message"]("Checkbox from menu was selected - " + validations[i])
-      }
-
-      if(validations[i] == "Enable"){
-        var enabled = verifyStateCheckbox("chkEnable")
-
-        if(enabled){
-          Log["Message"]("Checkbox Enabled is checked")
-        }else{
-          Log["Error"]("Checkbox Enabled is not checked")
-        }
-      }
-
-      if(validations[i] == "Web Access"){
-        var webAccess = Aliases["Epicor"]["MenuMForm"]["windowDockingArea1"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["grpProgramMain"]["eshWebAccess"]["EnabledCaption"]
-        if(webAccess == "Available"){
-          Log["Checkpoint"]("Web Access  " + validations[i] + " is Available.")
-          flag = true
-        }else{
-          Log["Error"]("Web Access  " + validations[i] + " is not Available.")
-          flag =  false
-          break
-        }
-      }
-    }
-  }
-
-  if(flag){
-    E10["Refresh"]()
-
-    ClickMenu("File->Save")
-    Delay(1000)
-    ClickMenu("File->Exit")
-    Log["Message"]("Menu created correctly")
-    Delay(1000)
-  }else{
-    Log["Error"]("There was a problem while creating the menu")
-  }
-}

@@ -1,7 +1,7 @@
 ﻿//USEUNIT ObjectLib
-//USEUNIT FormLib
 
 var E10 = Sys.Process("Epicor")
+E10["Refresh"]()
 
 //-------------------------------
 //CHECKBOX FUNTIONS
@@ -215,10 +215,8 @@ var E10 = Sys.Process("Epicor")
 
     var panels = panelPath["split"]("->")
 
-    if(!formName){
-      var pnlCtrl = formName ? GetForm(formName) : FindTopMostForm()
-    }
-
+    var pnlCtrl = formName ? GetForm(formName) : FindTopMostForm()
+    
     if (!pnlCtrl["Exists"]) 
       throw "Parent form not found. Verify the path is correct: '" + formName + "'" 
 
@@ -427,7 +425,7 @@ var E10 = Sys.Process("Epicor")
   }
 
   // testing
-  function listViewSelect(ctrlName, itemName, isCase){    
+  function ListViewSelect(ctrlName, itemName, isCase){    
       try{
       //overridden - if tree name not defined
           if (typeof(itemName) != "string"){

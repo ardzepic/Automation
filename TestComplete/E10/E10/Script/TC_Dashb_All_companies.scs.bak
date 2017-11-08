@@ -119,10 +119,9 @@ function Dashb1Exists_EPIC07(){
 
     Log["Message"]("Step 17, 18")
     ExpandComp(company2)
-
-    MainMenuTreeViewSelect(treeMainPanel2 + "Sales Management;Customer Relationship Management;Setup;" + MenuData1["menuName"])
-
-    var verifyForm = VerifyForm(MenuData1["menuName"])
+    try{
+      MainMenuTreeViewSelect(treeMainPanel2 + "Sales Management;Customer Relationship Management;Setup;" + MenuData1["menuName"])
+          var verifyForm = VerifyForm(dashb1)
 
     if(verifyForm){
       Log["Checkpoint"]("Menu is available for this company")
@@ -131,7 +130,13 @@ function Dashb1Exists_EPIC07(){
       Dashb1Exists_EPIC05()
     }
 
-    ClickMenu("File->Exit")
+    ClickMenu("File->Exit")  
+    }catch(e){
+      Dashb1Exists_EPIC05()
+    } 
+    
+
+
 }
 
 //Used to verify all companies dahsboard
@@ -142,7 +147,7 @@ function Dashb1Exists_EPIC05(){
 
     MainMenuTreeViewSelect(treeMainPanel3 + "Sales Management;Customer Relationship Management;Setup;" + MenuData1["menuName"])
 
-    var verifyForm = VerifyForm(MenuData1["menuName"])
+    var verifyForm = VerifyForm(dashb1)
 
     if(verifyForm){
       Log["Checkpoint"]("Menu is available for this company")

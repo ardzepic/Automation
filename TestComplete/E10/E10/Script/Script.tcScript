@@ -154,6 +154,12 @@
 		<child name="FormLib" key="{5CC47DF5-1F8F-4B38-964F-BA047809793D}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
 			<data path="FormLib.scs" />
 		</child>
+		<child name="ControlLib" key="{E43C819B-21D4-4BB3-BB58-008E2D82C04F}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="ControlLib.scs" />
+		</child>
+		<child name="ToolsLib" key="{8B0FBED7-83A3-4C9F-A748-CA3A70113DBD}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="ToolsLib.scs" />
+		</child>
 	</children>
 	<folders>
 		<folder caption="Dashboards" description="A logical folder that is used to organize project items and elements." moniker="">
@@ -197,6 +203,10 @@
 					</references>
 				</folder>
 			</folders>
+			<references>
+				<ref key="{E43C819B-21D4-4BB3-BB58-008E2D82C04F}" />
+				<ref key="{8B0FBED7-83A3-4C9F-A748-CA3A70113DBD}" />
+			</references>
 		</folder>
 		<folder caption="Reports" description="A logical folder that is used to organize project items and elements." moniker="">
 			<references>

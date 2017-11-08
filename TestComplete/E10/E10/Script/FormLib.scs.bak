@@ -1,4 +1,5 @@
 ﻿//USEUNIT ObjectLib
+//USEUNIT ControlFunctions
 
 // Gets the object type checkbox
 function GetForm(FormName){
@@ -142,38 +143,16 @@ function CheckExceptionWnd(){
 @Wnd: Window caption of the form displayed
 @action: action that will be performed for the dialog displayed (Yes/No)
 */
-function CheckEpicMsgdialog(Wnd, action){
-    var wnd = GetForm(Wnd)
+function CheckEpicMsgdialog(){
+    var name = "Static"
+    var windowsMsg = FindObject("*", ["Name","WndCaption"],  ["*" + name + "*", "*Exception*"])
 
-    if (wnd["Exists"]) {
-      ClickButton(action)
+    if (windowsMsg["Exists"]) {
+      ClickButton("OK")
+      Log["Message"]("Message dialog displayed. '" + windowsMsg["WndCaption"]+ "'")
     }
 }
 
 
-TODO
-WORK FUNCTION TO CALL ULTRAMENUS FOR BAQs
-baqID = "COM-90daysSORel"
-
-
-
-C:\inetpub\wwwroot\ERP102100\Server
-
-BatchVSInstr dlls-C:\_projects\ERP10CC\Current\Deployment\Server\ key-C:\_projects\ERP10CC\Current\Source\Epicor.snk
-
-C:\Users\Administrator\Documents\
-
-BatchVSInstr dlls-C:\inetpub\wwwroot\ERP102100\Server key-C:\Users\Administrator\Documents\Epicor.snk
-
-
-
-var id = "test"
-// id : caption
-
-
-var dashtree = GetTree("DashboardTree")
-
-dashtree["ClickItem"]("Queries|" + id + ": " + id)
-dashtree["ClickR"]("Queries|" + id + ": " + id)
 
 
