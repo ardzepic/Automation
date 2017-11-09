@@ -3,6 +3,7 @@
 //USEUNIT ControlFunctions
 
 var E10 = Sys.Process("Epicor")
+
 E10["Refresh"]()
 
 function GetMenus(pnlPath){
@@ -160,5 +161,4 @@ function ClickPopupMenu(treeElement, menuOption){
   } else{
     Log["Error"]("No object found")
   }
-
 } 

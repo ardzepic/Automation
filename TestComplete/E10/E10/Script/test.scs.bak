@@ -11,29 +11,6 @@
 
 
 function test(){
-
-var publishedViewsGrid = GetGrid("grdPubViews")
-  //checks if the 'Available Views' panel is available
-  if(!publishedViewsGrid["Exists"]){
-    ClickMenu("View->Published Views")
-  }
-
-  //Checks if there is any published view available on the 'Available Views' panel
-  if(publishedViewsGrid["Rows"]["Count"] > 0){
-    Log["Message"]("BAQs " + publishedViewsGrid["Rows"]["Count"] +  " count of published views")
-  }
-  /*ultraToolbarsDockArea = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow2"]["pnlPubViews"]["zEpiDockManagerPanel_Toolbars_Dock_Area_Top"];
-  ultraToolbarsDockArea["ClickItemXY"]("[0]|Filtering", 73, 8);
-  ultraToolbarsDockArea["zEpiDockManagerPanel_Toolbars_Dock_Area_Top_EmbeddableTextBox"]["SetText"]("bsq");
-
-  */
-
-  SetToolButtonText("pnlPubViews", "Filtering", "baq")
-
-E10["Refresh"]()
-
-publishedViewsGrid["Drag"](77, 30, 11, -127);
-//publishedViewsGrid["Drag"](x, y, dx, dy)
+OpenPanelTab("Warehouse")
 
 } 
-

@@ -347,7 +347,6 @@ function TestCustomizedForm(){
 
   ClickButton("Retrieve")
 
-
   var grid = GetGridMainPanel(baqID)
 
   if(grid["wRowCount"] > 0){

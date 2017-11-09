@@ -21,7 +21,6 @@ function CreateBAQ1(){
   CopyBAQ("zCustomer01", baq1Copy)
   Log["Message"]("BAQ 'zCustomer01' copied to 'zCustomer01Copy'")
   
-  
   CheckboxState("chkShared", true)
   CheckboxState("chkUpdatable", true)
 
@@ -947,13 +946,16 @@ function RestartE10(){
 
 function OpenMenu(){
   Log["Message"]("Step 61")
+  Delay(1000)
+
+  E10["Refresh"]()
   MainMenuTreeViewSelect(treeMainPanel1 + "Sales Management;Customer Relationship Management;Setup;" + MenuData["menuName"])
 }
 
 function testQuery1(){
   
   Log["Message"]("Step 62")
-
+  Delay(2500)
   ClickMenu("Refresh All", "", true)
 
   var trackerMainPanel = RetrieveTrackerMainPanel()
