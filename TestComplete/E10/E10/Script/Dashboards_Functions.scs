@@ -40,7 +40,7 @@ function CreateSimpleDashboards(DashbData){
 function OpenDashboard(dashboardID) {
   EnterText("txtDefinitonID", dashboardID + "[Tab]", "Adding Dashboard name")
 
-  ValidatesFormOpened(dashboardID)
+  // ValidatesFormOpened(dashboardID)
 }
 
 /*funtion that creates a dashboard
@@ -182,7 +182,7 @@ function ExitDashboard(){
   Delay(2500)
   ClickMenu("File->Exit")
 
-  ValidatesFormClosed("", "Dashboard")
+  //ValidatesFormClosed("", "Dashboard")
 }
   
 //Closes only the dashboard not the form

@@ -1,0 +1,43 @@
+﻿//USEUNIT BAQs_Functions
+//USEUNIT ControlFunctions
+//USEUNIT Dashboards_Functions
+//USEUNIT TC_Dashboard_All_companies
+//USEUNIT DataBase_Functions
+//USEUNIT FormLib
+//USEUNIT General_Functions
+//USEUNIT Grid_Functions
+//USEUNIT Menu_Functions
+
+function test(){  
+  Delay(2500)
+  ClickMenu("Actions->Generate All Web Forms")
+  
+  var statusBarPath = Aliases["Epicor"]["DashboardForm"]["WinFormsObject"]("baseStatusBar")
+  
+  getStatusTemp(statusBarPath)
+    
+} 
+
+function getStatusTemp(statusBarPath)
+{
+  var text = statusBarPath["Panels"]["Item"](0)["Text"]
+  var count = 0
+   
+  if(text["OleValue"] != "Ready"){
+    while(true){
+      Delay(2000)
+      count++
+    
+      if(count == 5){
+        text = statusBarPath["Panels"]["Item"](0)["Text"]
+        if(text["OleValue"] == "Ready"){
+          Log["Message"]("Form loaded. Attempts => " + count)
+          break          
+        }else{
+          count = 0
+          Log["Message"]("Reset count " + count)
+        } 
+      } 
+    } 
+  } 
+}

@@ -47,7 +47,10 @@ function CreateDashboard(){
 
   AddQueriesDashboard(baqData1["Id"], baqData1["Id"] + "0")
   Log["Message"](baqData1["Id"] + " added to the dashboard")
-}    
+}   
+
+
+ 
 
 // step 4, 5
 function PublishView(){

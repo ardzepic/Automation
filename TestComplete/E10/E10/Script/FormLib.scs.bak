@@ -1,15 +1,14 @@
 ﻿//USEUNIT ObjectLib
-//USEUNIT ControlFunctions
 
 // Gets the object type checkbox
 function GetForm(WndCaption, FormName){
   var E10 = Sys.Process("Epicor")
 
-  if(WndCaption != undefined && FormName != undefined){
+  if(WndCaption != "" && FormName != undefined){
     var wnd = FindObject("*Form*", ["WndCaption", "Name"], ["*" + WndCaption + "*", "*" + FormName + "*"], E10 )
-  }else if(WndCaption != undefined && FormName == undefined){
+  }else if(WndCaption != "" && FormName == undefined){
     var wnd = FindObject("*Form*", ["WndCaption"], ["*" + WndCaption + "*"], E10 )
-  }else if (FormName != undefined && WndCaption == undefined) {
+  }else if (FormName != undefined && WndCaption == "") {
     var wnd = FindObject("*Form*", ["Name"], ["*" + FormName + "*"], E10 )
   }
 
@@ -29,6 +28,20 @@ function ActivateForm(WndCaption, FormName){
 
 function CloseForm(obj, FormName){
   var wnd = obj ? obj : GetForm(FormName)
+
+  wndCaption = wnd["WndCaption"]
+  
+  if(wnd["Exists"]){
+    wnd["Close"]()
+    Log["Message"]("Form '" + (wndCaption || FormName) + "' closed.")
+  }else{
+    Log["Error"]("Form '" + (wndCaption || FormName) + "' not found.")
+  }
+}
+
+function CloseTopForm(){
+  Delay(4000)
+  var wnd = FindTopMostForm()
 
   wndCaption = wnd["WndCaption"]
   
@@ -138,7 +151,10 @@ function CheckExceptionWnd(){
   }catch(e){
     Log["Error"](e["message"])
   }finally{
-    ClickButton("OK")
+    //ClickButton("OK")
+    //Validate, if TRUE then allow ClickButton
+    return true
+    
   }
 }
 

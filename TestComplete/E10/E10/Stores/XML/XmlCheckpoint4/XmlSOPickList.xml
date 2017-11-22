@@ -392,22 +392,91 @@
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
-					<xs:element name="JobProd" msprop:SystemCode="ERP" msprop:DataTableID="JobProd" msprop:SchemaName="Erp">
+					<xs:element name="OrderHed" msprop:SystemCode="ERP" msprop:DataTableID="OrderHed" msprop:SchemaName="Erp">
 						<xs:complexType>
 							<xs:sequence>
 								<xs:element name="RptLanguageID" msdata:Caption="Language ID" type="xs:string" minOccurs="0"/>
-								<xs:element name="Company" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="JobNum" msdata:Caption="Job" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="OrderLine" msdata:Caption="Line" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
-								<xs:element name="OrderNum" msdata:Caption="Order" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
-								<xs:element name="OrderRelNum" msdata:Caption="Rel" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
-								<xs:element name="PlanID" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="PlanUserID" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="ShortChar01" msdata:Caption="" msprop:DataTableID="JobProd_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="ShortChar02" msdata:Caption="" msprop:DataTableID="JobProd_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="Calc_OrderLine" msdata:Caption="OrderLine" type="xs:int" minOccurs="0"/>
-								<xs:element name="Calc_OrderNum" msdata:Caption="OrderNum" type="xs:int" minOccurs="0"/>
-								<xs:element name="Calc_OrdRelNum" msdata:Caption="OrdRelNum" type="xs:int" minOccurs="0"/>
+								<xs:element name="AGUseGoodDefaultMark" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CCCity" msdata:Caption="Credit Card Holder City" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="CCState" msdata:Caption="Credit Card Holder State" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="ccToken" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="ClosedNotShipped" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Company" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="CounterSOAck" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="CustNum" msdata:Caption="Customer" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="DispatchReason" msdata:Caption="Key2" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="ECCOrderNum" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="ECCPaymentMethod" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="ECCPONum" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="InvcOrderCmp" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="InvCurrDepositBal" msdata:Caption="Deposit Balance" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="IsCSRSet" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="OrderCSR" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="OrderNum" msdata:Caption="Order" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="OrderOpenCredit" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="OTSShipToNum" msdata:Caption="Ship To" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Plant" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="PLArticle106c" msdata:Caption="Article. 106c" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="PLEnforcementAuthAddr" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="PLEnforcementAuthName" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="PLGoodsOrServiceVATExempt" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="PLInvIssuedBySecondTaxpayer" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="PLInvIssuedByTaxpayer" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="PLLegalArticleAct" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="PLLegalArticleOther" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="PLLegalArticleWEDirective" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="PLMarginScheme" msdata:Caption="Margin Scheme" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="PLSecondHandOrArts" msdata:Caption="Secon Hand or Arts" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="PLTaxRepresentativeAddr" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="PLTaxRepresentativeName" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="PLTaxRepresentativeTaxID" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="PLTouristService" msdata:Caption="Tourist Services" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="ProFormaInvComment" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="ReadyToFulfill" msdata:Caption="Ready To Fulfill" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="ReprintSOAck" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="ShipByTime" msdata:Caption="Ship By Time" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="TWFiscalPeriod" msdata:Caption="GUI Fiscal Period" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="TWFiscalYear" msdata:Caption="GUI Fiscal Year" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="TWFiscalYearSuffix" msdata:Caption="GUI Fiscal Year Suffix" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="TWGUIGroup" msdata:Caption="GroupID" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="TWGUIRegNumBuyer" msdata:Caption="Buyer GUI Code" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="TWGUIRegNumSeller" msdata:Caption="Seller GUI Code" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="WIApplication" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="WICreditCardorder" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="WIOrder" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="WIUserID" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="WIUsername" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character06" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character07" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character08" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character09" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Character10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="CheckBox01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox15" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox16" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="CheckBox17" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="Number05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Number20" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="orderhed_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="PbsId_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="PbsStage_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar06" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar08" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar09" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="Calc_BCCustNum" msdata:Caption="BCCustNum" type="xs:string" minOccurs="0"/>
+								<xs:element name="Calc_BCOrderNum" msdata:Caption="BCOrderNum" type="xs:string" minOccurs="0"/>
+								<xs:element name="Calc_CustID" msdata:Caption="CustID" type="xs:string" minOccurs="0"/>
+								<xs:element name="Calc_CustName" msdata:Caption="CustName" type="xs:string" minOccurs="0"/>
+								<xs:element name="Calc_FOBDesc" msdata:Caption="FOBDesc" type="xs:string" minOccurs="0"/>
+								<xs:element name="Calc_HeadComment" msdata:Caption="HeadComment" type="xs:string" minOccurs="0"/>
+								<xs:element name="Calc_NeedByDate" msdata:Caption="NeedByDate" type="xs:dateTime" minOccurs="0"/>
+								<xs:element name="Calc_NewPage" msdata:Caption="NewPage" type="xs:boolean" minOccurs="0"/>
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
@@ -498,94 +567,6 @@
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
-					<xs:element name="OrderHed" msprop:SystemCode="ERP" msprop:DataTableID="OrderHed" msprop:SchemaName="Erp">
-						<xs:complexType>
-							<xs:sequence>
-								<xs:element name="RptLanguageID" msdata:Caption="Language ID" type="xs:string" minOccurs="0"/>
-								<xs:element name="AGUseGoodDefaultMark" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="CCCity" msdata:Caption="Credit Card Holder City" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="CCState" msdata:Caption="Credit Card Holder State" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="ccToken" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="ClosedNotShipped" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
-								<xs:element name="Company" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="CounterSOAck" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
-								<xs:element name="CustNum" msdata:Caption="Customer" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
-								<xs:element name="DispatchReason" msdata:Caption="Key2" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="ECCOrderNum" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="ECCPaymentMethod" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="ECCPONum" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="InvcOrderCmp" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="InvCurrDepositBal" msdata:Caption="Deposit Balance" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
-								<xs:element name="IsCSRSet" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="OrderCSR" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="OrderNum" msdata:Caption="Order" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
-								<xs:element name="OrderOpenCredit" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
-								<xs:element name="OTSShipToNum" msdata:Caption="Ship To" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="Plant" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="PLArticle106c" msdata:Caption="Article. 106c" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="PLEnforcementAuthAddr" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="PLEnforcementAuthName" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="PLGoodsOrServiceVATExempt" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="PLInvIssuedBySecondTaxpayer" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="PLInvIssuedByTaxpayer" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="PLLegalArticleAct" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="PLLegalArticleOther" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="PLLegalArticleWEDirective" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="PLMarginScheme" msdata:Caption="Margin Scheme" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
-								<xs:element name="PLSecondHandOrArts" msdata:Caption="Secon Hand or Arts" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="PLTaxRepresentativeAddr" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="PLTaxRepresentativeName" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="PLTaxRepresentativeTaxID" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="PLTouristService" msdata:Caption="Tourist Services" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="ProFormaInvComment" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="ReadyToFulfill" msdata:Caption="Ready To Fulfill" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="ReprintSOAck" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="ShipByTime" msdata:Caption="Ship By Time" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
-								<xs:element name="TWFiscalPeriod" msdata:Caption="GUI Fiscal Period" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
-								<xs:element name="TWFiscalYear" msdata:Caption="GUI Fiscal Year" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
-								<xs:element name="TWFiscalYearSuffix" msdata:Caption="GUI Fiscal Year Suffix" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="TWGUIGroup" msdata:Caption="GroupID" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="TWGUIRegNumBuyer" msdata:Caption="Buyer GUI Code" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="TWGUIRegNumSeller" msdata:Caption="Seller GUI Code" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="WIApplication" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="WICreditCardorder" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="WIOrder" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="WIUserID" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="WIUsername" msprop:DataTableID="OrderHed" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="Character01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="Character06" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="Character07" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="Character08" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="Character09" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="Character10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="CheckBox01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="CheckBox05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="CheckBox10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="CheckBox15" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="CheckBox16" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="CheckBox17" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="Number05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:decimal" minOccurs="0"/>
-								<xs:element name="Number20" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="orderhed_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="PbsId_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="PbsStage_c" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="ShortChar01" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="ShortChar05" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="ShortChar06" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="ShortChar08" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="ShortChar09" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="ShortChar10" msdata:Caption="" msprop:DataTableID="OrderHed_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
-								<xs:element name="Calc_BCCustNum" msdata:Caption="BCCustNum" type="xs:string" minOccurs="0"/>
-								<xs:element name="Calc_BCOrderNum" msdata:Caption="BCOrderNum" type="xs:string" minOccurs="0"/>
-								<xs:element name="Calc_CustID" msdata:Caption="CustID" type="xs:string" minOccurs="0"/>
-								<xs:element name="Calc_CustName" msdata:Caption="CustName" type="xs:string" minOccurs="0"/>
-								<xs:element name="Calc_FOBDesc" msdata:Caption="FOBDesc" type="xs:string" minOccurs="0"/>
-								<xs:element name="Calc_HeadComment" msdata:Caption="HeadComment" type="xs:string" minOccurs="0"/>
-								<xs:element name="Calc_NeedByDate" msdata:Caption="NeedByDate" type="xs:dateTime" minOccurs="0"/>
-								<xs:element name="Calc_NewPage" msdata:Caption="NewPage" type="xs:boolean" minOccurs="0"/>
-							</xs:sequence>
-						</xs:complexType>
-					</xs:element>
 					<xs:element name="OrderRel" msprop:SystemCode="ERP" msprop:DataTableID="OrderRel" msprop:SchemaName="Erp">
 						<xs:complexType>
 							<xs:sequence>
@@ -631,21 +612,21 @@
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
-					<xs:element name="PartAlloc" msprop:SystemCode="ERP" msprop:DataTableID="PartAlloc" msprop:SchemaName="Erp">
+					<xs:element name="WhseBin" msprop:SystemCode="ERP" msprop:DataTableID="WhseBin" msprop:SchemaName="Erp">
 						<xs:complexType>
 							<xs:sequence>
 								<xs:element name="RptLanguageID" msdata:Caption="Language ID" type="xs:string" minOccurs="0"/>
-								<xs:element name="AllocatedQty" msdata:Caption="Allocated" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
-								<xs:element name="BinNum" msdata:Caption="Bin" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="Company" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="OrderLine" msdata:Caption="Line" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
-								<xs:element name="OrderNum" msdata:Caption="Order" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
-								<xs:element name="PartNum" msdata:Caption="Part" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="PCID" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="WarehouseCode" msdata:Caption="Warehouse" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="Calc_AvailableQty" msdata:Caption="AvailableQty" type="xs:decimal" minOccurs="0"/>
-								<xs:element name="Calc_LotSerialNum" msdata:Caption="LotSerialNum" type="xs:string" minOccurs="0"/>
+								<xs:element name="BinNum" msdata:Caption="Bin" msprop:DataTableID="WhseBin" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Company" msprop:DataTableID="WhseBin" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="SendToFSA" msdata:Caption="Sync To FSA" msprop:DataTableID="WhseBin" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
+								<xs:element name="WarehouseCode" msdata:Caption="Warehouse" msprop:DataTableID="WhseBin" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Calc_DimCode" msdata:Caption="DimCode" type="xs:string" minOccurs="0"/>
+								<xs:element name="Calc_LotNum" msdata:Caption="LotNum" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_OnHandQty" msdata:Caption="OnHandQty" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Calc_OrderLine" msdata:Caption="OrderLine" type="xs:int" minOccurs="0"/>
+								<xs:element name="Calc_OrderNum" msdata:Caption="OrderNum" type="xs:int" minOccurs="0"/>
+								<xs:element name="Calc_OrdRelNum" msdata:Caption="OrdRelNum" type="xs:int" minOccurs="0"/>
+								<xs:element name="Calc_PartNum" msdata:Caption="PartNum" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_UOM" msdata:Caption="UOM" type="xs:string" minOccurs="0"/>
 							</xs:sequence>
 						</xs:complexType>
@@ -695,21 +676,40 @@
 							</xs:sequence>
 						</xs:complexType>
 					</xs:element>
-					<xs:element name="WhseBin" msprop:SystemCode="ERP" msprop:DataTableID="WhseBin" msprop:SchemaName="Erp">
+					<xs:element name="JobProd" msprop:SystemCode="ERP" msprop:DataTableID="JobProd" msprop:SchemaName="Erp">
 						<xs:complexType>
 							<xs:sequence>
 								<xs:element name="RptLanguageID" msdata:Caption="Language ID" type="xs:string" minOccurs="0"/>
-								<xs:element name="BinNum" msdata:Caption="Bin" msprop:DataTableID="WhseBin" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="Company" msprop:DataTableID="WhseBin" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="SendToFSA" msdata:Caption="Sync To FSA" msprop:DataTableID="WhseBin" msprop:SystemCode="ERP" type="xs:boolean" minOccurs="0"/>
-								<xs:element name="WarehouseCode" msdata:Caption="Warehouse" msprop:DataTableID="WhseBin" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
-								<xs:element name="Calc_DimCode" msdata:Caption="DimCode" type="xs:string" minOccurs="0"/>
-								<xs:element name="Calc_LotNum" msdata:Caption="LotNum" type="xs:string" minOccurs="0"/>
-								<xs:element name="Calc_OnHandQty" msdata:Caption="OnHandQty" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Company" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="JobNum" msdata:Caption="Job" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="OrderLine" msdata:Caption="Line" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="OrderNum" msdata:Caption="Order" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="OrderRelNum" msdata:Caption="Rel" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="PlanID" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="PlanUserID" msprop:DataTableID="JobProd" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar01" msdata:Caption="" msprop:DataTableID="JobProd_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
+								<xs:element name="ShortChar02" msdata:Caption="" msprop:DataTableID="JobProd_UD" msprop:SystemCode="Erp" type="xs:string" minOccurs="0"/>
 								<xs:element name="Calc_OrderLine" msdata:Caption="OrderLine" type="xs:int" minOccurs="0"/>
 								<xs:element name="Calc_OrderNum" msdata:Caption="OrderNum" type="xs:int" minOccurs="0"/>
 								<xs:element name="Calc_OrdRelNum" msdata:Caption="OrdRelNum" type="xs:int" minOccurs="0"/>
-								<xs:element name="Calc_PartNum" msdata:Caption="PartNum" type="xs:string" minOccurs="0"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="PartAlloc" msprop:SystemCode="ERP" msprop:DataTableID="PartAlloc" msprop:SchemaName="Erp">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="RptLanguageID" msdata:Caption="Language ID" type="xs:string" minOccurs="0"/>
+								<xs:element name="AllocatedQty" msdata:Caption="Allocated" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="BinNum" msdata:Caption="Bin" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Company" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="OrderLine" msdata:Caption="Line" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="OrderNum" msdata:Caption="Order" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:int" minOccurs="0"/>
+								<xs:element name="PartNum" msdata:Caption="Part" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="PCID" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="WarehouseCode" msdata:Caption="Warehouse" msprop:DataTableID="PartAlloc" msprop:SystemCode="ERP" type="xs:string" minOccurs="0"/>
+								<xs:element name="Calc_AvailableQty" msdata:Caption="AvailableQty" type="xs:decimal" minOccurs="0"/>
+								<xs:element name="Calc_LotSerialNum" msdata:Caption="LotSerialNum" type="xs:string" minOccurs="0"/>
+								<xs:element name="Calc_OnHandQty" msdata:Caption="OnHandQty" type="xs:decimal" minOccurs="0"/>
 								<xs:element name="Calc_UOM" msdata:Caption="UOM" type="xs:string" minOccurs="0"/>
 							</xs:sequence>
 						</xs:complexType>
@@ -724,16 +724,16 @@
 				<xs:selector xpath=".//mstns:RptParameter"/>
 				<xs:field xpath="mstns:Company"/>
 			</xs:unique>
+			<xs:unique name="OrderHed_Constraint1" msdata:ConstraintName="Constraint1">
+				<xs:selector xpath=".//mstns:OrderHed"/>
+				<xs:field xpath="mstns:Company"/>
+				<xs:field xpath="mstns:OrderNum"/>
+			</xs:unique>
 			<xs:unique name="OrderDtl_Constraint1" msdata:ConstraintName="Constraint1">
 				<xs:selector xpath=".//mstns:OrderDtl"/>
 				<xs:field xpath="mstns:Company"/>
 				<xs:field xpath="mstns:OrderNum"/>
 				<xs:field xpath="mstns:OrderLine"/>
-			</xs:unique>
-			<xs:unique name="OrderHed_Constraint1" msdata:ConstraintName="Constraint1">
-				<xs:selector xpath=".//mstns:OrderHed"/>
-				<xs:field xpath="mstns:Company"/>
-				<xs:field xpath="mstns:OrderNum"/>
 			</xs:unique>
 			<xs:unique name="OrderRel_Constraint1" msdata:ConstraintName="Constraint1">
 				<xs:selector xpath=".//mstns:OrderRel"/>
@@ -762,6 +762,13 @@
 				<xs:field xpath="mstns:PartNum"/>
 				<xs:field xpath="mstns:Calc_LotSerialNum"/>
 			</xs:keyref>
+			<xs:keyref name="OrderRelJobProd" refer="OrderRel_Constraint1">
+				<xs:selector xpath=".//mstns:JobProd"/>
+				<xs:field xpath="mstns:Company"/>
+				<xs:field xpath="mstns:OrderNum"/>
+				<xs:field xpath="mstns:OrderLine"/>
+				<xs:field xpath="mstns:OrderRelNum"/>
+			</xs:keyref>
 			<xs:keyref name="OrderDtlOrderRel" refer="OrderDtl_Constraint1">
 				<xs:selector xpath=".//mstns:OrderRel"/>
 				<xs:field xpath="mstns:Company"/>
@@ -772,13 +779,6 @@
 				<xs:selector xpath=".//mstns:OrderDtl"/>
 				<xs:field xpath="mstns:Company"/>
 				<xs:field xpath="mstns:OrderNum"/>
-			</xs:keyref>
-			<xs:keyref name="OrderRelJobProd" refer="OrderRel_Constraint1">
-				<xs:selector xpath=".//mstns:JobProd"/>
-				<xs:field xpath="mstns:Company"/>
-				<xs:field xpath="mstns:OrderNum"/>
-				<xs:field xpath="mstns:OrderLine"/>
-				<xs:field xpath="mstns:OrderRelNum"/>
 			</xs:keyref>
 		</xs:element>
 	</xs:schema>
@@ -1106,7 +1106,7 @@
 			<OrderList>5482</OrderList>
 			<PartList></PartList>
 			<PrintKitComponents>true</PrintKitComponents>
-			<ToDate>2017-10-20T00:00:00-07:00</ToDate>
+			<ToDate>2017-11-13T00:00:00-08:00</ToDate>
 			<ReportCultureCode>en-US</ReportCultureCode>
 			<ReportCurrencyCode>USD</ReportCurrencyCode>
 			<ThousandsSeparator>,</ThousandsSeparator>
@@ -1137,88 +1137,6 @@
 			<WISchedule>false</WISchedule>
 			<WIShippingCosts>false</WIShippingCosts>
 		</Company>
-		<OrderDtl>
-			<RptLanguageID>enu</RptLanguageID>
-			<CommodityCode></CommodityCode>
-			<Company>EPIC03</Company>
-			<ContractID></ContractID>
-			<CreateJob>false</CreateJob>
-			<DefaultOversPricing></DefaultOversPricing>
-			<DisplaySeq>1.000</DisplaySeq>
-			<DocInAdvanceBillBal>0</DocInAdvanceBillBal>
-			<DupOnJobCrt>false</DupOnJobCrt>
-			<ECCOrderLine>1</ECCOrderLine>
-			<ECCOrderNum>WEB-100000039</ECCOrderNum>
-			<ECCPlant>MFGSYS</ECCPlant>
-			<ECCQuoteLine>0</ECCQuoteLine>
-			<ECCQuoteNum></ECCQuoteNum>
-			<GroupSeq>0</GroupSeq>
-			<InAdvanceBillBal>0</InAdvanceBillBal>
-			<KitFlag></KitFlag>
-			<KitParentLine>1</KitParentLine>
-			<KitQtyPer>0</KitQtyPer>
-			<KitShipComplete>true</KitShipComplete>
-			<LineDesc>Motor Module 12111</LineDesc>
-			<LinkToContract>false</LinkToContract>
-			<MfgJobType></MfgJobType>
-			<MOMsourceEst></MOMsourceEst>
-			<MOMsourceType></MOMsourceType>
-			<OrderLine>1</OrderLine>
-			<OrderNum>5482</OrderNum>
-			<Overs>0</Overs>
-			<OversUnitPrice>0</OversUnitPrice>
-			<PartNum>M10000</PartNum>
-			<PCLinkRemoved>false</PCLinkRemoved>
-			<PickListComment></PickListComment>
-			<PlanGUID>00000000-0000-0000-0000-000000000000</PlanGUID>
-			<PlanUserID></PlanUserID>
-			<ProFormaInvComment></ProFormaInvComment>
-			<RevisionNum></RevisionNum>
-			<Rpt1InAdvanceBillBal>0</Rpt1InAdvanceBillBal>
-			<Rpt2InAdvanceBillBal>0</Rpt2InAdvanceBillBal>
-			<Rpt3InAdvanceBillBal>0</Rpt3InAdvanceBillBal>
-			<SalesUM>EA</SalesUM>
-			<Unders>0</Unders>
-			<UndersPct>0</UndersPct>
-			<Character01></Character01>
-			<Character03></Character03>
-			<Character04></Character04>
-			<Character05></Character05>
-			<Character06></Character06>
-			<CheckBox02>false</CheckBox02>
-			<CheckBox11>false</CheckBox11>
-			<CheckBox12>false</CheckBox12>
-			<CheckBox13>false</CheckBox13>
-			<Number01>0.000000000</Number01>
-			<Number02>0.000000000</Number02>
-			<Number04>0.000000000</Number04>
-			<Number05>0.000000000</Number05>
-			<Number06>0.000000000</Number06>
-			<Number10>0.000000000</Number10>
-			<Number11>0.000000000</Number11>
-			<Number12>0.000000000</Number12>
-			<Number13>0</Number13>
-			<Number16>0</Number16>
-			<Number18>0</Number18>
-			<Number19>0</Number19>
-			<OrderDtl_c></OrderDtl_c>
-			<PbsId_c>0</PbsId_c>
-			<ShortChar01></ShortChar01>
-			<ShortChar03></ShortChar03>
-			<ShortChar04></ShortChar04>
-			<ShortChar06></ShortChar06>
-			<ShortChar10></ShortChar10>
-			<Calc_BCLineNum>*1*</Calc_BCLineNum>
-			<Calc_BCPart>*M10000*</Calc_BCPart>
-			<Calc_BCRev></Calc_BCRev>
-			<Calc_BinNum></Calc_BinNum>
-			<Calc_Discount>0</Calc_Discount>
-			<Calc_KitPartNum></Calc_KitPartNum>
-			<Calc_OnHandQty>0</Calc_OnHandQty>
-			<Calc_UOM>EA</Calc_UOM>
-			<Calc_whse></Calc_whse>
-			<PartNum_PartDescription>Motor Module 12111</PartNum_PartDescription>
-		</OrderDtl>
 		<OrderHed>
 			<RptLanguageID>enu</RptLanguageID>
 			<AGUseGoodDefaultMark>false</AGUseGoodDefaultMark>
@@ -1302,6 +1220,88 @@
 			<Calc_HeadComment></Calc_HeadComment>
 			<Calc_NewPage>true</Calc_NewPage>
 		</OrderHed>
+		<OrderDtl>
+			<RptLanguageID>enu</RptLanguageID>
+			<CommodityCode></CommodityCode>
+			<Company>EPIC03</Company>
+			<ContractID></ContractID>
+			<CreateJob>false</CreateJob>
+			<DefaultOversPricing></DefaultOversPricing>
+			<DisplaySeq>1.000</DisplaySeq>
+			<DocInAdvanceBillBal>0</DocInAdvanceBillBal>
+			<DupOnJobCrt>false</DupOnJobCrt>
+			<ECCOrderLine>1</ECCOrderLine>
+			<ECCOrderNum>WEB-100000039</ECCOrderNum>
+			<ECCPlant>MFGSYS</ECCPlant>
+			<ECCQuoteLine>0</ECCQuoteLine>
+			<ECCQuoteNum></ECCQuoteNum>
+			<GroupSeq>0</GroupSeq>
+			<InAdvanceBillBal>0</InAdvanceBillBal>
+			<KitFlag></KitFlag>
+			<KitParentLine>1</KitParentLine>
+			<KitQtyPer>0</KitQtyPer>
+			<KitShipComplete>true</KitShipComplete>
+			<LineDesc>Motor Module 12111</LineDesc>
+			<LinkToContract>false</LinkToContract>
+			<MfgJobType></MfgJobType>
+			<MOMsourceEst></MOMsourceEst>
+			<MOMsourceType></MOMsourceType>
+			<OrderLine>1</OrderLine>
+			<OrderNum>5482</OrderNum>
+			<Overs>0</Overs>
+			<OversUnitPrice>0</OversUnitPrice>
+			<PartNum>M10000</PartNum>
+			<PCLinkRemoved>false</PCLinkRemoved>
+			<PickListComment></PickListComment>
+			<PlanGUID>00000000-0000-0000-0000-000000000000</PlanGUID>
+			<PlanUserID></PlanUserID>
+			<ProFormaInvComment></ProFormaInvComment>
+			<RevisionNum></RevisionNum>
+			<Rpt1InAdvanceBillBal>0</Rpt1InAdvanceBillBal>
+			<Rpt2InAdvanceBillBal>0</Rpt2InAdvanceBillBal>
+			<Rpt3InAdvanceBillBal>0</Rpt3InAdvanceBillBal>
+			<SalesUM>EA</SalesUM>
+			<Unders>0</Unders>
+			<UndersPct>0</UndersPct>
+			<Character01></Character01>
+			<Character03></Character03>
+			<Character04></Character04>
+			<Character05></Character05>
+			<Character06></Character06>
+			<CheckBox02>false</CheckBox02>
+			<CheckBox11>false</CheckBox11>
+			<CheckBox12>false</CheckBox12>
+			<CheckBox13>false</CheckBox13>
+			<Number01>0.000000000</Number01>
+			<Number02>0.000000000</Number02>
+			<Number04>0.000000000</Number04>
+			<Number05>0.000000000</Number05>
+			<Number06>0.000000000</Number06>
+			<Number10>0.000000000</Number10>
+			<Number11>0.000000000</Number11>
+			<Number12>0.000000000</Number12>
+			<Number13>0</Number13>
+			<Number16>0</Number16>
+			<Number18>0</Number18>
+			<Number19>0</Number19>
+			<OrderDtl_c></OrderDtl_c>
+			<PbsId_c>0</PbsId_c>
+			<ShortChar01></ShortChar01>
+			<ShortChar03></ShortChar03>
+			<ShortChar04></ShortChar04>
+			<ShortChar06></ShortChar06>
+			<ShortChar10></ShortChar10>
+			<Calc_BCLineNum>*1*</Calc_BCLineNum>
+			<Calc_BCPart>*M10000*</Calc_BCPart>
+			<Calc_BCRev></Calc_BCRev>
+			<Calc_BinNum></Calc_BinNum>
+			<Calc_Discount>0</Calc_Discount>
+			<Calc_KitPartNum></Calc_KitPartNum>
+			<Calc_OnHandQty>0</Calc_OnHandQty>
+			<Calc_UOM>EA</Calc_UOM>
+			<Calc_whse></Calc_whse>
+			<PartNum_PartDescription>Motor Module 12111</PartNum_PartDescription>
+		</OrderDtl>
 		<OrderRel>
 			<RptLanguageID>enu</RptLanguageID>
 			<Company>EPIC03</Company>

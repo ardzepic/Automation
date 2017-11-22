@@ -1,0 +1,136 @@
+﻿//USEUNIT General_Functions
+//USEUNIT Dashboards_Functions
+//USEUNIT BAQs_Functions
+//USEUNIT Grid_Functions
+//USEUNIT ControlFunctions
+//USEUNIT Data_Dashboard_Deployment
+
+function Dashboard_Deployment()
+{
+
+  // Step 34
+    Log["Message"]("Step 34 - Open Dashboard Maintenance")
+
+    // Open Dashboard maintenance
+    MainMenuTreeViewSelect(treeMainPanel1 + "System Management;Upgrade/Mass Regeneration;Dashboard Maintenance")
+
+   //Step 35 - 36
+    Log["Message"]("Step 35,36 - Retrieve '"+ dashb3 + "' Dashboard")
+
+    // Search for PartOnHandStatus dashboard and retrieve it  
+    EnterText("txtKeyField", dashb3 + "[Tab]", "Adding Name")   
+    
+    Delay(10000)
+  // Step 37
+    Log["Message"]("Step 37 - Click on Actions> Deploy UI Application")
+    // Click on Actions> Deploy UI Application        
+    ClickMenu("Actions->Deploy UI Application")
+
+    
+/*
+    var statusBar = Aliases["Epicor"]["DashboardForm"]["WinFormsObject"]("baseStatusBar")["Panels"]["Item"](0)["DisplayText"]
+    
+    while(statusBar != "Ready"){
+      Delay(1500)
+      statusBar = Aliases["Epicor"]["DashboardForm"]["WinFormsObject"]("baseStatusBar")["Panels"]["Item"](0)["DisplayText"]
+    }
+    Log["Message"]("Status - " + statusBar)*/
+    
+    Delay(10000)
+    
+    Delay(2500)
+  // Step 38
+    Log["Message"]("Step 38 - Click on Actions> Modify Dashboard")
+    // Click on Actions> Modify Dashboard       
+    ClickMenu("Actions->Modify Dashboard")
+
+    Delay(10000)
+
+    ClickButton("OK")
+
+  // Step 39
+    Log["Message"]("Step 39 - Tools> Deploy Dashboard")
+    // Click on Tools> Deploy Dashboard       
+    ClickMenu("Tools->Deploy Dashboard")
+    // Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Tools|Deploy Dashboard")
+
+  // Step 40
+    Log["Message"]("Step 40 - Select Deploy Smart Client Application")
+    // Select Deploy Smart Client Application. Click on Deploy button and when finished click Ok.       
+    CheckboxState("chkDeployApplication", true)
+    ClickButton("Deploy")
+    
+    Delay(5000)
+    
+    ClickButton("OK")
+
+    Log["Message"]("Dashboard '" + dashb3 + "' deployed")
+    ExitDashboard()
+
+  // Step 41
+    //Return to system management> Upgrade/Mass regeneration> Dashboard maintenance       
+
+  // Step 42
+    Log["Message"]("Step 42 - Select Deploy Smart Client Application")
+
+    ClickMenu("Actions->Generate All Web Forms")
+
+    Delay(3500)
+    
+    ClickMenu("File->Exit")
+
+  // Step 43
+    // >Go to System Setup> Security Maintenance> Menu Maintenance and open it
+    // >Create a new menu, enter MenuID, Name and Order Sequence
+    // >Select Dashboard Assembly Menu Type and on Dashboard search for PartOnHandStatus
+    // >Save
+    Log["Message"]("Step 43 - Open Menu Maintenance and create new menu")
+
+    MainMenuTreeViewSelect(treeMainPanel1 + "System Setup;Security Maintenance;Menu Maintenance")
+
+    //Creates Menu
+    CreateMenu(MenuData2)
+    Log["Message"]("Menu creaded correctly.")
+
+  // Step 44  
+    // Return to system management> Upgrade/Mass regeneration> Dashboard maintenance       
+    MainMenuTreeViewSelect(treeMainPanel1 + "System Management;Upgrade/Mass Regeneration;Dashboard Maintenance")
+  // Step 45  
+    Log["Message"]("Step 45 - retrieve '" + dashb1 +"'")
+    
+    EnterText("txtKeyField", dashb1 + "[Tab]", "Adding dashboard Name")
+
+    Delay(2500)
+
+  // Step 46  
+    Log["Message"]("Step 46 - Click on Actions> Deploy UI Application")
+    ClickMenu("Actions->Deploy UI Application")
+
+    Delay(60000)
+    var statusBar = Aliases["Epicor"]["DashboardForm"]["WinFormsObject"]("baseStatusBar")["Panels"]["Item"](0)["DisplayText"]
+    
+    while(statusBar != "Ready"){
+      Delay(1500)
+      statusBar = Aliases["Epicor"]["DashboardForm"]["WinFormsObject"]("baseStatusBar")["Panels"]["Item"](0)["DisplayText"]
+    }
+    Log["Message"]("Status - " + statusBar)
+
+    ClickMenu("File->Exit")
+
+}
+
+
+function DashboardPanelTest(){
+  ClickMenu("Edit->Refresh")
+  Delay(5500)
+  var gridDashboard = RetrieveGridsMainPanel()
+  
+  if(gridDashboard[0]["Rows"]["Count"] > 0 ){
+    Log["Checkpoint"]("Grid retrieved " + gridDashboard[0]["Rows"]["Count"]  + " records.")
+  }else{
+    Log["Message"]("Grid retrieved " + gridDashboard[0]["Rows"]["Count"]  + " records.")
+    DashboardPanelTest()
+  }
+
+  ClickMenu("File->Exit")
+}

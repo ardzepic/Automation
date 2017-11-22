@@ -1,0 +1,112 @@
+﻿//USEUNIT General_Functions
+//USEUNIT Dashboards_Functions
+//USEUNIT BAQs_Functions
+//USEUNIT Grid_Functions
+//USEUNIT Sys_Functions
+//USEUNIT ControlFunctions
+//USEUNIT Data_Dashboard_TrackerViews_3
+
+function TC_Dashboard_Tracker_Views_3(){
+  
+ 
+
+    // Step 22 - Log in  
+      Log["Message"]("Step 22")
+      StartSmartClient()
+
+      Login("epicor", "epicor")
+      
+      ActivateFullTree()
+
+      ExpandComp("Epicor Education")
+
+      ChangePlant("Main")
+
+  //--- User Account Security Maintenance -----------------------------------------------------------------------------------------------------'
+    // Aliases["Epicor"]["MenuForm"]["windowDockingArea1"]["dockableWindow3"]["Activate"]()
+    /*
+      Step No: 23
+      Step: "Setup invariant culture on Smart Client
+          Go to System Setup-Security Maintenance-User Account Maintenance
+          Select your user and check that Format Culture= Estonian(Estonia)
+    */
+      Log["Message"]("Step 23")
+      MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;User Account Security Maintenance")
+
+      var accountMgmtPanel = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]
+
+      //Activate Details tab
+      accountMgmtPanel["dockableWindow1"]["Activate"]()
+
+      var detailsTab = accountMgmtPanel["dockableWindow1"]["detailPanel1"]
+      detailsTab["txtKeyField"]["Keys"]("epicor")
+      detailsTab["txtKeyField"]["Keys"]("[Tab]")
+
+      if (detailsTab["txtName"]["Text"] != ""){
+        Log["Checkpoint"]("Data loaded correctly")
+      }else{
+        Log["Error"]("Data is not loaded correctly")
+      }
+ 
+      var formatCulture = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["WinFormsObject"]("cmbFormatCulture")
+
+      formatCulture["Keys"]("Estonian(Estonia)")
+      formatCulture["Keys"]("[Tab]")
+
+      Aliases["Epicor"]["UserAccountForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
+
+      Log["Message"]("Format Culture changed")
+
+      Aliases["Epicor"]["UserAccountForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
+
+      RestartSmartClient()
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+
+  //--- Testing Dashboard / Favorites ---------------------------------------------------------------------------------------------------------'
+
+    // Step 24
+      Log["Message"]("Step 24")
+      // On the Home Page from Smart Client on favorites tiles look for the created dashboard under Dashboard Assembly tile and open it
+      ActivateFavoritesMenuTab()
+      Log["Checkpoint"]("FavoritesMenuTab Activated")
+
+      OpenDashboardFavMenu("DashTracker3")
+      Log["Checkpoint"]("Dashboard opened from Favorite Menu")
+
+    // Step 25  
+      Log["Message"]("Step 25")
+      // On NetWeight field enter 1,5 and click Refresh
+
+      var netWeightFieldTV = Aliases["Epicor"]["MainController"]['FindChild'](["ClrClassName", "FullName"], ["*Editor*", "*numPart_NetWeight*"], 30)
+      netWeightFieldTV["Keys"]("^a[Del]"+"1,5")
+
+      Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")
+      
+      var grid = RetrieveGridsMainPanel()
+
+      var columnNetWeight = getColumn(grid[0], "Unit Net Weight")
+      var flag = true
+
+      for(var i = 0; i < grid[0]["wRowCount"]; i++ ){
+        var cell = grid[0]["Rows"]["Item"](i)["Cells"]["Item"](columnNetWeight)
+        // if (cell["value"] < netWeightFieldTV["value"] ) {
+        if (cell["value"] < netWeightFieldTV["value"] ) {
+          flag = false
+          break
+        }
+      }
+
+      if(flag){
+        Log["Checkpoint"]("Grid retrieved records greater than the value set on tracker view.")
+      }else{
+        Log["Error"]("Grid didn't retrieve records greater than the value set on tracker view.")
+      }
+
+      Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+
+
+}
+

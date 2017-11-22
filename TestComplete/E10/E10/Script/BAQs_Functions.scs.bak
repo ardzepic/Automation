@@ -3,6 +3,8 @@
 //USEUNIT Menu_Functions
 //USEUNIT Grid_Functions
 
+var E10 = Sys.Process("Epicor")
+E10["Refresh"]()
 /*Create a simple BAQ with one table
 * @param: baqData - An array that contains the information of the BAQ to create
 * @param: baqData[Id] - String that contains the information of the BAQ 'Id'
@@ -160,6 +162,7 @@ function SaveBAQ(){
 function ExitBAQ(){
   Delay(2500)
   ClickMenu("File->Exit")
+  ValidatesFormClosed("", "BAQDiagramForm")
 }
 
 /*Deletes BAQ

@@ -154,6 +154,18 @@
 		<child name="FormLib" key="{5CC47DF5-1F8F-4B38-964F-BA047809793D}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
 			<data path="FormLib.scs" />
 		</child>
+		<child name="test2" key="{90D3A5E8-93CB-4077-A731-590DCEDDA83B}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="test2.scs" />
+		</child>
+		<child name="WarmUpReportsForms" key="{2B81C986-50FD-4700-8B61-9C87E6876760}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="WarmUpReportsForms.scs" />
+		</child>
+		<child name="WarmUpDashboardsTC" key="{64C045DE-BC0E-413C-8891-0D38A99D28FE}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="WarmUpDashboardsTC.scs" />
+		</child>
+		<child name="ReportsFileNames" key="{9FAB1BBB-179E-4B90-8236-088E8C458F71}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="ReportsFileNames.scs" />
+		</child>
 	</children>
 	<folders>
 		<folder caption="Dashboards" description="A logical folder that is used to organize project items and elements." moniker="">
@@ -197,12 +209,16 @@
 					</references>
 				</folder>
 			</folders>
-			<references />
+			<references>
+				<ref key="{2B81C986-50FD-4700-8B61-9C87E6876760}" />
+				<ref key="{64C045DE-BC0E-413C-8891-0D38A99D28FE}" />
+			</references>
 		</folder>
 		<folder caption="Reports" description="A logical folder that is used to organize project items and elements." moniker="">
 			<references>
 				<ref key="{C80A3C21-77BA-40B9-A6D4-69AE1F43C05B}" />
 				<ref key="{1F4BC975-385C-41C9-9994-C08251206F82}" />
+				<ref key="{9FAB1BBB-179E-4B90-8236-088E8C458F71}" />
 			</references>
 		</folder>
 		<folder caption="DataForScripts" description="A logical folder that is used to organize project items and elements." moniker="">

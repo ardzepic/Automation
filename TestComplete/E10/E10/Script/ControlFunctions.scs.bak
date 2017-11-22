@@ -1,6 +1,6 @@
 ﻿//USEUNIT ObjectLib
 
-var E10 = Sys.Process("Epicor")
+var  E10 = Sys.Process("Epicor")
 E10["Refresh"]()
 
 //-------------------------------
@@ -244,7 +244,7 @@ E10["Refresh"]()
   //search ctrl branches for panel with text 
   function findDockingPanel(ctrl, text){    
       try{
-          var aWda = findWndDockingAreas(ctrl, 10)
+          var aWda = findWndDockingAreas(ctrl, 30)
           
           for (var i = 0; i < aWda["length"]; i++){
               for (var j = 0; j < aWda[i]["Pane"]["Panes"]["Count"]; j++){

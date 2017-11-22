@@ -1,0 +1,597 @@
+﻿//USEUNIT General_Functions
+//USEUNIT Dashboards_Functions
+//USEUNIT BAQs_Functions
+//USEUNIT Grid_Functions
+//USEUNIT ControlFunctions
+//USEUNIT Menu_Functions
+//USEUNIT Data_Dashboard_TrackerViews_2
+
+var continueTest = true
+
+function TC_Dashboard_Tracker_Views_2(){
+
+  
+  //--- Menu maintenance ----------------------------------------------------------------------------------------------------------------------'
+
+    /*
+      Step No: 57
+      Step: Go to System Setup>Security Maintenance> Menu Maintenance. In Menu Maintenance tree select Main Menu> Sales Management> Customer Relationship Management> Setup. 
+            Select New Menu. Write a Menu ID, select module UD, write a Name for the menu, write an Order Sequence (the position where you will find the menu), in Program Type 
+            select Dashboard-Assembly and in Dashboard select the previously created. Be sure the Enabled check box is selected. Click Save.                  
+      Result:  The menu is created       
+    */    
+    Log["Message"]("Step 57")
+    MainMenuTreeViewSelect(treeMainPanel1 + "System Setup;Security Maintenance;Menu Maintenance")
+
+    CreateMenu(MenuData)
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+  
+  //--- Restart Smart Client  -----------------------------------------------------------------------------------------------------------------'
+    /*
+      Step No: 60
+      Step: Restart E10       
+      Result: E10 is restarted        
+    */    
+      Aliases["Epicor"]["MenuForm"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Options|Clear Client Cache")
+      ClickButton("Yes")
+
+      Log["Message"]("Step 60")
+      Delay(1000)
+      RestartSmartClient()
+      Log["Message"]("SmartClient Restarted")
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+  
+  //--- Open Menu created --- -----------------------------------------------------------------------------------------------------------------'
+    /*
+      Step No: 61
+      Step: Open the menu with the dashboard            
+      Result: The dashboard opens without errors        
+    */   
+      Log["Message"]("Step 61")
+      MainMenuTreeViewSelect(treeMainPanel1 + "Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
+
+       testQuery1()
+       testQuery2()
+       testQuery3()
+
+       Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+  
+  //--- Close Smart Client --------------------------------------------------------------------------------------------------------------------'
+    
+    Delay(1000)
+    
+    DeactivateFullTree()
+    Log["Checkpoint"]("FullTree Deactivate")
+
+    CloseSmartClient()
+    Log["Checkpoint"]("SmartClient Closed")
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+}
+
+
+function RetrieveTrackerMainPanel(){
+  var dashboardMainPanel =  FindTopMostForm()
+    
+  var trackerPDashboardChildren = dashboardMainPanel["FindAllChildren"]("FullName", "*TrackerPanel", 30)["toArray"]();
+  return trackerPDashboardChildren
+}
+
+function testQuery1(){
+  /*
+    Step No: 62
+    Step: Click Refresh All       
+    Result: Verify the grids are populated. Check that the tracker panel at the top is hidden.        
+
+  */    
+  Log["Message"]("Step 62")
+  Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh All")
+
+  var gridsMainPanel = RetrieveGridsMainPanel()
+  var trackerMainPanel = RetrieveTrackerMainPanel()
+
+  var gridPanel
+  
+  for (var i = 0; i < gridsMainPanel["length"]; i++) {
+    if (gridsMainPanel[i]["WndCaption"] == 'zCustomer01Copy: Summary') {
+      gridPanel = gridsMainPanel[i]
+      break
+    }
+  }
+  
+  /*
+    Step No: 63
+    Step: Move through the rows from the grid       
+    Result: Verify the GroupCode fields from both trackers are updated        
+  */  
+    Log["Message"]("Step 63")
+    if (gridPanel["Rows"]["Count"] > 0) {
+      Log["Message"]("Grid " + gridPanel["WndCaption"] + " retrieved " + gridPanel["Rows"]["Count"] + " records.")
+    }else{
+      Log["Error"]("Grid " + gridPanel["WndCaption"] + " retrieved " + gridPanel["Rows"]["Count"] + " records.")
+    }
+
+    var columnCustID = getColumn(gridPanel, "Cust. ID") 
+    var columnGroup = getColumn(gridPanel, "Group")
+
+    var custGroupCodeTrackerP1 = trackerMainPanel[0]["FindChild"]("FullName", "*eucCustomer_GroupCode", 1);
+    var custGroupCodeTrackerP2 = trackerMainPanel[1]["FindChild"]("FullName", "*eucCustomer_GroupCode", 1);
+
+    //Move through the first 5 rows from grid to check the groupcode are updated
+    for (var i = 0; i < 5; i++) {
+      gridPanel["Rows"]["Item"](i)["Cells"]["Item"](columnCustID)["Activate"]()
+      if (custGroupCodeTrackerP1["Text"]["OleValue"] == custGroupCodeTrackerP2["Text"]["OleValue"]) {
+        Log["Message"]("Group codes are the same. Tracker 1 = " + custGroupCodeTrackerP1["Text"]["OleValue"] + " | Tracker 2 = " + custGroupCodeTrackerP2["Text"]["OleValue"])
+        break
+      }else{
+        Log["Error"]("Group codes are not the same. Tracker 1 = " + custGroupCodeTrackerP1["Text"]["OleValue"] + " | Tracker 2 = " + custGroupCodeTrackerP2["Text"]["OleValue"])
+      }
+    }
+    
+  /*
+    Step No: 64
+    Step: Display the GroupCode combos        
+    Result: Verify they have values       
+  */  
+    Log["Message"]("Step 64")
+    custGroupCodeTrackerP1["Keys"]("Aerospace")
+    custGroupCodeTrackerP2["Keys"]("Aerospace")
+
+    if(custGroupCodeTrackerP1["SelectedRow"]["ListObject"]["Row"]["Table"]["Count"] > 0){
+      Log["Checkpoint"]("Dropdown from GroupCode of Tracker View 1 has values")
+    }
+
+    if(custGroupCodeTrackerP2["SelectedRow"]["ListObject"]["Row"]["Table"]["Count"] > 0){
+      Log["Checkpoint"]("Dropdown from GroupCode of Tracker View 2 has values")
+    }
+
+  /*
+    Step No: 65
+    Step: Clear the form        
+    Result: Verify the form the dashboard is cleared              
+  */ 
+    Log["Message"]("Step 65")
+    Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Clear")
+
+    if(Aliases["Epicor"]["EpiCheckMessageBox"]["Exists"]){
+      Aliases["Epicor"]["EpiCheckMessageBox"]["groupBox1"]["pnlYesNo"]["btnYes2"]["Click"]()
+    }
+
+    if (gridPanel["Rows"]["Count"] == 0 && custGroupCodeTrackerP1["Text"]["OleValue"] == "" && custGroupCodeTrackerP2["Text"]["OleValue"] == "" ) {
+      Log["Checkpoint"]("Form cleared.")
+    }else{
+      Log["Error"]("Form still have records.")
+    }
+
+  /*
+    Step No: 66
+    Step: On the tracker from the top enter A on CustID field then click Refresh        
+    Result: Verify only Customers starting with A appear on the grid        
+  */     
+    Log["Message"]("Step 66")
+    var custIDTrackerP1 = trackerMainPanel[0]["FindChild"]("FullName", "*txtCustomer_CustID", 1);
+    // var custCompanyTrackerP2 = trackerMainPanel[1]["FindChild"]("FullName", "*txtCustomer_CustID", 1);
+
+    custIDTrackerP1["Keys"]("A")
+    Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")
+
+    //Select first record on BAQ1 results to notice change of data on BAQ2
+
+    columnCustID = getColumn(gridPanel, "Cust. ID") 
+    
+    for (var i = 0; i < gridPanel["Rows"]["Count"]; i++) {
+      //Points to column Cust. ID
+      var aString = gridPanel["Rows"]["Item"](i)["Cells"]["Item"](columnCustID)["Text"]["OleValue"]
+      var aSubString = custIDTrackerP1["Text"]["OleValue"]
+      var Res, flag = true;
+
+      Res = aqString["Find"](aString, aSubString)
+      if (Res != -1) {
+          flag = true
+      }
+      else{
+          Log["Message"]("There are no occurrences of '" + aSubString + "' in '" + aString + "'.");
+          flag = false
+          break
+      }
+    }
+    
+    if (flag) {
+      Log["Checkpoint"]("Grid retrieved just records starting with A " )
+    }
+      
+  /*
+    Step No: 67
+    Step: Clear the form        
+    Result: Verify the form the dashboard is cleared        
+  */
+    Log["Message"]("Step 67")
+    Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Clear")
+
+    if(Aliases["Epicor"]["EpiCheckMessageBox"]["Exists"]){
+      Aliases["Epicor"]["EpiCheckMessageBox"]["groupBox1"]["pnlYesNo"]["btnYes2"]["Click"]()
+    }  
+
+    if (gridPanel["Rows"]["Count"] == 0 && custGroupCodeTrackerP1["Text"]["OleValue"] == "" && custGroupCodeTrackerP2["Text"]["OleValue"] == "" ) {
+      Log["Checkpoint"]("Form cleared.")
+    }else{
+      Log["Error"]("Form still have records.")
+    }
+
+  /*
+    Step No: 68
+    Step: On the tracker from below enter DALTON on CustID field then click Refresh
+    Result: Verify only DALTON Customer appears on the grid       
+  */
+    Log["Message"]("Step 68")
+    var custIDTrackerP2 = trackerMainPanel[1]["FindChild"]("FullName", "*txtCustomer_CustID", 1);
+    // var custCompanyTrackerP2 = trackerMainPanel[1]["FindChild"]("FullName", "*txtCustomer_CustID", 1);
+
+    custIDTrackerP2["Keys"]("DALTON")
+    Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")
+
+    //Select first record on BAQ1 results to notice change of data on BAQ2
+
+    columnCustID = getColumn(gridPanel, "Cust. ID") 
+    
+    for (var i = 0; i < gridPanel["Rows"]["Count"]; i++) {
+      //Points to column Cust. ID
+      var aString = gridPanel["Rows"]["Item"](i)["Cells"]["Item"](columnCustID)["Text"]["OleValue"]
+      var aSubString = custIDTrackerP2["Text"]["OleValue"]
+      var Res, flag = true;
+
+      Res = aqString["Find"](aString, aSubString)
+      if (Res != -1) {
+          flag = true
+      }
+      else{
+          Log["Message"]("There are no occurrences of '" + aSubString + "' in '" + aString + "'.");
+          flag = false
+          break
+      }
+    }
+    
+    if (flag) {
+      Log["Checkpoint"]("Grid retrieved just records with dalton " )
+    }
+
+  /*
+    Step No: 69
+    Step: Clear the form        
+    Result: Verify the form the dashboard is cleared        
+  */
+    Log["Message"]("Step 69")
+    Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Clear")
+
+    if(Aliases["Epicor"]["EpiCheckMessageBox"]["Exists"]){
+      Aliases["Epicor"]["EpiCheckMessageBox"]["groupBox1"]["pnlYesNo"]["btnYes2"]["Click"]()
+    }  
+
+    if (gridPanel["Rows"]["Count"] == 0 && custGroupCodeTrackerP1["Text"]["OleValue"] == "" && custGroupCodeTrackerP2["Text"]["OleValue"] == "" ) {
+      Log["Checkpoint"]("Form cleared.")
+    }else{
+      Log["Error"]("Form still have records.")
+    }
+
+  /*
+    Step No: 70
+    Step: Click Refresh All again               
+    Result: Verify the dashbboard informations is loaded again        
+  */
+    Log["Message"]("Step 70")
+    Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh All")
+
+  /*
+    Step No: 71
+    Step: On the grid select any line and on the tracker enter any value on Phone Number field, then focus on another row       
+    Result: Verify the grid is not updated        
+  */
+    Log["Message"]("Step 71")
+
+    var phoneNum = getColumn(gridPanel, "Phone")
+
+    gridPanel["Rows"]["Item"](0)["Cells"]["Item"](phoneNum)["Activate"]()
+
+    var oldValuePhoneN = gridPanel["Rows"]["Item"](0)["Cells"]["Item"](phoneNum)["Text"]["OleValue"]
+
+    var custPhoneNTrackerP2 = trackerMainPanel[0]["FindChild"]("FullName", "*txtCustomer_PhoneNum", 1);
+    // var custEmailTrackerP2 = trackerMainPanel[0]["FindChild"]("FullName", "*txtCustomer_EMailAddress", 1);
+
+    custPhoneNTrackerP2["Keys"]("012012012")
+    gridPanel["Rows"]["Item"](1)["Cells"]["Item"](phoneNum)["Activate"]()
+
+    if (gridPanel["Rows"]["Item"](0)["Cells"]["Item"](phoneNum)["Text"]["OleValue"] == oldValuePhoneN) {
+      Log["Checkpoint"]("Column 'Phone Number' was not updated")
+    }else{
+      Log["Error"]("Column 'Phone Number' was updated")
+    }
+
+  /*
+    Step No: 72
+    Step: On the grid select any line and on the tracker enter any value on Email Address field, then focus on another row        
+    Result: Verify the grid is not updated        
+  */
+    Log["Message"]("Step 72")
+
+    var oldValueEmail = gridPanel["Rows"]["Item"](0)["Cells"]["Item"](phoneNum+1)["Text"]["OleValue"]
+
+    gridPanel["Rows"]["Item"](0)["Cells"]["Item"](phoneNum+1)["Activate"]()
+    var custEmailTrackerP2 = trackerMainPanel[0]["FindChild"]("FullName", "*txtCustomer_EMailAddress", 1);
+    // var custEmailTrackerP2 = trackerMainPanel[0]["FindChild"]("FullName", "*txtCustomer_EMailAddress", 1);
+
+    custEmailTrackerP2["Keys"]("012012012")
+
+    gridPanel["Rows"]["Item"](1)["Cells"]["Item"](phoneNum+1)["Activate"]()
+    if (gridPanel["Rows"]["Item"](0)["Cells"]["Item"](phoneNum+1)["Text"]["OleValue"] == custEmailTrackerP2["Text"]["OleValue"]) {
+      Log["Checkpoint"]("Column 'Email Address' was not updated")
+    }else{
+      Log["Error"]("Column 'Email Address' was updated")
+    }
+
+}
+
+function testQuery2(){
+  Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh All")
+
+  var gridsMainPanel = RetrieveGridsMainPanel()
+  var trackerMainPanel = RetrieveTrackerMainPanel()
+
+  var gridPanelAll, gridPanelManufactured, gridPanelPurchased, gridPanelSales
+  
+  for (var i = 0; i < gridsMainPanel["length"]; i++) {
+    if (gridsMainPanel[i]["WndCaption"] == 'All') {
+      gridPanelAll = gridsMainPanel[i]
+    }
+    if (gridsMainPanel[i]["WndCaption"] == 'Manufactured Parts') {
+      gridPanelManufactured = gridsMainPanel[i]
+    }
+    if (gridsMainPanel[i]["WndCaption"] == 'Purchased Parts') {
+      gridPanelPurchased = gridsMainPanel[i]
+    }
+    if (gridsMainPanel[i]["WndCaption"] == 'Sales Kit Parts') {
+      gridPanelSales = gridsMainPanel[i]
+    }
+  }
+  
+  /*
+    Step No: 74
+    Step: Move to the zPartTracker02 query tab        
+    Result: Verify the vertical tracker panel is hidden and that there are 4 tabs (All, Manufactured Parts, Purchased Parts and Sales Kit Parts..
+            Each one showing only parts with their respective Type Code)        
+  */  
+    Log["Message"]("Step 74")
+
+    if (gridPanelAll["Rows"]["Count"] > 0) {
+      Log["Message"]("Grid " + gridPanelAll["WndCaption"] + " retrieved " + gridPanelAll["Rows"]["Count"] + " records.")
+    }else{
+      Log["Error"]("Grid " + gridPanelAll["WndCaption"] + " retrieved " + gridPanelAll["Rows"]["Count"] + " records.")
+    }  
+    if (gridPanelManufactured["Rows"]["Count"] > 0) {
+      Log["Message"]("Grid " + gridPanelManufactured["WndCaption"] + " retrieved " + gridPanelManufactured["Rows"]["Count"] + " records.")
+    }else{
+      Log["Error"]("Grid " + gridPanelManufactured["WndCaption"] + " retrieved " + gridPanelManufactured["Rows"]["Count"] + " records.")
+    }   
+    if (gridPanelPurchased["Rows"]["Count"] > 0) {
+      Log["Message"]("Grid " + gridPanelPurchased["WndCaption"] + " retrieved " + gridPanelPurchased["Rows"]["Count"] + " records.")
+    }else{
+      Log["Error"]("Grid " + gridPanelPurchased["WndCaption"] + " retrieved " + gridPanelPurchased["Rows"]["Count"] + " records.")
+    }   
+    if (gridPanelSales["Rows"]["Count"] > 0) {
+      Log["Message"]("Grid " + gridPanelSales["WndCaption"] + " retrieved " + gridPanelSales["Rows"]["Count"] + " records.")
+    }else{
+      Log["Error"]("Grid " + gridPanelSales["WndCaption"] + " retrieved " + gridPanelSales["Rows"]["Count"] + " records.")
+    }
+
+    var columnTypeCodeA = getColumn(gridPanelAll, "Type") 
+    var columnTypeCodeM = getColumn(gridPanelManufactured, "Type") 
+    var columnTypeCodeP = getColumn(gridPanelPurchased, "Type") 
+    var columnTypeCodeK = getColumn(gridPanelSales, "Type") 
+    var flag
+
+    //Move through the rows from grid Manufactured to check the type code "M"
+    for (var i = 0; i < gridPanelManufactured["Rows"]["Count"]; i++) {
+      gridPanelManufactured["Rows"]["Item"](i)["Cells"]["Item"](columnTypeCodeM)["Activate"]()
+      var type = gridPanelManufactured["Rows"]["Item"](i)["Cells"]["Item"](columnTypeCodeM)["Text"]["OleValue"]
+      flag = true
+      if (type == "M" ) {
+        flag = true
+      }else{
+        flag = false
+        break
+      }
+    }
+
+    if(flag){
+      Log["Message"]("Grid displays only records with type code " + type)
+    }else{
+      Log["Error"]("Grid doesn't display only records with type code " + type)
+    }
+
+    //Move through the rows from grid Manufactured to check the type code "P"
+    for (var i = 0; i < gridPanelPurchased["Rows"]["Count"]; i++) {
+      gridPanelPurchased["Rows"]["Item"](i)["Cells"]["Item"](columnTypeCodeP)["Activate"]()
+      var type = gridPanelPurchased["Rows"]["Item"](i)["Cells"]["Item"](columnTypeCodeP)["Text"]["OleValue"]
+      flag = true
+      if (type == "P" )  {
+        flag = true
+      }else{
+        flag = false
+        break
+      }
+    }
+
+    if(flag){
+      Log["Message"]("Grid displays only records with type code " + type)
+    }else{
+      Log["Error"]("Grid doesn't display only records with type code " + type)
+    }
+    
+    //Move through the rows from grid Manufactured to check the type code "K"
+    for (var i = 0; i < gridPanelSales["Rows"]["Count"]; i++) {
+      gridPanelSales["Rows"]["Item"](i)["Cells"]["Item"](columnTypeCodeK)["Activate"]()
+      var type = gridPanelSales["Rows"]["Item"](i)["Cells"]["Item"](columnTypeCodeK)["Text"]["OleValue"]
+      if (type == "K" )  {
+        flag = true
+      }else{
+        flag = false
+        break
+      }
+    }
+
+    if(flag){
+      Log["Message"]("Grid displays only records with type code " + type)
+    }else{
+      Log["Error"]("Grid doesn't display only records with type code " + type)
+    }
+  
+  /*
+    Step No: 76
+    Step: Click on any row        
+    Result: Verify the panel shows the info for that row, also verify the added EpiTextBox is updated accordinly        
+  */  
+    Log["Message"]("Step 76")
+
+    var columnPartSales = getColumn(gridPanelSales, "Part") 
+    var columnDescPart = getColumn(gridPanelSales, "Description") 
+
+    gridPanelSales["Rows"]["Item"](0)["Cells"]["Item"](columnPartSales)["Activate"]()
+
+    var epiTextBox = trackerMainPanel[2]["FindChild"]("FullName", "*epiTextBox1", 1);
+    var txtPart_PartNum = trackerMainPanel[2]["FindChild"]("FullName", "*txtPart_PartNum", 1);
+
+    if(gridPanelSales["Rows"]["Item"](0)["Cells"]["Item"](columnPartSales)["Text"]["OleValue"] == txtPart_PartNum["Text"]["OleValue"]
+        && gridPanelSales["Rows"]["Item"](0)["Cells"]["Item"](columnDescPart)["Text"]["OleValue"] == epiTextBox["Text"]["OleValue"]){
+      Log["Message"]("Tracker View Part field displays the selected row data from the grid")
+    }else{
+      Log["Error"]("Tracker View Part field doesn't display the selected row data from the grid")
+    }
+
+  /*
+    Step No: 77
+    Step: Modify any Part Description using the customized EpiTextbox            
+    Result: Verify data is entered        
+  */  
+    Log["Message"]("Step 77")
+
+    gridPanelSales["Rows"]["Item"](0)["Cells"]["Item"](columnPartSales)["Activate"]()
+    var oldEpiTextBoxValue = epiTextBox["Text"]["OleValue"]
+
+  /*
+    Step No: 78
+    Step: Change focus
+    Result: Verify the changes are applied        
+  */
+    Log["Message"]("Step 78")
+
+    epiTextBox["Keys"]("test1" + '[Tab]') 
+  
+    if(gridPanelSales["Rows"]["Item"](0)["Cells"]["Item"](columnDescPart)["Text"]["OleValue"] != oldEpiTextBoxValue 
+      && gridPanelSales["Rows"]["Item"](0)["Cells"]["Item"](columnDescPart)["Text"]["OleValue"]  == epiTextBox["Text"]["OleValue"]){
+      Log["Checkpoint"]("Description was updated from tracker view field")
+    }else{
+      Log["Error"]("Description was not updated from tracker view field")
+    }
+}
+
+function testQuery3(){
+  Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh All")
+
+  var gridsMainPanel = RetrieveGridsMainPanel()
+  var trackerMainPanel = RetrieveTrackerMainPanel()
+
+  var gridPanel
+  
+  for (var i = 0; i < gridsMainPanel["length"]; i++) {
+    if (gridsMainPanel[i]["WndCaption"] == 'zAPInvDtl: Summary') {
+      gridPanel = gridsMainPanel[i]
+      break
+    }
+  }
+  
+  /*
+    Step No: 80
+    Step: "> Move to the zAPInvDtl query tab
+           > Click Refresh button (without having any option selected in the EpiCombo from the tracker view)"        
+    Result: "> Verify the tracker panel only show Invoice and the customized field (EpiCombo)
+             > The grid is populated with records for many different part numbers"       
+  */  
+    Log["Message"]("Step 80")
+
+    if (gridPanel["Rows"]["Count"] > 0) {
+      Log["Message"]("Grid " + gridPanel["WndCaption"] + " retrieved " + gridPanel["Rows"]["Count"] + " records.")
+    }else{
+      Log["Error"]("Grid " + gridPanel["WndCaption"] + " retrieved " + gridPanel["Rows"]["Count"] + " records.")
+    }
+
+  /*
+    Step No: 81
+    Step: Select part 0LP3A from the customized EpiCombo        
+    Result: Verify the value is set on the field        
+  */  
+    Log["Message"]("Step 81")
+    var partComboTracker = trackerMainPanel[3]["FindChild"]("FullName", "*epiCombo1", 1);
+    partComboTracker["setFocus"]()
+    partComboTracker["Click"]()
+
+    while(true){
+      partComboTracker["Keys"]("[Down]")
+      if (partComboTracker["Value"] == "0LP3A") {
+        partComboTracker["Keys"]("[Tab]")
+        break
+      }
+    }
+
+  /*
+    Step No: 82
+    Step: Focus on any line from the grid       
+    Result: Verify the PartNum field is not updated with the selected value on the EpiCombo               
+  */  
+    Log["Message"]("Step 82")
+    var columnInvoice = getColumn(gridPanel, "Invoice") 
+    var columnPart = getColumn(gridPanel, "Part")
+
+    var realValuePartNum = gridPanel["Rows"]["Item"](0)["Cells"]["Item"](columnPart)["Text"]["OleValue"]
+
+    gridPanel["Rows"]["Item"](0)["Cells"]["Item"](columnInvoice)["Activate"]()
+
+    if(gridPanel["Rows"]["Item"](0)["Cells"]["Item"](columnPart)["Text"]["OleValue"] == realValuePartNum){
+      Log["Message"]("Invoice was not updated with selected value from epicombo")
+    }else{
+      Log["Error"]("Invoice was updated with selected value from epicombo")
+    } 
+  /*
+    Step No: 83
+    Step: Click Refresh       
+    Result: Verify the grid only shows registers related to the selected PartNum
+  */  
+    Log["Message"]("Step 83")
+    Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh")
+    var flag = true
+    for (var i = 0; i < gridPanel["Rows"]["Count"] ; i++) {
+      gridPanel["Rows"]["Item"](i)["Cells"]["Item"](columnPart)["Activate"]()
+
+      if( gridPanel["Rows"]["Item"](i)["Cells"]["Item"](columnPart)["Text"]["OleValue"] != partComboTracker["Value"]){
+        flag = false
+        break
+      }else{
+        flag = true
+      }
+    }
+
+    if (flag) {
+      Log["Message"]("Grid retrieved records only for part number " +  partComboTracker["Value"])
+    }else{
+      Log["Error"]("Grid didn't retrieve records only for part number " +  partComboTracker["Value"])
+    } 
+  
+    // BAQA Country combo visibility
+
+    var combo_Country = FindObject("*Combo*", "Name", "*cboCustomer_Country*", trackerMainPanel[4])
+  
+    if(!combo_Country["Exists"]){
+      Log["Message"]("Combo is not visible")
+    } else{
+      Log["Error"]("Combo is visible. Visible behavior not modified.")
+    } 
+}

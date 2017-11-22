@@ -20,6 +20,9 @@
 <Nodes version="1">
 	<Node name="root">
 		<Node name="data">
+			<Node name="{206d7019-c195-45e2-80e5-7a3d94f594f4}">
+				<Prp name="relpath" type="S" value="Project_3.2_v2\Project_3.2_v2\Project_3.2_v2.mds.tcLS"/>
+			</Node>
 			<Node name="{24b6fa0b-0143-461a-9758-aeb9e9a9428b}">
 				<Prp name="default project" type="S" value="{AFA09CEB-F1AB-40A4-9BCA-557C95AEBCBF}"/>
 			</Node>
@@ -34,6 +37,9 @@
 			</Node>
 			<Node name="{b0f64399-52d1-4c32-bb9e-bc030e3a71a3}">
 				<Prp name="relpath" type="S" value="Project_600\Project_600.mds.tcLS"/>
+			</Node>
+			<Node name="{d5957ee8-6865-4d11-ae1f-20d05f925e78}">
+				<Prp name="relpath" type="S" value="Project_3.2_v2\Project_3.2_v2.mds.tcLS"/>
 			</Node>
 			<Node name="logs">
 				<Prp name="key" type="S" value="{65B071F2-9FCD-4FAC-A65C-648D31704E9F}"/>
