@@ -129,14 +129,18 @@ function OpenCustomedForm(){
     E10["Refresh"]()
     Log["Message"]("Step 24")
 
+    Delay(2500)
+
     var availableLayers = GetTreePanel("AvailableLayers")
     availableLayers["ClickItem"]("Base|EP|Customizations|EmbDash")
+    Delay(2500)
+    
     ClickButton("OK")
     
-    Delay(2500)
 }    
 
 function TestCustomedForm(){
+    Delay(2500)
     
     var testPart = "00P1"
 

@@ -28,15 +28,15 @@ function ReportsFileNames(){
         Log["Message"]("Object explorer does not exist.")
     }
     
-    pathFileReportARInvoice = "\\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*AR*")["Value"]
-    pathFileReportSalesOrder = "\\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*Sales*")["Value"]
-    pathFileReportQuoteform = "\\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*Quote*")["Value"]
-    pathFileReportPurchaseOrder = "\\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*Purchase*")["Value"]
-    pathFileReportProFormaInv = "\\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*Forma*")["Value"]
-    pathFileReportJobTraveler = "\\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*Job*")["Value"]
-    pathFileReportCustomerStatements = "\\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*Customer*")["Value"]
-    pathFileReportSOPickList = "\\\\TOOLSSANDBOX\\epicor\\"  + Items_View["UIAObject"]("*SO*")["Value"]
-    pathFileReportPackingSlips = "\\\\TOOLSSANDBOX\\epicor\\"  + Items_View["UIAObject"]("*Packing*")["Value"]
+    pathFileReportARInvoice = " \\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*AR*")["Value"]
+    pathFileReportSalesOrder = " \\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*Sales*")["Value"]
+    pathFileReportQuoteform = " \\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*Quote*")["Value"]
+    pathFileReportPurchaseOrder = " \\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*Purchase*")["Value"]
+    pathFileReportProFormaInv = " \\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*Forma*")["Value"]
+    pathFileReportJobTraveler = " \\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*Job*")["Value"]
+    pathFileReportCustomerStatements = " \\\\TOOLSSANDBOX\\epicor\\" + Items_View["UIAObject"]("*Customer*")["Value"]
+    pathFileReportSOPickList = " \\\\TOOLSSANDBOX\\epicor\\"  + Items_View["UIAObject"]("*SO*")["Value"]
+    pathFileReportPackingSlips = " \\\\TOOLSSANDBOX\\epicor\\"  + Items_View["UIAObject"]("*Packing*")["Value"]
 
     Log["Message"](pathFileReportARInvoice)
     Log["Message"](pathFileReportSalesOrder)

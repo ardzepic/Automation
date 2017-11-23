@@ -13,10 +13,14 @@ function warmupDashboard() {
 	CloseTopForm()
 
 	MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
-	OpenDashboard("JobStatusPlus")
-	CheckWindowMessageModals()
-	Delay(2500)
-	ClickButton("OK")
+	EnterText("txtDefinitonID", "JobStatusPlus" + "[Tab]", "Adding Dashboard name")
+	var wndDialog = CheckWindowMessageModals()
+
+	if (wndDialog) {
+		Delay(2500)
+		ClickButton("OK")
+	}
+
 	CloseTopForm()
 
 	MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")

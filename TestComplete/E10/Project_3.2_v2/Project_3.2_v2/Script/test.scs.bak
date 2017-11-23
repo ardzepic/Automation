@@ -13,15 +13,9 @@ function test(){
   ClickMenu("Actions->Generate All Web Forms")
   
   var statusBarPath = Aliases["Epicor"]["DashboardForm"]["WinFormsObject"]("baseStatusBar")
-  var panelName = "sbpStatus"
   
-
-  
- 
-  
-  
-   
-  
+  getStatusTemp(statusBarPath)
+    
 } 
 
 function getStatusTemp(statusBarPath)
