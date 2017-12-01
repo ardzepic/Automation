@@ -22,7 +22,7 @@
 		<Node name="data">
 			<Node name="logs">
 				<Prp name="key" type="S" value="{F83C99CD-7DAD-4968-8A2A-AA8A85194207}"/>
-				<Prp name="relpath" type="S" value="\MasterTC\BusinessFunctionalityTesting\BP-SalesOrderEntry\Setup\Log"/>
+				<Prp name="relpath" type="S" value="..\..\..\..\MasterTC\BusinessFunctionalityTesting\BP-SalesOrderEntry\Setup\Log"/>
 			</Node>
 			<Node name="variables">
 				<Node name="datav3">

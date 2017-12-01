@@ -6,7 +6,7 @@ function warmupReports(){
   ExpandComp("Epicor USA")
 
   ChangePlant("Chicago")
-
+/*
 	// ReportARInvoice
 	MainMenuTreeViewSelect("Epicor USA;Chicago;Sales Management;Demand Management;Reports;Mass Print AR Invoices")
 	CloseTopForm()
@@ -22,7 +22,7 @@ function warmupReports(){
 	// ReportPurchaseOrder
 	MainMenuTreeViewSelect("Epicor USA;Chicago;Material Management;Purchase Management;General Operations;Purchase Order Entry")
 	CloseTopForm()
-	
+	*/
 	// ReportQuoteform
 	MainMenuTreeViewSelect("Epicor USA;Chicago;Sales Management;Customer Relationship Management;General Operations;Opportunity / Quote Entry")
 	CloseTopForm()

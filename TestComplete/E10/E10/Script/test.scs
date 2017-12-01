@@ -9,9 +9,8 @@
 //USEUNIT Menu_Functions
 
 function test(){  
+Log["Message"]("s")
 
-MainMenuTreeViewSelect("Epicor USA;Chicago;Sales Management;Demand Management;Reports;Mass Print AR Invoices")
-	CloseTopForm()
 } 
 //USEUNIT FormLib
 //USEUNIT General_Functions

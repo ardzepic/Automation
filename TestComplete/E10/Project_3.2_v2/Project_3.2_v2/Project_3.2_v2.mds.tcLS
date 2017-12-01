@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE Nodes [
 
 <!ENTITY % NameValue "CDATA">
@@ -22,7 +22,7 @@
 		<Node name="data">
 			<Node name="logs">
 				<Prp name="key" type="S" value="{0A56B2DD-11D5-429B-BE11-24BCF322C846}"/>
-				<Prp name="relpath" type="S" value="\MasterTC\BusinessFunctionalityTesting\BP-SalesOrderEntry\Setup\Log"/>
+				<Prp name="relpath" type="S" value="..\..\..\..\..\MasterTC\BusinessFunctionalityTesting\BP-SalesOrderEntry\Setup\Log"/>
 			</Node>
 			<Node name="variables">
 				<Node name="datav3">

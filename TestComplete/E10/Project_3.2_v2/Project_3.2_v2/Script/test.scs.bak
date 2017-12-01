@@ -1,43 +1,48 @@
-﻿//USEUNIT BAQs_Functions
+﻿
+//USEUNIT BAQs_Functions
 //USEUNIT ControlFunctions
 //USEUNIT Dashboards_Functions
 //USEUNIT TC_Dashboard_All_companies
 //USEUNIT DataBase_Functions
 //USEUNIT FormLib
 //USEUNIT General_Functions
-//USEUNIT Grid_Functions
 //USEUNIT Menu_Functions
 
 function test(){  
-  Delay(2500)
-  ClickMenu("Actions->Generate All Web Forms")
+
+  /*var combo = GetComboBox("cboType")
   
-  var statusBarPath = Aliases["Epicor"]["DashboardForm"]["WinFormsObject"]("baseStatusBar")
+  combo["ClickItem"]("Dashboard-Assembly")*/
+
+var gridBAQ = GetGrid("grdTableWhere")
   
-  getStatusTemp(statusBarPath)
+var columnIndex = getColumn(gridBAQ, "Field")
+
+var cell = gridBAQ["Rows"]["Item"](0)["Cells"]["Item"](columnIndex)
+ 
+    // Activate cell
+    gridBAQ["Rows"]["Item"](cell["Row"]["Index"])["Activate"]()
     
+    gridBAQ["ClickItem"]("Name")
+ /*
+ //used for conversions
+  var gridConversions = GetGrid("grdList")
+  var flag = true
+  var colIndex = getColumn(gridConversions, "ProgressPercent")
+  
+  for(var i = 0; i < gridConversions["Rows"]["Count"]; i++){
+    var percent = gridConversions["Rows"]["Item"](i)["Cells"]["Item"](colIndex)["Value"]
+    
+    if(percent != 100){
+      flag = false
+    }
+  }
+  
+  if(!flag){
+    Log["Message"]("one is 0")
+  }*/
+  
+  MainMenuTreeViewSelect("Epicor USA;Chicago;Sales Management;Demand Management;Reports;Mass Print AR Invoices")
+   Log["Message"]("one is 0")
 } 
 
-function getStatusTemp(statusBarPath)
-{
-  var text = statusBarPath["Panels"]["Item"](0)["Text"]
-  var count = 0
-   
-  if(text["OleValue"] != "Ready"){
-    while(true){
-      Delay(2000)
-      count++
-    
-      if(count == 5){
-        text = statusBarPath["Panels"]["Item"](0)["Text"]
-        if(text["OleValue"] == "Ready"){
-          Log["Message"]("Form loaded. Attempts => " + count)
-          break          
-        }else{
-          count = 0
-          Log["Message"]("Reset count " + count)
-        } 
-      } 
-    } 
-  } 
-}
