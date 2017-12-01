@@ -5,6 +5,16 @@
 
 function Dashboard_Publishing(){
   
+  StartSmartClient()
+
+  Login("epicor","epicor") 
+
+  ActivateFullTree()
+
+  ExpandComp("Epicor Education")
+
+  ChangePlant("Main")
+
   var baqData1 = {
     "Id" : "baqPublishing",
     "Description" : "baqPublishing",
@@ -39,7 +49,7 @@ function Dashboard_Publishing(){
   //--- Creates BAQs ---------------------------------------------------------------------------------------------------------------------------'
     
     //Open Business Activity Query to create BAQ   
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
 
     //****** Creating BAQ1 ***************'
     //1- Call function to create a simple BAQ
@@ -49,7 +59,7 @@ function Dashboard_Publishing(){
     //****** End of BAQ1 creation ********'
 
     //Open Business Activity Query to create BAQ   
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
 
     //****** Creating BAQ2 ***************'
     //2- Call function to create a simple BAQ
@@ -62,7 +72,7 @@ function Dashboard_Publishing(){
   //--- CREATE DASHBOARD -----------------------------------------------------------------------------------------------------------------------'
   
     //Open Dashboard   
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
     //Enable Dashboard Developer Mode  
     DevMode()
@@ -109,7 +119,7 @@ function Dashboard_Publishing(){
         Aliases["Epicor"]["Dashboard"]["dbPanel"]["zDashboardPanel_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
 
         //Open Dashboard   
-        MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+        MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
         //retrieve the dashboard created
         OpenDashboard(DashbData["dashboardID"])
@@ -371,7 +381,7 @@ function Dashboard_Publishing(){
       Log["Checkpoint"]("Dashboard was created correctly.")
         
       //Open Dashboard   
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       //Enable Dashboard Developer Mode  
       DevMode()

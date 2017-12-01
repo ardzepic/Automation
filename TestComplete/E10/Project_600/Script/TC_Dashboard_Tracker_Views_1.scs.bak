@@ -20,19 +20,19 @@ function TC_Dashboard_Tracker_Views_1(){
     // Step1- Log in  
       StartSmartClient()
 
-      Login("epicor","Epicor123") 
+      Login("epicor","epicor") 
 
       ActivateFullTree()
 
       ExpandComp("Epicor Education")
 
-      ChangePlant("Main Plant")
+      ChangePlant("Main")
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //--- Creates BAQs --------------------------------------------------------------------------------------------------------------------------'
     //Step2- Copy zCustomer01 BAQ
       //Open Business Activity Query to create BAQ   
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
       Log["Checkpoint"]("BAQ opened")
 
       //Create a copy of 'zCustomer01' table
@@ -54,7 +54,7 @@ function TC_Dashboard_Tracker_Views_1(){
   
   //--- Creates Dashboards --------------------------------------------------------------------------------------------------------------------'
     //Step3- Navigate and open Dashboard
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
       Log["Checkpoint"]("Dashboard opened")
       //Enable Dashboard Developer Mode  
       DevMode()
@@ -338,7 +338,7 @@ function TC_Dashboard_Tracker_Views_1(){
   
   //--- Menu maintenance ----------------------------------------------------------------------------------------------------------------------'
     // Step35- Create menu
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;Menu Maintenance")
+    MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;Menu Maintenance")
 
     CreateMenu(MenuData)
   //-------------------------------------------------------------------------------------------------------------------------------------------'
@@ -352,7 +352,7 @@ function TC_Dashboard_Tracker_Views_1(){
   
   //--- Open Menu created --- -----------------------------------------------------------------------------------------------------------------'
     // Step37- Open Menu created
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
+    MainMenuTreeViewSelect("Epicor Education;Main;Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
 
     // Step38- Refresh Data
     Aliases["Epicor"]["MainController"]["windowDockingArea1"]["dockableWindow1"]["FillPanel"]["AppControllerPanel"]["zMyForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|Refresh All") 
@@ -368,7 +368,7 @@ function TC_Dashboard_Tracker_Views_1(){
     /*Step46- Return to Dashboard designer on Executive Analysis> Business Activity Management> General Operations. Retrieve the previous dashboard*/
 
     //Navigate and open Dashboard
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
     Log["Checkpoint"]("Dashboard opened") 
     
     // Retrieve the previous dashboard       
@@ -479,7 +479,7 @@ function TC_Dashboard_Tracker_Views_1(){
   
   //---- Create an Attribute ------------------------------------------------------------------------------------------------------------------'
    //Step53- Create an Attribute
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;Attribute")
+    MainMenuTreeViewSelect("Epicor Education;Main;Sales Management;Customer Relationship Management;Setup;Attribute")
 
     // >Select New Attribute
     Aliases["Epicor"]["AttributForm"]["zAttributMaintForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[1]|&New")
@@ -499,7 +499,7 @@ function TC_Dashboard_Tracker_Views_1(){
 
   //---- open Menu ----------------------------------------------------------------------------------------------------------------------------'
       //Step54- Return to your menu with the dashboard        
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
+      MainMenuTreeViewSelect("Epicor Education;Main;Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
 
       // validate if zAttribute (third query)  has records after opening dash menu and the record added ISO9000 is located in the records
       testingDashboard("Attribute") 

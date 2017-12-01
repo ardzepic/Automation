@@ -1,0 +1,11 @@
+﻿//USEUNIT ObjectLib
+//USEUNIT FormLib
+//USEUNIT ControlFunctions
+//USEUNIT General_Functions
+//USEUNIT Menu_Functions
+//USEUNIT Grid_Functions
+
+//USEUNIT Dashboards_Functions
+//USEUNIT BAQs_Functions
+
+ var E10 = Sys.Process("Epicor")

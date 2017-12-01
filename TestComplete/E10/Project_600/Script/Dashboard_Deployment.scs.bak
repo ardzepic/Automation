@@ -124,7 +124,7 @@ function Dashboard_Deployment()
 
   // Step 42
     Log["Message"]("Step 42 - Select Deploy Smart Client Application")
-    //Click Actions> Generate web form/Generate All web forms       
+    // Click Actions> Generate web form/Generate All web forms       
     // ClickMenu("Tools->Generate Web Form")
     // ClickMenu("Tools->Generate All Web Forms")
     // Aliases["Epicor"]["DashboardForm"]["zEpiForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&Actions|Generate Web Form")

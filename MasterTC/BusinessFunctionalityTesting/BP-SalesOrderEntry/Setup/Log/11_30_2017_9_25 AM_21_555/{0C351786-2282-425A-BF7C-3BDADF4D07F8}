@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Nodes [
+
+<!ENTITY % NameValue "CDATA">
+<!ENTITY % PropType "(I|S|D|L|H|B)">
+<!ENTITY % VersionValue "CDATA">
+
+<!ELEMENT Prp (#PCDATA)>
+<!ELEMENT Node (Node|Prp)*>
+<!ELEMENT Nodes (Node)+>
+
+<!ATTLIST Nodes version CDATA "1">
+
+<!ATTLIST Node name CDATA #REQUIRED>
+
+<!ATTLIST Prp name CDATA #REQUIRED>
+<!ATTLIST Prp type CDATA #REQUIRED>
+<!ATTLIST Prp value CDATA #REQUIRED>
+]>
+<Nodes version="1">
+	<Node name="root">
+		<Node name="message 3">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="line no" type="I" value="240"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="date" type="D" value="43069.3926321528"/>
+			<Prp name="remarks" type="S" value="Path: MenuForm/windowDockingArea1"/>
+			<Prp name="message" type="S" value="Panel 'Menu Groups' is opened"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="unit id" type="I" value="3"/>
+			<Prp name="id" type="I" value="3"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="units">
+			<Prp name="unit 2" type="S" value="{2D365925-4DC5-4A27-98E2-5EB0080B0F24}"/>
+			<Prp name="unit 1" type="S" value="{4995F036-9B4B-43BE-9E89-03F2342149C2}"/>
+			<Prp name="unit 0" type="S" value="{0FC5FDFD-77E8-4756-AEFE-FC7FA035D460}"/>
+			<Prp name="unit 3" type="S" value="{048CB510-D2EE-4C91-B726-F52546F561F8}"/>
+		</Node>
+		<Node name="message 5">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="line no" type="I" value="39"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="date" type="D" value="43069.3926540278"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="message" type="S" value="Epicor path to navigate: Epicor USA;Chicago;Sales Management;Demand Management;Reports;Mass Print AR Invoices"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="id" type="I" value="5"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="message 0">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="line no" type="I" value="17"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="date" type="D" value="43069.3926215857"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="message" type="S" value="Test"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="unit id" type="I" value="0"/>
+			<Prp name="id" type="I" value="0"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="message 4">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="line no" type="I" value="101"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="date" type="D" value="43069.3926326157"/>
+			<Prp name="remarks" type="S" value="Epicor"/>
+			<Prp name="message" type="S" value="Topmost form 'MenuForm'"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="id" type="I" value="4"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="message 6">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="line no" type="I" value="42"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="date" type="D" value="43069.3926541435"/>
+			<Prp name="remarks" type="S" value=""/>
+			<Prp name="message" type="S" value="Epicor USA|Chicago|Sales Management|Demand Management|Reports|Mass Print AR Invoices"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="id" type="I" value="6"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="stack"/>
+		<Node name="child data"/>
+		<Node name="message 7">
+			<Node name="visualizer">
+				<Node name="current">
+					<Prp name="object right" type="I" value="357"/>
+					<Prp name="need update" type="B" value="0"/>
+					<Prp name="kind" type="I" value="0"/>
+					<Prp name="line #" type="I" value="44"/>
+					<Prp name="datetime" type="D" value="43069.7259890972"/>
+					<Prp name="click point y" type="I" value="-1"/>
+					<Prp name="object left" type="I" value="9"/>
+					<Prp name="object top" type="I" value="147"/>
+					<Prp name="object name" type="S" value="Aliases[&quot;Epicor&quot;][&quot;MenuForm&quot;][&quot;windowDockingArea1&quot;][&quot;dockableWindow3&quot;][&quot;systemMenu&quot;][&quot;ultraExplorerBarContainerControl1&quot;][&quot;treeView&quot;]"/>
+					<Prp name="signature" type="S" value="{87B03792-E854-4F5D-9F33-165F1F874209}"/>
+					<Prp name="click point x" type="I" value="-1"/>
+					<Prp name="rect color" type="I" value="255"/>
+					<Prp name="image file name" type="S" value="visImage0.png"/>
+					<Prp name="object bottom" type="I" value="501"/>
+					<Prp name="storage file name" type="S" value=""/>
+					<Prp name="version" type="I" value="2"/>
+				</Node>
+			</Node>
+			<Prp name="link" type="S" value=""/>
+			<Prp name="line no" type="I" value="44"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="date" type="D" value="43069.3926607407"/>
+			<Prp name="remarks" type="S" value="A click with no key pressed.&#xA;&#xA;Tested object:&#xA;Aliases[&quot;Epicor&quot;][&quot;MenuForm&quot;][&quot;windowDockingArea1&quot;][&quot;dockableWindow3&quot;][&quot;systemMenu&quot;][&quot;ultraExplorerBarContainerControl1&quot;][&quot;treeView&quot;][&quot;wItems&quot;][&quot;Item&quot;](&quot;Epicor USA&quot;)[&quot;Items&quot;][&quot;Item&quot;](&quot;Chicago&quot;)[&quot;Items&quot;][&quot;Item&quot;](&quot;Sales Management&quot;)[&quot;Items&quot;][&quot;Item&quot;](&quot;Demand Management&quot;)[&quot;Items&quot;][&quot;Item&quot;](&quot;Reports&quot;)[&quot;Items&quot;][&quot;Item&quot;](&quot;Mass Print AR Invoices&quot;)&#xA;(Sys[&quot;Process&quot;](&quot;Epicor&quot;)[&quot;WinFormsObject&quot;](&quot;MenuForm&quot;)[&quot;WinFormsObject&quot;](&quot;windowDockingArea1&quot;)[&quot;WinFormsObject&quot;](&quot;dockableWindow3&quot;)[&quot;WinFormsObject&quot;](&quot;systemMenu&quot;)[&quot;WinFormsObject&quot;](&quot;ultraExplorerBarContainerControl1&quot;)[&quot;WinFormsObject&quot;](&quot;treeView&quot;)[&quot;wItems&quot;][&quot;Item&quot;](&quot;Epicor USA&quot;)[&quot;Items&quot;][&quot;Item&quot;](&quot;Chicago&quot;)[&quot;Items&quot;][&quot;Item&quot;](&quot;Sales Management&quot;)[&quot;Items&quot;][&quot;Item&quot;](&quot;Demand Management&quot;)[&quot;Items&quot;][&quot;Item&quot;](&quot;Reports&quot;)[&quot;Items&quot;][&quot;Item&quot;](&quot;Mass Print AR Invoices&quot;))"/>
+			<Prp name="message" type="S" value="The tree item was clicked with the left mouse button."/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="id" type="I" value="7"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="message 1">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="line no" type="I" value="33"/>
+			<Prp name="type" type="I" value="1"/>
+			<Prp name="date" type="D" value="43069.3926261343"/>
+			<Prp name="remarks" type="S" value="Tested object:&#xA;Aliases[&quot;Epicor&quot;][&quot;MenuForm&quot;]&#xA;(Sys[&quot;Process&quot;](&quot;Epicor&quot;)[&quot;WinFormsObject&quot;](&quot;MenuForm&quot;))"/>
+			<Prp name="message" type="S" value="The 'Epicor' window was activated."/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="unit id" type="I" value="1"/>
+			<Prp name="id" type="I" value="1"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Node name="message 2">
+			<Prp name="link" type="S" value=""/>
+			<Prp name="line no" type="I" value="101"/>
+			<Prp name="type" type="I" value="0"/>
+			<Prp name="date" type="D" value="43069.3926299537"/>
+			<Prp name="remarks" type="S" value="Epicor"/>
+			<Prp name="message" type="S" value="Topmost form 'MenuForm'"/>
+			<Prp name="owner id" type="I" value="-1"/>
+			<Prp name="child index" type="I" value="-1"/>
+			<Prp name="pictype" type="I" value="0"/>
+			<Prp name="picture" type="S" value=""/>
+			<Prp name="unit id" type="I" value="2"/>
+			<Prp name="id" type="I" value="2"/>
+			<Prp name="priority" type="I" value="300"/>
+			<Prp name="as html" type="B" value="0"/>
+		</Node>
+		<Prp name="status" type="I" value="0"/>
+	</Node>
+</Nodes>

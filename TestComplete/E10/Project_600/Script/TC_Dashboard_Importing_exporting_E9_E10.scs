@@ -23,13 +23,13 @@ function TC_Importing_exporting_Dashboards_E9E10(){
    
     StartSmartClient()
 
-    Login("epicor","Epicor123") 
+    Login("epicor","epicor") 
 
     ActivateFullTree()
 
     ExpandComp("Epicor Education")
 
-    ChangePlant("Main Plant")
+    ChangePlant("Main")
   //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //--- Creates Dashboards --------------------------------------------------------------------------------------------------------------------'
@@ -37,7 +37,7 @@ function TC_Importing_exporting_Dashboards_E9E10(){
     // 2- Log in to E10. Go to Executive Analysis> Business Activity Management> Setup>Dashboard.  Go to Tools>Developer Mode       
       //Navigate and open Dashboard
 
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
       Log["Checkpoint"]("Dashboard opened")
@@ -79,7 +79,7 @@ function TC_Importing_exporting_Dashboards_E9E10(){
       ExitDashboard()
 
     // 5- Go to Updatable BAQ Maintenance (System Management> Upgrade/Mass Regeneration)        
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;System Management;Upgrade/Mass Regeneration;Updatable BAQ Maintenance")
+      MainMenuTreeViewSelect("Epicor Education;Main;System Management;Upgrade/Mass Regeneration;Updatable BAQ Maintenance")
       
     // 6- On Query ID retrieve the created query for your dashboard that you previously imported  
       Aliases["Epicor"]["UBAQMaintForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow2"]["detailPanel1"]["groupBox1"]["btnKeyField"]["Click"]()
@@ -113,7 +113,7 @@ function TC_Importing_exporting_Dashboards_E9E10(){
 
     // 8- Go to Query properties on Dashboard designer        
     Aliases["Epicor"]["UBAQMaintForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+    MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
     OpenDashboard(dashboardID)
     Log["Checkpoint"]("Dashboard retrived")
 
@@ -318,7 +318,7 @@ function TC_Importing_exporting_Dashboards_E9E10(){
     */ 
 
     //Open Menu maintenance   
-    MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;Menu Maintenance")
+    MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;Menu Maintenance")
 
     //Creates Menu
     CreateMenu(MenuData)
@@ -339,7 +339,7 @@ function TC_Importing_exporting_Dashboards_E9E10(){
 
   //--- Test Menu -----------------------------------------------------------------------------------------------------------------------------'
     // 16- On Main Menu go to Sales Management> CRM> Setup and open the previously created menu       
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
+      MainMenuTreeViewSelect("Epicor Education;Main;Sales Management;Customer Relationship Management;Setup;"+MenuData["menuName"])
 
       var gridsMainPanel = RetrieveGridsMainPanel()
       var trackerMainPanel = RetrieveTrackerMainPanel()

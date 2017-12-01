@@ -33,9 +33,6 @@ function OpenCMD(application){
   w = p.Window("ConsoleWindowClass", "*");
 
   w.Keys(application + " [Enter]");
-  
-  Delay(1500)
-  w.Keys("exit [Enter]");
 
   // Example
     // w.Keys("ipconfig [Enter]");
@@ -49,7 +46,7 @@ function OpenCMD(application){
     // }
 }
 
-function CloseCMD(application){
+function CloseCMD(){
   
   var p, w, txt, cnt, i, s;
    

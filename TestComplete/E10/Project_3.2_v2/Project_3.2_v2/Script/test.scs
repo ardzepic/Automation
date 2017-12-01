@@ -1,0 +1,38 @@
+﻿
+//USEUNIT BAQs_Functions
+//USEUNIT ControlFunctions
+//USEUNIT Dashboards_Functions
+//USEUNIT TC_Dashboard_All_companies
+//USEUNIT DataBase_Functions
+//USEUNIT FormLib
+//USEUNIT General_Functions
+//USEUNIT Menu_Functions
+
+function test(){  
+
+  /*var combo = GetComboBox("cboType")
+  
+  combo["ClickItem"]("Dashboard-Assembly")*/
+
+ /*
+ //used for conversions
+  var gridConversions = GetGrid("grdList")
+  var flag = true
+  var colIndex = getColumn(gridConversions, "ProgressPercent")
+  
+  for(var i = 0; i < gridConversions["Rows"]["Count"]; i++){
+    var percent = gridConversions["Rows"]["Item"](i)["Cells"]["Item"](colIndex)["Value"]
+    
+    if(percent != 100){
+      flag = false
+    }
+  }
+  
+  if(!flag){
+    Log["Message"]("one is 0")
+  }*/
+  
+  MainMenuTreeViewSelect("Epicor USA;Chicago;Sales Management;Demand Management;Reports;Mass Print AR Invoices")
+   Log["Message"]("one is 0")
+} 
+

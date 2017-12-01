@@ -86,6 +86,7 @@ function AddTableBAQ(BAQFormDefinition, table){
 
   //Activate 'Phrase Build'
   BAQFormDefinition["dockableWindow2"]["subQueryPanel1"]["windowDockingArea1"]["dockableWindow1"]["Activate"]()
+  Delay(4000)
 
   var BAQFormPanel = BAQFormDefinition["dockableWindow2"]["subQueryPanel1"]["windowDockingArea1"]["dockableWindow1"]["diagramQueryPanel"]["splitMain"]["SplitterPanel"]["splitDiagramWhere"]["SplitterPanel"]["pnlQueryVisual"]["windowDockingArea1"]["dockableWindow1"]["diagramPanel"]["windowDockingArea1"]["dockableWindow2"]["palettePanel"]
 

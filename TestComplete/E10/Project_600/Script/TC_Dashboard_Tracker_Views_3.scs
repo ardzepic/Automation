@@ -5,13 +5,90 @@
 //USEUNIT Sys_Functions
 
 function TC_Dashboard_Tracker_Views_3(){
+  
+  //--- Setup Estonian culture for Windows -----------------------------------------------------------------------------------------------------'
+
+    /* Step 1: 
+      Setup Estonian culture for Windows
+
+      Go to Windows Control Panel-Region-Format
+      Select Estonian (Estonia)
+      Press Additional Settings button at the bottom of the form->Customize Format window appears
+      Select Decimal Symbol=comma. 
+      Save */       
+
+      //opens control cmd and opens control panel
+      OpenCMD("control")
+      
+      ChangeRegionControlPanel("Estonian (Estonia)")
+
+      CloseCMD()
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+
+  //--- Start Smart Client and log in ---------------------------------------------------------------------------------------------------------'
+    
+    // Step2- Log in  
+      StartSmartClient()
+
+      Login("epicor","epicor") 
+
+      ActivateFullTree()
+
+      ExpandComp("Epicor Education")
+
+      ChangePlant("Main")
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
+
+  //--- User Account Security Maintenance -----------------------------------------------------------------------------------------------------'
+
+    /*
+      Step No: 3
+      Step: "Setup invariant culture on Smart Client
+          Go to System Setup-Security Maintenance-User Account Maintenance
+          Select your user and check that Format Culture= Invariant Language (Invariant Country)"        
+    */
+      
+      MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;User Account Security Maintenance")
+
+      var accountMgmtPanel = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]
+
+      //Activate Details tab
+      accountMgmtPanel["dockableWindow1"]["Activate"]()
+
+      var detailsTab = accountMgmtPanel["dockableWindow1"]["detailPanel1"]
+      detailsTab["txtKeyField"]["Keys"]("epicor")
+      detailsTab["txtKeyField"]["Keys"]("[Tab]")
+
+      if (detailsTab["txtName"]["Text"] != ""){
+        Log["Checkpoint"]("Data loaded correctly")
+      }else{
+        Log["Error"]("Data is not loaded correctly")
+      }
+ 
+      var formatCulture = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]["dockableWindow1"]["detailPanel1"]["WinFormsObject"]("cmbFormatCulture")
+
+      if(formatCulture["Text"]["OleValue"] == "Invariant Language (Invariant Country)"){
+        Log["Message"]("Invariant culture is set for your user")
+      }else{
+        Log["Message"]("There was a problem. Invariant culture was not set for your user")
+        formatCulture["Keys"]("Invariant Language (Invariant Country)")
+        formatCulture["Keys"]("[Tab]")
+        Aliases["Epicor"]["UserAccountForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|&Save")
+        Log["Message"]("Invariant culture is set for your user")
+      }
+
+      Aliases["Epicor"]["UserAccountForm"]["zSonomaForm_Toolbars_Dock_Area_Top"]["ClickItem"]("[0]|&File|E&xit")
+
+  //-------------------------------------------------------------------------------------------------------------------------------------------'
 
   //--- Setup BAQs ----------------------------------------------------------------------------------------------------------------------------'
     
     // Step 4
       //Go to Executive Analysis-Business Activity Management-Setup-BAQ 
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;Setup;Business Activity Query")
       Log["Checkpoint"]("BAQ opened")
+
 
       //Click New-New BAQ, tick Shared , Updatableand All Companies checkboxes
       CreateBAQ("BAQtracker3", "BAQtracker3", "Shared,Updatable,Companies")
@@ -50,7 +127,7 @@ function TC_Dashboard_Tracker_Views_3(){
 
     //Step 5
       //Go to Executive Analysis-Business Activity Management-General Operations-Dashboard       
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;Executive Analysis;Business Activity Management;General Operations;Dashboard")
+      MainMenuTreeViewSelect("Epicor Education;Main;Executive Analysis;Business Activity Management;General Operations;Dashboard")
 
       var dashboardTree = Aliases["Epicor"]["Dashboard"]["dbPanel"]["windowDockingArea2"]["dockableWindow5"]["dbTreePanel"]["windowDockingArea1"]["dockableWindow1"]["DashboardTree"]
       Log["Checkpoint"]("Dashboard opened")
@@ -198,7 +275,7 @@ function TC_Dashboard_Tracker_Views_3(){
     // Step 22 - Log in  
       StartSmartClient()
 
-      Login("epicor","Epicor123") 
+      Login("epicor","epicor") 
 
       ActivateFullTree()
 
@@ -211,7 +288,7 @@ function TC_Dashboard_Tracker_Views_3(){
           Select your user and check that Format Culture= Estonian(Estonia)
     */
       
-      MainMenuTreeViewSelect("Epicor Education;Main Plant;System Setup;Security Maintenance;User Account Security Maintenance")
+      MainMenuTreeViewSelect("Epicor Education;Main;System Setup;Security Maintenance;User Account Security Maintenance")
 
       var accountMgmtPanel = Aliases["Epicor"]["UserAccountForm"]["windowDockingArea2"]["dockableWindow3"]["mainPanel1"]["windowDockingArea1"]
 

@@ -73,6 +73,9 @@
 		<child name="testing" key="{70B4FEB1-1099-45AA-9961-E8A62AD27600}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
 			<data path="testing.scs" />
 		</child>
+		<child name="TC_Dashboard_Updatable_Customized_Form_sys" key="{75449289-3EDF-46AB-A47F-38BD3622EA12}" type="Script Unit" typeId="{291CAE9C-4D20-4F33-8B5F-D48B587F3D65}" pluginName="Script">
+			<data path="TC_Dashboard_Updatable_Customized_Form_sys.scs" />
+		</child>
 	</children>
 	<folders>
 		<folder caption="Dashboards" description="A logical folder that is used to organize project items and elements." moniker="">
@@ -92,6 +95,7 @@
 				<ref key="{223A548C-14EC-48D8-9D81-CB9BE811C069}" />
 				<ref key="{022FCAB4-671C-42EA-9818-D3DEC2C4064A}" />
 				<ref key="{70B4FEB1-1099-45AA-9961-E8A62AD27600}" />
+				<ref key="{75449289-3EDF-46AB-A47F-38BD3622EA12}" />
 			</references>
 		</folder>
 		<folder caption="Functions" description="A logical folder that is used to organize project items and elements." moniker="">

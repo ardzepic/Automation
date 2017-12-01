@@ -1,7 +1,9 @@
-﻿function QueryDatabaseDashboards(DashBDID)
+﻿/* Retrieves data of the database depending on the parameter set (Dashboard id)
+* @param: DashBDID - String that has the id of the dashboard to query in the database
+* @return: aRecSet - The result of the query*/
+function QueryDatabaseDashboards(DashBDID)
 {
-
-  var aCon, aCmd, aRecSet, RunTaskSeq, p, ConnectInfo, i;
+  var aCon, aCmd, aRecSet, ConnectInfo, i;
  
   ConnectInfo = "Provider=SQLOLEDB.1;User ID=sa; Password=Epicor123;Initial Catalog=erp10Staging;Persist Security Info=False;Data Source=" + Sys["HostName"];
  
@@ -27,6 +29,7 @@
 
   for (i = 0; i < aRecSet["Fields"]["Count"]; i++)
     s = s + aRecSet["Fields"]["Item"](i)["Name"] + "\t";
+
     s = s + "\r\n";
     
     // Scans recordset
@@ -39,11 +42,11 @@
       aRecSet["MoveNext"]();
     }
 
-    /*// Outputs results
+   /* // Outputs results
     Log["Message"](aRecSet["RecordCount"])
-    Log["Message"]("Results from Ice.DashBdDef", s);**/
+    Log["Message"]("Results from Ice.DashBdDef", s);
 
-    /*if(aRecSet["RecordCount"] == 0){
+    if(aRecSet["RecordCount"] == 0){
       Log["Message"]("Query with Dashboard ID " + DashBDID + " retrieved " + aRecSet["RecordCount"] + " records.")
       return aRecSet["RecordCount"]
     }else{
@@ -51,7 +54,7 @@
       return aRecSet["RecordCount"]
     }
 */
-    return aRecSet
+    return aRecSet;
     // Closes the recordset and connection
     aRecSet["Close"]();
     aCon["Close"]();

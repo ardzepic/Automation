@@ -1,0 +1,78 @@
+﻿//USEUNIT BAQs_Functions
+//USEUNIT ControlFunctions
+//USEUNIT Dashboards_Functions
+//USEUNIT TC_Dashboard_All_companies
+//USEUNIT DataBase_Functions
+//USEUNIT FormLib
+//USEUNIT General_Functions
+//USEUNIT Grid_Functions
+//USEUNIT Menu_Functions
+
+function test(){  
+Log["Message"]("s")
+
+} 
+//USEUNIT FormLib
+//USEUNIT General_Functions
+
+function warmupDashboard(){  
+
+	var company1 = "Epicor Education"
+	var plant1 = "Main"
+	
+	var treeMainPanel1 = setCompanyMainTree(company1,plant1)
+
+	// ReportARInvoice
+	MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;Setup;Business Activity Query")
+	CloseTopForm()
+
+	// ReportJobTraveler
+	MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
+	OpenDashboard("JobStatusPlus")
+	CheckWindowMessageModals()
+	Delay(2500)
+	ClickButton("OK")
+	CloseTopForm()
+	
+	MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
+	OpenDashboard("EstimateTrims")
+	CheckWindowMessageModals()
+	Delay(2500)
+	ClickButton("OK")
+	CloseTopForm()
+
+	MainMenuTreeViewSelect(treeMainPanel1 + "Executive Analysis;Business Activity Management;General Operations;Dashboard")
+	OpenDashboard("PartOnHandStatus")
+	CheckWindowMessageModals()
+	Delay(2500)
+	ClickButton("OK")
+	CloseTopForm()
+
+	// ReportSalesOrder | ReportProFormaInv
+	MainMenuTreeViewSelect(treeMainPanel1 + "System Setup;Security Maintenance;Menu Maintenance")
+	CloseTopForm()
+	
+	// ReportPurchaseOrder
+	MainMenuTreeViewSelect(treeMainPanel1 + "System Management;Upgrade/Mass Regeneration;Dashboard Maintenance")
+	CloseTopForm()
+	
+	// ReportQuoteform
+	MainMenuTreeViewSelect(treeMainPanel1 + "Sales Management;Customer Relationship Management;Setup;Attribute")
+	CloseTopForm()
+	
+	// ReportAPPaymentform
+	MainMenuTreeViewSelect(treeMainPanel1 + "System Setup;Security Maintenance;User Account Security Maintenance")
+	CloseTopForm()
+	
+	// ReportPrintPackingform
+	MainMenuTreeViewSelect(treeMainPanel1 + "Sales Management;Customer Relationship Management;Setup;Customer")
+	CloseTopForm()
+	
+	// ReportCustomerStatements
+	MainMenuTreeViewSelect(treeMainPanel1 + "Production Management;Job Management;Setup;Part")
+	CloseTopForm()
+	
+	MainMenuTreeViewSelect(treeMainPanel1 + "System Management;Upgrade/Mass Regeneration;Updatable BAQ Maintenance")
+	CloseTopForm()
+
+} 
